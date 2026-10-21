@@ -87,15 +87,33 @@ const Quiz = (() => {
     return f ? { k: 'flag', tag: t('qt.flag'), t: f, flag: true } : null;
   }
 
+  // 外語名題：用另一種語言的名稱找位置（中文介面出英文或日文名、英文介面出中文或日文名…），名稱跟目前語言一樣的不出
+  function foreignClue(R, id, r) {
+    const here = R.name(id), langs = ['zh', 'en', 'ja'].filter(l => l !== lang());
+    // 日文漢字跟中文只差新舊字體（青森県／青森縣、台北／臺北）的也算一樣，不出
+    const norm = x => toTrad(x).replace(/台/g, '臺').replace(/[県縣府都道省市州]$/, '');
+    const ok = langs.map(l => [l, R.nameIn(id, l)]).filter(([, n]) => n && !norm(n).includes(norm(here)) && !norm(here).includes(norm(n)));
+    if (!ok.length) return null;
+    const [l, n] = pick(ok, r);
+    return { k: 'foreign', tag: t('qt.foreign'), t: n, sub: t('qforeign', t('langName.' + l)) };
+  }
+  // 連結題：「從 A 經由〈青函隧道〉可以到哪裡？」（地圖上的橋、隧道、航線；同一條連結兩頭都能出）
+  function linkClue(R, id, r) {
+    const ls = (R.map.links || []).filter(l => (l.a === id && R.units[l.b]) || (l.b === id && R.units[l.a]));
+    if (!ls.length) return null;
+    const l = pick(ls, r), from = l.a === id ? l.b : l.a;
+    return { k: 'link', tag: t('qt.link'), t: t('qlink', R.short(from), t('links')[l.name] || l.name), from, sub: '' };
+  }
+
   function question(R, type, id, r = Math.random) {
     if (type === 'mix') type = r() < 0.5 ? 'loc' : 'know';
     if (type === 'know') {
       // 先抽題型再抽提示：知識卡提示一半、其餘題型平分另一半，才不會被知識卡的條數淹沒
       const L = clues(R, id);
-      const special = [nbClue(R, id, r), dirClue(R, id, r), shapeClue(R, id), flagClue(R, id)].filter(Boolean);
+      const special = [nbClue(R, id, r), dirClue(R, id, r), shapeClue(R, id), flagClue(R, id), foreignClue(R, id, r), linkClue(R, id, r)].filter(Boolean);
       const c = special.length && (!L.length || r() < 0.5) ? pick(special, r) : L.length ? pick(L, r) : null;
       if (c) {
-        const sub = c.k === 'shape' ? t('qshape') : c.k === 'flag' ? t('qflag') : t('where');
+        const sub = c.sub ?? (c.k === 'shape' ? t('qshape') : c.k === 'flag' ? t('qflag') : t('where'));
         return { type, id, tag: c.tag, main: c.t, html: c.html, sub, clue: c.k, from: c.from };
       }
     }

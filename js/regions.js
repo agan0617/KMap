@@ -52,7 +52,9 @@ function japanProfile(key, info) {
     const u = info.units[id], x = window.KMAP_I18N?.[`${key}.en`]?.units?.[id] || {};
     return [jaShort(id), toTrad(jaShort(id)), capStem(u.cap[0]), toTrad(capStem(u.cap[0])), x.name, x.cap];
   }
-  return { name, short, sub, stamp, areaName, label, card, maskWords };
+  // 指定語言的名稱（外語名題用）
+  const nameIn = (id, l) => l === 'en' ? (window.KMAP_I18N?.[`${key}.en`]?.units?.[id]?.name || info.units[id].ja) : l === 'zh' ? toTrad(info.units[id].ja) : info.units[id].ja;
+  return { name, short, sub, stamp, areaName, label, card, maskWords, nameIn };
 }
 
 function multiProfile(key, info, map) {
@@ -86,6 +88,7 @@ function multiProfile(key, info, map) {
   const stamp = id => (info.stamp === 'passport' ? id : (info.units[id].zh?.short || id));
   return {
     name: id => L(id).name, short: id => L(id).short || L(id).name, sub: id => L(id).sub || '',
+    nameIn: (id, l) => (info.units[id][l] || info.units[id].zh).name,
     stamp, areaName: ak => info.areas[ak]?.[lang()] || info.areas[ak]?.zh || ak, label, card, maskWords,
   };
 }

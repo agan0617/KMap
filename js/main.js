@@ -255,7 +255,7 @@ function nextQuestion() {
   if (!q) return finishQuiz();
   P.answered = false;
   playMap.clearMarks('ok', 'ng', 'target'); playMap.clearLabels();
-  const big = q.type === 'loc' || !['fact', 'nb', 'dir'].includes(q.clue);
+  const big = q.type === 'loc' || !['fact', 'nb', 'dir', 'link'].includes(q.clue);
   const main = q.html || esc(q.main);
   setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${big ? 'big' : ''} ${q.clue === 'flag' ? 'flag-q' : ''}">${main}</div><div class="q-sub">${esc(q.sub)}</div>`);
   updateStat();
@@ -328,6 +328,8 @@ function explain(q, picked) {
   }
   if (q.clue === 'dir') lines.push(t('ex.at', name, R.short(q.from), dirOf(q.from, id)));
   else if (q.clue === 'shape' || q.clue === 'flag') lines.push(t('ex.is', q.tag, name));
+  else if (q.clue === 'foreign') lines.push(t('ex.is', q.main, name));
+  else if (q.clue === 'link') lines.push(q.main.replace(/？|\?$/, '') + ' → ' + name);
   else if (q.clue === 'nb') { /* 第一行已列出鄰居 */ }
   else if (q.type === 'know') lines.push(t('ex.clue', q.tag, q.main.split('○○').join(R.short(id)), name));
   else {
