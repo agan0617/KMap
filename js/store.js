@@ -12,7 +12,7 @@ const Store = (() => {
     let v = null;
     try { v = JSON.parse(localStorage.getItem(KEY)); } catch (e) { /* 私密模式等 */ }
     v = v || {};
-    v.settings = Object.assign({ bgm: true, sfx: true, labels: true, lang: null }, v.settings);
+    v.settings = Object.assign({ bgm: true, sfx: true, labels: true, lang: null, theme: 'paper' }, v.settings);
     v.regions = v.regions || {};
     v.meta = Object.assign({ stats: {}, ach: {}, outfit: {}, outfitAt: 0, owned: {}, earn: {}, spend: {}, pulls: {}, pity: {}, title: null, titleAt: 0 }, v.meta);
     return v;

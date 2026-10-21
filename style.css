@@ -13,6 +13,18 @@
   --l1: #f0cfa0;
   --l2: #e09a55;
   --l3: #c8402c;
+  --card: #fff;
+  --glow: #fbf4e3;
+  --hero1: #fff6e2; --hero2: #f6e3bd;
+  --stroke: #8a7a64;
+  --bgland: #ddd6c4; --bgstroke: #b9ad97;
+  --frame: #9bbccb;
+  --halo: rgba(255,255,255,.85);
+  --glass: rgba(255,255,255,.88);
+  --scrim: rgba(43,33,24,.45);
+  --toast: rgba(251,246,234,.97);
+  --ssr1: #fff8e0; --sr1: #f6eefc; --done: #fffaf0; --lv3: #e7b9ae;
+  color-scheme: light;
   font-family: "Noto Sans TC", "Noto Sans JP", "PingFang TC", "Microsoft JhengHei", "Hiragino Sans", sans-serif;
   color: var(--ink);
   -webkit-tap-highlight-color: transparent;
@@ -21,7 +33,11 @@
 :root:lang(ja) { font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans TC", sans-serif; }
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; background: var(--paper); overscroll-behavior: none; }
-body { background: radial-gradient(circle at 20% 10%, #fbf4e3 0, transparent 60%), var(--paper); }
+body { background: radial-gradient(circle at 20% 10%, var(--glow) 0, transparent 60%), var(--paper); color: var(--ink); }
+/* 底色（設定裡切換，類似 K書吧）：米是原本的樣子，系統＝跟著深色模式在米與夜之間切 */
+body[data-theme="white"] { --paper: #f6f6f2; --paper2: #fff; --card: #fff; --glow: #fff; --hero1: #fff; --hero2: #eef0f4; --ink: #23272b; --muted: #6b7178; --line: #dcdcd6; --sea: #d3e6ee; --land: #ebeae4; --stroke: #8d8d86; --bgland: #dedcd4; --bgstroke: #bdbbb2; --ssr1: #fff8e0; --sr1: #f6eefc; --done: #fffdf4; --toast: rgba(255,255,255,.97); --scrim: rgba(20,20,24,.45); }
+body[data-theme="green"] { --paper: #d9e7d3; --paper2: #e8f1e3; --card: #f4f9f1; --glow: #e8f1e3; --hero1: #eef6ea; --hero2: #cfe0c7; --ink: #22301f; --muted: #55644e; --line: #bfd1b6; --sea: #c3dde0; --land: #eeeedc; --stroke: #7f8a72; --bgland: #d4d9c6; --bgstroke: #aab59c; --ssr1: #fbf4d8; --sr1: #eeeaf6; --done: #f2f8ec; --toast: rgba(232,241,227,.97); --scrim: rgba(15,30,15,.45); }
+body[data-theme="night"] { color-scheme: dark; --paper: #15181c; --paper2: #1e2329; --card: #272d35; --glow: #1e2329; --hero1: #262c35; --hero2: #343b47; --ink: #dadfe5; --muted: #96a0aa; --line: #333a44; --sea: #1b2a37; --land: #3d424b; --stroke: #737a85; --bgland: #2a2f37; --bgstroke: #4a515b; --frame: #4f6b7c; --halo: rgba(0,0,0,.7); --glass: rgba(40,45,53,.9); --scrim: rgba(0,0,0,.6); --toast: rgba(30,35,41,.97); --ssr1: #3a3426; --sr1: #322c3d; --done: #2a2a22; --lv3: #7a4a40; --gold: #e3b24f; }
 button { font: inherit; color: inherit; cursor: pointer; }
 [hidden] { display: none !important; }
 h1, h2, h3 { margin: 0; }
@@ -39,14 +55,14 @@ small { font-size: .78em; color: var(--muted); }
 .logo-dog { border: 0; background: none; padding: 0; line-height: 0; border-radius: 50%; }
 .logo-dog:active { transform: scale(.92); }
 /* 首頁 Komugi 小屋 */
-.hero { display: flex; gap: 10px; align-items: center; background: linear-gradient(135deg, #fff6e2, #f6e3bd); border-radius: 18px; padding: 8px 12px 8px 4px; box-shadow: 0 0 0 1.5px var(--line) inset; }
+.hero { display: flex; gap: 10px; align-items: center; background: linear-gradient(135deg, var(--hero1), var(--hero2)); border-radius: 18px; padding: 8px 12px 8px 4px; box-shadow: 0 0 0 1.5px var(--line) inset; }
 .hero-dog { border: 0; background: none; padding: 0; line-height: 0; flex-shrink: 0; }
 .hero-dog .komugi { animation: hop 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
 .hero-side { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
 .hero-title { font-weight: 800; color: var(--red); font-size: 15px; }
 .hero-title::before { content: '🏅 '; }
-.bubble { position: relative; background: #fff; border-radius: 12px; padding: 7px 10px; font-size: 13px; line-height: 1.45; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
-.bubble::before { content: ''; position: absolute; left: -7px; top: 14px; border: 7px solid transparent; border-right-color: #fff; border-left: 0; }
+.bubble { position: relative; background: var(--card); border-radius: 12px; padding: 7px 10px; font-size: 13px; line-height: 1.45; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.bubble::before { content: ''; position: absolute; left: -7px; top: 14px; border: 7px solid transparent; border-right-color: var(--card); border-left: 0; }
 .hero-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .coins { font-weight: 800; color: #8a5a32; }
 .coins.big { font-size: 22px; }
@@ -59,21 +75,21 @@ small { font-size: .78em; color: var(--muted); }
 .rar-N { --rar: #9a9a9a; } .rar-R { --rar: #4a90d9; } .rar-SR { --rar: #9a5fd0; } .rar-SSR { --rar: #e3a92b; }
 .item-tile { position: relative; }
 .item-tile .rar { position: absolute; top: 4px; left: 6px; font-style: normal; font-size: 10px; font-weight: 900; color: #fff; background: var(--rar); border-radius: 6px; padding: 0 5px; }
-.item-tile.rar-SSR.got { background: linear-gradient(160deg, #fff8e0, #fff); }
-.item-tile.rar-SR.got { background: linear-gradient(160deg, #f6eefc, #fff); }
+.item-tile.rar-SSR.got { background: linear-gradient(160deg, var(--ssr1), var(--card)); }
+.item-tile.rar-SR.got { background: linear-gradient(160deg, var(--sr1), var(--card)); }
 .ctabs { margin: 4px 0 6px; position: sticky; top: -18px; background: var(--paper2); padding: 6px 0; z-index: 1; }
 .closet-dog .komugi.full { animation: hop 2s ease-in-out infinite; }
 .set-row { border: 1.5px solid var(--line); border-radius: 14px; padding: 8px 10px; margin-bottom: 8px; background: var(--paper2); }
-.set-row.done { border-color: var(--gold); background: #fffaf0; }
+.set-row.done { border-color: var(--gold); background: var(--done); }
 .set-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; flex-wrap: wrap; }
 .set-items { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
-.mini { line-height: 0; border-radius: 8px; background: #fff; }
+.mini { line-height: 0; border-radius: 8px; background: var(--card); }
 .mini.locked .komugi { filter: grayscale(1) brightness(.5) opacity(.4); }
 .set-actions { display: flex; gap: 6px; margin-top: 6px; }
 /* 扭蛋 */
 .gacha { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
 .machine.spin { animation: shake .18s 6; }
-.gacha-res { position: relative; border: 3px solid var(--rar); border-radius: 18px; padding: 14px 24px 10px; background: #fff; display: flex; flex-direction: column; align-items: center; gap: 4px; animation: stampIn .5s both; }
+.gacha-res { position: relative; border: 3px solid var(--rar); border-radius: 18px; padding: 14px 24px 10px; background: var(--card); display: flex; flex-direction: column; align-items: center; gap: 4px; animation: stampIn .5s both; }
 .gacha-res.rar-SSR { box-shadow: 0 0 24px rgba(227,169,43,.7); }
 .gacha-res .rar { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-style: normal; font-weight: 900; color: #fff; background: var(--rar); border-radius: 8px; padding: 0 10px; }
 .gacha-res b { font-size: 18px; }
@@ -93,7 +109,7 @@ details.small { font-size: 12px; max-width: 360px; }
 .item-tile small { font-size: 11px; line-height: 1.3; }
 .item-tile.locked { opacity: .55; }
 .item-tile.locked .komugi { filter: grayscale(1) brightness(.5) opacity(.45); }
-.item-tile.on { border-color: var(--red); box-shadow: 0 0 0 2px var(--red) inset; background: #fff; }
+.item-tile.on { border-color: var(--red); box-shadow: 0 0 0 2px var(--red) inset; background: var(--card); }
 .ver { align-self: flex-end; margin-bottom: 4px; font-size: 12px; color: var(--muted); font-weight: 600; }
 .head-right { display: flex; align-items: center; gap: 6px; }
 .lang-switch { display: flex; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--paper2); }
@@ -103,7 +119,7 @@ details.small { font-size: 12px; max-width: 360px; }
 .icon-btn:active { background: rgba(0,0,0,.06); }
 .regions { display: flex; gap: 8px; }
 .tab { flex: 1; border: 1.5px solid var(--line); background: var(--paper2); border-radius: 12px; padding: 8px 4px; font-weight: 700; display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
-.tab.on { border-color: var(--red); color: var(--red); background: #fff; box-shadow: 0 2px 0 var(--red); }
+.tab.on { border-color: var(--red); color: var(--red); background: var(--card); box-shadow: 0 2px 0 var(--red); }
 .tab.soon { opacity: .55; font-weight: 500; }
 .scopes { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-top: -4px; padding-bottom: 2px; }
 .scopes::-webkit-scrollbar { display: none; }
@@ -126,19 +142,19 @@ details.small { font-size: 12px; max-width: 360px; }
 
 /* ── 地圖 ── */
 .map { width: 100%; height: 100%; display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
-.unit { fill: var(--land); stroke: #8a7a64; stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; transition: fill .4s; cursor: pointer; }
+.unit { fill: var(--land); stroke: var(--stroke); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; transition: fill .4s; cursor: pointer; }
 .unit:hover { filter: brightness(1.04); }
 .unit.out { opacity: .32; }
 .unit.dot { stroke-width: 1.2; }
-.bg { fill: #ddd6c4; stroke: #b9ad97; stroke-width: .6; vector-effect: non-scaling-stroke; pointer-events: none; }
+.bg { fill: var(--bgland); stroke: var(--bgstroke); stroke-width: .6; vector-effect: non-scaling-stroke; pointer-events: none; }
 .unit.here { stroke: var(--ink); stroke-width: 2.5; }
 .unit.visited { fill: #f3d9a8 !important; }
 .unit.ok { fill: #8fd19e !important; animation: pop .45s; }
 .unit.ng { fill: #f19b8f !important; animation: shake .35s; }
 .unit.target { fill: #ffd54d !important; animation: blink 1s infinite; }
 .unit.goal { fill: #ffd54d !important; stroke: var(--red); stroke-width: 2.5; }
-.frames rect { fill: rgba(255,255,255,.25); stroke: #9bbccb; stroke-dasharray: 6 4; vector-effect: non-scaling-stroke; }
-.label { fill: var(--ink); font-weight: 700; paint-order: stroke; stroke: rgba(255,255,255,.85); stroke-width: .25em; stroke-linejoin: round; pointer-events: none; }
+.frames rect { fill: rgba(255,255,255,.12); stroke: var(--frame); stroke-dasharray: 6 4; vector-effect: non-scaling-stroke; }
+.label { fill: var(--ink); font-weight: 700; paint-order: stroke; stroke: var(--halo); stroke-width: .25em; stroke-linejoin: round; pointer-events: none; }
 .label.ok { fill: #1e6b35; } .label.ng { fill: #a12a1d; } .label.target, .label.goal { fill: #7a4b00; } .label.here { fill: var(--red); }
 .link { stroke: #3c7fa3; stroke-width: 2; stroke-dasharray: 5 4; vector-effect: non-scaling-stroke; }
 .route { fill: none; stroke: var(--red); stroke-width: 3; stroke-dasharray: 2 6; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: .85; }
@@ -157,9 +173,9 @@ details.small { font-size: 12px; max-width: 360px; }
 .combo { background: var(--gold); color: #fff; font-weight: 800; border-radius: 10px; padding: 1px 8px; font-size: 13px; animation: pop .3s; }
 .map-wrap { flex: 1; min-height: 0; position: relative; background: var(--sea); margin: 0 8px; border-radius: 16px; overflow: hidden; }
 .zoom { position: absolute; right: 8px; top: 8px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
-.zoom button { width: 36px; height: 36px; border-radius: 10px; border: 0; background: rgba(255,255,255,.88); font-size: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.15); display: grid; place-items: center; }
+.zoom button { width: 36px; height: 36px; border-radius: 10px; border: 0; background: var(--glass); font-size: 18px; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.15); display: grid; place-items: center; }
 .zoom svg { pointer-events: none; }
-.timer { position: absolute; left: 10px; right: 54px; top: 10px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.7); overflow: hidden; z-index: 2; }
+.timer { position: absolute; left: 10px; right: 54px; top: 10px; height: 8px; border-radius: 4px; background: var(--glass); overflow: hidden; z-index: 2; }
 .timer i { display: block; height: 100%; width: 100%; background: var(--ok); transition: width .1s linear; }
 .timer.hurry i { background: var(--ng); }
 /* 面板固定高度：答題後多出回饋與按鈕時，地圖不會跟著縮放跳動 */
@@ -179,7 +195,7 @@ details.small { font-size: 12px; max-width: 360px; }
 .stars { font-size: 34px; color: var(--gold); letter-spacing: 4px; line-height: 1; }
 
 /* ── 彈窗 ── */
-#modal { position: fixed; inset: 0; background: rgba(43,33,24,.45); display: flex; align-items: flex-end; justify-content: center; z-index: 10; animation: fade .2s; }
+#modal { position: fixed; inset: 0; background: var(--scrim); display: flex; align-items: flex-end; justify-content: center; z-index: 10; animation: fade .2s; }
 .sheet { background: var(--paper2); width: 100%; max-width: 560px; max-height: 88dvh; overflow-y: auto; border-radius: 20px 20px 0 0; padding: 18px 18px calc(18px + env(safe-area-inset-bottom)); position: relative; animation: up .25s; }
 @media (min-width: 700px) { #modal { align-items: center; } .sheet { border-radius: 20px; } }
 .close { position: absolute; right: 8px; top: 8px; }
@@ -239,11 +255,11 @@ dd small { margin-left: 3px; }
 .cloud-st::before { content: '●'; margin-right: 6px; color: var(--line); }
 .cloud-st.st-ok::before { color: var(--ok); } .cloud-st.st-sync::before { color: var(--gold); } .cloud-st.st-err::before { color: var(--ng); } .cloud-st.st-offline::before { color: var(--muted); }
 .token-row { display: flex; gap: 8px; }
-.token-row input { flex: 1; min-width: 0; border: 1.5px solid var(--line); border-radius: 10px; padding: 8px 10px; font: inherit; background: #fff; }
+.token-row input { flex: 1; min-width: 0; border: 1.5px solid var(--line); border-radius: 10px; padding: 8px 10px; font: inherit; background: var(--card); color: var(--ink); }
 .cloud .actions { justify-content: flex-start; }
 #hSettings.warn { color: var(--ng); }
 
-#toast { position: fixed; left: 50%; top: 18%; transform: translateX(-50%); background: rgba(251,246,234,.97); border-radius: 16px; padding: 12px 18px; box-shadow: 0 6px 24px rgba(0,0,0,.18); z-index: 20; display: flex; align-items: center; gap: 12px; font-size: 18px; pointer-events: none; }
+#toast { position: fixed; left: 50%; top: 18%; transform: translateX(-50%); background: var(--toast); border-radius: 16px; padding: 12px 18px; box-shadow: 0 6px 24px rgba(0,0,0,.18); z-index: 20; display: flex; align-items: center; gap: 12px; font-size: 18px; pointer-events: none; }
 #toast.show { animation: toastIn .3s; }
 @keyframes toastIn { from { transform: translate(-50%, -12px); opacity: 0; } }
 
@@ -253,6 +269,14 @@ dd small { margin-left: 3px; }
 .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
 .slot { aspect-ratio: 1; border-radius: 12px; border: 1.5px dashed var(--line); background: var(--paper2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 4px; }
 .slot.lv0 { opacity: .6; }
-.slot.lv3 { border-style: solid; border-color: #e7b9ae; background: #fff; }
+.slot.lv3 { border-style: solid; border-color: var(--lv3); background: var(--card); }
 .slot .stamp { width: 60px; height: 60px; }
 .slot-name { font-weight: 700; font-size: 13px; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+
+/* 設定裡的底色色票（同 K書吧） */
+.set.theme { flex-direction: column; align-items: flex-start; gap: 8px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 12px; }
+.sw { display: flex; flex-direction: column; align-items: center; gap: 4px; border: 0; background: none; padding: 0; font-size: 12px; color: var(--muted); }
+.sw i { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,.18); display: block; }
+.sw[aria-pressed="true"] i { box-shadow: 0 0 0 2px var(--paper2), 0 0 0 4px var(--red); }
+.sw[aria-pressed="true"] { color: var(--ink); font-weight: 700; }

@@ -11,10 +11,27 @@ let bgmStyle = 'calm';
 // ── 共用小工具 ──
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const lv = n => t('lv')[n];
+// 熟練度顏色＝從地圖底色（--land，隨底色主題變）往該分區的顏色混
+let LAND = [0xec, 0xe5, 0xd3];
 function mixColor(hex, k) {
-  const p = [0xec, 0xe5, 0xd3], c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16));
-  return '#' + c.map((v, i) => Math.round(p[i] + (v - p[i]) * k).toString(16).padStart(2, '0')).join('');
+  const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16));
+  return '#' + c.map((v, i) => Math.round(LAND[i] + (v - LAND[i]) * k).toString(16).padStart(2, '0')).join('');
 }
+// 底色主題（設定裡切換，類似 K書吧）：auto 跟著系統深色模式在米／夜之間切；其餘固定
+const THEMES = ['auto', 'paper', 'white', 'green', 'night'];
+const darkMq = matchMedia('(prefers-color-scheme: dark)');
+function applyTheme() {
+  const v = Store.settings().theme || 'paper';
+  const eff = v === 'auto' ? (darkMq.matches ? 'night' : 'paper') : v;
+  if (eff === 'paper') delete document.body.dataset.theme; else document.body.dataset.theme = eff;
+  const cs = getComputedStyle(document.body);
+  const land = cs.getPropertyValue('--land').trim();
+  if (/^#[0-9a-f]{6}$/i.test(land)) LAND = [1, 3, 5].map(i => parseInt(land.slice(i, i + 2), 16));
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', cs.getPropertyValue('--paper').trim());
+  homeMap?.paint(masteryColor);
+  if (playMap && P && !P.qs) playMap.paint(masteryColor);
+}
+darkMq.addEventListener('change', applyTheme);
 function masteryColor(id) {
   const n = Store.level(R.key, id);
   if (!n) return '';
@@ -115,6 +132,9 @@ function renderHome() {
     homeMap.onTap(id => { Sound.play('tap'); showCard(id); });
   }
   homeMap.paint(masteryColor);
+  // 已解開（到訪以上）的地方標地名，跟圖鑑一樣塞得下才顯示（Ken 2026-10-21 要求）
+  homeMap.clearLabels();
+  for (const id of R.ids) if (Store.level(R.key, id) >= 1) homeMap.label(id, R.short(id), 'auto');
   applyScope(homeMap);
   renderScope();
   $('#mBook b').textContent = R.label('book');
@@ -530,7 +550,11 @@ async function shareDaily() {
 function showSettings() {
   const s = Store.settings();
   const row = (k, name) => `<label class="set"><span>${esc(name)}</span><input type="checkbox" data-set="${k}" ${s[k] ? 'checked' : ''}></label>`;
+  const cur = s.theme || 'paper';
+  const dots = { auto: 'linear-gradient(135deg, #f3ead7 50%, #15181c 50%)', paper: '#f3ead7', white: '#f6f6f2', green: '#d9e7d3', night: '#15181c' };
+  const sw = THEMES.map(k => `<button type="button" class="sw" data-theme="${k}" aria-pressed="${k === cur}"><i style="background:${dots[k]}"></i>${esc(t('themes')[k])}</button>`).join('');
   openModal(`<div class="settings"><h2>${esc(t('settings'))}</h2>${row('bgm', t('bgm'))}${row('sfx', t('sfx'))}${row('labels', t('labels'))}
+    <div class="set theme"><span>${esc(t('theme'))}</span><div class="swatches">${sw}</div></div>
     <div class="cloud" id="cloudBox">${cloudHtml()}</div>
     <p class="muted">${esc(t('about'))}</p></div>`);
 }
@@ -618,6 +642,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.again) { closeModal(); startMode(b.dataset.again); }
   else if (b.hasAttribute('data-peek')) { P.peek = true; playMap.mark(P.to, 'goal'); playMap.label(P.to, R.short(P.to), 'goal'); travelPanel(); }
   else if (b.hasAttribute('data-labels')) { Store.setSetting('labels', !Store.settings().labels); startExplore(); }
+  else if (b.dataset.theme) { Store.setSetting('theme', b.dataset.theme); applyTheme(); document.querySelectorAll('.sw').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.theme === b.dataset.theme))); }
 });
 document.addEventListener('change', e => {
   const k = e.target.dataset.set;
@@ -658,6 +683,7 @@ refreshDog();
 $('#appVer').textContent = 'v' + APP_VERSION;
 applyLang();
 renderTabs();
+applyTheme();
 renderHome();
 Store.onProgress(() => Sync.schedule());
 celebrate(Rewards.check());
