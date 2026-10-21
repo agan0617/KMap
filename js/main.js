@@ -257,7 +257,11 @@ function nextQuestion() {
   playMap.clearMarks('ok', 'ng', 'target'); playMap.clearLabels();
   const big = q.type === 'loc' || !['fact', 'nb', 'dir', 'link'].includes(q.clue);
   const main = q.html || esc(q.main);
-  setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${big ? 'big' : ''} ${q.clue === 'flag' ? 'flag-q' : ''}">${main}</div><div class="q-sub">${esc(q.sub)}</div>`);
+  // 選擇題：四個選項放在題目下面（答完也留著，標出對錯）；「這塊是哪裡」「和誰相鄰」先在地圖上亮出題目那塊
+  const choices = q.type === 'choice' ? `<div class="choices">${q.options.map((o, i) => `<button type="button" class="btn choice" data-choice="${i}">${esc(o.label)}</button>`).join('')}</div>` : '';
+  if (q.mark) playMap.mark(q.mark, 'target');
+  const flagQ = q.clue === 'flag' || q.kind === 'flag', bigQ = q.type === 'choice' ? ['flag', 'which', 'shape'].includes(q.kind) && q.kind !== 'which' : big;
+  setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${bigQ ? 'big' : ''} ${flagQ ? 'flag-q' : ''}">${main}</div>${q.sub ? `<div class="q-sub">${esc(q.sub)}</div>` : ''}${choices}`);
   updateStat();
 }
 function updateStat() {
@@ -265,13 +269,24 @@ function updateStat() {
   if (P.mode === 'timed') setStat(t('score', P.score) + combo);
   else setStat(`${Math.min(P.i + 1, P.qs.length)} / ${P.qs.length}${combo}`);
 }
-function answer(id) {
+function answer(id, choiceIdx) {
   // 答完後再點畫面任何地方＝下一題（Ken 2026-10-21 要求）；限時連擊會自己跳
   if (P.answered && P.qs && P.mode !== 'timed') return advance();
-  if (!id || P.answered || !P.qs?.[P.i]) return;
-  const q = P.qs[P.i], ok = id === q.id;
+  const q = P.qs?.[P.i];
+  if (q?.type === 'choice') {
+    // 選擇題只認按鈕；點地圖不算作答
+    if (choiceIdx == null || P.answered) return;
+    const o = q.options[choiceIdx];
+    id = o.id;
+    document.querySelectorAll('#pPrompt .btn.choice').forEach((b, i) => { b.disabled = true; b.classList.toggle('right', q.options[i].ok); b.classList.toggle('wrong', i === choiceIdx && !o.ok); });
+    if (o.ok) id = q.id;
+    else if (id === q.id) id = null;   // 選項是別的地方的首府／名產，但剛好對到答案本身的不會發生；保險起見當成沒點到地方
+  }
+  if (!q || P.answered || (!id && q.type !== 'choice')) return;
+  const ok = q.type === 'choice' ? q.options[choiceIdx].ok : id === q.id;
   P.answered = true;
-  const ch = Store.record(R.sk, q.id, q.type, ok);
+  // 選擇題算「知識」類，制霸條件（找位置＋知識都答對過）照舊
+  const ch = Store.record(R.sk, q.id, q.type === 'choice' ? 'know' : q.type, ok);
   P.marks.push(ok ? '🟩' : '🟥');
   if (ok) { Store.stat('langs', lang()); Store.stat('maxCombo', P.combo + 1); gain(Rewards.EARN.ok + (P.combo + 1 >= 5 ? Rewards.EARN.combo : 0)); }
   if (ch.to > ch.from) gain(LEVEL_COINS[ch.to]);
@@ -287,19 +302,22 @@ function answer(id) {
     P.combo++; P.maxCombo = Math.max(P.maxCombo, P.combo);
     P.score += P.mode === 'timed' ? 1 + Math.floor(P.combo / 5) : 1;
     Sound.play('ok', P.combo - 1);
-    playMap.mark(id, 'ok'); playMap.label(id, R.short(id), 'ok');
+    if (q.kind === 'most') for (const x of q.marks) playMap.label(x, R.short(x), x === q.id ? 'ok' : 'auto');
+    playMap.mark(q.id, 'ok'); playMap.label(q.id, R.short(q.id), 'ok');
     const up = ch.to > ch.from && ch.to < 3 ? `<span class="up">${esc(t('up', lv(ch.to)))}</span>` : '';
-    setPanel($('#pPrompt').innerHTML, `<div class="fb ok">${esc(t('ok'))}${q.type === 'know' ? '　' + nameHtml(q.id) : ''}${up}</div>`,
+    setPanel($('#pPrompt').innerHTML, `<div class="fb ok">${esc(t('ok'))}${q.type !== 'loc' ? '　' + nameHtml(q.id) : ''}${up}</div>`,
       P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`, P.mode === 'timed' ? '' : explain(q));
     // 有解析要留時間讀，不自動跳；點畫面任何地方就下一題。限時連擊照舊自動跳
     if (P.mode === 'timed') P.auto = setTimeout(advance, 450);
   } else {
     P.combo = 0;
     Sound.play('ng');
-    playMap.mark(id, 'ng'); playMap.label(id, R.short(id), 'ng');
+    if (id) { playMap.mark(id, 'ng'); playMap.label(id, R.short(id), 'ng'); }
+    if (q.kind === 'most') for (const x of q.marks) if (x !== id) playMap.label(x, R.short(x), 'auto');
     playMap.mark(q.id, 'target'); playMap.label(q.id, R.short(q.id), 'target');
-    setPanel($('#pPrompt').innerHTML, `<div class="fb ng">${t('wrong', esc(R.name(id)), nameHtml(q.id))}</div>`,
-      P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`, P.mode === 'timed' ? '' : explain(q, id));
+    const wrongTxt = q.type === 'choice' ? t('wrongChoice', esc(q.options[choiceIdx].label), esc(q.options.find(o => o.ok).label)) : t('wrong', esc(R.name(id)), nameHtml(q.id));
+    setPanel($('#pPrompt').innerHTML, `<div class="fb ng">${wrongTxt}</div>`,
+      P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`, P.mode === 'timed' ? '' : explain(q, id, q.type === 'choice' ? q.options[choiceIdx].label : null));
     if (P.mode === 'timed') P.auto = setTimeout(advance, 1100);
   }
   updateStat();
@@ -312,21 +330,28 @@ function hops(from, to) {
 }
 function dirOf(from, to) {
   const a = R.map.shapes[from], b = R.map.shapes[to];
-  if (!a || !b) return '';
+  // 插圖框裡的地方（沖繩、金門、馬祖）位置不是真實方位
+  if (!a || !b || (R.map.frames || []).some(f => f.id === from || f.id === to)) return '';
   // 地圖座標 y 向下：角度 0 = 北，順時針每 45° 一格
   const deg = (Math.atan2(b.cx - a.cx, a.cy - b.cy) * 180 / Math.PI + 360) % 360;
   return t('ex.dir')[Math.round(deg / 45) % 8];
 }
-function explain(q, picked) {
+function explain(q, picked, chosen) {
   const id = q.id, c = R.card(id), name = R.name(id), sep = t('ex.listSep');
   const nb = [...(R.graph[id] || [])].map(x => R.short(x));
   let where = t('ex.where', name, R.areaName(R.units[id].area)) + (nb.length ? t('ex.nb', nb.slice(0, 5).join(sep) + (nb.length > 5 ? sep + '…' : '')) : t('ex.island'));
   const lines = [where];
-  if (picked && picked !== id) {
+  // 選擇題選錯首府／名產／名勝：說明選到的那個其實是哪裡的
+  if (picked && picked !== id && q.type === 'choice' && ['cap', 'foods', 'sights'].includes(q.kind)) lines.push(t('ex.is', chosen, R.name(picked)));
+  else if (picked && picked !== id && dirOf(id, picked)) {
     const n = hops(picked, id);
-    lines.push(t('ex.picked', R.name(picked), name, dirOf(id, picked)) + (n === 1 ? t('ex.adj') : n > 1 ? t('ex.hops', n - 1) : t('ex.far')));
+    lines.push(t(q.type === 'choice' ? 'ex.chosen' : 'ex.picked', R.name(picked), name, dirOf(id, picked)) + (n === 1 ? t('ex.adj') : n > 1 ? t('ex.hops', n - 1) : t('ex.far')));
   }
-  if (q.clue === 'dir') lines.push(t('ex.at', name, R.short(q.from), dirOf(q.from, id)));
+  if (q.kind === 'most') lines.push(t('ex.most', t('cdir.' + q.dir), q.marks.map(x => R.short(x)).join(sep), name));
+  else if (q.kind === 'nb') lines.push(t('ex.nbOf', R.name(q.mark), name));
+  else if (q.kind === 'foods' || q.kind === 'sights') lines.push(t('ex.is', q.options.find(o => o.ok).label, R.name(q.mark || q.id)));
+  if (q.type === 'choice' && q.kind !== 'which' && q.kind !== 'cap') { /* 上面已寫 */ }
+  else if (q.clue === 'dir') lines.push(t('ex.at', name, R.short(q.from), dirOf(q.from, id)));
   else if (q.clue === 'shape' || q.clue === 'flag') lines.push(t('ex.is', q.tag, name));
   else if (q.clue === 'foreign') lines.push(t('ex.is', q.main, name));
   else if (q.clue === 'link') lines.push(q.main.replace(/？|\?$/, '') + ' → ' + name);
@@ -735,6 +760,7 @@ document.addEventListener('click', e => {
     else if (g.key !== R.key) { Sound.play('tap'); switchRegion(g.key); }
   }
   else if (b.dataset.card) { Sound.play('tap'); showCard(b.dataset.card); }
+  else if (b.dataset.choice != null) answer(null, +b.dataset.choice);
   else if (b.hasAttribute('data-next')) advance();
   else if (b.hasAttribute('data-home')) { closeModal(); goHome(); }
   else if (b.dataset.again) { closeModal(); startMode(b.dataset.again); }
