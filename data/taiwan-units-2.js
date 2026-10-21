@@ -30,8 +30,9 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "fact": "縣內客家人口占多數，每年四、五月山區油桐花盛開，落花如雪。",
       "facts": [
         "苑裡以藺草編織聞名，草蓆和草帽都是傳統工藝。",
-        "元宵節的「𠻹龍」活動以鞭炮炸龍為高潮。",
-        "通霄白沙屯的媽祖每年徒步進香到北港，路線由神轎臨時決定。"
+        "元宵節的「火旁龍」活動以鞭炮炸龍為高潮。",
+        "通霄白沙屯的媽祖每年徒步進香到北港，路線由神轎臨時決定。",
+        "公館鄉的出磺坑在1878年鑿出臺灣第一口油井。"
       ],
       "dia": null,
       "wiki": "苗栗縣"
@@ -63,7 +64,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "Yuanli is famous for weaving rush grass into mats and hats.",
         "Its Lantern Festival \"bombing the dragon\" event climaxes with firecrackers thrown at dancing dragons.",
-        "Every year the Baishatun Mazu in Tongxiao makes a walking pilgrimage to Beigang, with the route decided on the spot by the palanquin."
+        "Every year the Baishatun Mazu in Tongxiao makes a walking pilgrimage to Beigang, with the route decided on the spot by the palanquin.",
+        "Chuhuangkeng in Gongguan Township is where Taiwan's first oil well was drilled, in 1878."
       ],
       "dia": null,
       "wiki": "Miaoli County"
@@ -95,7 +97,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "苑裡はイグサ編みで知られ、ござや帽子が伝統工芸だ。",
         "元宵節の「炸龍」行事では、爆竹を龍に投げつけるのが最高潮だ。",
-        "通霄・白沙屯の媽祖は毎年徒歩で北港へ進香し、ルートは神輿がその場で決める。"
+        "通霄・白沙屯の媽祖は毎年徒歩で北港へ進香し、ルートは神輿がその場で決める。",
+        "公館郷の出磺坑では1878年に台湾初の油井が掘られた。"
       ],
       "dia": null,
       "wiki": "苗栗県"
@@ -135,7 +138,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "fact": "每年農曆三月，大甲鎮瀾宮的媽祖會徒步遶境進香九天八夜，是臺灣規模最大的宗教盛事之一。",
       "facts": [
         "2017年人口超越高雄，成為全臺人口第二多的城市。",
-        "和平區的梨山是臺灣知名的高山水果產地。"
+        "和平區的梨山是臺灣知名的高山水果產地。",
+        "霧峰的九二一地震教育園區，保留了地震中受損的光復國中校舍。"
       ],
       "dia": null,
       "wiki": "臺中市"
@@ -166,7 +170,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "fact": "In the third lunar month, the Mazu statue of the Zhenlan Temple in Dajia makes a nine-day, eight-night pilgrimage on foot, one of the largest religious events in Taiwan.",
       "facts": [
         "In 2017 its population overtook Kaohsiung's, making it Taiwan's second most populous city.",
-        "Lishan in Heping District is a famous growing area for high-mountain fruit."
+        "Lishan in Heping District is a famous growing area for high-mountain fruit.",
+        "The 921 Earthquake Museum in Wufeng preserves the quake-damaged buildings of Guangfu Junior High School."
       ],
       "dia": null,
       "wiki": "Taichung"
@@ -197,7 +202,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "fact": "旧暦3月、大甲鎮瀾宮の媽祖が9日8夜かけて徒歩で巡行する。台湾最大級の宗教行事のひとつ。",
       "facts": [
         "2017年に人口で高雄を抜き、台湾で2番目に人口の多い都市になった。",
-        "和平区の梨山は高山果物の産地として有名だ。"
+        "和平区の梨山は高山果物の産地として有名だ。",
+        "霧峰の九二一地震教育園区には、地震で損壊した光復中学校の校舎がそのまま保存されている。"
       ],
       "dia": null,
       "wiki": "台中市"
@@ -238,7 +244,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "是全臺人口最多的「縣」（不含直轄市）。",
         "社頭是臺灣襪子的主要產地，有「襪子王國」之稱。",
-        "田尾是臺灣重要的花卉苗木產地，公路兩旁花圃林立。"
+        "田尾是臺灣重要的花卉苗木產地，公路兩旁花圃林立。",
+        "芳苑的潮間帶可以看到用牛車載運蚵農的「海牛採蚵」景象。"
       ],
       "dia": null,
       "wiki": "彰化縣"
@@ -270,7 +277,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "It is the most populous county in Taiwan (excluding special municipalities).",
         "Shetou is Taiwan's main sock-making center, nicknamed the \"Sock Kingdom.\"",
-        "Tianwei is a major flower and nursery-plant center, with gardens lining its roads."
+        "Tianwei is a major flower and nursery-plant center, with gardens lining its roads.",
+        "On the tidal flats of Fangyuan, oxcarts still carry oyster farmers out to their beds."
       ],
       "dia": null,
       "wiki": "Changhua County"
@@ -302,7 +310,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "直轄市を除くと、台湾で最も人口の多い県だ。",
         "社頭は台湾の靴下の一大産地で、「靴下王国」と呼ばれる。",
-        "田尾は台湾有数の花卉・苗木の産地で、道沿いに花畑が並ぶ。"
+        "田尾は台湾有数の花卉・苗木の産地で、道沿いに花畑が並ぶ。",
+        "芳苑の干潟では、牛車が牡蠣養殖の農家を沖へ運ぶ「海牛採蚵」が見られる。"
       ],
       "dia": null,
       "wiki": "彰化県"
@@ -339,7 +348,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "埔里虎頭山立有「臺灣地理中心碑」。",
         "日月潭畔住著邵族，是臺灣人口最少的原住民族之一。",
-        "竹山盛產孟宗竹，以竹製品和竹筍聞名。"
+        "竹山盛產孟宗竹，以竹製品和竹筍聞名。",
+        "埔里的酒廠以紹興酒聞名，這種酒用的正是當地的好水。"
       ],
       "dia": null,
       "wiki": "南投縣"
@@ -367,7 +377,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "The monument marking the geographic center of Taiwan stands on Hutou Mountain in Puli.",
         "The Thao people, one of Taiwan's smallest indigenous groups, live by Sun Moon Lake.",
-        "Zhushan is rich in moso bamboo and known for bamboo crafts and bamboo shoots."
+        "Zhushan is rich in moso bamboo and known for bamboo crafts and bamboo shoots.",
+        "Puli's winery is famous for Shaoxing rice wine, brewed with the town's renowned water."
       ],
       "dia": null,
       "wiki": "Nantou County"
@@ -395,7 +406,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "埔里の虎頭山に「台湾地理中心碑」が立っている。",
         "日月潭のほとりには、台湾で最も人口の少ない先住民族の一つ、サオ族が暮らす。",
-        "竹山は孟宗竹の産地で、竹製品とタケノコで知られる。"
+        "竹山は孟宗竹の産地で、竹製品とタケノコで知られる。",
+        "埔里の酒造所は紹興酒で知られ、町のおいしい水で仕込まれる。"
       ],
       "dia": null,
       "wiki": "南投県"
@@ -430,7 +442,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "麥寮的六輕是臺灣規模最大的石化工業區。",
         "是布袋戲的重鎮，虎尾設有布袋戲館。",
-        "虎尾糖廠至今仍在製糖，採收期還有小火車運甘蔗。"
+        "虎尾糖廠至今仍在製糖，採收期還有小火車運甘蔗。",
+        "口湖鄉的成龍濕地，是農地因地層下陷與海水倒灌而形成的。"
       ],
       "dia": null,
       "wiki": "雲林縣"
@@ -458,7 +471,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "The Sixth Naphtha Cracker complex in Mailiao is Taiwan's largest petrochemical industrial zone.",
         "It is a heartland of Taiwanese glove puppetry, with a puppetry museum in Huwei.",
-        "The Huwei Sugar Factory still produces sugar, and small trains haul cane during harvest."
+        "The Huwei Sugar Factory still produces sugar, and small trains haul cane during harvest.",
+        "Chenglong Wetland in Kouhu formed when farmland sank from land subsidence and was flooded by seawater."
       ],
       "dia": null,
       "wiki": "Yunlin County"
@@ -486,7 +500,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "麦寮の第六ナフサ分解プラント（六軽）は台湾最大の石油化学コンビナートだ。",
         "布袋劇（人形劇）の本場で、虎尾には布袋劇館がある。",
-        "虎尾製糖工場は今も操業しており、収穫期にはサトウキビを運ぶ小さな列車が走る。"
+        "虎尾製糖工場は今も操業しており、収穫期にはサトウキビを運ぶ小さな列車が走る。",
+        "口湖郷の成龍湿地は、地盤沈下と海水の浸入で農地が水没してできた。"
       ],
       "dia": null,
       "wiki": "雲林県"
@@ -524,7 +539,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "fact": "阿里山森林鐵路從這座小城出發，而它也是臺灣面積最小的市。",
       "facts": [
         "1931年這裡的農林學校棒球隊打進日本甲子園決賽、拿下亞軍，故事被拍成電影《KANO》。",
-        "畫家陳澄波出身於此，1926年成為第一位以油畫入選日本帝展的臺灣人。"
+        "畫家陳澄波出身於此，1926年成為第一位以油畫入選日本帝展的臺灣人。",
+        "日治時期阿里山的木材都運到這裡集散，因此有「木都」之稱。"
       ],
       "dia": null,
       "wiki": "嘉義市"
@@ -555,7 +571,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "fact": "The Alishan Forest Railway starts from this small city, which is also the smallest city in Taiwan by area.",
       "facts": [
         "In 1931 a baseball team from its agriculture and forestry school reached the final at Japan's Koshien and finished runner-up, a story told in the film KANO.",
-        "The painter Chen Cheng-po was born here and in 1926 became the first Taiwanese to have an oil painting accepted at Japan's Imperial Art Exhibition."
+        "The painter Chen Cheng-po was born here and in 1926 became the first Taiwanese to have an oil painting accepted at Japan's Imperial Art Exhibition.",
+        "In the Japanese era Alishan timber was gathered and processed here, earning it the name \"Timber City.\""
       ],
       "dia": null,
       "wiki": "Chiayi"
@@ -586,7 +603,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "fact": "阿里山森林鉄道はこの小さな市から出発する。台湾で面積が最も小さい市でもある。",
       "facts": [
         "1931年、ここの農林学校野球部が甲子園で決勝に進み準優勝した。その物語は映画『KANO』になった。",
-        "画家・陳澄波の出身地で、彼は1926年に台湾人として初めて油彩画で帝展に入選した。"
+        "画家・陳澄波の出身地で、彼は1926年に台湾人として初めて油彩画で帝展に入選した。",
+        "日本統治時代、阿里山の木材がここに集められたことから「木都」と呼ばれた。"
       ],
       "dia": null,
       "wiki": "嘉義市"
@@ -623,7 +641,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1908年在水上鄉立起臺灣第一座北回歸線標誌。",
         "阿里山的鄒族每年舉行戰祭（Mayasvi）。",
-        "布袋港有客輪往返澎湖。"
+        "布袋港有客輪往返澎湖。",
+        "國立中正大學位在民雄鄉。"
       ],
       "dia": null,
       "wiki": "嘉義縣"
@@ -651,7 +670,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "Taiwan's first Tropic of Cancer marker was erected in Shuishang Township in 1908.",
         "The Tsou people of Alishan hold the Mayasvi war ceremony every year.",
-        "Ferries sail from Budai Port to Penghu."
+        "Ferries sail from Budai Port to Penghu.",
+        "National Chung Cheng University is located in Minxiong Township."
       ],
       "dia": null,
       "wiki": "Chiayi County"
@@ -679,7 +699,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1908年、水上郷に台湾初の北回帰線標識が建てられた。",
         "阿里山のツォウ族は毎年、戦祭（マヤスビ）を行う。",
-        "布袋港から澎湖へフェリーが出ている。"
+        "布袋港から澎湖へフェリーが出ている。",
+        "国立中正大学は民雄郷にある。"
       ],
       "dia": null,
       "wiki": "嘉義県"
@@ -723,7 +744,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1665年建成的孔廟是臺灣第一座孔廟，被稱為「全臺首學」。",
         "元宵節的鹽水蜂炮，成千上萬的沖天炮朝人群射出。",
-        "日本技師八田與一主持興建的烏山頭水庫，1930年完工，灌溉了嘉南平原。"
+        "日本技師八田與一主持興建的烏山頭水庫，1930年完工，灌溉了嘉南平原。",
+        "曾文溪口一帶是瀕危的黑面琵鷺在全球最重要的度冬地。"
       ],
       "dia": null,
       "wiki": "臺南市"
@@ -760,7 +782,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "Its Confucius Temple, built in 1665, was Taiwan's first and is called the \"First Academy of Taiwan.\"",
         "At the Lantern Festival, the Yanshui Beehive Fireworks send thousands of rockets shooting into the crowd.",
-        "Wushantou Reservoir, built under Japanese engineer Yoichi Hatta and completed in 1930, irrigates the Chianan Plain."
+        "Wushantou Reservoir, built under Japanese engineer Yoichi Hatta and completed in 1930, irrigates the Chianan Plain.",
+        "The Zengwen River estuary is the most important wintering ground in the world for the endangered black-faced spoonbill."
       ],
       "dia": null,
       "wiki": "Tainan"
@@ -797,7 +820,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1665年建立の孔子廟は台湾最初の孔子廟で、「全台首学」と呼ばれる。",
         "元宵節の塩水蜂炮では、無数のロケット花火が群衆めがけて放たれる。",
-        "日本人技師・八田與一が建設した烏山頭ダムは1930年に完成し、嘉南平野を潤した。"
+        "日本人技師・八田與一が建設した烏山頭ダムは1930年に完成し、嘉南平野を潤した。",
+        "曽文渓の河口一帯は、絶滅危惧種クロツラヘラサギの世界最大の越冬地だ。"
       ],
       "dia": null,
       "wiki": "台南市"
@@ -840,7 +864,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1979年升格為直轄市，是臺灣第二個直轄市。",
         "美濃是客家人的故鄉之一，以手工油紙傘聞名。",
-        "2009年在這裡舉辦了世界運動會。"
+        "2009年在這裡舉辦了世界運動會。",
+        "環狀輕軌2015年開始試營運，是臺灣第一條輕軌。"
       ],
       "dia": null,
       "wiki": "高雄市"
@@ -873,7 +898,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "It became a special municipality in 1979, the second in Taiwan.",
         "Meinong, a Hakka town, is famous for its handmade oil-paper umbrellas.",
-        "It hosted the World Games in 2009."
+        "It hosted the World Games in 2009.",
+        "Its Circular Light Rail began trial service in 2015 as Taiwan's first light rail line."
       ],
       "dia": null,
       "wiki": "Kaohsiung"
@@ -906,7 +932,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1979年に直轄市へ昇格し、台湾で2番目の直轄市となった。",
         "客家の町・美濃は手作りの油紙傘で有名だ。",
-        "2009年にワールドゲームズが開催された。"
+        "2009年にワールドゲームズが開催された。",
+        "環状ライトレールは2015年に試運転営業を始めた、台湾初のライトレールだ。"
       ],
       "dia": null,
       "wiki": "高雄市"
@@ -951,7 +978,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1874年日本以琉球漁民遇害為由出兵牡丹一帶，史稱牡丹社事件。",
         "恆春半島的民謠〈思想起〉傳唱全臺。",
-        "三地門的排灣族以琉璃珠工藝聞名。"
+        "三地門的排灣族以琉璃珠工藝聞名。",
+        "車城鄉的四重溪溫泉曾與北投、陽明山、關子嶺並稱臺灣四大溫泉。"
       ],
       "dia": null,
       "wiki": "屏東縣"
@@ -984,7 +1012,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "In 1874 Japan sent troops to the Mudan area, citing the killing of shipwrecked Ryukyuan sailors — the Mudan Incident.",
         "The folk song \"Su-siong-khi\" from the Hengchun Peninsula is known throughout Taiwan.",
-        "The Paiwan people of Sandimen are known for their glass bead craft."
+        "The Paiwan people of Sandimen are known for their glass bead craft.",
+        "Sichongxi Hot Spring in Checheng was once ranked with Beitou, Yangmingshan and Guanziling as one of Taiwan's four great hot springs."
       ],
       "dia": null,
       "wiki": "Pingtung County"
@@ -1017,7 +1046,8 @@ Object.assign(window.KMAP_INFO.taiwan.units, {
       "facts": [
         "1874年、日本は琉球漁民の殺害を理由に牡丹一帯へ出兵した。これが牡丹社事件だ。",
         "恒春半島の民謡「思想起」は台湾中で歌われている。",
-        "三地門のパイワン族はトンボ玉（琉璃珠）の工芸で知られる。"
+        "三地門のパイワン族はトンボ玉（琉璃珠）の工芸で知られる。",
+        "車城郷の四重渓温泉は、かつて北投・陽明山・関子嶺と並ぶ台湾四大温泉の一つとされた。"
       ],
       "dia": null,
       "wiki": "屏東県"

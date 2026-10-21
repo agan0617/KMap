@@ -32,7 +32,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "元、明、清三代都在這裡建都，元代時稱為「大都」。",
         "西南郊的周口店遺址出土了數十萬年前的直立人化石，1987 年列入世界遺產。",
-        "南起永定門、北至鐘鼓樓、全長約 7.8 公里的中軸線，2024 年列入世界遺產。"
+        "南起永定門、北至鐘鼓樓、全長約 7.8 公里的中軸線，2024 年列入世界遺產。",
+        "1949 年 10 月 1 日，毛澤東在天安門城樓上宣布中華人民共和國中央人民政府成立。"
       ],
       "dia": [
         "倍兒",
@@ -68,7 +69,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "It served as the capital under the Yuan, Ming and Qing dynasties; in Yuan times it was called Dadu (\"Great Capital\").",
         "The Zhoukoudian site in its southwestern outskirts yielded Homo erectus fossils hundreds of thousands of years old and became a World Heritage Site in 1987.",
-        "Its roughly 7.8 km Central Axis, running from Yongding Gate in the south to the Bell and Drum Towers in the north, was inscribed as a World Heritage Site in 2024."
+        "Its roughly 7.8 km Central Axis, running from Yongding Gate in the south to the Bell and Drum Towers in the north, was inscribed as a World Heritage Site in 2024.",
+        "On October 1, 1949, Mao Zedong proclaimed the founding of the Central People's Government of the PRC from atop Tiananmen."
       ],
       "dia": [
         "倍儿 bèir",
@@ -104,7 +106,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "元・明・清の三王朝がここに都を置き、元代には「大都」と呼ばれた。",
         "南西郊外の周口店遺跡からは数十万年前の原人の化石が出土し、1987年に世界遺産に登録された。",
-        "南の永定門から北の鐘楼・鼓楼まで約7.8キロ続く中軸線が、2024年に世界遺産に登録された。"
+        "南の永定門から北の鐘楼・鼓楼まで約7.8キロ続く中軸線が、2024年に世界遺産に登録された。",
+        "1949年10月1日、毛沢東が天安門の楼上で中華人民共和国中央人民政府の成立を宣言した。"
       ],
       "dia": [
         "倍児（ベイル）",
@@ -151,7 +154,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "相聲、快板等曲藝在此極為興盛，素有「曲藝之鄉」美稱；海河穿城而過，也是華北最大的港口城市。",
       "facts": [
         "城名意為「天子渡河的渡口」，源自明成祖朱棣，1404 年在此設衛築城。",
-        "近代曾有英、法、美、德、日、俄、義、奧、比九國租界，是中國租界最多的城市。"
+        "近代曾有英、法、美、德、日、俄、義、奧、比九國租界，是中國租界最多的城市。",
+        "1904 年創辦的南開學校（今南開中學）就在這裡，周恩來曾在此就讀。"
       ],
       "dia": [
         "嘛",
@@ -186,7 +190,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "Crosstalk (xiangsheng) and other folk performing arts thrive here, earning it the nickname \"Home of Quyi\"; the Hai River runs through the city, and it is the largest port city of northern China.",
       "facts": [
         "Its name means \"the ford where the Son of Heaven crossed,\" after the Ming Yongle Emperor; a garrison town was built here in 1404.",
-        "In modern times it hosted concessions of nine foreign powers (Britain, France, the US, Germany, Japan, Russia, Italy, Austria-Hungary and Belgium), the most of any Chinese city."
+        "In modern times it hosted concessions of nine foreign powers (Britain, France, the US, Germany, Japan, Russia, Italy, Austria-Hungary and Belgium), the most of any Chinese city.",
+        "The Nankai School (today's Nankai High School), founded here in 1904, counts Zhou Enlai among its students."
       ],
       "dia": [
         "嘛 má",
@@ -221,7 +226,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "漫才の源流とされる「相声」などの演芸が盛んで「演芸の里」と呼ばれる。海河が市内を流れ、華北最大の港湾都市でもある。",
       "facts": [
         "地名は「天子が川を渡った渡し場」を意味し、明の永楽帝に由来する。1404年にここに衛所が置かれ城が築かれた。",
-        "近代には英・仏・米・独・日・露・伊・墺・白の9か国の租界があり、中国で最も租界の多い都市だった。"
+        "近代には英・仏・米・独・日・露・伊・墺・白の9か国の租界があり、中国で最も租界の多い都市だった。",
+        "1904年創立の南開学校（現在の南開中学）があり、周恩来もここで学んだ。"
       ],
       "dia": [
         "嘛（マー）",
@@ -266,7 +272,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "省境環繞著北京與天津兩座直轄市。",
         "2017 年在省內中部設立國家級新區「雄安新區」。",
-        "吳橋縣是著名的「雜技之鄉」，每兩年舉辦一次國際雜技藝術節。"
+        "吳橋縣是著名的「雜技之鄉」，每兩年舉辦一次國際雜技藝術節。",
+        "滄州自古尚武、拳種眾多，有「武術之鄉」之稱。"
       ],
       "dia": [
         "得勁",
@@ -302,7 +309,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Its territory surrounds the two municipalities of Beijing and Tianjin.",
         "In 2017 the national-level Xiong'an New Area was established in the middle of the province.",
-        "Wuqiao County is famed as the \"home of acrobatics\" and hosts an international acrobatics festival every two years."
+        "Wuqiao County is famed as the \"home of acrobatics\" and hosts an international acrobatics festival every two years.",
+        "Cangzhou has a long martial tradition with many styles of kung fu, earning it the name \"Home of Martial Arts.\""
       ],
       "dia": [
         "得劲 déjìn",
@@ -338,7 +346,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "北京と天津の二つの直轄市を取り囲むように広がっている。",
         "2017年、省の中部に国家級新区「雄安新区」が設けられた。",
-        "呉橋県は「雑技のふるさと」として知られ、2年に1度国際雑技芸術祭が開かれる。"
+        "呉橋県は「雑技のふるさと」として知られ、2年に1度国際雑技芸術祭が開かれる。",
+        "滄州は古くから武術が盛んで流派も多く、「武術の郷」と呼ばれる。"
       ],
       "dia": [
         "得勁（ドージン）",
@@ -381,9 +390,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "清代票號業興盛，被視為中國最早的民間匯兌金融機構之一「日昇昌」就創立於省內平遙，晉商因此名聞天下。",
       "facts": [
-        "是唯一完整保存唐代到清代各時期木構古建築的省份，五台山的南禪寺、佛光寺都是唐代建築。",
+        "中國現存最古老的木構建築——五台縣南禪寺大殿（782 年）與佛光寺東大殿（857 年）都是唐代建築，就在本省。",
         "應縣木塔建於 1056 年，是世界現存最高、最古老的純木結構樓閣式塔。",
-        "煤炭儲量居全國前列，焦炭產量長期位居全國之首。"
+        "煤炭儲量居全國前列，焦炭產量長期位居全國之首。",
+        "三國名將關羽的故鄉在運城解州，當地的解州關帝廟是現存規模最大的關帝廟。"
       ],
       "dia": [
         "嫽",
@@ -417,9 +427,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "In the Qing dynasty its merchants ran \"piaohao\" banks; Rishengchang, regarded as one of China's earliest private remittance banks, was founded in Pingyao in the province.",
       "facts": [
-        "It is the only province that preserves wooden buildings from every period from the Tang to the Qing; Nanchan Temple and Foguang Temple on Mount Wutai date from the Tang.",
+        "China's oldest surviving timber buildings, the main hall of Nanchan Temple (782) and the East Hall of Foguang Temple (857) in Wutai County, both date from the Tang dynasty and stand in this province.",
         "The Yingxian Wooden Pagoda, built in 1056, is the tallest and oldest surviving all-wood multi-story pagoda in the world.",
-        "Its coal reserves are among the largest in China, and it has long led the country in coke production."
+        "Its coal reserves are among the largest in China, and it has long led the country in coke production.",
+        "Guan Yu, the Three Kingdoms general, came from Xiezhou in Yuncheng, whose Guandi Temple is the largest surviving temple dedicated to him."
       ],
       "dia": [
         "嫽 liáo",
@@ -453,9 +464,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "清代には「票号」という金融業が栄え、中国最古級の民間為替金融機関とされる「日昇昌」が省内の平遥で創業した。",
       "facts": [
-        "唐から清までの各時代の木造建築がそろって残る唯一の省で、五台山の南禅寺・仏光寺は唐代の建物。",
+        "中国に現存する最古の木造建築である五台県の南禅寺大殿（782年）と仏光寺東大殿（857年）は、どちらも唐代の建物でこの省にある。",
         "1056年建立の応県木塔は、現存する世界最古・最高の純木造の楼閣式塔。",
-        "石炭の埋蔵量は全国有数で、コークスの生産量は長年全国一を誇る。"
+        "石炭の埋蔵量は全国有数で、コークスの生産量は長年全国一を誇る。",
+        "三国志の名将・関羽の故郷は運城の解州で、解州関帝廟は現存最大の関帝廟。"
       ],
       "dia": [
         "嫽（リャオ）",
@@ -500,7 +512,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "北面與蒙古國、俄羅斯接壤，邊境線長約四千兩百公里。",
         "包頭的白雲鄂博礦是世界最大的稀土礦床之一。",
-        "與黑龍江、吉林、遼寧、河北、山西、陝西、寧夏、甘肅八個省區相鄰。"
+        "與黑龍江、吉林、遼寧、河北、山西、陝西、寧夏、甘肅八個省區相鄰。",
+        "東北部的滿洲里與俄羅斯接壤，是中國最大的陸路口岸。"
       ],
       "dia": [
         "圪蹴",
@@ -536,7 +549,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "It borders Mongolia and Russia to the north, with a frontier about 4,200 km long.",
         "The Bayan Obo mine near Baotou is one of the largest rare-earth deposits in the world.",
-        "It borders eight provincial-level regions: Heilongjiang, Jilin, Liaoning, Hebei, Shanxi, Shaanxi, Ningxia and Gansu."
+        "It borders eight provincial-level regions: Heilongjiang, Jilin, Liaoning, Hebei, Shanxi, Shaanxi, Ningxia and Gansu.",
+        "Manzhouli in the northeast, on the Russian border, is China's largest land port of entry."
       ],
       "dia": [
         "圪蹴 gējiu",
@@ -572,7 +586,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "北でモンゴル国とロシアに接し、国境線は約4200キロに及ぶ。",
         "包頭にあるバヤンオボー鉱山は世界最大級のレアアース鉱床。",
-        "黒竜江・吉林・遼寧・河北・山西・陝西・寧夏・甘粛の8つの省・自治区と隣り合っている。"
+        "黒竜江・吉林・遼寧・河北・山西・陝西・寧夏・甘粛の8つの省・自治区と隣り合っている。",
+        "北東部の満洲里はロシアと接し、中国最大の陸路の通商口岸。"
       ],
       "dia": [
         "圪蹴（グージウ）",
@@ -620,7 +635,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "是中國重工業的老基地，鞍山鋼鐵廠是新中國第一個大型鋼鐵基地，素有「共和國鋼鐵工業搖籃」之稱。",
       "facts": [
         "清朝入關前的都城就在本省，清初的永陵、福陵、昭陵三座皇陵也都在這裡。",
-        "是東北三省中唯一臨海的省份，海岸兼臨黃海與渤海。"
+        "是東北三省中唯一臨海的省份，海岸兼臨黃海與渤海。",
+        "撫順的西露天礦曾是亞洲最大的露天煤礦，撫順因此有「煤都」之稱。"
       ],
       "dia": [
         "嘎哈",
@@ -655,7 +671,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "An old heavy-industry base of China; the Anshan Iron and Steel works was the first large steel base of the new China, nicknamed the \"cradle of the Republic's steel industry\".",
       "facts": [
         "The Qing dynasty's capital before it entered China proper was here, as are the three early Qing imperial tombs: Yongling, Fuling and Zhaoling.",
-        "It is the only one of the three northeastern provinces with a coastline, facing both the Yellow Sea and the Bohai Sea."
+        "It is the only one of the three northeastern provinces with a coastline, facing both the Yellow Sea and the Bohai Sea.",
+        "Fushun's West Open-Pit Mine was once the largest open-pit coal mine in Asia, earning the city the name \"Coal Capital.\""
       ],
       "dia": [
         "嘎哈 gǎhá",
@@ -690,7 +707,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "中国重工業の古くからの拠点で、鞍山鉄鋼は新中国初の大型製鉄基地。「共和国の鉄鋼業のゆりかご」と呼ばれる。",
       "facts": [
         "清が山海関を越える前の都がここにあり、清初の永陵・福陵・昭陵の三つの皇帝陵もこの省にある。",
-        "東北三省で唯一海に面した省で、黄海と渤海の両方に面している。"
+        "東北三省で唯一海に面した省で、黄海と渤海の両方に面している。",
+        "撫順の西露天鉱はかつてアジア最大の露天掘り炭鉱で、撫順は「石炭の都」と呼ばれた。"
       ],
       "dia": [
         "嘎哈（ガーハー）",
@@ -734,8 +752,9 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "新中國第一輛汽車（解放牌卡車）於 1956 年在省內下線，是中國汽車工業的發源地。",
       "facts": [
         "東南部與北韓、俄羅斯接壤，延邊是中國朝鮮族最集中的地區。",
-        "1932 年至 1945 年，滿洲國的首都「新京」就設在本省。",
-        "西部的查干湖以延續上千年傳統的冬季鑿冰捕魚聞名。"
+        "1932 年至 1945 年，偽滿洲國的首都「新京」就設在本省。",
+        "西部的查干湖以延續上千年傳統的冬季鑿冰捕魚聞名。",
+        "省會的電影製片廠前身成立於 1945 年，是新中國第一家電影製片廠，有「新中國電影的搖籃」之稱。"
       ],
       "dia": [
         "嘮嗑",
@@ -770,8 +789,9 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "The first car of the new China, the Jiefang truck, rolled off the line here in 1956, making the province the birthplace of China's auto industry.",
       "facts": [
         "Its southeast borders North Korea and Russia, and Yanbian has the largest concentration of ethnic Koreans in China.",
-        "From 1932 to 1945, Hsinking (\"New Capital\"), the capital of Manchukuo, was located in this province.",
-        "Chagan Lake in the west is famous for its winter ice fishing, a tradition said to date back over a thousand years."
+        "From 1932 to 1945, Hsinking (\"New Capital\"), the capital of the puppet state of Manchukuo, was located in this province.",
+        "Chagan Lake in the west is famous for its winter ice fishing, a tradition said to date back over a thousand years.",
+        "The provincial capital's film studio, whose predecessor was founded in 1945, was New China's first film studio and is called \"the cradle of New China's cinema.\""
       ],
       "dia": [
         "唠嗑 làokē",
@@ -807,7 +827,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "南東部で北朝鮮・ロシアと接し、延辺は中国で朝鮮族が最も集中して暮らす地域。",
         "1932年から1945年まで、満洲国の首都「新京」がこの省に置かれていた。",
-        "西部の査干湖は、千年来続くとされる冬の氷上漁で有名。"
+        "西部の査干湖は、千年来続くとされる冬の氷上漁で有名。",
+        "省都の映画撮影所は前身が1945年に設立された新中国初の撮影所で、「新中国映画のゆりかご」と呼ばれる。"
       ],
       "dia": [
         "嘮嗑（ラオカー）",
@@ -855,7 +876,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "是中國最北、也是最東的省級行政區，東端的撫遠是全國最早看到日出的地方之一。",
         "1959 年發現的大慶油田，長年是中國產量最大的油田。",
-        "肥沃的黑土地使這裡的糧食總產量多年居全國第一。"
+        "肥沃的黑土地使這裡的糧食總產量多年居全國第一。",
+        "二十世紀初因中東鐵路而興起，俄式建築林立，省會因此有「東方莫斯科」之稱。"
       ],
       "dia": [
         "貓冬",
@@ -891,7 +913,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "It is China's northernmost and easternmost provincial-level region; Fuyuan at its eastern tip is among the first places in the country to see the sunrise.",
         "The Daqing Oilfield, discovered in 1959, was for many years China's most productive oilfield.",
-        "Thanks to its fertile black soil, it has led China in total grain output for many years."
+        "Thanks to its fertile black soil, it has led China in total grain output for many years.",
+        "Its capital grew up around the Chinese Eastern Railway in the early 20th century and, with its many Russian-style buildings, is nicknamed the \"Moscow of the East.\""
       ],
       "dia": [
         "猫冬 māodōng",
@@ -927,7 +950,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "中国最北端かつ最東端の省級行政区で、東端の撫遠は国内で最も早く日の出が見られる場所の一つ。",
         "1959年に発見された大慶油田は、長年にわたり中国最大の産油量を誇った。",
-        "肥沃な黒土に恵まれ、穀物の総生産量は長年全国一。"
+        "肥沃な黒土に恵まれ、穀物の総生産量は長年全国一。",
+        "20世紀初に東清鉄道とともに発展し、ロシア風の建物が並ぶ省都は「東洋のモスクワ」と呼ばれる。"
       ],
       "dia": [
         "猫冬（マオドン）",
@@ -978,7 +1002,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "港口的貨櫃吞吐量自 2010 年起連年位居世界第一。",
         "1921 年中國共產黨第一次全國代表大會在此召開。",
-        "陸家嘴一棟高 632 公尺的摩天大樓是中國最高的建築。"
+        "陸家嘴一棟高 632 公尺的摩天大樓是中國最高的建築。",
+        "黃浦江穿過市區，把城區分成西岸的浦西與東岸的浦東。"
       ],
       "dia": [
         "阿拉",
@@ -1017,7 +1042,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Its port has ranked first in the world for container throughput every year since 2010.",
         "The First National Congress of the Chinese Communist Party was held here in 1921.",
-        "A 632-meter skyscraper in Lujiazui is the tallest building in China."
+        "A 632-meter skyscraper in Lujiazui is the tallest building in China.",
+        "The Huangpu River runs through the city, dividing it into Puxi on the west bank and Pudong on the east."
       ],
       "dia": [
         "阿拉 ālā",
@@ -1056,7 +1082,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "港のコンテナ取扱量は2010年から毎年世界一。",
         "1921年、中国共産党第1回全国代表大会がここで開かれた。",
-        "陸家嘴にある高さ632メートルの超高層ビルは中国で最も高い建物。"
+        "陸家嘴にある高さ632メートルの超高層ビルは中国で最も高い建物。",
+        "黄浦江が市街を貫き、西岸の浦西と東岸の浦東に分けている。"
       ],
       "dia": [
         "阿拉（アーラー）",
@@ -1105,7 +1132,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "大運河最早的一段「邗溝」，於西元前 486 年在本省揚州一帶開鑿。",
         "省會曾是東吳、東晉等六個朝代與明朝初年的都城，有「六朝古都」之稱。",
-        "地勢低平、湖泊眾多，太湖大部分水域與洪澤湖都在境內。"
+        "地勢低平、湖泊眾多，太湖大部分水域與洪澤湖都在境內。",
+        "崑曲發源於蘇州崑山一帶，2001 年列入聯合國首批「人類口述和非物質遺產代表作」。"
       ],
       "dia": [
         "曉得",
@@ -1141,7 +1169,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "The Hangou, the earliest section of the Grand Canal, was dug around Yangzhou in this province in 486 BC.",
         "Its capital was the seat of six dynasties, including Eastern Wu and Eastern Jin, as well as the early Ming, earning it the title \"ancient capital of six dynasties.\"",
-        "It is low and flat with many lakes; most of Lake Tai and all of Lake Hongze lie within it."
+        "It is low and flat with many lakes; most of Lake Tai and all of Lake Hongze lie within it.",
+        "Kunqu opera originated around Kunshan near Suzhou and was among the first Masterpieces of the Oral and Intangible Heritage of Humanity proclaimed by UNESCO in 2001."
       ],
       "dia": [
         "晓得 xiǎode",
@@ -1177,7 +1206,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "大運河で最も古い区間「邗溝」は、紀元前486年にこの省の揚州付近で掘られた。",
         "省都は呉・東晋など六つの王朝と明初の都で、「六朝の古都」と呼ばれる。",
-        "土地は低く平らで湖が多く、太湖の大部分と洪沢湖が省内にある。"
+        "土地は低く平らで湖が多く、太湖の大部分と洪沢湖が省内にある。",
+        "崑曲は蘇州の崑山一帯で生まれ、2001年にユネスコの第1回「人類の口承及び無形遺産の傑作」に選ばれた。"
       ],
       "dia": [
         "暁得（シャオダ）",
@@ -1222,7 +1252,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "電商巨頭阿里巴巴的總部設在本省省會。",
         "良渚古城遺址於 2019 年列入世界遺產，證明了五千多年前的早期國家文明。",
-        "義烏擁有世界最大的小商品批發市場之一。"
+        "義烏擁有世界最大的小商品批發市場之一。",
+        "紹興是文學家魯迅的故鄉，也以黃酒（紹興酒）聞名。"
       ],
       "dia": [
         "儂",
@@ -1258,7 +1289,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "E-commerce giant Alibaba is headquartered in its provincial capital.",
         "The Archaeological Ruins of Liangzhu City, evidence of an early state more than 5,000 years old, became a World Heritage Site in 2019.",
-        "Yiwu is home to one of the world's largest wholesale markets for small commodities."
+        "Yiwu is home to one of the world's largest wholesale markets for small commodities.",
+        "Shaoxing is the hometown of the writer Lu Xun and is famous for its yellow rice wine."
       ],
       "dia": [
         "侬 nóng",
@@ -1294,7 +1326,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "ネット通販大手アリババの本社が省都にある。",
         "5000年以上前の初期国家の存在を示す良渚古城遺跡が、2019年に世界遺産に登録された。",
-        "義烏には世界最大級の日用雑貨の卸売市場がある。"
+        "義烏には世界最大級の日用雑貨の卸売市場がある。",
+        "紹興は文学者・魯迅の故郷で、紹興酒（黄酒）でも有名。"
       ],
       "dia": [
         "儂（ノン）",
@@ -1339,7 +1372,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "長江與淮河都自西向東流經省內，把全省分成淮北、江淮之間與江南三塊。",
         "1978 年鳳陽縣小崗村農民秘密簽下「包產到戶」契約，揭開中國農村改革的序幕。",
-        "北宋以清廉聞名的包拯（包青天）就出身於本省。"
+        "北宋以清廉聞名的包拯（包青天）就出身於本省。",
+        "黃梅戲雖得名於湖北黃梅，卻是在本省安慶一帶發展成熟並流行起來。"
       ],
       "dia": [
         "恰飯",
@@ -1375,7 +1409,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Both the Yangtze and the Huai River flow west to east across it, dividing the province into three parts: north of the Huai, between the two rivers, and south of the Yangtze.",
         "In 1978, farmers in Xiaogang Village, Fengyang County, secretly signed a household-contract pact that sparked China's rural reforms.",
-        "Bao Zheng (Judge Bao), the Northern Song official famous for his integrity, came from this province."
+        "Bao Zheng (Judge Bao), the Northern Song official famous for his integrity, came from this province.",
+        "Huangmei opera takes its name from Huangmei in Hubei, but it matured and became popular around Anqing in this province."
       ],
       "dia": [
         "恰饭 qiàfàn",
@@ -1411,7 +1446,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "長江と淮河がともに西から東へ流れ、省を淮北・江淮の間・江南の三つに分けている。",
         "1978年、鳳陽県小崗村の農民がひそかに「生産請負」の誓約を交わし、中国の農村改革の口火を切った。",
-        "北宋の清廉な役人として名高い包拯（包青天）はこの省の出身。"
+        "北宋の清廉な役人として名高い包拯（包青天）はこの省の出身。",
+        "黄梅戯は湖北省の黄梅に由来する名だが、この省の安慶一帯で成熟し広まった。"
       ],
       "dia": [
         "恰飯（チアファン）",
@@ -1454,9 +1490,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "鐵觀音與大紅袍兩大名茶都產自省內，隔著臺灣海峽與臺灣相望，臺灣閩南語就源自這裡的閩南話。",
       "facts": [
-        "是著名的僑鄉，許多東南亞華人的祖籍都在這裡。",
+        "菲律賓華人的祖籍絕大多數都在本省，尤其是泉州晉江一帶。",
         "泉州在宋元時期是世界最大的貿易港之一，2021 年以「宋元中國的世界海洋商貿中心」列入世界遺產。",
-        "森林覆蓋率超過六成，居全國第一。"
+        "森林覆蓋率超過六成，居全國第一。",
+        "1866 年左宗棠在馬尾創辦船政局，是中國近代第一座大型造船廠。"
       ],
       "dia": [
         "厝",
@@ -1490,9 +1527,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "Both Tieguanyin and Da Hong Pao, two famous teas, are produced here; across the Taiwan Strait from Taiwan, its Min Nan speech is the root of Taiwanese Hokkien.",
       "facts": [
-        "It is a famous ancestral homeland of overseas Chinese; many ethnic Chinese in Southeast Asia trace their roots here.",
+        "The great majority of ethnic Chinese in the Philippines trace their roots to this province, especially the Jinjiang area of Quanzhou.",
         "Quanzhou was one of the world's great trading ports in the Song and Yuan eras and was inscribed as a World Heritage Site in 2021 as an \"Emporium of the World.\"",
-        "With forests covering over 60% of its land, it has the highest forest coverage of any province in China."
+        "With forests covering over 60% of its land, it has the highest forest coverage of any province in China.",
+        "The Mawei Navy Yard, founded by Zuo Zongtang in 1866, was China's first large modern shipyard."
       ],
       "dia": [
         "厝 cuò",
@@ -1526,9 +1564,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "鉄観音と大紅袍という二大銘茶の産地で、台湾海峡をはさんで台湾と向き合い、台湾語（閩南語）の源流でもある。",
       "facts": [
-        "華僑のふるさととして有名で、東南アジアの華人の多くがここにルーツを持つ。",
+        "フィリピン華人の祖先の大多数はこの省の出身で、特に泉州の晋江一帯が多い。",
         "泉州は宋・元代に世界有数の貿易港として栄え、2021年に「宋元中国の世界海洋商業・貿易センター」として世界遺産に登録された。",
-        "森林被覆率は6割を超え、全国一。"
+        "森林被覆率は6割を超え、全国一。",
+        "1866年に左宗棠が馬尾に創設した船政局は、中国初の近代的な大型造船所。"
       ],
       "dia": [
         "厝（ツォ）",
@@ -1577,7 +1616,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "中國最大的淡水湖鄱陽湖位於本省北部。",
         "1927 年 8 月 1 日中共在省會發動起義，這一天後來成為中國人民解放軍的建軍節。",
-        "鷹潭的龍虎山是道教正一派（天師道）的祖庭。"
+        "鷹潭的龍虎山是道教正一派（天師道）的祖庭。",
+        "1927 年毛澤東在井岡山建立中共第一個農村革命根據地。"
       ],
       "dia": [
         "冇",
@@ -1613,7 +1653,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Poyang Lake, China's largest freshwater lake, lies in the north of the province.",
         "On August 1, 1927, the Communists launched an uprising in its capital; the date later became the founding day of the People's Liberation Army.",
-        "Mount Longhu near Yingtan is the ancestral seat of the Zhengyi (Celestial Masters) school of Taoism."
+        "Mount Longhu near Yingtan is the ancestral seat of the Zhengyi (Celestial Masters) school of Taoism.",
+        "In 1927 Mao Zedong set up the CCP's first rural revolutionary base in the Jinggang Mountains."
       ],
       "dia": [
         "冇 mǎo",
@@ -1649,7 +1690,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "中国最大の淡水湖・鄱陽湖が省の北部にある。",
         "1927年8月1日に中国共産党が省都で武装蜂起し、この日はのちに人民解放軍の建軍記念日となった。",
-        "鷹潭の龍虎山は道教正一派（天師道）の総本山。"
+        "鷹潭の龍虎山は道教正一派（天師道）の総本山。",
+        "1927年、毛沢東が井岡山に中国共産党初の農村革命根拠地を築いた。"
       ],
       "dia": [
         "冇（マオ）",
@@ -1694,7 +1736,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "黃河在本省東營注入渤海。",
         "1903 年德國與英國商人在青島創辦的啤酒廠，就是今天的青島啤酒。",
-        "2020 年人口普查約 1.02 億人，是中國人口第二多的省份。"
+        "2020 年人口普查約 1.02 億人，是中國人口第二多的省份。",
+        "濰坊以風箏聞名，有「世界風箏都」之稱，每年春天舉辦國際風箏節。"
       ],
       "dia": [
         "拉呱",
@@ -1730,7 +1773,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "The Yellow River empties into the Bohai Sea at Dongying in this province.",
         "The brewery founded in Qingdao in 1903 by German and British merchants is today's Tsingtao Brewery.",
-        "With about 102 million people in the 2020 census, it is China's second most populous province."
+        "With about 102 million people in the 2020 census, it is China's second most populous province.",
+        "Weifang is famous for kites, is known as the \"Kite Capital of the World,\" and holds an international kite festival every spring."
       ],
       "dia": [
         "拉呱 lāguǎ",
@@ -1766,7 +1810,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "黄河はこの省の東営で渤海に注ぐ。",
         "1903年にドイツとイギリスの商人が青島に開いたビール工場が、今の青島ビール。",
-        "2020年の国勢調査で人口約1億200万人と、中国で2番目に人口の多い省。"
+        "2020年の国勢調査で人口約1億200万人と、中国で2番目に人口の多い省。",
+        "濰坊は凧で有名で「世界の凧の都」と呼ばれ、毎年春に国際凧祭りが開かれる。"
       ],
       "dia": [
         "拉呱（ラーグア）",

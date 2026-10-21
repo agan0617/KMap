@@ -25,7 +25,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "東北外海的大堡礁是世界上最大的珊瑚礁系統。",
         "1901 年由六個英國殖民地合組為聯邦。",
-        "原住民文化至少已延續 5 萬年，是世界上歷史最悠久且延續至今的文化之一。"
+        "原住民文化至少已延續 5 萬年，是世界上歷史最悠久且延續至今的文化之一。",
+        "1956 年的墨爾本奧運是南半球第一次舉辦的奧運。"
       ],
       "dia": null,
       "wiki": "澳大利亞"
@@ -51,7 +52,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The Great Barrier Reef off its northeast coast is the world's largest coral reef system.",
         "It was formed in 1901 when six British colonies federated.",
-        "Its Aboriginal cultures stretch back at least 50,000 years, among the oldest continuous cultures on Earth."
+        "Its Aboriginal cultures stretch back at least 50,000 years, among the oldest continuous cultures on Earth.",
+        "The 1956 Melbourne Olympics were the first Olympic Games held in the Southern Hemisphere."
       ],
       "dia": null,
       "wiki": "Australia"
@@ -77,7 +79,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北東沖のグレートバリアリーフは世界最大のサンゴ礁群。",
         "1901年に6つのイギリス植民地が連邦を結成して成立した。",
-        "先住民アボリジニの文化は少なくとも5万年続き、現存する世界最古級の文化の一つ。"
+        "先住民アボリジニの文化は少なくとも5万年続き、現存する世界最古級の文化の一つ。",
+        "1956年のメルボルン五輪は、南半球で初めて開かれたオリンピックだった。"
       ],
       "dia": null,
       "wiki": "オーストラリア"
@@ -110,9 +113,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "由約 330 座島嶼組成，其中約 110 座有人居住；國土橫跨 180 度經線，國際換日線特地向東繞開，讓全國使用同一天。",
       "facts": [
-        "1970 年脫離英國獨立。",
         "七人制橄欖球是國民運動，2016 年里約奧運奪得國家史上第一面奧運金牌。",
-        "約四成人口是印度裔，祖先多是英國殖民時期引進的契約工人。"
+        "約三分之一人口是印度裔，祖先多是英國殖民時期引進的契約工人。",
+        "首都所在的維提島是全國最大的島，約七成人口住在這座島上。"
       ],
       "dia": null,
       "wiki": "斐濟"
@@ -135,9 +138,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "It consists of about 330 islands, roughly 110 of them inhabited. The country straddles the 180th meridian, and the International Date Line bends eastward around it so the whole nation shares one day.",
       "facts": [
-        "It became independent from Britain in 1970.",
         "Rugby sevens is the national passion, and it won the country's first ever Olympic gold medal at Rio 2016.",
-        "Nearly 40% of the population is of Indian descent, mostly descendants of indentured labourers brought in under British rule."
+        "About a third of the population is of Indian descent, mostly descendants of indentured labourers brought in under British rule.",
+        "Viti Levu, the island with the capital, is its largest and home to about 70% of the population."
       ],
       "dia": null,
       "wiki": "Fiji"
@@ -160,9 +163,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "約 330 の島からなり、そのうち人が住むのは約 110。国土は東経・西経 180 度にまたがるが、日付変更線が東へ迂回して国全体が同じ日になるようにしている。",
       "facts": [
-        "1970年にイギリスから独立した。",
         "7人制ラグビーが国民的スポーツで、2016年リオ五輪で国として初めての金メダルを獲得した。",
-        "人口の約4割はインド系で、多くは英国統治時代に連れてこられた年季契約労働者の子孫。"
+        "人口の約3分の1はインド系で、多くは英国統治時代に連れてこられた年季契約労働者の子孫。",
+        "首都のあるビティレブ島が最大の島で、人口の約7割がこの島に住む。"
       ],
       "dia": null,
       "wiki": "フィジー"
@@ -196,7 +199,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "由楚克、波納佩、科斯雷與雅浦四個州組成；其中一州的傳統貨幣是巨大的圓形石幣，最大的直徑可達三公尺以上。",
       "facts": [
         "由太平洋上 600 多座島嶼組成。",
-        "1986 年與美國簽訂自由聯合協定而獨立，國防由美國負責。"
+        "1986 年與美國簽訂自由聯合協定而獨立，國防由美國負責。",
+        "國旗是藍底配上四顆白色星星，代表四個州。"
       ],
       "dia": null,
       "wiki": "密克羅尼西亞聯邦"
@@ -219,7 +223,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "It is made up of four states: Chuuk, Pohnpei, Kosrae and Yap. One of them is known for huge round stone discs used as traditional money, the biggest over three meters across.",
       "facts": [
         "It is made up of more than 600 islands in the Pacific.",
-        "It became independent in 1986 under a Compact of Free Association with the United States, which handles its defence."
+        "It became independent in 1986 under a Compact of Free Association with the United States, which handles its defence.",
+        "Its flag is blue with four white stars representing its four states."
       ],
       "dia": null,
       "wiki": "Federated States of Micronesia"
@@ -242,7 +247,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "チューク、ポンペイ、コスラエ、ヤップの四つの州からなる。そのうちの一州には、直径が 3 メートルを超えるものもある巨大な円盤状の石貨が伝わっている。",
       "facts": [
         "太平洋に浮かぶ600以上の島々からなる。",
-        "1986年にアメリカと自由連合盟約を結んで独立し、防衛はアメリカが担っている。"
+        "1986年にアメリカと自由連合盟約を結んで独立し、防衛はアメリカが担っている。",
+        "国旗は青地に4つの白い星で、4つの州を表す。"
       ],
       "dia": null,
       "wiki": "ミクロネシア連邦"
@@ -274,7 +280,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1995 年把國際換日線往東移，讓全國各島都在同一天。",
         "舊稱吉爾伯特群島，1979 年脫離英國獨立。",
-        "國旗上畫著一隻軍艦鳥飛越海上升起的太陽。"
+        "國旗上畫著一隻軍艦鳥飛越海上升起的太陽。",
+        "東部的一座島是世界上陸地面積最大的珊瑚環礁。"
       ],
       "dia": null,
       "wiki": "吉里巴斯"
@@ -299,7 +306,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1995 it shifted the International Date Line eastward so that all its islands share the same date.",
         "Formerly the Gilbert Islands, it became independent from Britain in 1979.",
-        "Its flag shows a frigatebird flying over a sun rising from the sea."
+        "Its flag shows a frigatebird flying over a sun rising from the sea.",
+        "One of its eastern islands is the largest coral atoll in the world by land area."
       ],
       "dia": null,
       "wiki": "Kiribati"
@@ -324,7 +332,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1995年に日付変更線を東へ移し、国内のすべての島が同じ日付になるようにした。",
         "かつてのギルバート諸島で、1979年にイギリスから独立した。",
-        "国旗には、海から昇る太陽の上を飛ぶグンカンドリが描かれている。"
+        "国旗には、海から昇る太陽の上を飛ぶグンカンドリが描かれている。",
+        "東部にある島の一つは、陸地面積で世界最大のサンゴ環礁。"
       ],
       "dia": null,
       "wiki": "キリバス"
@@ -357,7 +366,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "冷戰初期美國在此進行過 67 次核試驗；1946 年的一次試爆地點，後來成了「比基尼」泳裝的命名由來。",
       "facts": [
         "由 29 個環礁與 5 座島嶼組成。",
-        "國旗上的星星有 24 道光芒，代表全國 24 個選區。"
+        "國旗上的星星有 24 道光芒，代表全國 24 個選區。",
+        "國旗上的橘、白兩條斜帶由左下往右上延伸，代表全國的兩列島鏈。",
+        "核試驗場比基尼環礁在 2010 年列入世界遺產。"
       ],
       "dia": null,
       "wiki": "馬紹爾群島"
@@ -379,7 +390,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "The United States conducted 67 nuclear tests here in the early Cold War, and a 1946 test site gave its name to the \"bikini\" swimsuit.",
       "facts": [
         "It consists of 29 atolls and 5 islands.",
-        "The star on its flag has 24 points, representing its 24 electoral districts."
+        "The star on its flag has 24 points, representing its 24 electoral districts.",
+        "The orange and white diagonal stripes rising across its flag represent its two island chains.",
+        "Bikini Atoll, the former nuclear test site, became a World Heritage Site in 2010."
       ],
       "dia": null,
       "wiki": "Marshall Islands"
@@ -401,7 +414,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "冷戦初期にアメリカが 67 回の核実験を行った場所で、1946 年の実験地が「ビキニ」水着の名前の由来になった。",
       "facts": [
         "29の環礁と5つの島からなる。",
-        "国旗の星には24の光があり、24の選挙区を表す。"
+        "国旗の星には24の光があり、24の選挙区を表す。",
+        "国旗の左下から右上へ伸びるオレンジと白の斜めの帯は、二つの列島を表す。",
+        "核実験場だったビキニ環礁は、2010年に世界遺産に登録された。"
       ],
       "dia": null,
       "wiki": "マーシャル諸島"
@@ -429,7 +444,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "法律上沒有正式的首都，政府機關集中在其中一個行政區。",
         "1968 年脫離澳洲等國的聯合國託管而獨立。",
-        "國旗上的黃線代表赤道，下方的十二角星代表 12 個原住民部族，也標出國家位於赤道以南。"
+        "國旗上的黃線代表赤道，下方的十二角星代表 12 個原住民部族，也標出國家位於赤道以南。",
+        "2001 年起曾數度為澳洲設置境外移民拘留中心，換取經濟援助。"
       ],
       "dia": null,
       "wiki": "諾魯"
@@ -450,7 +466,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It has no official capital by law; government offices are simply concentrated in one district.",
         "It became independent in 1968 from a UN trusteeship administered by Australia and others.",
-        "The yellow line on its flag is the equator; the 12-pointed star below it stands for the 12 original tribes and shows the country lies just south of it."
+        "The yellow line on its flag is the equator; the 12-pointed star below it stands for the 12 original tribes and shows the country lies just south of it.",
+        "Since 2001 it has at times hosted an offshore immigration detention centre for Australia in return for aid."
       ],
       "dia": null,
       "wiki": "Nauru"
@@ -471,7 +488,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "法律上の首都がなく、政府機関がある一地区に集まっているだけである。",
         "1968年、オーストラリアなどによる国連信託統治から独立した。",
-        "国旗の黄色い線は赤道を表し、その下の十二角星は12の部族を表すとともに、国が赤道のすぐ南にあることを示す。"
+        "国旗の黄色い線は赤道を表し、その下の十二角星は12の部族を表すとともに、国が赤道のすぐ南にあることを示す。",
+        "2001年以降、経済援助と引き換えにオーストラリアの国外移民収容施設をたびたび受け入れてきた。"
       ],
       "dia": null,
       "wiki": "ナウル"
@@ -504,7 +522,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "電影《魔戒》三部曲全在這個國家拍攝。",
         "1953 年本國登山家希拉里與雪巴人丹增，首度登上聖母峰頂。",
-        "國鳥奇異鳥不會飛，國民也因此被暱稱為「Kiwi」。"
+        "國鳥奇異鳥不會飛，國民也因此被暱稱為「Kiwi」。",
+        "南島的庫克山（毛利語稱 Aoraki）是全國最高峰。"
       ],
       "dia": null,
       "wiki": "紐西蘭"
@@ -530,7 +549,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The Lord of the Rings film trilogy was shot entirely in this country.",
         "In 1953 its mountaineer Edmund Hillary and Sherpa Tenzing Norgay made the first ascent of Mount Everest.",
-        "Its national bird, the kiwi, cannot fly, and its people are nicknamed \"Kiwis\" after it."
+        "Its national bird, the kiwi, cannot fly, and its people are nicknamed \"Kiwis\" after it.",
+        "Aoraki / Mount Cook on the South Island is its highest peak."
       ],
       "dia": null,
       "wiki": "New Zealand"
@@ -556,7 +576,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "映画『ロード・オブ・ザ・リング』三部作はすべてこの国で撮影された。",
         "1953年、この国の登山家ヒラリーとシェルパのテンジンがエベレスト初登頂を果たした。",
-        "国鳥キーウィは飛べない鳥で、国民も「キーウィ」の愛称で呼ばれる。"
+        "国鳥キーウィは飛べない鳥で、国民も「キーウィ」の愛称で呼ばれる。",
+        "南島のアオラキ／マウント・クックが国内最高峰。"
       ],
       "dia": null,
       "wiki": "ニュージーランド"
@@ -591,7 +612,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1994 年脫離美國託管獨立，是最後一個獨立的聯合國託管地。",
         "2017 年起，入境旅客必須在護照上簽署保護環境的誓詞。",
-        "國旗是藍底配上一輪稍微偏左的黃色滿月。"
+        "國旗是藍底配上一輪稍微偏左的黃色滿月。",
+        "日本統治時期，管轄南洋群島的南洋廳就設在這裡的科羅島。"
       ],
       "dia": null,
       "wiki": "帛琉"
@@ -615,7 +637,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It gained independence from US administration in 1994, the last UN trust territory to do so.",
         "Since 2017, visitors must sign an environmental pledge stamped into their passports on arrival.",
-        "Its flag is a yellow full moon set slightly off-centre on a blue field."
+        "Its flag is a yellow full moon set slightly off-centre on a blue field.",
+        "Under Japanese rule, the South Seas Government that administered Japan's Pacific islands was based on Koror here."
       ],
       "dia": null,
       "wiki": "Palau"
@@ -639,7 +662,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1994年にアメリカの信託統治から独立し、国連信託統治領として最後に独立した。",
         "2017年から、入国者はパスポートに押された環境保護の誓約に署名しなければならない。",
-        "国旗は青地に少し左寄りの黄色い満月を描いたもの。"
+        "国旗は青地に少し左寄りの黄色い満月を描いたもの。",
+        "日本統治時代、南洋群島を管轄する南洋庁はここのコロール島に置かれた。"
       ],
       "dia": null,
       "wiki": "パラオ"
@@ -674,7 +698,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國土占新幾內亞島的東半部，與印尼共享這座島。",
         "國旗上畫有天堂鳥與南十字星。",
-        "1975 年脫離澳洲獨立。"
+        "1975 年脫離澳洲獨立。",
+        "官方語言之一的托克皮辛語，是以英語為基礎發展出來的克里奧爾語。"
       ],
       "dia": null,
       "wiki": "巴布亞紐幾內亞"
@@ -699,7 +724,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It occupies the eastern half of the island of New Guinea, which it shares with Indonesia.",
         "Its flag shows a bird of paradise and the Southern Cross.",
-        "It became independent from Australia in 1975."
+        "It became independent from Australia in 1975.",
+        "One of its official languages, Tok Pisin, is an English-based creole."
       ],
       "dia": null,
       "wiki": "Papua New Guinea"
@@ -724,7 +750,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ニューギニア島の東半分を占め、インドネシアと島を分け合う。",
         "国旗には極楽鳥と南十字星が描かれている。",
-        "1975年にオーストラリアから独立した。"
+        "1975年にオーストラリアから独立した。",
+        "公用語の一つトク・ピシンは、英語をもとに生まれたクレオール言語。"
       ],
       "dia": null,
       "wiki": "パプアニューギニア"
@@ -756,9 +783,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "二戰期間的瓜達康納爾島戰役在此展開，附近海域沉入大量艦船，被稱為「鐵底海峽」。",
       "facts": [
-        "1978 年脫離英國獨立。",
         "國名源自 16 世紀的西班牙探險家，他期待這裡藏有傳說中所羅門王的寶藏。",
-        "二戰時甘迺迪的魚雷艇 PT-109 在這裡的海域被擊沉，他靠當地島民協助才獲救。"
+        "二戰時甘迺迪的魚雷艇 PT-109 在這裡的海域被擊沉，他靠當地島民協助才獲救。",
+        "國旗上的五顆白星，代表建國時的五個主要地區。",
+        "1998–2003 年發生族群衝突，之後由澳洲主導的區域援助團進駐維和。"
       ],
       "dia": null,
       "wiki": "索羅門群島"
@@ -780,9 +808,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "The Guadalcanal Campaign of World War II was fought here, and so many ships sank in the nearby waters that they came to be called Ironbottom Sound.",
       "facts": [
-        "It became independent from Britain in 1978.",
         "Its name comes from a 16th-century Spanish explorer who hoped the islands held the legendary riches of King Solomon.",
-        "In WWII John F. Kennedy's boat PT-109 was sunk in these waters, and he was rescued with the help of local islanders."
+        "In WWII John F. Kennedy's boat PT-109 was sunk in these waters, and he was rescued with the help of local islanders.",
+        "The five white stars on its flag represent its five main regions at independence.",
+        "After ethnic unrest from 1998 to 2003, an Australian-led regional assistance mission was sent in to restore order."
       ],
       "dia": null,
       "wiki": "Solomon Islands"
@@ -804,9 +833,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "第二次世界大戦のガダルカナル島の戦いの舞台で、周辺の海には多数の艦船が沈み「アイアンボトム・サウンド（鉄底海峡）」と呼ばれる。",
       "facts": [
-        "1978年にイギリスから独立した。",
         "国名は16世紀のスペイン人探検家が、伝説のソロモン王の財宝があると期待して名付けたことに由来する。",
-        "第二次世界大戦中、ケネディの魚雷艇PT-109がこの海域で撃沈され、彼は地元の島民の助けで救出された。"
+        "第二次世界大戦中、ケネディの魚雷艇PT-109がこの海域で撃沈され、彼は地元の島民の助けで救出された。",
+        "国旗の5つの白い星は、独立当時の5つの主要地域を表す。",
+        "1998〜2003年に民族紛争が起き、その後オーストラリア主導の地域支援ミッションが治安回復に入った。"
       ],
       "dia": null,
       "wiki": "ソロモン諸島"
@@ -838,7 +868,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗是紅底、左上角白底紅十字，憲法規定國旗永遠不得更改。",
         "庫克船長因島民的熱情款待，把這裡取名為「友誼群島」。",
-        "國家橄欖球隊賽前會跳傳統戰舞「Sipi Tau」。"
+        "國家橄欖球隊賽前會跳傳統戰舞「Sipi Tau」。",
+        "前國王陶法阿豪·圖普四世體重約 200 公斤，曾以「最重的君主」登上金氏世界紀錄。"
       ],
       "dia": null,
       "wiki": "東加"
@@ -863,7 +894,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag is red with a red cross on a white canton, and the constitution states it may never be changed.",
         "Captain Cook named it the \"Friendly Islands\" after the warm welcome he received.",
-        "Its national rugby team performs the traditional war dance \"Sipi Tau\" before matches."
+        "Its national rugby team performs the traditional war dance \"Sipi Tau\" before matches.",
+        "King Tāufaʻāhau Tupou IV, who weighed about 200 kg, was listed by Guinness World Records as the heaviest monarch."
       ],
       "dia": null,
       "wiki": "Tonga"
@@ -888,7 +920,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗は赤地で左上の白地に赤い十字があり、憲法で永久に変更できないと定められている。",
         "クック船長は島民の温かい歓迎から、ここを「フレンドリー諸島」と名付けた。",
-        "ラグビー代表は試合前に伝統の戦いの踊り「シピタウ」を披露する。"
+        "ラグビー代表は試合前に伝統の戦いの踊り「シピタウ」を披露する。",
+        "前国王トゥポウ4世は体重約200キロで、「最も重い君主」としてギネス世界記録に載った。"
       ],
       "dia": null,
       "wiki": "トンガ"
@@ -922,7 +955,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "面積只有約 26 平方公里，是世界第四小的國家。",
         "舊稱埃利斯群島，1978 年脫離英國獨立。",
-        "2023 年與澳洲簽約，讓國民可以因氣候變遷移居澳洲。"
+        "2023 年與澳洲簽約，讓國民可以因氣候變遷移居澳洲。",
+        "國名在當地語言中意思是「八島相聚」。"
       ],
       "dia": null,
       "wiki": "吐瓦魯"
@@ -945,7 +979,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "With only about 26 square kilometres of land, it is the fourth-smallest country in the world.",
         "Formerly the Ellice Islands, it became independent from Britain in 1978.",
-        "In 2023 it signed a treaty with Australia giving its citizens a pathway to move there because of climate change."
+        "In 2023 it signed a treaty with Australia giving its citizens a pathway to move there because of climate change.",
+        "Its name means \"eight standing together\" in the local language."
       ],
       "dia": null,
       "wiki": "Tuvalu"
@@ -968,7 +1003,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "面積はわずか約26平方キロで、世界で4番目に小さい国。",
         "かつてのエリス諸島で、1978年にイギリスから独立した。",
-        "2023年にオーストラリアと条約を結び、気候変動を理由に国民がオーストラリアへ移住できる道を開いた。"
+        "2023年にオーストラリアと条約を結び、気候変動を理由に国民がオーストラリアへ移住できる道を開いた。",
+        "国名は現地の言葉で「八つの島が並び立つ」を意味する。"
       ],
       "dia": null,
       "wiki": "ツバル"
@@ -1002,7 +1038,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1980 年獨立之前，由英國與法國共同管理。",
         "官方語言有三種：比斯拉馬語、英語與法語。",
-        "國旗上畫著捲曲的野豬牙與兩片蘇鐵葉。"
+        "國旗上畫著捲曲的野豬牙與兩片蘇鐵葉。",
+        "由約 83 座島嶼組成，大致排成 Y 字形。"
       ],
       "dia": null,
       "wiki": "萬那杜"
@@ -1026,7 +1063,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Before independence in 1980 it was jointly ruled by Britain and France.",
         "It has three official languages: Bislama, English and French.",
-        "Its flag shows a curled boar's tusk and two crossed cycad leaves."
+        "Its flag shows a curled boar's tusk and two crossed cycad leaves.",
+        "It is made up of about 83 islands arranged roughly in a Y shape."
       ],
       "dia": null,
       "wiki": "Vanuatu"
@@ -1050,7 +1088,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1980年の独立まで、イギリスとフランスが共同統治していた。",
         "公用語はビスラマ語・英語・フランス語の3つ。",
-        "国旗には曲がったイノシシの牙と2枚のソテツの葉が描かれている。"
+        "国旗には曲がったイノシシの牙と2枚のソテツの葉が描かれている。",
+        "約83の島からなり、全体がおおむねY字形に並んでいる。"
       ],
       "dia": null,
       "wiki": "バヌアツ"
@@ -1081,8 +1120,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "2011 年底把國家移到國際換日線的西側，直接跳過 12 月 30 日這一天，好讓時間與主要貿易夥伴一致。",
       "facts": [
         "1962 年脫離紐西蘭獨立，是 20 世紀太平洋第一個獨立的島國。",
-        "傳統刺青「tatau」被認為是英文 tattoo 一詞的語源之一。",
-        "2009 年把車輛從靠右行駛改成靠左行駛。"
+        "男性的傳統刺青「pe'a」從腰部一路刺到膝蓋，是成年的象徵。",
+        "2009 年把車輛從靠右行駛改成靠左行駛。",
+        "《金銀島》作者史蒂文森晚年定居於此，當地人稱他「說故事的人」（Tusitala）。"
       ],
       "dia": null,
       "wiki": "薩摩亞"
@@ -1106,8 +1146,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "At the end of 2011 it shifted to the west side of the International Date Line, skipping 30 December entirely so that its calendar matched its main trading partners.",
       "facts": [
         "It gained independence from New Zealand in 1962, the first Pacific island nation to do so in the 20th century.",
-        "Its traditional tattoo, the tatau, is considered one of the sources of the English word \"tattoo\".",
-        "In 2009 it switched from driving on the right to driving on the left."
+        "The traditional male tattoo, the pe'a, covers the body from the waist to the knees and marks coming of age.",
+        "In 2009 it switched from driving on the right to driving on the left.",
+        "Robert Louis Stevenson, author of Treasure Island, spent his last years here, where locals called him Tusitala, \"teller of tales\"."
       ],
       "dia": null,
       "wiki": "Samoa"
@@ -1131,8 +1172,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "2011 年末に日付変更線の西側へ移り、12 月 30 日をまるごと飛ばした。主要な貿易相手国と日付をそろえるためだった。",
       "facts": [
         "1962年にニュージーランドから独立し、20世紀の太平洋で最初に独立した島国となった。",
-        "伝統的な入れ墨「タタウ」は、英語の tattoo の語源の一つとされる。",
-        "2009年に車の通行を右側通行から左側通行に切り替えた。"
+        "男性の伝統的な入れ墨「ペア」は腰から膝までを覆い、一人前の大人の証とされる。",
+        "2009年に車の通行を右側通行から左側通行に切り替えた。",
+        "『宝島』の作者スティーヴンソンは晩年をここで過ごし、「物語の語り手（トゥシタラ）」と呼ばれた。"
       ],
       "dia": null,
       "wiki": "サモア"

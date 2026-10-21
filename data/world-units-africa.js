@@ -26,7 +26,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北部的卡賓達省是飛地，與本土之間隔著剛果民主共和國的一段領土。",
         "國旗是紅黑兩色，中央有半個齒輪與一把彎刀，構圖讓人聯想到蘇聯的鐮刀鎚子。",
-        "是非洲主要的產油國之一，石油占出口的絕大部分。"
+        "非洲主要的產油國之一，2024 年起退出石油輸出國組織（OPEC）。",
+        "國名源自昔日恩東戈王國國王的稱號「恩戈拉」（ngola）。"
       ]
     },
     "en": {
@@ -51,7 +52,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its northern Cabinda Province is an exclave, cut off from the rest of the country by a strip of the Democratic Republic of the Congo.",
         "The red-and-black flag bears half a cogwheel and a machete, a design reminiscent of the Soviet hammer and sickle.",
-        "It is one of Africa's leading oil producers, and oil makes up the vast majority of its exports."
+        "One of Africa's leading oil producers, it left OPEC at the start of 2024.",
+        "Its name comes from \"ngola\", the title of the kings of the old Kingdom of Ndongo."
       ]
     },
     "ja": {
@@ -76,7 +78,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北部のカビンダ州は飛び地で、本土とはコンゴ民主共和国の領土で隔てられている。",
         "赤と黒の国旗の中央には半分の歯車となたが描かれ、旧ソ連の鎌と槌を思わせる。",
-        "アフリカ有数の産油国で、輸出の大部分を石油が占める。"
+        "アフリカ有数の産油国だが、2024年初めに石油輸出国機構（OPEC）を脱退した。",
+        "国名はかつてのンドンゴ王国の王の称号「ンゴラ（ngola）」に由来する。"
       ]
     },
     "quiz": {
@@ -110,7 +113,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗白色斜十字中央的圓圈裡有三顆紅星，一般解釋為代表三個主要族群。",
         "2019 年起把政治首都從湖畔的最大城市改為國土中部的城市。",
-        "經常被列為全世界人均 GDP 最低的國家之一。"
+        "內陸國，國土位在坦干依喀湖的東北岸。",
+        "與北鄰盧安達一樣，人口主要由胡圖族與圖西族構成。"
       ]
     },
     "en": {
@@ -134,7 +138,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The flag has a white saltire with three red stars in the central disc, usually said to represent the country's three main ethnic groups.",
         "In 2019 it moved its political capital from its largest city on the lakeshore to a city in the center of the country.",
-        "It is regularly ranked among the countries with the lowest GDP per capita in the world."
+        "A landlocked country on the northeastern shore of Lake Tanganyika.",
+        "Like its northern neighbor Rwanda, its population is made up mainly of Hutu and Tutsi."
       ]
     },
     "ja": {
@@ -158,7 +163,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗は白い斜め十字の中央の円に赤い星が三つあり、主な三つの民族を表すとされる。",
         "2019年、政治上の首都を湖畔の最大都市から国土中部の都市へ移した。",
-        "一人当たりGDPが世界で最も低い国の一つとしてたびたび挙げられる。"
+        "タンガニーカ湖の北東岸に位置する内陸国である。",
+        "北隣のルワンダと同じく、住民の大半はフツ人とツチ人である。"
       ]
     },
     "quiz": {
@@ -192,7 +198,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1975 年以前的國名是「達荷美」（Dahomey），沿用古王國的名稱。",
         "古達荷美王國以女性戰士部隊聞名，2022 年的好萊塢電影《The Woman King》就以她們為題材。",
-        "憲法上的首都，與總統府和多數政府機關實際所在的城市是不同的兩座城市。"
+        "憲法上的首都，與總統府和多數政府機關實際所在的城市是不同的兩座城市。",
+        "國土南北狹長，夾在多哥與奈及利亞之間。"
       ]
     },
     "en": {
@@ -216,7 +223,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Until 1975 it was called Dahomey, after the old kingdom that once ruled the area.",
         "The old Kingdom of Dahomey was famous for its all-female army, the subject of the 2022 Hollywood film The Woman King.",
-        "Its constitutional capital and the city where the president and most government offices actually sit are two different cities."
+        "Its constitutional capital and the city where the president and most government offices actually sit are two different cities.",
+        "A long, narrow country squeezed between Togo and Nigeria."
       ]
     },
     "ja": {
@@ -240,7 +248,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1975年までは、かつての王国にちなんで「ダホメ」という国名だった。",
         "かつてのダホメ王国は女性だけの戦士部隊で知られ、2022年のハリウッド映画『ウーマン・キング』の題材になった。",
-        "憲法上の首都と、大統領府や政府機関の多くが実際に置かれている都市が別々になっている。"
+        "憲法上の首都と、大統領府や政府機関の多くが実際に置かれている都市が別々になっている。",
+        "南北に細長い国土で、トーゴとナイジェリアに挟まれている。"
       ]
     },
     "quiz": {
@@ -274,7 +283,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "首都每兩年舉辦一次泛非電影節（FESPACO），是非洲規模最大的電影節之一。",
         "有「非洲切·格瓦拉」之稱的領導人托馬斯·桑卡拉，於 1987 年的政變中遇害。",
-        "國旗上紅下綠，中央有一顆黃色五角星。"
+        "國旗上紅下綠，中央有一顆黃色五角星。",
+        "人口最多的族群是莫西人，莫西語是全國最通行的語言。"
       ]
     },
     "en": {
@@ -298,7 +308,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its capital hosts FESPACO every two years, one of the largest film festivals in Africa.",
         "Thomas Sankara, the leader dubbed \"Africa's Che Guevara\", was killed in a coup in 1987.",
-        "Its flag is red over green with a yellow five-pointed star in the middle."
+        "Its flag is red over green with a yellow five-pointed star in the middle.",
+        "The Mossi are the largest ethnic group, and their language, Mooré, is the most widely spoken."
       ]
     },
     "ja": {
@@ -322,7 +333,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "首都では2年に一度、アフリカ最大級の映画祭である汎アフリカ映画祭（FESPACO）が開かれる。",
         "「アフリカのチェ・ゲバラ」と呼ばれた指導者トマ・サンカラは、1987年のクーデターで殺害された。",
-        "国旗は上が赤、下が緑で、中央に黄色い五角星がある。"
+        "国旗は上が赤、下が緑で、中央に黄色い五角星がある。",
+        "最大の民族はモシ人で、モシ語（モレ語）が最も広く話されている。"
       ]
     },
     "quiz": {
@@ -356,7 +368,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1966 年獨立時是世界上最窮的國家之一，後來靠鑽石成為經濟成長最快的國家之一。",
         "擁有全世界數量最多的非洲象，約有 13 萬頭。",
-        "卡拉哈里沙漠約占國土的七成。"
+        "卡拉哈里沙漠約占國土的七成。",
+        "2024 年在這裡的卡羅韋礦場挖到一顆 2,492 克拉的鑽石原石，是史上第二大的鑽石。"
       ]
     },
     "en": {
@@ -380,7 +393,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "At independence in 1966 it was one of the poorest countries in the world, but diamonds later made it one of the fastest-growing economies.",
         "It has the world's largest population of African elephants, around 130,000.",
-        "The Kalahari Desert covers about 70% of the country."
+        "The Kalahari Desert covers about 70% of the country.",
+        "In 2024 a 2,492-carat rough diamond, the second largest ever found, was unearthed at its Karowe mine."
       ]
     },
     "ja": {
@@ -404,7 +418,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1966年の独立時は世界有数の貧しい国だったが、その後ダイヤモンドによって急成長を遂げた。",
         "アフリカゾウの生息数が世界で最も多く、約13万頭とされる。",
-        "カラハリ砂漠が国土の約7割を占める。"
+        "カラハリ砂漠が国土の約7割を占める。",
+        "2024年、カロウェ鉱山で2,492カラットのダイヤモンド原石が見つかった。史上2番目の大きさである。"
       ]
     },
     "quiz": {
@@ -435,7 +450,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "內陸國，國名直接取自它位於非洲大陸正中央的地理位置。",
         "殖民時期稱為「烏班吉沙立」，1960 年脫離法國獨立。",
-        "國旗由藍、白、綠、黃四條橫帶與一條紅色直帶組成，左上角有一顆黃星。"
+        "國旗由藍、白、綠、黃四條橫帶與一條紅色直帶組成，左上角有一顆黃星。",
+        "首都位在烏班吉河畔，對岸就是剛果民主共和國。"
       ]
     },
     "en": {
@@ -459,7 +475,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "A landlocked country whose name simply describes its position at the very center of the continent.",
         "Known as Ubangi-Shari in colonial times, it gained independence from France in 1960.",
-        "Its flag has four horizontal bands of blue, white, green and yellow crossed by a vertical red band, with a yellow star in the upper left."
+        "Its flag has four horizontal bands of blue, white, green and yellow crossed by a vertical red band, with a yellow star in the upper left.",
+        "Its capital lies on the Ubangi River, with the Democratic Republic of the Congo on the opposite bank."
       ]
     },
     "ja": {
@@ -483,7 +500,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "内陸国で、国名はアフリカ大陸の中央に位置することにそのまま由来する。",
         "植民地時代は「ウバンギ・シャリ」と呼ばれ、1960年にフランスから独立した。",
-        "国旗は青・白・緑・黄の横帯を赤い縦帯が貫き、左上に黄色い星がある。"
+        "国旗は青・白・緑・黄の横帯を赤い縦帯が貫き、左上に黄色い星がある。",
+        "首都はウバンギ川のほとりにあり、対岸はコンゴ民主共和国である。"
       ]
     },
     "quiz": {
@@ -515,7 +533,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1983 年把首都遷到首任總統烏弗埃－博瓦尼的故鄉，但最大城市阿必尚仍是經濟中心。",
         "政府要求各國一律使用法文原名稱呼這個國家，不要翻譯成其他語言。",
-        "2005 年足球明星德羅巴在國家隊晉級世界盃後，跪地呼籲內戰雙方放下武器。"
+        "2005 年足球明星德羅巴在國家隊晉級世界盃後，跪地呼籲內戰雙方放下武器。",
+        "2024 年以地主國身分奪得非洲國家盃足球賽冠軍。"
       ]
     },
     "en": {
@@ -540,7 +559,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1983 the capital was moved to the hometown of founding president Houphouët-Boigny, though Abidjan remains the economic hub.",
         "The government asks that its French name be used in all languages rather than translated.",
-        "In 2005, football star Didier Drogba knelt and begged the warring sides to lay down their arms after the team qualified for the World Cup."
+        "In 2005, football star Didier Drogba knelt and begged the warring sides to lay down their arms after the team qualified for the World Cup.",
+        "In 2024 it won the Africa Cup of Nations on home soil."
       ]
     },
     "ja": {
@@ -565,7 +585,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1983年に首都を初代大統領ウフェ＝ボワニの故郷へ移したが、経済の中心は今も最大都市アビジャンにある。",
         "政府は国名を各言語に訳さず、フランス語の正式名称で呼ぶよう求めている。",
-        "2005年、サッカーのドログバ選手はW杯出場を決めた直後、内戦の当事者に武器を置くよう膝をついて訴えた。"
+        "2005年、サッカーのドログバ選手はW杯出場を決めた直後、内戦の当事者に武器を置くよう膝をついて訴えた。",
+        "2024年、開催国としてアフリカネイションズカップで優勝した。"
       ]
     },
     "quiz": {
@@ -596,7 +617,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國名源自 15 世紀葡萄牙人把當地的河流稱為「蝦河」（Rio dos Camarões）。",
         "國家足球隊「不屈雄獅」在 1990 年世界盃成為第一支打進八強的非洲球隊。",
-        "1986 年尼奧斯湖突然釋出大量二氧化碳，造成約 1,700 人死亡。"
+        "1986 年尼奧斯湖突然釋出大量二氧化碳，造成約 1,700 人死亡。",
+        "足球名將埃托奧曾四度獲選非洲足球先生。"
       ]
     },
     "en": {
@@ -620,7 +642,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its name comes from the Portuguese \"Rio dos Camarões\" (River of Prawns), given to a local river in the 15th century.",
         "Its national football team, the Indomitable Lions, became the first African side to reach a World Cup quarter-final, in 1990.",
-        "In 1986 Lake Nyos suddenly released a huge cloud of carbon dioxide, killing about 1,700 people."
+        "In 1986 Lake Nyos suddenly released a huge cloud of carbon dioxide, killing about 1,700 people.",
+        "Football star Samuel Eto'o was named African Footballer of the Year four times."
       ]
     },
     "ja": {
@@ -644,7 +667,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国名は15世紀にポルトガル人が現地の川を「エビの川（Rio dos Camarões）」と呼んだことに由来する。",
         "サッカー代表「不屈のライオン」は1990年W杯で、アフリカ勢として初めてベスト8に進出した。",
-        "1986年、ニオス湖から大量の二酸化炭素が噴出し、約1,700人が亡くなった。"
+        "1986年、ニオス湖から大量の二酸化炭素が噴出し、約1,700人が亡くなった。",
+        "サッカーのサミュエル・エトオはアフリカ年間最優秀選手に4度選ばれた。"
       ]
     },
     "quiz": {
@@ -675,7 +699,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1971 至 1997 年間國名曾改為「薩伊」（Zaire）。",
         "1974 年阿里與福爾曼的拳王爭霸戰「叢林之戰」在首都舉行。",
-        "鈷的產量占全世界約七成，是電動車電池的重要原料來源。"
+        "鈷的產量占全世界約七成，是電動車電池的重要原料來源。",
+        "國土廣大，海岸線卻只有約 40 公里，靠著剛果河口通往大西洋。"
       ]
     },
     "en": {
@@ -699,7 +724,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "From 1971 to 1997 the country was called Zaire.",
         "The 1974 Ali–Foreman heavyweight fight, the \"Rumble in the Jungle\", was held in its capital.",
-        "It produces roughly 70% of the world's cobalt, a key material for electric-vehicle batteries."
+        "It produces roughly 70% of the world's cobalt, a key material for electric-vehicle batteries.",
+        "Despite its huge size, it has only about 40 km of coastline, reaching the Atlantic at the mouth of the Congo River."
       ]
     },
     "ja": {
@@ -723,7 +749,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1971年から1997年までは「ザイール」という国名だった。",
         "1974年、アリ対フォアマンの世界ヘビー級タイトル戦「ランブル・イン・ザ・ジャングル」がこの国の首都で行われた。",
-        "世界のコバルトの約7割を産出し、電気自動車の電池材料の重要な供給国になっている。"
+        "世界のコバルトの約7割を産出し、電気自動車の電池材料の重要な供給国になっている。",
+        "広大な国土を持つが、海岸線はわずか約40キロで、コンゴ川の河口で大西洋に通じている。"
       ]
     },
     "quiz": {
@@ -757,7 +784,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "首都以 19 世紀一位法籍探險家的姓氏命名。",
         "國旗由綠、黃、紅三色斜向分割。",
-        "石油是最主要的出口品，沿海的黑角是主要港口與石油產業中心。"
+        "石油是最主要的出口品，沿海的黑角是主要港口與石油產業中心。",
+        "二戰期間，首都曾被戴高樂定為「自由法國」的象徵性首都。"
       ]
     },
     "en": {
@@ -781,7 +809,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its capital is named after a 19th-century French explorer.",
         "Its flag is divided diagonally into green, yellow and red.",
-        "Oil is its main export, and the coastal city of Pointe-Noire is its chief port and oil hub."
+        "Oil is its main export, and the coastal city of Pointe-Noire is its chief port and oil hub.",
+        "During World War II its capital served as the symbolic capital of de Gaulle's Free France."
       ]
     },
     "ja": {
@@ -805,7 +834,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "首都の名前は19世紀のフランス人探検家の名にちなむ。",
         "国旗は緑・黄・赤の三色で斜めに区切られている。",
-        "石油が最大の輸出品で、沿岸のポワントノワールが主要な港と石油産業の拠点になっている。"
+        "石油が最大の輸出品で、沿岸のポワントノワールが主要な港と石油産業の拠点になっている。",
+        "第二次世界大戦中、首都はド・ゴールの「自由フランス」の象徴的な首都とされた。"
       ]
     },
     "quiz": {
@@ -837,9 +867,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "葛摩",
       "facts": [
-        "由大科摩羅、昂儒昂、莫埃利三座島組成；第四座島馬約特由法國管轄，但本國至今仍宣稱擁有主權。",
+        "由三座主要島嶼組成；第四座主要島嶼馬約特由法國管轄，但本國至今仍宣稱擁有主權。",
         "1975 年獨立以來，已發生超過 20 次政變或政變未遂。",
-        "周邊海域是「活化石」腔棘魚的主要棲地之一。"
+        "周邊海域是「活化石」腔棘魚的主要棲地之一。",
+        "是阿拉伯國家聯盟的成員，阿拉伯語與法語都是官方語言。"
       ]
     },
     "en": {
@@ -861,9 +892,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "Comoros",
       "facts": [
-        "It consists of Grande Comore, Anjouan and Mohéli; a fourth island, Mayotte, is administered by France but still claimed by the country.",
+        "It consists of three main islands; a fourth, Mayotte, is administered by France but still claimed by the country.",
         "Since independence in 1975 it has seen more than 20 coups or attempted coups.",
-        "Its surrounding waters are one of the main habitats of the coelacanth, the \"living fossil\"."
+        "Its surrounding waters are one of the main habitats of the coelacanth, the \"living fossil\".",
+        "It is a member of the Arab League, with both Arabic and French among its official languages."
       ]
     },
     "ja": {
@@ -887,7 +919,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "主な3つの島からなり、4つ目のマヨット島はフランスが統治しているが、今も領有を主張している。",
         "1975年の独立以来、クーデターやその未遂が20回以上起きている。",
-        "周辺の海は「生きた化石」シーラカンスの主な生息地の一つである。"
+        "周辺の海は「生きた化石」シーラカンスの主な生息地の一つである。",
+        "アラブ連盟の加盟国で、アラビア語とフランス語がともに公用語である。"
       ]
     },
     "quiz": {
@@ -918,8 +951,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "維德角",
       "facts": [
         "由大西洋上的十座火山島組成，15 世紀葡萄牙人到來之前無人居住。",
-        "1975 年脫離葡萄牙獨立。",
-        "住在海外的僑民人數比國內人口還多。"
+        "住在海外的僑民人數比國內人口還多。",
+        "首都位於群島中最大的聖地牙哥島上。",
+        "國家足球隊的暱稱是「藍鯊」（Tubarões Azuis）。"
       ]
     },
     "en": {
@@ -943,8 +977,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Cape Verde",
       "facts": [
         "It is made up of ten volcanic islands in the Atlantic that were uninhabited until the Portuguese arrived in the 15th century.",
-        "It became independent from Portugal in 1975.",
-        "More of its people live abroad than in the country itself."
+        "More of its people live abroad than in the country itself.",
+        "Its capital is on Santiago, the largest island of the archipelago.",
+        "Its national football team is nicknamed the Blue Sharks (Tubarões Azuis)."
       ]
     },
     "ja": {
@@ -968,8 +1003,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "カーボベルデ",
       "facts": [
         "大西洋に浮かぶ10の火山島からなり、15世紀にポルトガル人が来るまで無人だった。",
-        "1975年にポルトガルから独立した。",
-        "国外に住む同国出身者の数が、国内の人口を上回る。"
+        "国外に住む同国出身者の数が、国内の人口を上回る。",
+        "首都は諸島で最大のサンティアゴ島にある。",
+        "サッカー代表の愛称は「青いサメ（Tubarões Azuis）」である。"
       ]
     },
     "quiz": {
@@ -1000,7 +1036,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "境內的阿薩爾湖低於海平面約 155 公尺，是非洲的最低點。",
         "1977 年脫離法國獨立，之前稱為「法屬阿法爾和伊薩領地」。",
-        "美國、法國與中國都在這裡設有軍事基地，中國的第一座海外基地就在此。"
+        "美國、法國與中國都在這裡設有軍事基地，中國的第一座海外基地就在此。",
+        "是內陸國衣索比亞進出口貨物最主要的出海口。"
       ]
     },
     "en": {
@@ -1024,7 +1061,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Lake Assal lies about 155 meters below sea level, the lowest point in Africa.",
         "It became independent from France in 1977; before that it was the French Territory of the Afars and the Issas.",
-        "The United States, France and China all have military bases here, including China's first overseas base."
+        "The United States, France and China all have military bases here, including China's first overseas base.",
+        "It is the main sea outlet for the imports and exports of landlocked Ethiopia."
       ]
     },
     "ja": {
@@ -1048,7 +1086,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "アッサル湖は海抜約マイナス155メートルで、アフリカで最も低い地点である。",
         "1977年にフランスから独立した。それまでは「フランス領アファル・イッサ」と呼ばれていた。",
-        "アメリカ、フランス、中国がここに軍事基地を置いており、中国初の海外基地もここにある。"
+        "アメリカ、フランス、中国がここに軍事基地を置いており、中国初の海外基地もここにある。",
+        "内陸国エチオピアの輸出入貨物にとって最大の海の玄関口である。"
       ]
     },
     "quiz": {
@@ -1079,7 +1118,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1962 年經過八年的獨立戰爭，脫離法國獨立。",
         "法國足球名將席丹的父母來自這個國家的卡比利亞地區。",
-        "國旗左綠右白，中央是紅色的新月與星。"
+        "國旗左綠右白，中央是紅色的新月與星。",
+        "作家卡繆在這裡出生，小說《異鄉人》就以這裡的首都為背景。"
       ]
     },
     "en": {
@@ -1103,7 +1143,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It won independence from France in 1962 after an eight-year war.",
         "The parents of French football star Zinedine Zidane came from this country's Kabylie region.",
-        "Its flag is green and white with a red crescent and star in the middle."
+        "Its flag is green and white with a red crescent and star in the middle.",
+        "Writer Albert Camus was born here, and his novel The Stranger is set in its capital."
       ]
     },
     "ja": {
@@ -1127,7 +1168,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "8年に及ぶ独立戦争の末、1962年にフランスから独立した。",
         "フランスのサッカー選手ジダンの両親は、この国のカビリー地方の出身である。",
-        "国旗は左が緑、右が白で、中央に赤い三日月と星がある。"
+        "国旗は左が緑、右が白で、中央に赤い三日月と星がある。",
+        "作家カミュはこの地で生まれ、小説『異邦人』はこの国の首都を舞台にしている。"
       ]
     },
     "quiz": {
@@ -1158,7 +1200,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "約九成五的人口住在尼羅河谷與三角洲，只占國土的一小部分。",
         "解讀古代象形文字的關鍵「羅塞塔石碑」於 1799 年在此出土。",
-        "國旗紅白黑三色，中央是金色的「薩拉丁之鷹」。"
+        "國旗紅白黑三色，中央是金色的「薩拉丁之鷹」。",
+        "人口超過一億，是阿拉伯世界人口最多的國家。"
       ]
     },
     "en": {
@@ -1182,7 +1225,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "About 95% of the population lives in the Nile valley and delta, a small fraction of the country's land.",
         "The Rosetta Stone, the key to deciphering hieroglyphs, was found here in 1799.",
-        "Its red, white and black flag has the golden Eagle of Saladin in the center."
+        "Its red, white and black flag has the golden Eagle of Saladin in the center.",
+        "With over 100 million people, it is the most populous country in the Arab world."
       ]
     },
     "ja": {
@@ -1206,7 +1250,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "人口の約95%が、国土のごく一部にすぎないナイル川の流域とデルタに住んでいる。",
         "ヒエログリフ解読の鍵となったロゼッタ・ストーンは、1799年にここで発見された。",
-        "赤・白・黒の国旗の中央には金色の「サラディンの鷲」が描かれている。"
+        "赤・白・黒の国旗の中央には金色の「サラディンの鷲」が描かれている。",
+        "人口は1億人を超え、アラブ世界で最も人口の多い国である。"
       ]
     },
     "quiz": {
@@ -1235,8 +1280,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "厄利垂亞",
       "facts": [
-        "1890 至 1941 年是義大利的殖民地。",
-        "受義大利殖民時期影響，自行車運動非常盛行，是全國最受歡迎的運動之一。"
+        "1890 年成為義大利的第一個殖民地，直到 1941 年被英軍占領為止。",
+        "受義大利殖民時期影響，自行車運動非常盛行，是全國最受歡迎的運動之一。",
+        "首都位在海拔約 2,300 公尺的高原上。"
       ]
     },
     "en": {
@@ -1258,8 +1304,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "Eritrea",
       "facts": [
-        "It was an Italian colony from 1890 to 1941.",
-        "Thanks to its Italian colonial past, cycling is hugely popular and one of the national sports."
+        "In 1890 it became Italy's first colony, remaining so until British forces took it in 1941.",
+        "Thanks to its Italian colonial past, cycling is hugely popular and one of the national sports.",
+        "Its capital sits on a plateau about 2,300 m above sea level."
       ]
     },
     "ja": {
@@ -1281,8 +1328,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "エリトリア",
       "facts": [
-        "1890年から1941年までイタリアの植民地だった。",
-        "イタリア植民地時代の影響で自転車競技が盛んで、最も人気のあるスポーツの一つになっている。"
+        "1890年にイタリア最初の植民地となり、1941年にイギリス軍に占領されるまで続いた。",
+        "イタリア植民地時代の影響で自転車競技が盛んで、最も人気のあるスポーツの一つになっている。",
+        "首都は標高約2,300メートルの高原にある。"
       ]
     },
     "quiz": {
@@ -1317,7 +1365,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "與賴比瑞亞同為非洲少數未被歐洲殖民的國家，只在 1936 至 1941 年間被義大利占領。",
         "著名的古人類化石「露西」於 1974 年在此出土。",
-        "非洲聯盟的總部設在這個國家的首都。"
+        "非洲聯盟的總部設在這個國家的首都。",
+        "長跑名將阿貝貝·比基拉在 1960 年羅馬奧運赤腳跑完馬拉松並奪金。"
       ]
     },
     "en": {
@@ -1342,7 +1391,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Along with Liberia, it is one of the few African countries never colonized by Europeans, apart from Italian occupation in 1936–1941.",
         "The famous hominin fossil \"Lucy\" was discovered here in 1974.",
-        "The African Union is headquartered in its capital."
+        "The African Union is headquartered in its capital.",
+        "Distance runner Abebe Bikila won the marathon at the 1960 Rome Olympics running barefoot."
       ]
     },
     "ja": {
@@ -1367,7 +1417,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "リベリアと並んでヨーロッパに植民地化されなかった数少ないアフリカの国で、1936〜1941年にイタリアに占領されたのみである。",
         "有名な猿人の化石「ルーシー」は1974年にここで発見された。",
-        "アフリカ連合の本部がこの国の首都に置かれている。"
+        "アフリカ連合の本部がこの国の首都に置かれている。",
+        "マラソンのアベベ・ビキラは1960年ローマ五輪で裸足で走り、金メダルを獲得した。"
       ]
     },
     "quiz": {
@@ -1402,7 +1453,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "約 17 億年前，奧克洛的鈾礦床曾自然發生核分裂連鎖反應，是已知的天然核反應爐。",
         "2002 年一口氣設立 13 座國家公園，約占國土的一成。",
-        "1967 年起由邦戈父子兩代執政，直到 2023 年發生政變為止。"
+        "1967 年起由邦戈父子兩代執政，直到 2023 年發生政變為止。",
+        "全世界剩下的非洲森林象，約有一半住在這個國家。"
       ]
     },
     "en": {
@@ -1426,7 +1478,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "About 1.7 billion years ago, uranium deposits at Oklo underwent natural nuclear fission, forming the only known natural nuclear reactors.",
         "In 2002 it created 13 national parks at once, covering about a tenth of its territory.",
-        "From 1967 it was ruled by the Bongo father and son until a coup in 2023."
+        "From 1967 it was ruled by the Bongo father and son until a coup in 2023.",
+        "About half of the world's remaining African forest elephants live in this country."
       ]
     },
     "ja": {
@@ -1450,7 +1503,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "約17億年前、オクロのウラン鉱床で自然に核分裂の連鎖反応が起きており、「天然原子炉」として知られる。",
         "2002年に13の国立公園を一度に設け、国土の約1割を保護区にした。",
-        "1967年からボンゴ父子が2代にわたって政権を握り、2023年のクーデターで終わった。"
+        "1967年からボンゴ父子が2代にわたって政権を握り、2023年のクーデターで終わった。",
+        "世界に残るマルミミゾウ（アフリカの森林ゾウ）の約半数がこの国に生息している。"
       ]
     },
     "quiz": {
@@ -1482,7 +1536,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "殖民時期稱為「黃金海岸」。",
         "首任總統恩克魯瑪是泛非主義的代表人物。",
-        "國旗中央有一顆黑星，國家足球隊也因此被稱為「黑星」。"
+        "國旗中央有一顆黑星，國家足球隊也因此被稱為「黑星」。",
+        "可可產量長年居世界第二，僅次於西邊的鄰國。"
       ]
     },
     "en": {
@@ -1507,7 +1562,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In colonial times it was known as the Gold Coast.",
         "Its first president, Kwame Nkrumah, was a leading figure of Pan-Africanism.",
-        "A black star sits in the middle of its flag, which is why the national football team is called the Black Stars."
+        "A black star sits in the middle of its flag, which is why the national football team is called the Black Stars.",
+        "It has long been the world's second-largest cocoa producer, after its western neighbor."
       ]
     },
     "ja": {
@@ -1532,7 +1588,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "植民地時代は「黄金海岸（ゴールドコースト）」と呼ばれていた。",
         "初代大統領エンクルマは汎アフリカ主義を代表する人物である。",
-        "国旗の中央には黒い星があり、サッカー代表も「ブラックスターズ」と呼ばれる。"
+        "国旗の中央には黒い星があり、サッカー代表も「ブラックスターズ」と呼ばれる。",
+        "カカオの生産量は長年、西隣の国に次いで世界第2位である。"
       ]
     },
     "quiz": {
@@ -1561,7 +1618,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "幾內亞",
       "facts": [
         "1958 年在公投中拒絕戴高樂提出的法蘭西共同體方案，成為法屬西非第一個獨立的國家。",
-        "鋁土礦（鋁的原料）的蘊藏量居世界第一。"
+        "鋁土礦（鋁的原料）的蘊藏量居世界第一。",
+        "首任總統塞古·杜爾從 1958 年獨立起執政，直到 1984 年去世。"
       ]
     },
     "en": {
@@ -1583,7 +1641,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Guinea",
       "facts": [
         "In 1958 it rejected de Gaulle's French Community in a referendum, becoming the first country in French West Africa to gain independence.",
-        "It has the world's largest reserves of bauxite, the ore used to make aluminium."
+        "It has the world's largest reserves of bauxite, the ore used to make aluminium.",
+        "Founding president Ahmed Sékou Touré ruled from independence in 1958 until his death in 1984."
       ]
     },
     "ja": {
@@ -1605,7 +1664,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "ギニア",
       "facts": [
         "1958年の国民投票でド・ゴールのフランス共同体案を拒否し、フランス領西アフリカで最初に独立した。",
-        "アルミニウムの原料となるボーキサイトの埋蔵量が世界一である。"
+        "アルミニウムの原料となるボーキサイトの埋蔵量が世界一である。",
+        "初代大統領セク・トゥーレは1958年の独立から1984年に死去するまで政権を握った。"
       ]
     },
     "quiz": {
@@ -1639,7 +1699,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1982 至 1989 年曾與塞內加爾組成邦聯。",
         "首都位在大河河口的一座島上。",
-        "以友善好客聞名，被稱為「非洲的微笑海岸」。"
+        "以友善好客聞名，被稱為「非洲的微笑海岸」。",
+        "美國作家亞歷克斯·哈利的小說《根》，主角昆塔·金特的故鄉就在這裡。"
       ]
     },
     "en": {
@@ -1663,7 +1724,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "From 1982 to 1989 it formed a confederation with Senegal.",
         "Its capital sits on an island at the mouth of the great river.",
-        "Known for its friendly people, it is nicknamed \"the Smiling Coast of Africa\"."
+        "Known for its friendly people, it is nicknamed \"the Smiling Coast of Africa\".",
+        "Kunta Kinte, the hero of Alex Haley's novel Roots, came from here."
       ]
     },
     "ja": {
@@ -1687,7 +1749,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1982年から1989年まで、セネガルと国家連合を組んでいた。",
         "首都は大河の河口にある島に位置している。",
-        "人々の人懐っこさから「アフリカの微笑みの海岸」と呼ばれる。"
+        "人々の人懐っこさから「アフリカの微笑みの海岸」と呼ばれる。",
+        "アレックス・ヘイリーの小説『ルーツ』の主人公クンタ・キンテの故郷はこの国にある。"
       ]
     },
     "quiz": {
@@ -1719,7 +1782,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "幾內亞比紹",
       "facts": [
         "獨立運動領袖阿米爾卡·卡布拉爾於 1973 年遇刺，沒能看到獨立。",
-        "1963 至 1974 年間為脫離葡萄牙進行了武裝獨立戰爭。"
+        "1963 至 1974 年間為脫離葡萄牙進行了武裝獨立戰爭。",
+        "2019 年，瓦斯成為獨立以來第一位做滿五年任期的民選總統。"
       ]
     },
     "en": {
@@ -1741,7 +1805,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Guinea-Bissau",
       "facts": [
         "Independence leader Amílcar Cabral was assassinated in 1973, before independence came.",
-        "It fought an armed war of independence against Portugal from 1963 to 1974."
+        "It fought an armed war of independence against Portugal from 1963 to 1974.",
+        "In 2019 José Mário Vaz became the first elected president since independence to complete a full five-year term."
       ]
     },
     "ja": {
@@ -1763,7 +1828,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "ギニアビサウ",
       "facts": [
         "独立運動の指導者アミルカル・カブラルは1973年に暗殺され、独立を見届けられなかった。",
-        "1963年から1974年まで、ポルトガルからの独立を目指す武装闘争が続いた。"
+        "1963年から1974年まで、ポルトガルからの独立を目指す武装闘争が続いた。",
+        "2019年、ジョゼ・マリオ・ヴァスが独立以来初めて5年の任期を全うした大統領となった。"
       ]
     },
     "quiz": {
@@ -1796,7 +1862,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1968 年脫離西班牙獨立。",
         "國土由大陸上的木尼河地區與比奧科島等數座島嶼組成。",
-        "總統奧比昂自 1979 年起長期執政，是世界上在位最久的總統之一。"
+        "總統奧比昂自 1979 年起長期執政，是世界上在位最久的總統之一。",
+        "1990 年代發現海上油田後，人均 GDP 一度躍居非洲前列。"
       ]
     },
     "en": {
@@ -1819,7 +1886,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It gained independence from Spain in 1968.",
         "Its territory consists of the mainland Río Muni region and several islands, including Bioko.",
-        "President Obiang has ruled since 1979, making him one of the longest-serving presidents in the world."
+        "President Obiang has ruled since 1979, making him one of the longest-serving presidents in the world.",
+        "After offshore oil was discovered in the 1990s, its GDP per capita briefly rose to among the highest in Africa."
       ]
     },
     "ja": {
@@ -1842,7 +1910,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1968年にスペインから独立した。",
         "国土は大陸部のリオ・ムニ地方と、ビオコ島などいくつかの島からなる。",
-        "オビアン大統領は1979年から政権を握り、世界で最も在任期間の長い大統領の一人である。"
+        "オビアン大統領は1979年から政権を握り、世界で最も在任期間の長い大統領の一人である。",
+        "1990年代に海底油田が見つかってから、一人当たりGDPが一時アフリカ有数の水準に跳ね上がった。"
       ]
     },
     "quiz": {
@@ -1876,7 +1945,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國名源自境內的非洲第二高峰。",
         "2007 年推出的手機支付服務 M-Pesa，讓這裡成為行動支付的先驅。",
-        "國旗中央畫著馬賽族的盾牌與兩支交叉的長矛。"
+        "國旗中央畫著馬賽族的盾牌與兩支交叉的長矛。",
+        "環保人士旺加里·馬塔伊在 2004 年成為第一位獲得諾貝爾和平獎的非洲女性。"
       ]
     },
     "en": {
@@ -1900,7 +1970,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The country is named after its mountain, the second-highest peak in Africa.",
         "The mobile-money service M-Pesa, launched here in 2007, made it a pioneer of mobile payments.",
-        "Its flag shows a Maasai shield with two crossed spears in the center."
+        "Its flag shows a Maasai shield with two crossed spears in the center.",
+        "In 2004 environmentalist Wangari Maathai became the first African woman to win the Nobel Peace Prize."
       ]
     },
     "ja": {
@@ -1924,7 +1995,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国名は国内にあるアフリカ第2の高峰に由来する。",
         "2007年に始まった携帯電話送金サービス「M-Pesa」で、モバイル決済の先駆けとなった。",
-        "国旗の中央にはマサイ族の盾と交差した2本の槍が描かれている。"
+        "国旗の中央にはマサイ族の盾と交差した2本の槍が描かれている。",
+        "2004年、環境活動家ワンガリ・マータイがアフリカの女性として初めてノーベル平和賞を受賞した。"
       ]
     },
     "quiz": {
@@ -1957,7 +2029,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗仿照美國國旗，有 11 條紅白條紋與一顆白星。",
         "2006 年瑟利夫就任總統，成為非洲第一位民選女性國家元首。",
-        "曾獲世界足球先生的喬治·維阿，於 2018 至 2024 年擔任總統。"
+        "曾獲世界足球先生的喬治·維阿，於 2018 至 2024 年擔任總統。",
+        "1980 年士官長杜伊發動政變，結束了美裔移民後代長達一個多世紀的統治。"
       ]
     },
     "en": {
@@ -1980,7 +2053,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Modeled on the US flag, its flag has 11 red and white stripes and a single white star.",
         "In 2006 Ellen Johnson Sirleaf took office as Africa's first elected female head of state.",
-        "Former FIFA World Player of the Year George Weah served as president from 2018 to 2024."
+        "Former FIFA World Player of the Year George Weah served as president from 2018 to 2024.",
+        "In 1980 Master Sergeant Samuel Doe seized power in a coup, ending more than a century of rule by the Americo-Liberian elite."
       ]
     },
     "ja": {
@@ -2003,7 +2077,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗はアメリカ国旗をもとにしており、赤白11本の縞と白い星が一つある。",
         "2006年にサーリーフが大統領に就任し、アフリカ初の選挙で選ばれた女性元首となった。",
-        "FIFA最優秀選手に選ばれたジョージ・ウェアは、2018年から2024年まで大統領を務めた。"
+        "FIFA最優秀選手に選ばれたジョージ・ウェアは、2018年から2024年まで大統領を務めた。",
+        "1980年、ドウ曹長がクーデターを起こし、米国からの移民の子孫による1世紀以上の支配に終止符を打った。"
       ]
     },
     "quiz": {
@@ -2034,7 +2109,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1969 年格達費發動政變上台，統治長達 42 年，直到 2011 年被推翻。",
         "1951 年獨立時是一個王國。",
-        "已探明的石油蘊藏量居非洲第一。"
+        "已探明的石油蘊藏量居非洲第一。",
+        "1911 年起成為義大利的殖民地。"
       ]
     },
     "en": {
@@ -2058,7 +2134,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Muammar Gaddafi seized power in a 1969 coup and ruled for 42 years until he was overthrown in 2011.",
         "When it became independent in 1951, it was a kingdom.",
-        "It has the largest proven oil reserves in Africa."
+        "It has the largest proven oil reserves in Africa.",
+        "It became an Italian colony in 1911."
       ]
     },
     "ja": {
@@ -2082,7 +2159,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1969年のクーデターで権力を握ったカダフィは、2011年に倒されるまで42年間統治した。",
         "1951年に独立したときは王国だった。",
-        "確認されている石油埋蔵量はアフリカで最大である。"
+        "確認されている石油埋蔵量はアフリカで最大である。",
+        "1911年からイタリアの植民地となった。"
       ]
     },
     "quiz": {
@@ -2116,7 +2194,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1966 年脫離英國獨立，殖民時期稱為「巴蘇陀蘭」。",
         "國旗中央畫著傳統的圓錐形草帽 mokorotlo。",
-        "因為地勢極高，被稱為「天空王國」。"
+        "因為地勢極高，被稱為「天空王國」。",
+        "19 世紀由國王莫舒舒一世統合各部族，建立了這個國家的前身。"
       ]
     },
     "en": {
@@ -2140,7 +2219,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It became independent from Britain in 1966; in colonial times it was called Basutoland.",
         "Its flag features the mokorotlo, a traditional conical straw hat.",
-        "Because it lies so high, it is known as the \"Kingdom in the Sky\"."
+        "Because it lies so high, it is known as the \"Kingdom in the Sky\".",
+        "In the 19th century King Moshoeshoe I united the local clans, founding the nation's forerunner."
       ]
     },
     "ja": {
@@ -2164,7 +2244,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1966年にイギリスから独立した。植民地時代は「バストランド」と呼ばれていた。",
         "国旗の中央には伝統的な円錐形の麦わら帽子「モコロトロ」が描かれている。",
-        "標高が非常に高いことから「天空の王国」と呼ばれる。"
+        "標高が非常に高いことから「天空の王国」と呼ばれる。",
+        "19世紀、モショエショエ1世が諸部族をまとめ、この国の前身を築いた。"
       ]
     },
     "quiz": {
@@ -2197,7 +2278,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "與西班牙隔著直布羅陀海峽相望，最近處只有約 14 公里。",
         "2022 年世界盃足球賽成為第一支打進四強的非洲球隊。",
-        "國旗是紅底，中央有一顆綠色的五芒星。"
+        "國旗是紅底，中央有一顆綠色的五芒星。",
+        "現在的阿拉維王朝自 17 世紀起統治至今，國王是國家元首。"
       ]
     },
     "en": {
@@ -2223,7 +2305,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It faces Spain across the Strait of Gibraltar, only about 14 km away at the narrowest point.",
         "At the 2022 World Cup it became the first African team to reach the semi-finals.",
-        "Its flag is red with a green five-pointed star in the center."
+        "Its flag is red with a green five-pointed star in the center.",
+        "The ruling Alaouite dynasty has reigned since the 17th century, with the king as head of state."
       ]
     },
     "ja": {
@@ -2249,7 +2332,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ジブラルタル海峡をはさんでスペインと向かい合い、最も狭い所では約14キロしか離れていない。",
         "2022年のサッカーW杯で、アフリカ勢として初めてベスト4に進出した。",
-        "国旗は赤地の中央に緑の五芒星が描かれている。"
+        "国旗は赤地の中央に緑の五芒星が描かれている。",
+        "現在のアラウィー朝は17世紀から続いており、国王が国家元首である。"
       ]
     },
     "quiz": {
@@ -2284,7 +2368,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "是世界第四大島。",
         "國語屬於南島語系，與東南亞的語言系出同源，祖先有一部分來自婆羅洲一帶。",
-        "全世界約一半的變色龍種類生活在這座島上。"
+        "全世界約一半的變色龍種類生活在這座島上。",
+        "主食是稻米，人均稻米消費量名列世界前茅。"
       ]
     },
     "en": {
@@ -2309,7 +2394,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the fourth-largest island in the world.",
         "Its national language is Austronesian, related to languages of Southeast Asia, and part of its people's ancestry traces back to the Borneo area.",
-        "About half of the world's chameleon species live on this island."
+        "About half of the world's chameleon species live on this island.",
+        "Rice is the staple food, and rice consumption per person is among the highest in the world."
       ]
     },
     "ja": {
@@ -2334,7 +2420,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "世界で4番目に大きい島である。",
         "国語は東南アジアの言語と同じオーストロネシア語族に属し、祖先の一部はボルネオ島周辺から渡ってきた。",
-        "世界のカメレオンの種の約半分がこの島に生息している。"
+        "世界のカメレオンの種の約半分がこの島に生息している。",
+        "主食は米で、一人当たりの米の消費量は世界でもトップクラスである。"
       ]
     },
     "quiz": {
@@ -2364,7 +2451,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "馬利",
       "facts": [
         "1960 年與塞內加爾組成的聯邦解體後，單獨宣布獨立。",
-        "「沙漠藍調」吉他手阿里·法卡·圖雷曾三度獲得葛萊美獎。"
+        "「沙漠藍調」吉他手阿里·法卡·圖雷曾三度獲得葛萊美獎。",
+        "2012 年北部被分離主義與伊斯蘭武裝組織占領，法國隔年出兵干預。"
       ]
     },
     "en": {
@@ -2387,7 +2475,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Mali",
       "facts": [
         "It became independent on its own in 1960 after the short-lived federation it had formed with Senegal broke up.",
-        "Desert-blues guitarist Ali Farka Touré won three Grammy Awards."
+        "Desert-blues guitarist Ali Farka Touré won three Grammy Awards.",
+        "In 2012 its north was seized by separatist and Islamist militants, prompting French military intervention the following year."
       ]
     },
     "ja": {
@@ -2410,7 +2499,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "マリ共和国",
       "facts": [
         "1960年、セネガルと組んだ連邦が短期間で解消されたのち、単独で独立した。",
-        "「砂漠のブルース」のギタリスト、アリ・ファルカ・トゥーレはグラミー賞を3度受賞した。"
+        "「砂漠のブルース」のギタリスト、アリ・ファルカ・トゥーレはグラミー賞を3度受賞した。",
+        "2012年に北部が分離独立派とイスラム武装勢力に占拠され、翌年フランスが軍事介入した。"
       ]
     },
     "quiz": {
@@ -2443,8 +2533,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "莫桑比克",
       "facts": [
-        "1975 年脫離葡萄牙獨立，官方語言是葡萄牙語。",
-        "首任總統的遺孀格拉薩·馬謝爾後來嫁給曼德拉，成為唯一當過兩國第一夫人的女性。"
+        "1995 年加入大英國協，是當時唯一從未受英國統治的成員國。",
+        "首任總統的遺孀格拉薩·馬謝爾後來嫁給曼德拉，成為唯一當過兩國第一夫人的女性。",
+        "首都原名「洛倫索馬貴斯」，1976 年改為現名。"
       ]
     },
     "en": {
@@ -2467,8 +2558,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "Mozambique",
       "facts": [
-        "It gained independence from Portugal in 1975, and Portuguese is its official language.",
-        "Graça Machel, widow of its first president, later married Nelson Mandela, becoming the only woman to be First Lady of two countries."
+        "It joined the Commonwealth in 1995, at the time the only member that had never been part of the British Empire.",
+        "Graça Machel, widow of its first president, later married Nelson Mandela, becoming the only woman to be First Lady of two countries.",
+        "Its capital was called Lourenço Marques until it was renamed in 1976."
       ]
     },
     "ja": {
@@ -2491,8 +2583,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "モザンビーク",
       "facts": [
-        "1975年にポルトガルから独立し、公用語はポルトガル語である。",
-        "初代大統領の未亡人グラサ・マシェルは後にマンデラと結婚し、2つの国のファーストレディになった唯一の女性となった。"
+        "1995年にイギリス連邦に加盟し、当時は英国の統治を受けたことのない唯一の加盟国だった。",
+        "初代大統領の未亡人グラサ・マシェルは後にマンデラと結婚し、2つの国のファーストレディになった唯一の女性となった。",
+        "首都はかつて「ロレンソ・マルケス」と呼ばれ、1976年に現在の名前に改められた。"
       ]
     },
     "quiz": {
@@ -2525,7 +2618,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "毛里塔尼亞",
       "facts": [
         "1981 年才正式廢除奴隸制，是世界上最後一個廢奴的國家。",
-        "國旗是綠底黃色新月與星，2017 年在上下各加了一條紅帶。"
+        "國旗是綠底黃色新月與星，2017 年在上下各加了一條紅帶。",
+        "首都原本只是一座小村落，1958 年才開始興建為首都。"
       ]
     },
     "en": {
@@ -2548,7 +2642,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Mauritania",
       "facts": [
         "It formally abolished slavery only in 1981, the last country in the world to do so.",
-        "Its flag is green with a yellow crescent and star; red stripes were added at the top and bottom in 2017."
+        "Its flag is green with a yellow crescent and star; red stripes were added at the top and bottom in 2017.",
+        "Its capital was little more than a village until construction began in 1958 to make it the capital."
       ]
     },
     "ja": {
@@ -2571,7 +2666,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "モーリタニア",
       "facts": [
         "1981年にようやく奴隷制を正式に廃止した、世界で最後の国である。",
-        "国旗は緑地に黄色の三日月と星で、2017年に上下に赤い帯が加えられた。"
+        "国旗は緑地に黄色の三日月と星で、2017年に上下に赤い帯が加えられた。",
+        "首都はもともと小さな村にすぎず、1958年から首都として建設が始まった。"
       ]
     },
     "quiz": {
@@ -2604,7 +2700,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "模里西斯",
       "facts": [
         "人口多數是印度裔，印度教是最大的宗教。",
-        "1847 年發行的「藍便士」郵票是世界上最稀有、最昂貴的郵票之一。"
+        "1847 年發行的「藍便士」郵票是世界上最稀有、最昂貴的郵票之一。",
+        "1968 年脫離英國獨立後，經濟從甘蔗為主轉型為紡織、觀光與金融業。"
       ]
     },
     "en": {
@@ -2627,7 +2724,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Mauritius",
       "facts": [
         "Most of its people are of Indian descent, and Hinduism is the largest religion.",
-        "Its \"Blue Penny\" stamp of 1847 is among the rarest and most valuable stamps in the world."
+        "Its \"Blue Penny\" stamp of 1847 is among the rarest and most valuable stamps in the world.",
+        "After independence from Britain in 1968, its economy shifted from sugar cane to textiles, tourism and finance."
       ]
     },
     "ja": {
@@ -2650,7 +2748,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "モーリシャス",
       "facts": [
         "住民の多くはインド系で、最大の宗教はヒンドゥー教である。",
-        "1847年発行の「ブルー・ペニー」切手は、世界で最も希少で高価な切手の一つである。"
+        "1847年発行の「ブルー・ペニー」切手は、世界で最も希少で高価な切手の一つである。",
+        "1968年にイギリスから独立した後、経済はサトウキビ中心から繊維・観光・金融へと転換した。"
       ]
     },
     "quiz": {
@@ -2681,7 +2780,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "殖民時期稱為「尼亞薩蘭」，1964 年脫離英國獨立。",
         "國土狹長，湖泊水域約占國土面積的五分之一。",
-        "以人民親切友善聞名，被稱為「非洲溫暖之心」。"
+        "以人民親切友善聞名，被稱為「非洲溫暖之心」。",
+        "首任總統班達曾自封終身總統，直到 1994 年在多黨選舉中落敗。"
       ]
     },
     "en": {
@@ -2705,7 +2805,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Known as Nyasaland in colonial times, it gained independence from Britain in 1964.",
         "A long, narrow country, about a fifth of its area is lake water.",
-        "Known for its friendly people, it is nicknamed \"the Warm Heart of Africa\"."
+        "Known for its friendly people, it is nicknamed \"the Warm Heart of Africa\".",
+        "Founding president Hastings Banda declared himself president for life, until he lost the multiparty election of 1994."
       ]
     },
     "ja": {
@@ -2729,7 +2830,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "植民地時代は「ニヤサランド」と呼ばれ、1964年にイギリスから独立した。",
         "細長い国土の約5分の1を湖の水域が占める。",
-        "人々の温かさから「アフリカの温かい心」と呼ばれる。"
+        "人々の温かさから「アフリカの温かい心」と呼ばれる。",
+        "初代大統領バンダは終身大統領を名乗ったが、1994年の複数政党制選挙で敗れた。"
       ]
     },
     "quiz": {
@@ -2762,8 +2864,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "納米比亞",
       "facts": [
         "1990 年脫離南非統治獨立。",
-        "是全世界人口密度最低的國家之一。",
-        "是世界上最早把環境保護寫進憲法的國家之一。"
+        "是世界上少數在憲法中明文規定保護自然資源的國家之一。",
+        "1884 年起是德國的殖民地「德屬西南非」。",
+        "北部海岸遍布沉船與鯨骨，被稱為「骷髏海岸」。"
       ]
     },
     "en": {
@@ -2786,8 +2889,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Namibia",
       "facts": [
         "It gained independence from South African rule in 1990.",
-        "It is one of the most sparsely populated countries in the world.",
-        "It was one of the first countries to write environmental protection into its constitution."
+        "It is one of the few countries in the world whose constitution specifically provides for the conservation of natural resources.",
+        "From 1884 it was the German colony of German South West Africa.",
+        "Its northern shore, strewn with shipwrecks and whale bones, is known as the Skeleton Coast."
       ]
     },
     "ja": {
@@ -2810,8 +2914,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "ナミビア",
       "facts": [
         "1990年に南アフリカの統治から独立した。",
-        "世界で最も人口密度の低い国の一つである。",
-        "環境保護を憲法に明記した世界でも早い国の一つである。"
+        "憲法で天然資源の保護を明確に定めている、世界でも数少ない国の一つである。",
+        "1884年からドイツの植民地「ドイツ領南西アフリカ」だった。",
+        "北部の海岸は難破船やクジラの骨が散らばり、「スケルトン・コースト」と呼ばれる。"
       ]
     },
     "quiz": {
@@ -2839,9 +2944,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "尼日爾",
       "facts": [
-        "國名源自流經西南部的大河。",
-        "是世界主要的鈾礦生產國之一。",
-        "1960 年脫離法國獨立。"
+        "國名源自流經西南部的大河，首都就位在這條河畔。",
+        "北部沙漠中的城鎮阿利特是重要的鈾礦開採地。",
+        "生育率長年居世界最高，平均每名婦女生育約 6 到 7 個孩子。"
       ]
     },
     "en": {
@@ -2862,9 +2967,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "Niger",
       "facts": [
-        "The country is named after the great river that flows through its southwest.",
-        "It is one of the world's major producers of uranium.",
-        "It became independent from France in 1960."
+        "It is named after the great river that flows through its southwest, on whose banks the capital stands.",
+        "The northern desert town of Arlit is an important uranium-mining center.",
+        "Its fertility rate has long been the highest in the world, at around six to seven children per woman."
       ]
     },
     "ja": {
@@ -2885,9 +2990,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "ニジェール",
       "facts": [
-        "国名は南西部を流れる大河に由来する。",
-        "世界有数のウラン産出国である。",
-        "1960年にフランスから独立した。"
+        "国名は南西部を流れる大河に由来し、首都もその川のほとりにある。",
+        "北部の砂漠の町アーリットは、ウラン採掘の重要な拠点である。",
+        "出生率は長年世界最高で、女性1人あたり6〜7人の子どもを産む。"
       ]
     },
     "quiz": {
@@ -2921,7 +3026,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "作家沃萊·索因卡在 1986 年成為第一位獲得諾貝爾文學獎的非洲人。",
         "阿契貝 1958 年的小說《分崩離析》是非洲文學最廣為閱讀的作品之一。",
-        "1967 至 1970 年間，東南部宣布成立「比亞法拉」而爆發內戰。"
+        "1967 至 1970 年間，東南部宣布成立「比亞法拉」而爆發內戰。",
+        "1991 年把首都從最大城市拉哥斯遷到國土中央新建的城市。"
       ]
     },
     "en": {
@@ -2945,7 +3051,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1986 writer Wole Soyinka became the first African to win the Nobel Prize in Literature.",
         "Chinua Achebe's 1958 novel Things Fall Apart is one of the most widely read works of African literature.",
-        "From 1967 to 1970 a civil war was fought after the southeast declared itself the Republic of Biafra."
+        "From 1967 to 1970 a civil war was fought after the southeast declared itself the Republic of Biafra.",
+        "In 1991 it moved its capital from its largest city, Lagos, to a purpose-built city in the center of the country."
       ]
     },
     "ja": {
@@ -2969,7 +3076,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "作家ウォーレ・ショインカは1986年、アフリカ人として初めてノーベル文学賞を受賞した。",
         "チヌア・アチェベの1958年の小説『崩れゆく絆』は、最も広く読まれているアフリカ文学の一つである。",
-        "1967年から1970年にかけ、南東部が「ビアフラ共和国」として独立を宣言したことで内戦が起きた。"
+        "1967年から1970年にかけ、南東部が「ビアフラ共和国」として独立を宣言したことで内戦が起きた。",
+        "1991年、首都を最大都市ラゴスから国土の中央に新しく建設した都市へ移した。"
       ]
     },
     "quiz": {
@@ -3000,7 +3108,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "山丘遍布，被稱為「千丘之國」。",
         "2008 年起全面禁用塑膠袋。",
-        "每月最後一個星期六是全民社區服務日「烏姆甘達」（Umuganda）。"
+        "每月最後一個星期六是全民社區服務日「烏姆甘達」（Umuganda）。",
+        "1994 年發生種族大屠殺，約 100 天內有 50 萬到 80 萬人遇害。"
       ]
     },
     "en": {
@@ -3024,7 +3133,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "With hills everywhere, it is called \"the Land of a Thousand Hills\".",
         "It banned plastic bags nationwide in 2008.",
-        "On the last Saturday of every month, citizens take part in Umuganda, a day of community service."
+        "On the last Saturday of every month, citizens take part in Umuganda, a day of community service.",
+        "In the 1994 genocide, some 500,000 to 800,000 people were killed in about 100 days."
       ]
     },
     "ja": {
@@ -3048,7 +3158,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "丘が連なることから「千の丘の国」と呼ばれる。",
         "2008年からビニール袋を全面的に禁止している。",
-        "毎月最終土曜日は、国民が地域の奉仕作業を行う「ウムガンダ」の日である。"
+        "毎月最終土曜日は、国民が地域の奉仕作業を行う「ウムガンダ」の日である。",
+        "1994年の大虐殺では、約100日間で50万〜80万人が殺害された。"
       ]
     },
     "quiz": {
@@ -3081,7 +3192,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "蘇丹",
       "facts": [
         "2011 年南部獨立之前，是非洲面積最大的國家。",
-        "是世界最大的阿拉伯膠產地，這種樹膠被用在汽水、糖果等食品中。"
+        "是世界最大的阿拉伯膠產地，這種樹膠被用在汽水、糖果等食品中。",
+        "2019 年，執政 30 年的總統巴希爾在大規模抗議後被軍方推翻。"
       ]
     },
     "en": {
@@ -3104,7 +3216,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Sudan",
       "facts": [
         "Until its south became independent in 2011, it was the largest country in Africa.",
-        "It is the world's largest producer of gum arabic, used in soft drinks, sweets and other foods."
+        "It is the world's largest producer of gum arabic, used in soft drinks, sweets and other foods.",
+        "In 2019, after mass protests, the military ousted President Omar al-Bashir, who had ruled for 30 years."
       ]
     },
     "ja": {
@@ -3127,7 +3240,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "スーダン",
       "facts": [
         "2011年に南部が独立するまでは、アフリカで最も面積の大きい国だった。",
-        "清涼飲料や菓子などに使われるアラビアガムの世界最大の産地である。"
+        "清涼飲料や菓子などに使われるアラビアガムの世界最大の産地である。",
+        "2019年、大規模な抗議の末に、30年間政権を握ったバシール大統領が軍によって失脚した。"
       ]
     },
     "quiz": {
@@ -3158,9 +3272,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "南蘇丹",
       "facts": [
-        "官方語言是英語，與北方的鄰國不同。",
         "每年白耳水羚等羚羊的季節遷徙，被認為是世界上規模最大的陸生哺乳動物遷徙之一。",
-        "國旗是黑紅綠三條橫帶，左側有一個藍色三角形與一顆金星。"
+        "國旗是黑紅綠三條橫帶，左側有一個藍色三角形與一顆金星。",
+        "2016 年里約奧運首度派出代表團參賽。",
+        "首任總統基爾總是戴著牛仔帽，成了他的招牌。"
       ]
     },
     "en": {
@@ -3181,9 +3296,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "South Sudan",
       "facts": [
-        "Its official language is English, unlike its northern neighbor.",
         "Its seasonal migration of white-eared kob and other antelope is considered one of the largest land-mammal migrations on Earth.",
-        "Its flag has black, red and green bands with a blue triangle and a gold star on the left."
+        "Its flag has black, red and green bands with a blue triangle and a gold star on the left.",
+        "It competed at the Olympics for the first time at the 2016 Rio Games.",
+        "Its first president, Salva Kiir, is rarely seen without his trademark cowboy hat."
       ]
     },
     "ja": {
@@ -3204,9 +3320,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       "dia": null,
       "wiki": "南スーダン",
       "facts": [
-        "北の隣国と異なり、公用語は英語である。",
         "シロミミコブなどレイヨウの季節移動は、世界最大級の陸上哺乳類の大移動とされる。",
-        "国旗は黒・赤・緑の横帯に、左側の青い三角形と金色の星からなる。"
+        "国旗は黒・赤・緑の横帯に、左側の青い三角形と金色の星からなる。",
+        "2016年のリオ五輪で初めてオリンピックに選手団を送った。",
+        "初代大統領キールはカウボーイハットがトレードマークである。"
       ]
     },
     "quiz": {
@@ -3239,7 +3356,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "塞內加爾",
       "facts": [
         "首任總統桑戈爾也是知名詩人，後來入選法蘭西學術院。",
-        "2002 年世界盃首戰擊敗衛冕軍法國，最後打進八強。"
+        "2002 年世界盃首戰擊敗衛冕軍法國，最後打進八強。",
+        "2022 年首度奪得非洲國家盃足球賽冠軍。"
       ]
     },
     "en": {
@@ -3262,7 +3380,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Senegal",
       "facts": [
         "Its first president, Léopold Sédar Senghor, was also a renowned poet and later a member of the Académie française.",
-        "At the 2002 World Cup it beat defending champions France in the opening match and went on to reach the quarter-finals."
+        "At the 2002 World Cup it beat defending champions France in the opening match and went on to reach the quarter-finals.",
+        "In 2022 it won the Africa Cup of Nations for the first time."
       ]
     },
     "ja": {
@@ -3285,7 +3404,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "セネガル",
       "facts": [
         "初代大統領サンゴールは著名な詩人でもあり、のちにアカデミー・フランセーズの会員になった。",
-        "2002年W杯の開幕戦で前回王者フランスを破り、ベスト8まで進んだ。"
+        "2002年W杯の開幕戦で前回王者フランスを破り、ベスト8まで進んだ。",
+        "2022年、アフリカネイションズカップで初優勝した。"
       ]
     },
     "quiz": {
@@ -3315,7 +3435,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "塞拉利昂",
       "facts": [
         "盛產鑽石，內戰期間的「血鑽石」交易是電影《血鑽石》的背景。",
-        "官方語言是英語，但最通行的是克里奧語（Krio）。"
+        "官方語言是英語，但最通行的是克里奧語（Krio）。",
+        "1991 至 2002 年發生內戰，叛軍以砍斷平民手腳的暴行震驚世界。"
       ]
     },
     "en": {
@@ -3338,7 +3459,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Sierra Leone",
       "facts": [
         "It is rich in diamonds, and the \"conflict diamond\" trade during its civil war was the backdrop of the film Blood Diamond.",
-        "English is the official language, but Krio is the most widely spoken."
+        "English is the official language, but Krio is the most widely spoken.",
+        "A civil war from 1991 to 2002 shocked the world with rebels' mutilation of civilians' hands and limbs."
       ]
     },
     "ja": {
@@ -3361,7 +3483,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "シエラレオネ",
       "facts": [
         "ダイヤモンドの産地で、内戦中の「紛争ダイヤモンド」の取引は映画『ブラッド・ダイヤモンド』の舞台になった。",
-        "公用語は英語だが、最も広く話されているのはクリオ語である。"
+        "公用語は英語だが、最も広く話されているのはクリオ語である。",
+        "1991年から2002年まで内戦が続き、反政府勢力が市民の手足を切断する残虐行為が世界に衝撃を与えた。"
       ]
     },
     "quiz": {
@@ -3394,7 +3517,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "是世界上駱駝數量最多的國家。",
         "北部的索馬利蘭於 1991 年自行宣布獨立，但未獲國際普遍承認。",
-        "2000 年代後期，沿海的亞丁灣與印度洋一帶海盜猖獗。"
+        "2000 年代後期，沿海的亞丁灣與印度洋一帶海盜猖獗。",
+        "1960 年由英屬與義屬兩塊殖民地合併獨立。"
       ]
     },
     "en": {
@@ -3417,7 +3541,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It has more camels than any other country in the world.",
         "Its northern region, Somaliland, declared independence in 1991 but is not widely recognized.",
-        "In the late 2000s, piracy was rampant off its coast in the Gulf of Aden and the Indian Ocean."
+        "In the late 2000s, piracy was rampant off its coast in the Gulf of Aden and the Indian Ocean.",
+        "It became independent in 1960 when the former British and Italian colonies merged."
       ]
     },
     "ja": {
@@ -3440,7 +3565,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ラクダの頭数が世界で最も多い国である。",
         "北部のソマリランドは1991年に独立を宣言したが、国際的にはほとんど承認されていない。",
-        "2000年代後半、沖合のアデン湾やインド洋で海賊が多発した。"
+        "2000年代後半、沖合のアデン湾やインド洋で海賊が多発した。",
+        "1960年、イギリス領とイタリア領の二つの植民地が合併して独立した。"
       ]
     },
     "quiz": {
@@ -3470,8 +3596,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "聖多美和普林西比",
       "facts": [
         "由幾內亞灣上兩座主要的火山島組成。",
-        "1975 年脫離葡萄牙獨立。",
-        "20 世紀初曾是世界最大的可可產地。"
+        "20 世紀初曾是世界最大的可可產地。",
+        "殖民時期的可可莊園稱為「羅薩」（roça），許多莊園建築留存至今。"
       ]
     },
     "en": {
@@ -3494,8 +3620,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "São Tomé and Príncipe",
       "facts": [
         "It consists of two main volcanic islands in the Gulf of Guinea.",
-        "It became independent from Portugal in 1975.",
-        "In the early 20th century it was the world's largest producer of cocoa."
+        "In the early 20th century it was the world's largest producer of cocoa.",
+        "Its colonial cocoa plantations, called roças, still have many of their old estate buildings standing."
       ]
     },
     "ja": {
@@ -3518,8 +3644,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "サントメ・プリンシペ",
       "facts": [
         "ギニア湾に浮かぶ2つの火山島を中心とする国である。",
-        "1975年にポルトガルから独立した。",
-        "20世紀初めには世界最大のカカオ産地だった。"
+        "20世紀初めには世界最大のカカオ産地だった。",
+        "植民地時代のカカオ農園は「ロサ（roça）」と呼ばれ、多くの農園の建物が今も残る。"
       ]
     },
     "quiz": {
@@ -3552,7 +3678,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2018 年由國王宣布更改國名，不再使用舊名「史瓦濟蘭」（Swaziland）。",
         "是非洲最後一個絕對君主制國家。",
-        "內陸國，被南非與莫三比克包圍。"
+        "內陸國，被南非與莫三比克包圍。",
+        "是目前唯一與臺灣（中華民國）維持正式邦交的非洲國家。"
       ]
     },
     "en": {
@@ -3575,7 +3702,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 2018 the king renamed the country, dropping the old name Swaziland.",
         "It is the last absolute monarchy in Africa.",
-        "A landlocked country surrounded by South Africa and Mozambique."
+        "A landlocked country surrounded by South Africa and Mozambique.",
+        "It is currently the only African country with formal diplomatic ties to Taiwan (the Republic of China)."
       ]
     },
     "ja": {
@@ -3598,7 +3726,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2018年に国王が国名を変更し、旧名「スワジランド」を使わなくなった。",
         "アフリカで最後の絶対君主制の国である。",
-        "南アフリカとモザンビークに囲まれた内陸国である。"
+        "南アフリカとモザンビークに囲まれた内陸国である。",
+        "現在、台湾（中華民国）と正式な国交を持つ唯一のアフリカの国である。"
       ]
     },
     "quiz": {
@@ -3632,7 +3761,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "由印度洋上約 115 座島嶼組成。",
         "是非洲人口最少的國家，人口約 10 萬人。",
-        "亞達伯拉環礁上住著約 10 萬隻亞達伯拉象龜。"
+        "亞達伯拉環礁上住著約 10 萬隻亞達伯拉象龜。",
+        "2015 年成為第一個被世界銀行列為高所得國家的非洲國家。"
       ]
     },
     "en": {
@@ -3656,7 +3786,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is made up of about 115 islands in the Indian Ocean.",
         "With about 100,000 people, it has the smallest population of any African country.",
-        "Aldabra Atoll is home to around 100,000 Aldabra giant tortoises."
+        "Aldabra Atoll is home to around 100,000 Aldabra giant tortoises.",
+        "In 2015 it became the first African country classified as high-income by the World Bank."
       ]
     },
     "ja": {
@@ -3680,7 +3811,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "インド洋に浮かぶ約115の島々からなる。",
         "人口は約10万人で、アフリカで最も人口の少ない国である。",
-        "アルダブラ環礁には約10万頭のアルダブラゾウガメが暮らしている。"
+        "アルダブラ環礁には約10万頭のアルダブラゾウガメが暮らしている。",
+        "2015年、アフリカで初めて世界銀行に高所得国と分類された。"
       ]
     },
     "quiz": {
@@ -3714,7 +3846,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北部提貝斯提山脈的庫西山是撒哈拉沙漠的最高峰。",
         "國旗是藍、黃、紅三條直帶，和羅馬尼亞國旗幾乎一模一樣。",
-        "1960 年脫離法國獨立。"
+        "首都位在沙里河與洛貢河的交會處，隔河與喀麥隆相望。",
+        "2001 年在北部沙漠發現約 700 萬年前的人科化石「圖邁」。"
       ]
     },
     "en": {
@@ -3738,7 +3871,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Emi Koussi in the northern Tibesti Mountains is the highest peak in the Sahara.",
         "Its blue, yellow and red vertical tricolor is almost identical to the flag of Romania.",
-        "It became independent from France in 1960."
+        "Its capital stands where the Chari and Logone rivers meet, facing Cameroon across the water.",
+        "In 2001 the roughly 7-million-year-old hominin fossil \"Toumaï\" was found in its northern desert."
       ]
     },
     "ja": {
@@ -3762,7 +3896,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北部ティベスティ山地のエミ・クーシは、サハラ砂漠の最高峰である。",
         "青・黄・赤の縦三色旗は、ルーマニアの国旗とほとんど同じである。",
-        "1960年にフランスから独立した。"
+        "首都はシャリ川とロゴーヌ川の合流点にあり、川を挟んでカメルーンと向かい合う。",
+        "2001年、北部の砂漠で約700万年前の人類化石「トゥーマイ」が発見された。"
       ]
     },
     "quiz": {
@@ -3791,7 +3926,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "多哥",
       "facts": [
         "國土南北狹長，海岸線只有約 56 公里。",
-        "前總統埃亞德馬從 1967 年執政到 2005 年去世，之後由兒子繼任。"
+        "前總統埃亞德馬從 1967 年執政到 2005 年去世，之後由兒子繼任。",
+        "國家足球隊在 2006 年首度打進世界盃。"
       ]
     },
     "en": {
@@ -3813,7 +3949,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Togo",
       "facts": [
         "It is long and narrow, with a coastline of only about 56 km.",
-        "President Gnassingbé Eyadéma ruled from 1967 until his death in 2005, and was succeeded by his son."
+        "President Gnassingbé Eyadéma ruled from 1967 until his death in 2005, and was succeeded by his son.",
+        "Its national football team reached the World Cup for the first time in 2006."
       ]
     },
     "ja": {
@@ -3835,7 +3972,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "トーゴ",
       "facts": [
         "南北に細長い国土で、海岸線は約56キロしかない。",
-        "エヤデマ大統領は1967年から2005年に亡くなるまで政権を握り、その後は息子が後を継いだ。"
+        "エヤデマ大統領は1967年から2005年に亡くなるまで政権を握り、その後は息子が後を継いだ。",
+        "サッカー代表は2006年に初めてワールドカップに出場した。"
       ]
     },
     "quiz": {
@@ -3869,7 +4007,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "突尼西亞",
       "facts": [
         "《星際大戰》在南部取景，主角的故鄉「塔圖因」就借用了當地小鎮的名字。",
-        "2015 年「全國對話四方集團」因推動民主轉型獲得諾貝爾和平獎。"
+        "2015 年「全國對話四方集團」因推動民主轉型獲得諾貝爾和平獎。",
+        "1956 年獨立後，首任總統布爾吉巴推動廢除一夫多妻等婦女權利改革。"
       ]
     },
     "en": {
@@ -3893,7 +4032,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Tunisia",
       "facts": [
         "Star Wars was filmed in the south, and Luke's home planet Tatooine took its name from a town there.",
-        "In 2015 its National Dialogue Quartet won the Nobel Peace Prize for helping the democratic transition."
+        "In 2015 its National Dialogue Quartet won the Nobel Peace Prize for helping the democratic transition.",
+        "After independence in 1956, first president Habib Bourguiba pushed women's-rights reforms such as banning polygamy."
       ]
     },
     "ja": {
@@ -3917,7 +4057,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "チュニジア",
       "facts": [
         "『スター・ウォーズ』は南部で撮影され、主人公の故郷「タトゥイーン」の名は現地の町に由来する。",
-        "2015年、民主化への移行を支えた「国民対話カルテット」がノーベル平和賞を受賞した。"
+        "2015年、民主化への移行を支えた「国民対話カルテット」がノーベル平和賞を受賞した。",
+        "1956年の独立後、初代大統領ブルギバは一夫多妻制の廃止など女性の権利改革を進めた。"
       ]
     },
     "quiz": {
@@ -3947,7 +4088,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "坦尚尼亞",
       "facts": [
         "首任總統尼雷爾在 1960、70 年代推行「烏賈馬」（Ujamaa）村莊集體化的社會主義政策。",
-        "皇后樂團主唱佛萊迪·墨裘瑞 1946 年出生在桑吉巴島。"
+        "皇后樂團主唱佛萊迪·墨裘瑞 1946 年出生在桑吉巴島。",
+        "維多利亞湖、坦干依喀湖、馬拉威湖這三座大湖都有一部分在國境內。"
       ]
     },
     "en": {
@@ -3970,7 +4112,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Tanzania",
       "facts": [
         "In the 1960s and 70s its first president, Julius Nyerere, pursued Ujamaa, a socialist policy of collective villages.",
-        "Queen frontman Freddie Mercury was born on Zanzibar in 1946."
+        "Queen frontman Freddie Mercury was born on Zanzibar in 1946.",
+        "Part of each of Africa's three great lakes — Victoria, Tanganyika and Malawi — lies within its borders."
       ]
     },
     "ja": {
@@ -3993,7 +4136,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "タンザニア",
       "facts": [
         "初代大統領ニエレレは1960〜70年代、村落の集団化を進める社会主義政策「ウジャマー」を推し進めた。",
-        "クイーンのボーカル、フレディ・マーキュリーは1946年にザンジバル島で生まれた。"
+        "クイーンのボーカル、フレディ・マーキュリーは1946年にザンジバル島で生まれた。",
+        "ヴィクトリア湖、タンガニーカ湖、マラウイ湖の三大湖すべての一部が国内にある。"
       ]
     },
     "quiz": {
@@ -4023,7 +4167,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1971 至 1979 年由獨裁者伊迪·阿敏統治。",
         "國旗中央畫著灰冕鶴。",
-        "邱吉爾曾稱它為「非洲的明珠」。"
+        "邱吉爾曾稱它為「非洲的明珠」。",
+        "1976 年以色列特種部隊突襲恩德培機場，救出遭劫持的人質。"
       ]
     },
     "en": {
@@ -4046,7 +4191,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It was ruled by the dictator Idi Amin from 1971 to 1979.",
         "Its flag features a grey crowned crane in the center.",
-        "Winston Churchill called it \"the Pearl of Africa\"."
+        "Winston Churchill called it \"the Pearl of Africa\".",
+        "In 1976 Israeli commandos raided Entebbe Airport to rescue hijacked hostages."
       ]
     },
     "ja": {
@@ -4069,7 +4215,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1971年から1979年まで独裁者イディ・アミンが支配した。",
         "国旗の中央にはホオジロカンムリヅルが描かれている。",
-        "チャーチルはこの国を「アフリカの真珠」と呼んだ。"
+        "チャーチルはこの国を「アフリカの真珠」と呼んだ。",
+        "1976年、イスラエルの特殊部隊がエンテベ空港を急襲し、ハイジャックの人質を救出した。"
       ]
     },
     "quiz": {
@@ -4095,13 +4242,14 @@ Object.assign(window.KMAP_INFO.world.units, {
         "克魯格國家公園",
         "好望角"
       ],
-      "fact": "同時有行政、立法、司法三個首都，並有 11 種官方語言。",
+      "fact": "同時有行政、立法、司法三個首都，並有 12 種官方語言（2023 年加入手語）。",
       "dia": null,
       "wiki": "南非",
       "facts": [
         "是世界上唯一自行研發核武後又自願全部銷毀的國家。",
         "1967 年巴納德醫師在此完成世界第一例人類心臟移植手術。",
-        "曼德拉在獄中度過 27 年，1994 年成為第一位黑人總統。"
+        "曼德拉在獄中度過 27 年，1994 年成為第一位黑人總統。",
+        "1995 年主辦並贏得橄欖球世界盃，曼德拉穿著國家隊球衣頒獎。"
       ]
     },
     "en": {
@@ -4120,13 +4268,14 @@ Object.assign(window.KMAP_INFO.world.units, {
         "Kruger National Park",
         "Cape of Good Hope"
       ],
-      "fact": "It has three capitals, for the executive, legislative and judicial branches, and 11 official languages.",
+      "fact": "It has three capitals, for the executive, legislative and judicial branches, and 12 official languages (sign language was added in 2023).",
       "dia": null,
       "wiki": "South Africa",
       "facts": [
         "It is the only country to have developed nuclear weapons and then voluntarily dismantled them all.",
         "In 1967 Dr Christiaan Barnard performed the world's first human heart transplant here.",
-        "Nelson Mandela spent 27 years in prison and became its first Black president in 1994."
+        "Nelson Mandela spent 27 years in prison and became its first Black president in 1994.",
+        "It hosted and won the 1995 Rugby World Cup, with Nelson Mandela presenting the trophy in the team's jersey."
       ]
     },
     "ja": {
@@ -4145,13 +4294,14 @@ Object.assign(window.KMAP_INFO.world.units, {
         "クルーガー国立公園",
         "喜望峰"
       ],
-      "fact": "行政・立法・司法の3つの首都を持ち、公用語は11もある。",
+      "fact": "行政・立法・司法の3つの首都を持ち、公用語は12もある（2023年に手話が加わった）。",
       "dia": null,
       "wiki": "南アフリカ共和国",
       "facts": [
         "核兵器を自ら開発したのち、自発的にすべて廃棄した世界で唯一の国である。",
         "1967年、バーナード医師がここで世界初のヒトの心臓移植手術を行った。",
-        "マンデラは27年間投獄されたのち、1994年に初の黒人大統領となった。"
+        "マンデラは27年間投獄されたのち、1994年に初の黒人大統領となった。",
+        "1995年にラグビーW杯を開催して優勝し、マンデラ大統領が代表のジャージ姿で優勝杯を手渡した。"
       ]
     },
     "quiz": {
@@ -4181,7 +4331,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "赞比亚",
       "facts": [
         "殖民時期稱為「北羅德西亞」，1964 年脫離英國獨立。",
-        "2012 年在加彭奪下非洲國家盃冠軍，而 1993 年國家隊正是在加彭外海墜機罹難。"
+        "2012 年在加彭奪下非洲國家盃冠軍，而 1993 年國家隊正是在加彭外海墜機罹難。",
+        "首任總統卡翁達執政 27 年，1991 年在多黨選舉中落敗下台。"
       ]
     },
     "en": {
@@ -4204,7 +4355,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "Zambia",
       "facts": [
         "Known as Northern Rhodesia in colonial times, it became independent from Britain in 1964.",
-        "It won the 2012 Africa Cup of Nations in Gabon, near where its national team had died in a 1993 plane crash."
+        "It won the 2012 Africa Cup of Nations in Gabon, near where its national team had died in a 1993 plane crash.",
+        "Founding president Kenneth Kaunda ruled for 27 years until losing the 1991 multiparty election."
       ]
     },
     "ja": {
@@ -4227,7 +4379,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "wiki": "ザンビア",
       "facts": [
         "植民地時代は「北ローデシア」と呼ばれ、1964年にイギリスから独立した。",
-        "2012年、1993年に代表チームが墜落事故で亡くなったガボンの地でアフリカ・ネイションズカップを制した。"
+        "2012年、1993年に代表チームが墜落事故で亡くなったガボンの地でアフリカ・ネイションズカップを制した。",
+        "初代大統領カウンダは27年間政権を担い、1991年の複数政党制選挙で敗れて退いた。"
       ]
     },
     "quiz": {
@@ -4258,7 +4411,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "殖民時期稱為「南羅德西亞」，1980 年正式獨立。",
         "國名在紹納語中的意思是「石屋」。",
-        "穆加比自 1980 年起執政 37 年，2017 年被迫下台。"
+        "穆加比自 1980 年起執政 37 年，2017 年被迫下台。",
+        "憲法明定 16 種官方語言，是世界上官方語言最多的國家之一。"
       ]
     },
     "en": {
@@ -4282,7 +4436,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Known as Southern Rhodesia in colonial times, it gained full independence in 1980.",
         "Its name means \"houses of stone\" in the Shona language.",
-        "Robert Mugabe led the country for 37 years from 1980 until he was forced out in 2017."
+        "Robert Mugabe led the country for 37 years from 1980 until he was forced out in 2017.",
+        "Its constitution recognizes 16 official languages, one of the highest numbers in the world."
       ]
     },
     "ja": {
@@ -4306,7 +4461,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "植民地時代は「南ローデシア」と呼ばれ、1980年に正式に独立した。",
         "国名はショナ語で「石の家」を意味する。",
-        "ムガベは1980年から37年間政権を握り、2017年に退陣に追い込まれた。"
+        "ムガベは1980年から37年間政権を握り、2017年に退陣に追い込まれた。",
+        "憲法で16の公用語を定めており、世界で最も公用語の多い国の一つである。"
       ]
     },
     "quiz": {

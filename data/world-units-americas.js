@@ -23,9 +23,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "據說島上的海灘多達 365 個，一年每天都能去一個不同的。",
       "facts": [
-        "1981 年脫離英國獨立，至今仍奉英國君主為國家元首。",
+        "1981 年脫離英國獨立，國名由兩座主島的名字連在一起。",
         "國旗上的金色太陽從黑、藍、白三色之上升起，象徵新時代的黎明。",
-        "2017 年颶風艾瑪重創兩座主島中較小的那一座，全島居民一度全數撤離。"
+        "2017 年颶風艾瑪重創兩座主島中較小的那一座，全島居民一度全數撤離。",
+        "板球傳奇球星維夫·理查茲出身這裡，國家板球場就以他命名。"
       ],
       "dia": null,
       "wiki": "安提瓜和巴布達"
@@ -49,9 +50,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "It is said to have 365 beaches, one for every day of the year.",
       "facts": [
-        "It gained independence from Britain in 1981 and still has the British monarch as head of state.",
+        "It became independent from Britain in 1981, and its name joins the names of its two main islands.",
         "Its flag shows a golden sun rising above bands of black, blue and white, symbolising the dawn of a new era.",
-        "In 2017 Hurricane Irma devastated the smaller of its two main islands, and its entire population was evacuated."
+        "In 2017 Hurricane Irma devastated the smaller of its two main islands, and its entire population was evacuated.",
+        "Cricket legend Viv Richards comes from here, and the national cricket stadium is named after him."
       ],
       "dia": null,
       "wiki": "Antigua and Barbuda"
@@ -75,9 +77,10 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "ビーチが365もあると言われ、1年365日、毎日違う浜辺に行けるとされる。",
       "facts": [
-        "1981年にイギリスから独立し、現在もイギリス国王を元首としている。",
+        "1981年にイギリスから独立した。国名は二つの主な島の名前をつなげたもの。",
         "国旗には黒・青・白の帯の上に昇る金色の太陽が描かれ、新しい時代の夜明けを表す。",
-        "2017年にハリケーン・イルマが二つの主島のうち小さい方を壊滅させ、島民全員が一時避難した。"
+        "2017年にハリケーン・イルマが二つの主島のうち小さい方を壊滅させ、島民全員が一時避難した。",
+        "クリケットの伝説的選手ビブ・リチャーズの出身地で、国立クリケット場は彼の名を冠している。"
       ],
       "dia": null,
       "wiki": "アンティグア・バーブーダ"
@@ -110,7 +113,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1492 年哥倫布橫渡大西洋後，第一個登陸的美洲土地就在這個群島上。",
         "1973 年脫離英國獨立。",
-        "國旗上的黑色三角形代表人民的力量，金色與海藍色則象徵陽光、沙灘與海洋。"
+        "國旗上的黑色三角形代表人民的力量，金色與海藍色則象徵陽光、沙灘與海洋。",
+        "國鳥是美洲紅鸛，南部的大伊納瓜島有世界最大的加勒比紅鸛繁殖群。",
+        "18 世紀初，首都是黑鬍子等海盜盤據的「海盜共和國」大本營。"
       ],
       "dia": null,
       "wiki": "巴哈馬"
@@ -136,7 +141,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1492 Columbus made his first landfall in the Americas on one of these islands.",
         "It became independent from Britain in 1973.",
-        "The black triangle on its flag stands for the strength of the people, while gold and aquamarine represent sun, sand and sea."
+        "The black triangle on its flag stands for the strength of the people, while gold and aquamarine represent sun, sand and sea.",
+        "Its national bird is the flamingo, and Great Inagua in the south hosts the world's largest breeding colony of Caribbean flamingos.",
+        "In the early 18th century its capital was the base of the \"Republic of Pirates\", home to Blackbeard and others."
       ],
       "dia": null,
       "wiki": "The Bahamas"
@@ -162,7 +169,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1492年、大西洋を渡ったコロンブスが最初に上陸したアメリカ大陸の土地はこの群島の島だった。",
         "1973年にイギリスから独立した。",
-        "国旗の黒い三角形は国民の力を、金色とアクアマリンは太陽・砂浜・海を表す。"
+        "国旗の黒い三角形は国民の力を、金色とアクアマリンは太陽・砂浜・海を表す。",
+        "国鳥はフラミンゴで、南部のグレート・イナグア島にはカリブフラミンゴの世界最大の繁殖地がある。",
+        "18世紀初め、首都は黒ひげらが拠点とした「海賊共和国」の本拠地だった。"
       ],
       "dia": null,
       "wiki": "バハマ"
@@ -198,7 +207,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "舊稱英屬宏都拉斯，1973 年改用現名，1981 年才獨立。",
         "國旗上的國徽畫著兩名伐木工人，是極少數以人物為主要圖案的國旗。",
-        "1980 年代在考克斯科姆盆地設立了世界上第一座專為美洲豹設立的保護區。"
+        "1980 年代在考克斯科姆盆地設立了世界上第一座專為美洲豹設立的保護區。",
+        "是中美洲唯一沒有太平洋海岸線的國家。",
+        "1961 年颶風哈蒂重創沿海的舊首都，政府因此在內陸另建新首都，1970 年遷都。"
       ],
       "dia": null,
       "wiki": "伯利茲"
@@ -224,7 +235,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Formerly called British Honduras, it took its current name in 1973 and became independent in 1981.",
         "The coat of arms on its flag shows two woodcutters, making it one of very few national flags with people as a major design element.",
-        "In the 1980s it set up the world's first protected area for the jaguar, in the Cockscomb Basin."
+        "In the 1980s it set up the world's first protected area for the jaguar, in the Cockscomb Basin.",
+        "It is the only Central American country with no Pacific coastline.",
+        "After Hurricane Hattie wrecked the old coastal capital in 1961, the government built a new capital inland and moved there in 1970."
       ],
       "dia": null,
       "wiki": "Belize"
@@ -250,7 +263,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "かつては英領ホンジュラスと呼ばれ、1973年に現在の国名に改め、1981年に独立した。",
         "国旗の紋章には二人の木こりが描かれ、人物を主要な図柄にした数少ない国旗である。",
-        "1980年代、コックスコム盆地に世界初のジャガー保護区を設けた。"
+        "1980年代、コックスコム盆地に世界初のジャガー保護区を設けた。",
+        "中米で唯一、太平洋側に海岸線を持たない国。",
+        "1961年のハリケーン・ハッティで沿岸の旧首都が大きな被害を受け、内陸に新首都を建設して1970年に移転した。"
       ],
       "dia": null,
       "wiki": "ベリーズ"
@@ -286,7 +301,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗中央是一支斷了柄的三叉戟，象徵與殖民歷史決裂。",
         "葡萄柚據信是 18 世紀在這座島上由兩種柑橘偶然雜交而誕生的。",
-        "是加勒比海地區位置最東邊的島嶼。"
+        "是加勒比海地區位置最東邊的島嶼。",
+        "美國首任總統華盛頓一生唯一一次出國，就是 1751 年陪哥哥來到這座島。"
       ],
       "dia": null,
       "wiki": "巴巴多斯"
@@ -312,7 +328,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag shows a trident with a broken shaft, symbolising the break from its colonial past.",
         "The grapefruit is believed to have arisen here in the 18th century as an accidental cross between two citrus fruits.",
-        "It is the easternmost island of the Caribbean."
+        "It is the easternmost island of the Caribbean.",
+        "The only time George Washington ever travelled abroad was in 1751, when he came to this island with his brother."
       ],
       "dia": null,
       "wiki": "Barbados"
@@ -338,7 +355,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗中央には柄の折れた三叉の矛が描かれ、植民地の過去との決別を表す。",
         "グレープフルーツは18世紀にこの島で2種類の柑橘が偶然交雑して生まれたとされる。",
-        "カリブ海地域で最も東に位置する島である。"
+        "カリブ海地域で最も東に位置する島である。",
+        "アメリカ初代大統領ワシントンが生涯で唯一海外へ出たのは、1751年に兄に付き添ってこの島を訪れたときだった。"
       ],
       "dia": null,
       "wiki": "バルバドス"
@@ -371,7 +389,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國土面積世界第二大，僅次於俄羅斯。",
         "擁有的湖泊數量是全世界最多的國家。",
-        "國旗上的紅色楓葉圖案直到 1965 年才正式啟用。"
+        "國旗上的紅色楓葉圖案直到 1965 年才正式啟用。",
+        "英語與法語同為聯邦官方語言，東部有一省以法語為唯一官方語言。"
       ],
       "dia": null,
       "wiki": "加拿大"
@@ -397,7 +416,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the second-largest country in the world by area, after Russia.",
         "It has more lakes than any other country in the world.",
-        "Its red maple leaf flag was officially adopted only in 1965."
+        "Its red maple leaf flag was officially adopted only in 1965.",
+        "English and French are both official languages at the federal level, and one eastern province has French as its sole official language."
       ],
       "dia": null,
       "wiki": "Canada"
@@ -423,7 +443,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国土面積はロシアに次いで世界第2位。",
         "湖の数が世界で最も多い国である。",
-        "赤いカエデの葉の国旗が正式に採用されたのは1965年のこと。"
+        "赤いカエデの葉の国旗が正式に採用されたのは1965年のこと。",
+        "英語とフランス語がともに連邦の公用語で、東部にはフランス語だけを公用語とする州がある。"
       ],
       "dia": null,
       "wiki": "カナダ"
@@ -456,7 +477,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國土只占全球陸地約 0.03%，卻擁有全世界約 5% 的生物物種。",
         "國民常把「Pura vida（純粹的生活）」掛在嘴邊，這句話幾乎成了國家的代名詞。",
-        "全國電力幾乎全部來自水力、地熱、風力等再生能源。"
+        "全國電力幾乎全部來自水力、地熱、風力等再生能源。",
+        "加勒比海岸的托土蓋羅是西半球最重要的綠蠵龜產卵地。"
       ],
       "dia": null,
       "wiki": "哥斯達黎加"
@@ -482,7 +504,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Covering only about 0.03% of the world's land, it holds roughly 5% of the planet's species.",
         "Locals constantly say \"Pura vida\" (pure life), a phrase that has become almost synonymous with the country.",
-        "Nearly all of its electricity comes from renewable sources such as hydro, geothermal and wind power."
+        "Nearly all of its electricity comes from renewable sources such as hydro, geothermal and wind power.",
+        "Tortuguero on its Caribbean coast is the most important green sea turtle nesting site in the Western Hemisphere."
       ],
       "dia": null,
       "wiki": "Costa Rica"
@@ -508,7 +531,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国土は世界の陸地の約0.03%にすぎないが、地球上の生物種の約5%が生息する。",
         "国民がよく口にする「プラ・ビダ（純粋な人生）」は、この国の代名詞になっている。",
-        "電力のほぼすべてを水力・地熱・風力などの再生可能エネルギーでまかなっている。"
+        "電力のほぼすべてを水力・地熱・風力などの再生可能エネルギーでまかなっている。",
+        "カリブ海側のトルトゥゲーロは、西半球で最も重要なアオウミガメの産卵地。"
       ],
       "dia": null,
       "wiki": "コスタリカ"
@@ -544,7 +568,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1959 年卡斯楚領導革命，推翻了巴蒂斯塔政權。",
         "1962 年蘇聯在這裡部署核飛彈，引發美蘇之間的飛彈危機。",
-        "世界上最小的鳥「吸蜜蜂鳥」只分布在這個國家。"
+        "世界上最小的鳥「吸蜜蜂鳥」只分布在這個國家。",
+        "海明威在首都近郊住了二十多年，《老人與海》就是在這裡寫成的。",
+        "東南部的關達那摩灣有美國租借的海軍基地。"
       ],
       "dia": null,
       "wiki": "古巴"
@@ -570,7 +596,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1959 Fidel Castro led a revolution that overthrew the Batista regime.",
         "In 1962 the Soviet Union placed nuclear missiles here, setting off the missile crisis with the United States.",
-        "The bee hummingbird, the smallest bird in the world, lives only in this country."
+        "The bee hummingbird, the smallest bird in the world, lives only in this country.",
+        "Ernest Hemingway lived on the outskirts of its capital for over twenty years and wrote The Old Man and the Sea there.",
+        "Guantánamo Bay in the southeast is home to a US naval base held under lease."
       ],
       "dia": null,
       "wiki": "Cuba"
@@ -596,7 +624,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1959年、カストロ率いる革命がバティスタ政権を倒した。",
         "1962年、ソ連がここに核ミサイルを配備し、米ソ間のミサイル危機が起きた。",
-        "世界最小の鳥マメハチドリは、この国にしか生息していない。"
+        "世界最小の鳥マメハチドリは、この国にしか生息していない。",
+        "ヘミングウェイは首都郊外に20年あまり住み、『老人と海』をここで書いた。",
+        "南東部のグアンタナモ湾には、アメリカが租借する海軍基地がある。"
       ],
       "dia": null,
       "wiki": "キューバ"
@@ -631,7 +661,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗中央畫著國鳥帝王亞馬遜鸚鵡（西瑟魯鸚鵡），是世界上少數用到紫色的國旗。",
         "1978 年脫離英國獨立，常被誤認成同一地區另一個名字相近的國家。",
-        "因為大片雨林與火山地形，有「加勒比海的自然之島」之稱。"
+        "因為大片雨林與火山地形，有「加勒比海的自然之島」之稱。",
+        "2017 年颶風瑪莉亞以五級強度直撲本島，造成嚴重破壞。"
       ],
       "dia": null,
       "wiki": "多米尼克"
@@ -656,7 +687,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag features the national bird, the Sisserou parrot, and is one of very few national flags that use purple.",
         "It became independent from Britain in 1978 and is often confused with another country of a similar name in the same region.",
-        "With its vast rainforests and volcanic landscape, it is nicknamed the \"Nature Isle of the Caribbean\"."
+        "With its vast rainforests and volcanic landscape, it is nicknamed the \"Nature Isle of the Caribbean\".",
+        "In 2017 Hurricane Maria struck the island directly at Category 5 strength, causing devastating damage."
       ],
       "dia": null,
       "wiki": "Dominica"
@@ -681,7 +713,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗の中央には国鳥ミカドボウシインコが描かれ、紫色を使う数少ない国旗である。",
         "1978年にイギリスから独立した。同じ地域にある似た名前の国とよく混同される。",
-        "広大な熱帯雨林と火山地形から「カリブの自然の島」と呼ばれる。"
+        "広大な熱帯雨林と火山地形から「カリブの自然の島」と呼ばれる。",
+        "2017年、ハリケーン・マリアがカテゴリー5の勢力で島を直撃し、甚大な被害をもたらした。"
       ],
       "dia": null,
       "wiki": "ドミニカ国"
@@ -717,7 +750,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "棒球是國民運動，美國大聯盟裡的外籍球員以來自本國的最多。",
         "國旗中央的國徽上畫著一本翻開的聖經與十字架。",
-        "梅倫格（merengue）與巴恰塔（bachata）兩種舞曲的發源地。"
+        "梅倫格（merengue）與巴恰塔（bachata）兩種舞曲的發源地。",
+        "藍色的寶石「拉利瑪石」全世界只產於這個國家。"
       ],
       "dia": null,
       "wiki": "多米尼加共和國"
@@ -743,7 +777,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Baseball is the national passion, and it supplies more foreign-born players to Major League Baseball than any other country.",
         "The coat of arms at the centre of its flag shows an open Bible and a cross.",
-        "It is the birthplace of both merengue and bachata music."
+        "It is the birthplace of both merengue and bachata music.",
+        "The blue gemstone larimar is found only in this country."
       ],
       "dia": null,
       "wiki": "Dominican Republic"
@@ -769,7 +804,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "野球が国民的スポーツで、メジャーリーグの外国出身選手はこの国の出身者が最も多い。",
         "国旗中央の紋章には、開かれた聖書と十字架が描かれている。",
-        "メレンゲとバチャータという二つの音楽の発祥地。"
+        "メレンゲとバチャータという二つの音楽の発祥地。",
+        "青い宝石「ラリマー」は世界でこの国でしか産出しない。"
       ],
       "dia": null,
       "wiki": "ドミニカ共和国"
@@ -800,7 +836,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "以出產肉豆蔻聞名，有「香料之島」之稱，國旗上還畫著一顆肉豆蔻。",
       "facts": [
         "1983 年美軍登陸這座島，推翻當時的軍事政權。",
-        "國旗上的七顆星代表全國六個行政區，以及卡里亞庫與小馬提尼克兩座屬島。"
+        "國旗上的七顆星代表全國六個行政區，以及卡里亞庫與小馬提尼克兩座屬島。",
+        "2004 年颶風伊凡摧毀了島上約九成的房屋。"
       ],
       "dia": null,
       "wiki": "格林納達"
@@ -824,7 +861,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "Known as the \"Spice Isle\" for its nutmeg, which even appears on its national flag.",
       "facts": [
         "In 1983 US forces invaded the island and removed the military government then in power.",
-        "The seven stars on its flag represent its six parishes plus the islands of Carriacou and Petite Martinique."
+        "The seven stars on its flag represent its six parishes plus the islands of Carriacou and Petite Martinique.",
+        "In 2004 Hurricane Ivan damaged or destroyed about 90% of the homes on the island."
       ],
       "dia": null,
       "wiki": "Grenada"
@@ -848,7 +886,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "ナツメグの産地として知られ「香辛料の島」と呼ばれ、国旗にもナツメグが描かれている。",
       "facts": [
         "1983年に米軍がこの島に侵攻し、当時の軍事政権を倒した。",
-        "国旗の7つの星は、6つの行政区とカリアク島・プティット・マルティニーク島を表す。"
+        "国旗の7つの星は、6つの行政区とカリアク島・プティット・マルティニーク島を表す。",
+        "2004年のハリケーン・アイバンで、島の住宅の約9割が被害を受けた。"
       ],
       "dia": null,
       "wiki": "グレナダ"
@@ -881,7 +920,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "是中美洲人口最多的國家。",
         "出了兩位諾貝爾獎得主：文學獎的阿斯圖里亞斯（1967）與和平獎的里戈韋塔·曼朱（1992）。",
-        "境內的塔胡穆科火山（約 4,220 公尺）是中美洲最高峰。"
+        "境內的塔胡穆科火山（約 4,220 公尺）是中美洲最高峰。",
+        "四成以上人口是瑪雅原住民，境內使用二十多種瑪雅語。"
       ],
       "dia": null,
       "wiki": "危地馬拉"
@@ -907,7 +947,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the most populous country in Central America.",
         "It has produced two Nobel laureates: writer Miguel Ángel Asturias (Literature, 1967) and activist Rigoberta Menchú (Peace, 1992).",
-        "Its Tajumulco Volcano, about 4,220 m high, is the highest peak in Central America."
+        "Its Tajumulco Volcano, about 4,220 m high, is the highest peak in Central America.",
+        "More than 40% of its people are indigenous Maya, and over twenty Mayan languages are spoken."
       ],
       "dia": null,
       "wiki": "Guatemala"
@@ -933,7 +974,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "中米で最も人口の多い国である。",
         "ノーベル賞受賞者を二人輩出している。文学賞のアストゥリアス（1967年）と平和賞のリゴベルタ・メンチュウ（1992年）。",
-        "タフムルコ山（約4,220m）は中米の最高峰。"
+        "タフムルコ山（約4,220m）は中米の最高峰。",
+        "人口の4割以上がマヤ系先住民で、20を超えるマヤ系言語が話されている。"
       ],
       "dia": null,
       "wiki": "グアテマラ"
@@ -966,7 +1008,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "「香蕉共和國」一詞，是美國作家歐·亨利以這個國家為原型創造的。",
         "1969 年與鄰國薩爾瓦多爆發了被稱為「足球戰爭」的四日戰爭。",
-        "國旗中央的五顆藍色星星，代表過去中美洲聯邦的五個成員國。"
+        "國旗中央的五顆藍色星星，代表過去中美洲聯邦的五個成員國。",
+        "國名在西班牙語中的意思是「深水」。"
       ],
       "dia": null,
       "wiki": "洪都拉斯"
@@ -992,7 +1035,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The term \"banana republic\" was coined by American writer O. Henry, who modelled it on this country.",
         "In 1969 it fought a four-day conflict with neighbouring El Salvador known as the \"Football War\".",
-        "The five blue stars on its flag represent the five former members of the Federal Republic of Central America."
+        "The five blue stars on its flag represent the five former members of the Federal Republic of Central America.",
+        "Its name means \"depths\" in Spanish, after the deep waters off its coast."
       ],
       "dia": null,
       "wiki": "Honduras"
@@ -1018,7 +1062,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "「バナナ共和国」という言葉は、アメリカの作家O・ヘンリーがこの国をモデルに生み出したもの。",
         "1969年、隣国エルサルバドルとの間で「サッカー戦争」と呼ばれる4日間の戦争が起きた。",
-        "国旗中央の5つの青い星は、かつての中米連邦の5つの構成国を表す。"
+        "国旗中央の5つの青い星は、かつての中米連邦の5つの構成国を表す。",
+        "国名はスペイン語で「深み（深い海）」を意味する。"
       ],
       "dia": null,
       "wiki": "ホンジュラス"
@@ -1054,7 +1099,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "與鄰國共享伊斯帕尼奧拉島，國土位於島的西側約三分之一。",
         "官方語言是法語與克里奧爾語，是美洲少數以法語為官方語言的獨立國家。",
-        "2010 年 1 月發生規模 7.0 的大地震，造成極為慘重的傷亡。"
+        "2010 年 1 月發生規模 7.0 的大地震，造成極為慘重的傷亡。",
+        "國旗中央的國徽上寫著法文格言「團結就是力量」。"
       ],
       "dia": null,
       "wiki": "海地"
@@ -1080,7 +1126,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It shares the island of Hispaniola with a neighbour, occupying roughly the western third.",
         "Its official languages are French and Creole, making it one of the few independent countries in the Americas with French as an official language.",
-        "A magnitude 7.0 earthquake in January 2010 caused catastrophic loss of life."
+        "A magnitude 7.0 earthquake in January 2010 caused catastrophic loss of life.",
+        "The coat of arms at the centre of its flag carries the French motto \"L'union fait la force\" (Unity is strength)."
       ],
       "dia": null,
       "wiki": "Haiti"
@@ -1106,7 +1153,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "隣国とイスパニョーラ島を分け合い、島の西側約3分の1を占める。",
         "公用語はフランス語とクレオール語で、アメリカ大陸でフランス語を公用語とする数少ない独立国。",
-        "2010年1月にマグニチュード7.0の大地震が起き、甚大な犠牲者が出た。"
+        "2010年1月にマグニチュード7.0の大地震が起き、甚大な犠牲者が出た。",
+        "国旗中央の国章には、フランス語の標語「団結は力なり」が記されている。"
       ],
       "dia": null,
       "wiki": "ハイチ"
@@ -1139,7 +1187,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "短跑名將博爾特的祖國，他在 2009 年跑出 9.58 秒的 100 公尺世界紀錄。",
         "國旗只用黑、綠、金三色，是極少數完全不含紅、白、藍的國旗之一。",
-        "1988 年冬季奧運首次派出雪車隊參賽，這段故事後來被拍成電影《Cool Runnings》。"
+        "1988 年冬季奧運首次派出雪車隊參賽，這段故事後來被拍成電影《Cool Runnings》。",
+        "國名源自原住民泰諾人的語言，意思是「森林與水之地」。"
       ],
       "dia": null,
       "wiki": "牙買加"
@@ -1165,7 +1214,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the home of sprinter Usain Bolt, who set the 100 m world record of 9.58 seconds in 2009.",
         "Its flag uses only black, green and gold, one of very few national flags with no red, white or blue.",
-        "It sent a bobsled team to the Winter Olympics for the first time in 1988, a story later made into the film Cool Runnings."
+        "It sent a bobsled team to the Winter Olympics for the first time in 1988, a story later made into the film Cool Runnings.",
+        "Its name comes from the indigenous Taíno language and means \"land of wood and water\"."
       ],
       "dia": null,
       "wiki": "Jamaica"
@@ -1191,7 +1241,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "短距離走のウサイン・ボルトの母国。彼は2009年に100m9秒58の世界記録を出した。",
         "国旗は黒・緑・金の3色だけで、赤・白・青をまったく使わない数少ない国旗の一つ。",
-        "1988年冬季五輪に初めてボブスレーチームを派遣し、その話はのちに映画『クール・ランニング』になった。"
+        "1988年冬季五輪に初めてボブスレーチームを派遣し、その話はのちに映画『クール・ランニング』になった。",
+        "国名は先住民タイノ族の言葉に由来し、「森と水の地」を意味する。"
       ],
       "dia": null,
       "wiki": "ジャマイカ"
@@ -1222,7 +1273,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "美國開國元勳亞歷山大·漢彌爾頓，就出生在兩座主島中較小的那一座。",
         "由兩座島組成的聯邦，憲法允許較小的那座島經公投脫離聯邦。",
-        "1984 年開辦以投資換取國籍的計畫，是世界上歷史最悠久的這類計畫。"
+        "1984 年開辦以投資換取國籍的計畫，是世界上歷史最悠久的這類計畫。",
+        "1623 年英國在較大的主島上建立了加勒比海的第一個英國殖民地。"
       ],
       "dia": null,
       "wiki": "聖基茨和尼維斯"
@@ -1246,7 +1298,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "US Founding Father Alexander Hamilton was born on the smaller of its two main islands.",
         "It is a two-island federation whose constitution allows the smaller island to secede by referendum.",
-        "Its citizenship-by-investment programme, launched in 1984, is the oldest of its kind in the world."
+        "Its citizenship-by-investment programme, launched in 1984, is the oldest of its kind in the world.",
+        "In 1623 the English founded their first Caribbean colony on the larger of its two main islands."
       ],
       "dia": null,
       "wiki": "Saint Kitts and Nevis"
@@ -1270,7 +1323,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "アメリカ建国の父アレクサンダー・ハミルトンは、二つの主島のうち小さい方の島で生まれた。",
         "二つの島からなる連邦で、憲法は小さい方の島が住民投票で連邦を離脱することを認めている。",
-        "1984年に始めた投資による市民権制度は、この種の制度として世界最古。"
+        "1984年に始めた投資による市民権制度は、この種の制度として世界最古。",
+        "1623年、イギリスは二つの主島のうち大きい方に、カリブ海で最初のイギリス植民地を築いた。"
       ],
       "dia": null,
       "wiki": "セントクリストファー・ネイビス"
@@ -1300,7 +1354,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "人口僅十幾萬，卻是世界上人均諾貝爾獎得主最多的國家，兩位得主分別是經濟學家阿瑟·劉易斯與詩人德里克·沃爾科特。",
       "facts": [
         "英法兩國為爭奪這座島，主權易手多達 14 次，因此被稱為「西印度群島的海倫」。",
-        "國旗上黃、黑、白組成的三角形，象徵島上的雙子峰皮通山。"
+        "國旗上黃、黑、白組成的三角形，象徵島上的雙子峰皮通山。",
+        "國慶日訂在 12 月 13 日，也就是國名由來那位聖女的紀念日。"
       ],
       "dia": null,
       "wiki": "聖盧西亞"
@@ -1323,7 +1378,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "With only about 180,000 people it has the most Nobel laureates per capita in the world: economist Arthur Lewis and poet Derek Walcott.",
       "facts": [
         "Britain and France fought over the island so often that it changed hands 14 times, earning it the name \"Helen of the West Indies\".",
-        "The triangles of yellow, black and white on its flag represent the island's twin Piton peaks."
+        "The triangles of yellow, black and white on its flag represent the island's twin Piton peaks.",
+        "Its national day is 13 December, the feast day of the saint it is named after."
       ],
       "dia": null,
       "wiki": "Saint Lucia"
@@ -1346,7 +1402,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "人口は十数万人ほどだが、人口あたりのノーベル賞受賞者数は世界一。経済学者アーサー・ルイスと詩人デレク・ウォルコットの2人。",
       "facts": [
         "英仏が島を奪い合い支配者が14回も入れ替わったため、「西インド諸島のヘレン」と呼ばれる。",
-        "国旗の黄・黒・白の三角形は、島の双子峰ピトン山を表す。"
+        "国旗の黄・黒・白の三角形は、島の双子峰ピトン山を表す。",
+        "建国記念日は12月13日で、国名の由来となった聖女の祝日にあたる。"
       ],
       "dia": null,
       "wiki": "セントルシア"
@@ -1379,7 +1436,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "首都建在阿茲特克帝國的首都特諾奇提特蘭的遺址上。",
         "國旗中央畫著老鷹站在仙人掌上叼著蛇，源自阿茲特克人建城的傳說。",
-        "每年 11 月初的「亡靈節」，家家戶戶擺出祭壇迎接逝去的親人回家。"
+        "每年 11 月初的「亡靈節」，家家戶戶擺出祭壇迎接逝去的親人回家。",
+        "每年冬天，數以億計的帝王斑蝶從北美各地飛到中部山區的森林過冬。"
       ],
       "dia": null,
       "wiki": "墨西哥"
@@ -1405,7 +1463,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its capital stands on the ruins of Tenochtitlan, the capital of the Aztec Empire.",
         "Its flag shows an eagle perched on a cactus eating a snake, from the Aztec legend of the founding of their city.",
-        "Every early November, families build altars to welcome back the spirits of departed relatives for the Day of the Dead."
+        "Every early November, families build altars to welcome back the spirits of departed relatives for the Day of the Dead.",
+        "Every winter, hundreds of millions of monarch butterflies fly from across North America to overwinter in forests in its central highlands."
       ],
       "dia": null,
       "wiki": "Mexico"
@@ -1431,7 +1490,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "首都はアステカ帝国の都テノチティトランの跡に築かれている。",
         "国旗中央にはサボテンにとまりヘビをくわえたワシが描かれ、アステカの建都伝説に由来する。",
-        "毎年11月初めの「死者の日」には、各家庭が祭壇を飾って亡くなった家族の魂を迎える。"
+        "毎年11月初めの「死者の日」には、各家庭が祭壇を飾って亡くなった家族の魂を迎える。",
+        "毎年冬になると、数億匹のオオカバマダラが北米各地から中部の山地の森へ越冬にやって来る。"
       ],
       "dia": null,
       "wiki": "メキシコ"
@@ -1464,7 +1524,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "是中美洲面積最大的國家。",
         "境內湖泊與火山眾多，有「湖泊與火山之國」的稱號。",
-        "國旗中央的國徽是一個三角形，裡面畫著五座火山。"
+        "國旗中央的國徽是一個三角形，裡面畫著五座火山。",
+        "詩人魯文·達里奧是西語「現代主義」文學的開創者，被尊為國家英雄。"
       ],
       "dia": null,
       "wiki": "尼加拉瓜"
@@ -1490,7 +1551,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the largest country in Central America by area.",
         "With its many lakes and volcanoes, it is known as the \"land of lakes and volcanoes\".",
-        "The coat of arms on its flag is a triangle containing five volcanoes."
+        "The coat of arms on its flag is a triangle containing five volcanoes.",
+        "Poet Rubén Darío, founder of Spanish-language modernismo, is revered as a national hero."
       ],
       "dia": null,
       "wiki": "Nicaragua"
@@ -1516,7 +1578,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "中米で面積が最も大きい国である。",
         "湖と火山が多く、「湖と火山の国」と呼ばれる。",
-        "国旗中央の紋章は三角形で、中に5つの火山が描かれている。"
+        "国旗中央の紋章は三角形で、中に5つの火山が描かれている。",
+        "詩人ルベン・ダリオはスペイン語圏のモデルニスモ文学の創始者で、国民的英雄とされる。"
       ],
       "dia": null,
       "wiki": "ニカラグア"
@@ -1551,7 +1614,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1903 年在美國支持下脫離哥倫比亞獨立。",
         "美國在 1999 年底才把運河的控制權完全交還給這個國家。",
-        "以美元作為法定貨幣，與本國貨幣巴波亞並行使用。"
+        "以美元作為法定貨幣，與本國貨幣巴波亞並行使用。",
+        "1989 年美軍入侵，逮捕了當時的軍事強人諾瑞加。"
       ],
       "dia": null,
       "wiki": "巴拿馬"
@@ -1576,7 +1640,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It broke away from Colombia in 1903 with the backing of the United States.",
         "The United States handed full control of the canal over to this country only at the end of 1999.",
-        "It uses the US dollar as legal tender alongside its own currency, the balboa."
+        "It uses the US dollar as legal tender alongside its own currency, the balboa.",
+        "In 1989 US forces invaded and captured the military strongman Manuel Noriega."
       ],
       "dia": null,
       "wiki": "Panama"
@@ -1601,7 +1666,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1903年、アメリカの後押しでコロンビアから独立した。",
         "アメリカが運河の管理権を完全に返還したのは1999年末のこと。",
-        "米ドルを法定通貨とし、自国通貨バルボアと併用している。"
+        "米ドルを法定通貨とし、自国通貨バルボアと併用している。",
+        "1989年、アメリカ軍が侵攻し、当時の独裁者ノリエガを拘束した。"
       ],
       "dia": null,
       "wiki": "パナマ"
@@ -1636,7 +1702,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2021 年成為全世界第一個把比特幣定為法定貨幣的國家（2025 年已取消）。",
         "自 2001 年起以美元作為官方貨幣。",
-        "1980 年遇刺身亡的大主教羅梅洛，在 2018 年被封為聖人。"
+        "1980 年遇刺身亡的大主教羅梅洛，在 2018 年被封為聖人。",
+        "是中美洲人口密度最高的國家。"
       ],
       "dia": null,
       "wiki": "薩爾瓦多"
@@ -1661,7 +1728,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 2021 it became the first country in the world to make bitcoin legal tender (a status revoked in 2025).",
         "It has used the US dollar as its official currency since 2001.",
-        "Archbishop Óscar Romero, assassinated in 1980, was declared a saint in 2018."
+        "Archbishop Óscar Romero, assassinated in 1980, was declared a saint in 2018.",
+        "It is the most densely populated country in Central America."
       ],
       "dia": null,
       "wiki": "El Salvador"
@@ -1686,7 +1754,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2021年に世界で初めてビットコインを法定通貨にした国（2025年に取り消し）。",
         "2001年から米ドルを公式通貨としている。",
-        "1980年に暗殺されたロメロ大司教は、2018年に聖人に列せられた。"
+        "1980年に暗殺されたロメロ大司教は、2018年に聖人に列せられた。",
+        "中米で最も人口密度が高い国。"
       ],
       "dia": null,
       "wiki": "エルサルバドル"
@@ -1722,7 +1791,7 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "是加勒比海最南端的島國，離委內瑞拉海岸只有約 11 公里。",
         "卡利普索（calypso）與索卡（soca）音樂的發源地。",
-        "印度裔與非洲裔是人口中的兩大族群，源自殖民時期的契約工與奴隸。"
+        "2001 年諾貝爾文學獎得主奈波爾就出生在這裡。"
       ],
       "dia": null,
       "wiki": "千里達及托巴哥"
@@ -1748,7 +1817,7 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the southernmost island nation of the Caribbean, only about 11 km off the coast of Venezuela.",
         "It is the birthplace of calypso and soca music.",
-        "People of Indian and African descent are its two largest groups, descended from colonial-era indentured labourers and enslaved people."
+        "V. S. Naipaul, winner of the 2001 Nobel Prize in Literature, was born here."
       ],
       "dia": null,
       "wiki": "Trinidad and Tobago"
@@ -1774,7 +1843,7 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "カリブ海最南端の島国で、ベネズエラの海岸からわずか約11kmしか離れていない。",
         "カリプソとソカという音楽の発祥地。",
-        "インド系とアフリカ系が二大民族で、植民地時代の年季契約労働者と奴隷にルーツを持つ。"
+        "2001年のノーベル文学賞受賞者V・S・ナイポールはここで生まれた。"
       ],
       "dia": null,
       "wiki": "トリニダード・トバゴ"
@@ -1807,7 +1876,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗上的 50 顆星代表 50 個州，13 道條紋代表最初的 13 個殖民地。",
         "1872 年設立的黃石國家公園是世界第一座國家公園。",
-        "1776 年 7 月 4 日發表獨立宣言，這天成為國慶日。"
+        "1776 年 7 月 4 日發表獨立宣言，這天成為國慶日。",
+        "1867 年以 720 萬美元向俄羅斯買下阿拉斯加。"
       ],
       "dia": null,
       "wiki": "美國"
@@ -1833,7 +1903,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The 50 stars on its flag stand for the 50 states, and the 13 stripes for the original 13 colonies.",
         "Yellowstone, established in 1872, was the world's first national park.",
-        "Its Declaration of Independence was adopted on 4 July 1776, now its national holiday."
+        "Its Declaration of Independence was adopted on 4 July 1776, now its national holiday.",
+        "In 1867 it bought Alaska from Russia for 7.2 million dollars."
       ],
       "dia": null,
       "wiki": "United States"
@@ -1859,7 +1930,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗の50の星は50州を、13本の縞は最初の13植民地を表す。",
         "1872年に設立されたイエローストーンは世界初の国立公園。",
-        "1776年7月4日に独立宣言を採択し、この日が独立記念日になった。"
+        "1776年7月4日に独立宣言を採択し、この日が独立記念日になった。",
+        "1867年、ロシアからアラスカを720万ドルで買い取った。"
       ],
       "dia": null,
       "wiki": "アメリカ合衆国"
@@ -1890,7 +1962,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1979 年 10 月脫離英國獨立，同年 4 月主島北部的火山才剛大噴發。",
         "國旗中央的三顆綠色菱形排成 V 字形。",
-        "1793 年布萊船長從大溪地運來麵包樹，種在這裡，後來成了國菜的主角。"
+        "1793 年布萊船長從大溪地運來麵包樹，種在這裡，後來成了國菜的主角。",
+        "南方的私人島嶼穆斯蒂克島，是瑪格麗特公主等名人鍾愛的度假地。"
       ],
       "dia": null,
       "wiki": "聖文森特和格林納丁斯"
@@ -1914,7 +1987,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It became independent from Britain in October 1979, just months after a major volcanic eruption that April.",
         "The three green diamonds on its flag are arranged in a V shape.",
-        "In 1793 Captain Bligh brought breadfruit trees here from Tahiti; breadfruit later became the star of the national dish."
+        "In 1793 Captain Bligh brought breadfruit trees here from Tahiti; breadfruit later became the star of the national dish.",
+        "The private island of Mustique in the south has been a favourite retreat of celebrities such as Princess Margaret."
       ],
       "dia": null,
       "wiki": "Saint Vincent and the Grenadines"
@@ -1938,7 +2012,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1979年10月にイギリスから独立した。その半年前の4月には火山の大噴火が起きていた。",
         "国旗中央の3つの緑のひし形はV字形に並んでいる。",
-        "1793年にブライ艦長がタヒチからパンノキを運んで植え、のちに国民食の主役となった。"
+        "1793年にブライ艦長がタヒチからパンノキを運んで植え、のちに国民食の主役となった。",
+        "南部の私有島マスティク島は、マーガレット王女ら著名人に愛された保養地。"
       ],
       "dia": null,
       "wiki": "セントビンセント・グレナディーン"
@@ -1971,7 +2046,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2013 年就任的教宗方濟各是史上第一位來自美洲的教宗，就出身這個國家。",
         "國旗中央的「五月太陽」，紀念 1810 年的五月革命。",
-        "馬拉度納與梅西的祖國，曾在 1978、1986、2022 年三度奪得世界盃冠軍。"
+        "馬拉度納與梅西的祖國，曾在 1978、1986、2022 年三度奪得世界盃冠軍。",
+        "革命家切·格瓦拉出生在這個國家的羅薩里奧。"
       ],
       "dia": null,
       "wiki": "阿根廷"
@@ -1997,7 +2073,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Pope Francis, elected in 2013 and the first pope from the Americas, was born in this country.",
         "The \"Sun of May\" on its flag commemorates the May Revolution of 1810.",
-        "Home of Maradona and Messi, it has won the FIFA World Cup three times: 1978, 1986 and 2022."
+        "Home of Maradona and Messi, it has won the FIFA World Cup three times: 1978, 1986 and 2022.",
+        "Revolutionary Che Guevara was born in Rosario in this country."
       ],
       "dia": null,
       "wiki": "Argentina"
@@ -2023,7 +2100,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2013年に就任した史上初のアメリカ大陸出身の教皇フランシスコは、この国の出身。",
         "国旗中央の「五月の太陽」は、1810年の五月革命を記念している。",
-        "マラドーナとメッシの母国で、1978年・1986年・2022年の3度ワールドカップを制した。"
+        "マラドーナとメッシの母国で、1978年・1986年・2022年の3度ワールドカップを制した。",
+        "革命家チェ・ゲバラはこの国のロサリオで生まれた。"
       ],
       "dia": null,
       "wiki": "アルゼンチン"
@@ -2060,7 +2138,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "在 1879–1884 年的太平洋戰爭中敗給智利，從此失去出海口，成為內陸國。",
         "與秘魯共享的的喀喀湖，號稱世界上可通航的最高大湖。",
-        "憲法承認西班牙語之外的 36 種原住民語言為官方語言。"
+        "憲法承認西班牙語之外的 36 種原住民語言為官方語言。",
+        "2009 年的憲法把象徵安地斯原住民的彩色方格旗「維帕拉」也定為國家象徵。"
       ],
       "dia": null,
       "wiki": "玻利維亞"
@@ -2086,7 +2165,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It lost its coastline to Chile in the War of the Pacific (1879–1884) and has been landlocked ever since.",
         "It shares Lake Titicaca with Peru, often called the highest navigable lake in the world.",
-        "Its constitution recognises 36 indigenous languages as official alongside Spanish."
+        "Its constitution recognises 36 indigenous languages as official alongside Spanish.",
+        "Its 2009 constitution made the wiphala, the chequered rainbow flag of Andean indigenous peoples, a national symbol."
       ],
       "dia": null,
       "wiki": "Bolivia"
@@ -2112,7 +2192,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1879〜1884年の太平洋戦争でチリに敗れて海岸線を失い、内陸国となった。",
         "ペルーと共有するチチカカ湖は、世界最高所の航行可能な湖とされる。",
-        "憲法はスペイン語のほか36の先住民言語を公用語と定めている。"
+        "憲法はスペイン語のほか36の先住民言語を公用語と定めている。",
+        "2009年の憲法で、アンデス先住民を象徴する虹色の格子旗「ウィパーラ」も国の象徴とされた。"
       ],
       "dia": null,
       "wiki": "ボリビア"
@@ -2145,7 +2226,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國土面積世界第五大，占南美洲將近一半。",
         "世界盃足球賽奪冠 5 次，是奪冠次數最多的國家。",
-        "國旗藍色圓球上的星空，是 1889 年 11 月 15 日共和國成立那天早上的天空。"
+        "國旗藍色圓球上的星空，是 1889 年 11 月 15 日共和國成立那天早上的天空。",
+        "1960 年把首都從海邊的里約熱內盧遷到內陸新建的計畫城市。"
       ],
       "dia": null,
       "wiki": "巴西"
@@ -2171,7 +2253,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the fifth-largest country in the world by area and covers nearly half of South America.",
         "It has won the FIFA World Cup five times, more than any other country.",
-        "The starry sky on the blue globe of its flag shows the sky on the morning of 15 November 1889, when the republic was proclaimed."
+        "The starry sky on the blue globe of its flag shows the sky on the morning of 15 November 1889, when the republic was proclaimed.",
+        "In 1960 it moved its capital from coastal Rio de Janeiro to a newly built planned city inland."
       ],
       "dia": null,
       "wiki": "Brazil"
@@ -2197,7 +2280,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国土面積は世界第5位で、南米大陸のほぼ半分を占める。",
         "ワールドカップで5回優勝しており、優勝回数は世界最多。",
-        "国旗の青い天球の星空は、共和国が宣言された1889年11月15日朝の空を描いている。"
+        "国旗の青い天球の星空は、共和国が宣言された1889年11月15日朝の空を描いている。",
+        "1960年、首都を海辺のリオデジャネイロから内陸に新しく造った計画都市へ移した。"
       ],
       "dia": null,
       "wiki": "ブラジル"
@@ -2233,7 +2317,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北部的阿塔卡馬沙漠是世界上最乾燥的非極地沙漠。",
         "1960 年發生規模 9.5 的大地震，是觀測史上最強的地震。",
-        "出了兩位諾貝爾文學獎得主：米斯特拉爾（1945）與聶魯達（1971）。"
+        "出了兩位諾貝爾文學獎得主：米斯特拉爾（1945）與聶魯達（1971）。",
+        "是世界最大的銅生產國。"
       ],
       "dia": null,
       "wiki": "智利"
@@ -2259,7 +2344,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The Atacama Desert in its north is the driest non-polar desert in the world.",
         "The magnitude 9.5 earthquake of 1960 here is the strongest ever recorded.",
-        "It has produced two Nobel laureates in Literature: Gabriela Mistral (1945) and Pablo Neruda (1971)."
+        "It has produced two Nobel laureates in Literature: Gabriela Mistral (1945) and Pablo Neruda (1971).",
+        "It is the world's largest producer of copper."
       ],
       "dia": null,
       "wiki": "Chile"
@@ -2285,7 +2371,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北部のアタカマ砂漠は、極地を除けば世界で最も乾燥した砂漠。",
         "1960年にマグニチュード9.5の地震が起き、観測史上最大の地震となった。",
-        "ノーベル文学賞受賞者を二人輩出している。ミストラル（1945年）とネルーダ（1971年）。"
+        "ノーベル文学賞受賞者を二人輩出している。ミストラル（1945年）とネルーダ（1971年）。",
+        "世界最大の銅の生産国。"
       ],
       "dia": null,
       "wiki": "チリ"
@@ -2321,7 +2408,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "南美洲唯一同時面臨太平洋與加勒比海的國家。",
         "全世界產量最大的祖母綠產地。",
-        "《百年孤寂》的作者馬奎斯，於 1982 年獲得諾貝爾文學獎。"
+        "《百年孤寂》的作者馬奎斯，於 1982 年獲得諾貝爾文學獎。",
+        "是世界第二大鮮切花出口國，僅次於荷蘭。"
       ],
       "dia": null,
       "wiki": "哥倫比亞"
@@ -2347,7 +2435,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the only South American country with coastlines on both the Pacific Ocean and the Caribbean Sea.",
         "It is the world's largest producer of emeralds.",
-        "Gabriel García Márquez, author of One Hundred Years of Solitude, won the Nobel Prize in Literature in 1982."
+        "Gabriel García Márquez, author of One Hundred Years of Solitude, won the Nobel Prize in Literature in 1982.",
+        "It is the world's second-largest exporter of cut flowers, after the Netherlands."
       ],
       "dia": null,
       "wiki": "Colombia"
@@ -2373,7 +2462,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "南米で唯一、太平洋とカリブ海の両方に面している国。",
         "世界最大のエメラルド産出国。",
-        "『百年の孤独』の作者ガルシア＝マルケスは1982年にノーベル文学賞を受賞した。"
+        "『百年の孤独』の作者ガルシア＝マルケスは1982年にノーベル文学賞を受賞した。",
+        "切り花の輸出量はオランダに次いで世界第2位。"
       ],
       "dia": null,
       "wiki": "コロンビア"
@@ -2409,7 +2499,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國名就是西班牙語的「赤道」，赤道正好穿過國土北部。",
         "欽博拉索山的山頂，是地球表面上離地心最遠的一點。",
-        "2008 年的憲法是世界上第一部明文承認「自然權利」的憲法。"
+        "2008 年的憲法是世界上第一部明文承認「自然權利」的憲法。",
+        "2000 年起以美元取代原本的貨幣蘇克雷。"
       ],
       "dia": null,
       "wiki": "厄瓜多爾"
@@ -2435,7 +2526,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its name is simply the Spanish word for \"equator\", which runs through the north of the country.",
         "The summit of Mount Chimborazo is the point on Earth's surface farthest from the planet's centre.",
-        "Its 2008 constitution was the first in the world to recognise the rights of nature."
+        "Its 2008 constitution was the first in the world to recognise the rights of nature.",
+        "In 2000 it replaced its own currency, the sucre, with the US dollar."
       ],
       "dia": null,
       "wiki": "Ecuador"
@@ -2461,7 +2553,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国名はスペイン語で「赤道」の意味で、赤道が国土の北部を通っている。",
         "チンボラソ山の山頂は、地表で地球の中心から最も遠い地点である。",
-        "2008年の憲法は、世界で初めて「自然の権利」を認めた憲法である。"
+        "2008年の憲法は、世界で初めて「自然の権利」を認めた憲法である。",
+        "2000年に自国通貨スクレを廃止し、米ドルを導入した。"
       ],
       "dia": null,
       "wiki": "エクアドル"
@@ -2497,7 +2590,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國名源自原住民語言，意思是「多水之地」。",
         "舊稱英屬圭亞那，1966 年脫離英國獨立。",
-        "國旗的圖案被稱為「金色箭頭」。"
+        "國旗的圖案被稱為「金色箭頭」。",
+        "1978 年美國邪教「人民聖殿教」在這裡的叢林據點瓊斯鎮發生集體死亡事件，900 多人喪生。"
       ],
       "dia": null,
       "wiki": "圭亞那"
@@ -2523,7 +2617,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its name comes from an indigenous word meaning \"land of many waters\".",
         "Formerly British Guiana, it became independent from Britain in 1966.",
-        "Its flag is known as \"the Golden Arrowhead\"."
+        "Its flag is known as \"the Golden Arrowhead\".",
+        "In 1978 more than 900 people died in the mass deaths at Jonestown, the jungle settlement of the US Peoples Temple cult here."
       ],
       "dia": null,
       "wiki": "Guyana"
@@ -2549,7 +2644,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国名は先住民の言葉で「多くの水の土地」を意味する。",
         "かつての英領ギアナで、1966年にイギリスから独立した。",
-        "国旗は「ゴールデン・アローヘッド（金の矢じり）」と呼ばれる。"
+        "国旗は「ゴールデン・アローヘッド（金の矢じり）」と呼ばれる。",
+        "1978年、アメリカのカルト教団「人民寺院」がこの国の密林に築いたジョーンズタウンで集団死事件が起き、900人以上が亡くなった。"
       ],
       "dia": null,
       "wiki": "ガイアナ"
@@ -2582,7 +2678,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "曾是印加帝國的中心，帝國首都庫斯科至今仍保留古城風貌。",
         "亞馬遜河的源頭就在這個國家的安地斯山區。",
-        "作家巴爾加斯·尤薩於 2010 年獲得諾貝爾文學獎。"
+        "作家巴爾加斯·尤薩於 2010 年獲得諾貝爾文學獎。",
+        "是南美洲面積第三大的國家，僅次於巴西與阿根廷。"
       ],
       "dia": null,
       "wiki": "秘魯"
@@ -2608,7 +2705,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It was the heart of the Inca Empire, whose capital Cusco still preserves its old-city character.",
         "The source of the Amazon River lies in its Andes.",
-        "Writer Mario Vargas Llosa won the Nobel Prize in Literature in 2010."
+        "Writer Mario Vargas Llosa won the Nobel Prize in Literature in 2010.",
+        "It is the third-largest country in South America, after Brazil and Argentina."
       ],
       "dia": null,
       "wiki": "Peru"
@@ -2634,7 +2732,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "かつてインカ帝国の中心で、帝国の都クスコは今も古都の姿を残している。",
         "アマゾン川の源流はこの国のアンデス山中にある。",
-        "作家バルガス＝リョサは2010年にノーベル文学賞を受賞した。"
+        "作家バルガス＝リョサは2010年にノーベル文学賞を受賞した。",
+        "南米でブラジル、アルゼンチンに次いで3番目に面積が大きい国。"
       ],
       "dia": null,
       "wiki": "ペルー"
@@ -2670,7 +2769,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗正反兩面的徽章不同，在世界各國國旗中極為少見。",
         "與巴西共同興建的伊泰普水壩，是世界發電量最大的水壩之一。",
-        "1864–1870 年對巴西、阿根廷、烏拉圭的三國同盟戰爭中，損失了極大比例的人口。"
+        "1864–1870 年對巴西、阿根廷、烏拉圭的三國同盟戰爭中，損失了極大比例的人口。",
+        "自 1957 年起與中華民國（臺灣）維持邦交，是臺灣在南美洲唯一的邦交國。"
       ],
       "dia": null,
       "wiki": "巴拉圭"
@@ -2696,7 +2796,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag carries a different emblem on each side, which is extremely rare among national flags.",
         "The Itaipu Dam, built jointly with Brazil, is one of the world's largest hydroelectric plants by output.",
-        "It lost a huge share of its population in the War of the Triple Alliance (1864–1870) against Brazil, Argentina and Uruguay."
+        "It lost a huge share of its population in the War of the Triple Alliance (1864–1870) against Brazil, Argentina and Uruguay.",
+        "It has maintained diplomatic relations with the Republic of China (Taiwan) since 1957 and is Taiwan's only ally in South America."
       ],
       "dia": null,
       "wiki": "Paraguay"
@@ -2722,7 +2823,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗は表と裏で紋章が異なり、世界の国旗の中でも極めて珍しい。",
         "ブラジルと共同建設したイタイプ・ダムは、発電量で世界最大級の水力発電所。",
-        "1864〜1870年、ブラジル・アルゼンチン・ウルグアイとの三国同盟戦争で人口の大部分を失った。"
+        "1864〜1870年、ブラジル・アルゼンチン・ウルグアイとの三国同盟戦争で人口の大部分を失った。",
+        "1957年から中華民国（台湾）と国交を保ち、南米で台湾と国交を持つ唯一の国。"
       ],
       "dia": null,
       "wiki": "パラグアイ"
@@ -2759,7 +2861,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1667 年的條約中，荷蘭保住了這片土地，而把新阿姆斯特丹（今紐約曼哈頓）讓給英國。",
         "1975 年脫離荷蘭獨立。",
-        "族群非常多元，首都的清真寺與猶太會堂就比鄰而建。"
+        "族群非常多元，首都的清真寺與猶太會堂就比鄰而建。",
+        "人口中有一成多是印尼爪哇人的後裔，爪哇語在這裡也很常聽到。"
       ],
       "dia": null,
       "wiki": "蘇里南"
@@ -2785,7 +2888,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Under a 1667 treaty the Dutch kept this territory while leaving New Amsterdam (today's Manhattan) to the English.",
         "It became independent from the Netherlands in 1975.",
-        "Its population is highly diverse, and in its capital a mosque and a synagogue stand side by side."
+        "Its population is highly diverse, and in its capital a mosque and a synagogue stand side by side.",
+        "More than a tenth of its people are descendants of Javanese from Indonesia, and Javanese is widely heard."
       ],
       "dia": null,
       "wiki": "Suriname"
@@ -2811,7 +2915,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1667年の条約で、オランダはこの土地を確保する代わりにニューアムステルダム（現在のマンハッタン）をイギリスに譲った。",
         "1975年にオランダから独立した。",
-        "多民族国家で、首都ではモスクとシナゴーグが隣り合って建っている。"
+        "多民族国家で、首都ではモスクとシナゴーグが隣り合って建っている。",
+        "人口の1割強がインドネシアのジャワ人の子孫で、ジャワ語もよく話されている。"
       ],
       "dia": null,
       "wiki": "スリナム"
@@ -2843,7 +2948,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2013 年成為世界上第一個全面合法化大麻的國家。",
         "國旗左上角畫著「五月太陽」，與阿根廷國旗上的太陽同源。",
-        "是南美洲面積第二小的國家，僅大於蘇利南。"
+        "是南美洲面積第二小的國家，僅大於蘇利南。",
+        "前總統穆希卡生活極為簡樸，被稱為「世界上最窮的總統」。"
       ],
       "dia": null,
       "wiki": "烏拉圭"
@@ -2868,7 +2974,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 2013 it became the first country in the world to fully legalise cannabis.",
         "The upper-left corner of its flag shows a \"Sun of May\", the same symbol found on Argentina's flag.",
-        "It is the second-smallest country in South America, larger only than Suriname."
+        "It is the second-smallest country in South America, larger only than Suriname.",
+        "Former president José Mujica lived so simply that he was called \"the world's poorest president\"."
       ],
       "dia": null,
       "wiki": "Uruguay"
@@ -2893,7 +3000,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2013年に世界で初めて大麻を全面合法化した国。",
         "国旗の左上には、アルゼンチン国旗と同じ「五月の太陽」が描かれている。",
-        "南米で2番目に小さい国で、スリナムに次ぐ。"
+        "南米で2番目に小さい国で、スリナムに次ぐ。",
+        "元大統領ムヒカは質素な暮らしぶりから「世界一貧しい大統領」と呼ばれた。"
       ],
       "dia": null,
       "wiki": "ウルグアイ"
@@ -2927,7 +3035,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國名意思是「小威尼斯」，因為原住民的水上高腳屋讓探險家聯想到威尼斯。",
         "已探明的石油蘊藏量居世界第一。",
-        "南美獨立運動的領袖玻利瓦，就出生在這個國家的首都。"
+        "南美獨立運動的領袖玻利瓦，就出生在這個國家的首都。",
+        "是選美強國，環球小姐與世界小姐的冠軍人數都名列世界前茅。"
       ],
       "dia": null,
       "wiki": "委內瑞拉"
@@ -2953,7 +3062,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its name means \"little Venice\", because indigenous stilt houses over the water reminded explorers of Venice.",
         "It has the largest proven oil reserves in the world.",
-        "Simón Bolívar, leader of South American independence, was born in its capital."
+        "Simón Bolívar, leader of South American independence, was born in its capital.",
+        "It is a beauty-pageant powerhouse, ranking near the top of the world for both Miss Universe and Miss World winners."
       ],
       "dia": null,
       "wiki": "Venezuela"
@@ -2979,7 +3089,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国名は「小さなベネチア」の意味で、水上の高床式住居が探検家にベネチアを思わせたことに由来する。",
         "確認されている石油埋蔵量は世界一。",
-        "南米独立運動の指導者シモン・ボリバルは、この国の首都で生まれた。"
+        "南米独立運動の指導者シモン・ボリバルは、この国の首都で生まれた。",
+        "ミスコン大国で、ミス・ユニバースとミス・ワールドの優勝者数はいずれも世界トップクラス。"
       ],
       "dia": null,
       "wiki": "ベネズエラ"

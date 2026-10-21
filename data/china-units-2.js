@@ -32,7 +32,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "2020 年人口普查約 9937 萬人，居全國第三。",
         "中國八大古都中有四座在本省，包括洛陽、開封與安陽。",
-        "太極拳的陳氏一派發源於溫縣陳家溝。"
+        "太極拳的陳氏一派發源於溫縣陳家溝。",
+        "新鄭被視為黃帝的故里，每年農曆三月三舉行黃帝故里拜祖大典。"
       ],
       "dia": [
         "中",
@@ -68,7 +69,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "With about 99.37 million people in the 2020 census, it ranks third in China by population.",
         "Four of China's Eight Ancient Capitals are in this province, including Luoyang, Kaifeng and Anyang.",
-        "Chen-style tai chi originated in Chenjiagou village in Wen County."
+        "Chen-style tai chi originated in Chenjiagou village in Wen County.",
+        "Xinzheng is regarded as the birthplace of the Yellow Emperor and holds an ancestor-worship ceremony there every year on the third day of the third lunar month."
       ],
       "dia": [
         "中 zhōng",
@@ -104,7 +106,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "2020年の国勢調査で人口約9937万人、全国3位。",
         "中国八大古都のうち4つがこの省にあり、洛陽・開封・安陽などが含まれる。",
-        "太極拳の陳式は温県の陳家溝が発祥の地。"
+        "太極拳の陳式は温県の陳家溝が発祥の地。",
+        "新鄭は黄帝の生誕地とされ、毎年旧暦3月3日に黄帝をまつる拝祖大典が行われる。"
       ],
       "dia": [
         "中（ジョン）",
@@ -149,7 +152,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "境內湖泊眾多，有「千湖之省」之稱。",
         "1911 年 10 月 10 日的武昌起義在此爆發，揭開了推翻清朝的辛亥革命。",
-        "神農架林區是中國唯一以「林區」為名的縣級行政區。"
+        "神農架林區是中國唯一以「林區」為名的縣級行政區。",
+        "三國時代赤壁之戰的古戰場，一般認為就在本省的赤壁市。"
       ],
       "dia": [
         "過早",
@@ -185,7 +189,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Dotted with lakes, it is nicknamed the \"province of a thousand lakes.\"",
         "The Wuchang Uprising broke out here on October 10, 1911, launching the Xinhai Revolution that toppled the Qing dynasty.",
-        "Shennongjia is China's only county-level division designated a \"forestry district.\""
+        "Shennongjia is China's only county-level division designated a \"forestry district.\"",
+        "The site of the Battle of Red Cliffs in the Three Kingdoms era is generally placed in Chibi City in this province."
       ],
       "dia": [
         "过早 guòzǎo",
@@ -221,7 +226,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "湖が非常に多く、「千湖の省」と呼ばれる。",
         "1911年10月10日に武昌蜂起がここで起こり、清朝を倒した辛亥革命の幕開けとなった。",
-        "神農架林区は、中国で唯一「林区」と名のつく県級行政区。"
+        "神農架林区は、中国で唯一「林区」と名のつく県級行政区。",
+        "三国時代の赤壁の戦いの古戦場は、一般にこの省の赤壁市にあるとされる。"
       ],
       "dia": [
         "過早（グオザオ）",
@@ -268,7 +274,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "馬王堆漢墓出土的辛追夫人遺體，歷經兩千多年仍保存相當完整，震驚世界。",
       "facts": [
         "毛澤東、劉少奇等中共早期領導人都出身本省。",
-        "洞庭湖是中國第二大淡水湖，位於本省北部。"
+        "洞庭湖是中國第二大淡水湖，位於本省北部。",
+        "「雜交水稻之父」袁隆平在本省的安江農校開始研究雜交水稻。"
       ],
       "dia": [
         "恰飯",
@@ -303,7 +310,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "The body of Lady Xin Zhui, found in the Mawangdui Han tombs, was remarkably well preserved after more than two thousand years.",
       "facts": [
         "Mao Zedong, Liu Shaoqi and other early Communist leaders came from this province.",
-        "Dongting Lake, China's second-largest freshwater lake, lies in the north of the province."
+        "Dongting Lake, China's second-largest freshwater lake, lies in the north of the province.",
+        "Yuan Longping, the \"father of hybrid rice,\" began his hybrid rice research at the Anjiang Agricultural School in this province."
       ],
       "dia": [
         "恰饭 qià fàn",
@@ -338,7 +346,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "馬王堆漢墓から出土した辛追夫人の遺体は、2千年以上たっても比較的よい状態で保存され、世界を驚かせた。",
       "facts": [
         "毛沢東や劉少奇など、中国共産党の初期の指導者たちはこの省の出身。",
-        "中国第2の淡水湖・洞庭湖が省の北部にある。"
+        "中国第2の淡水湖・洞庭湖が省の北部にある。",
+        "「ハイブリッド米の父」袁隆平は、この省の安江農業学校でハイブリッド米の研究を始めた。"
       ],
       "dia": [
         "恰飯（チアファン）",
@@ -383,7 +392,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "深圳在 1980 年設為經濟特區，由邊境小鎮發展成超大城市。",
         "中國歷史最久、規模最大的國際貿易展「廣交會」自 1957 年起在省會舉辦。",
-        "2020 年人口普查約 1.26 億人，是中國人口最多的省份。"
+        "2020 年人口普查約 1.26 億人，是中國人口最多的省份。",
+        "孫中山出生於本省香山縣（今中山市）翠亨村。"
       ],
       "dia": [
         "飲茶",
@@ -419,7 +429,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Shenzhen was made a Special Economic Zone in 1980 and grew from a small border town into a megacity.",
         "The Canton Fair, China's oldest and largest international trade fair, has been held in its capital since 1957.",
-        "With about 126 million people in the 2020 census, it is China's most populous province."
+        "With about 126 million people in the 2020 census, it is China's most populous province.",
+        "Sun Yat-sen was born in Cuiheng Village, Xiangshan County (now Zhongshan City), in this province."
       ],
       "dia": [
         "饮茶 yǐnchá",
@@ -455,7 +466,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "深圳は1980年に経済特区となり、国境の小さな町から巨大都市へと発展した。",
         "中国で最も歴史が長く規模も最大の国際見本市「広州交易会」が、1957年から省都で開かれている。",
-        "2020年の国勢調査で人口約1億2600万人と、中国で最も人口の多い省。"
+        "2020年の国勢調査で人口約1億2600万人と、中国で最も人口の多い省。",
+        "孫文はこの省の香山県（現在の中山市）翠亨村で生まれた。"
       ],
       "dia": [
         "飲茶（ヤムチャ）",
@@ -500,7 +512,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "南與越南接壤、又臨北部灣，是中國唯一既沿海又與東南亞國家陸地相鄰的省級行政區。",
         "農曆三月初三的「三月三」是壯族的傳統歌節，區內放假慶祝。",
-        "巴馬瑤族自治縣以「長壽之鄉」聞名。"
+        "巴馬瑤族自治縣以「長壽之鄉」聞名。",
+        "龍勝的龍脊梯田由壯族、瑤族世代開墾，層層疊疊盤繞山坡。"
       ],
       "dia": [
         "老友",
@@ -536,7 +549,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "It borders Vietnam and faces the Gulf of Tonkin, making it China's only provincial-level region that is both coastal and shares a land border with a Southeast Asian country.",
         "\"Sanyuesan,\" on the 3rd day of the 3rd lunar month, is the Zhuang people's traditional song festival and a public holiday here.",
-        "Bama Yao Autonomous County is famous as a \"land of longevity.\""
+        "Bama Yao Autonomous County is famous as a \"land of longevity.\"",
+        "The Longji rice terraces in Longsheng, carved out over generations by the Zhuang and Yao peoples, wind up the mountain slopes layer upon layer."
       ],
       "dia": [
         "老友 lǎoyǒu",
@@ -572,7 +586,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "南でベトナムと接し、トンキン湾にも面する、中国で唯一「海に面し、かつ東南アジアの国と陸続き」の省級行政区。",
         "旧暦3月3日の「三月三」はチワン族伝統の歌の祭りで、区内では休日になる。",
-        "巴馬ヤオ族自治県は「長寿の里」として知られる。"
+        "巴馬ヤオ族自治県は「長寿の里」として知られる。",
+        "龍勝の龍脊棚田はチワン族とヤオ族が代々切り開いたもので、山肌を幾重にも取り巻いている。"
       ],
       "dia": [
         "老友（ロウヤウ）",
@@ -616,7 +631,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "這裡是中國面積最大的經濟特區，2025 年 12 月 18 日起全島封關運作，成為自由貿易港。",
       "facts": [
         "1988 年從廣東省分出建省，是中國最晚設立的省。",
-        "島上的文昌航天發射場是中國緯度最低的航天發射場，長征五號等大型火箭在此升空。"
+        "島上的文昌航天發射場是中國緯度最低的航天發射場，長征五號等大型火箭在此升空。",
+        "黎族是島上最早的居民，黎族傳統紡染織繡技藝 2009 年列入急需保護的非物質文化遺產名錄。"
       ],
       "dia": [
         "老爸茶",
@@ -651,7 +667,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "It is China's largest special economic zone; island-wide customs closure began on 18 December 2025, launching the Hainan Free Trade Port.",
       "facts": [
         "Split off from Guangdong in 1988, it is the most recently established province in China.",
-        "The Wenchang launch site on the island is China's lowest-latitude spaceport, used for heavy rockets such as the Long March 5."
+        "The Wenchang launch site on the island is China's lowest-latitude spaceport, used for heavy rockets such as the Long March 5.",
+        "The Li people are the island's earliest inhabitants, and their traditional textile techniques were added to UNESCO's list of intangible heritage in need of urgent safeguarding in 2009."
       ],
       "dia": [
         "老爸茶 lǎobàchá",
@@ -686,7 +703,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "中国で最も面積の大きい経済特区で、2025年12月18日に全島の封関運用が始まり、自由貿易港として本格始動した。",
       "facts": [
         "1988年に広東省から分かれて省となった、中国で最も新しい省。",
-        "島にある文昌宇宙発射場は中国で最も緯度の低い発射場で、長征5号などの大型ロケットがここから打ち上げられる。"
+        "島にある文昌宇宙発射場は中国で最も緯度の低い発射場で、長征5号などの大型ロケットがここから打ち上げられる。",
+        "黎族は島の最初の住民で、その伝統的な染織・刺繍技術は2009年にユネスコの緊急保護無形文化遺産に登録された。"
       ],
       "dia": [
         "老爸茶（ラオバーチャー）",
@@ -731,7 +749,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "1842 年起由英國陸續取得管治，1997 年 7 月 1 日交還中國，實行「一國兩制」。",
         "電影業曾極為興盛，有「東方荷里活」之稱。",
-        "中環至半山的自動扶梯系統是世界最長的戶外有蓋行人扶梯。"
+        "中環到半山有一套全長約 800 公尺的戶外有蓋行人自動扶梯，早上往下、其餘時段往上運行。",
+        "1998 年啟用的赤鱲角機場建在填海擴建的島上，取代了位於市區的啟德機場。"
       ],
       "dia": [
         "搞掂",
@@ -767,7 +786,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Britain gradually took control from 1842, and sovereignty was handed back to China on July 1, 1997, under \"one country, two systems.\"",
         "Its once-booming film industry earned it the nickname \"Hollywood of the East.\"",
-        "The Central–Mid-Levels escalator is the world's longest outdoor covered escalator system."
+        "An outdoor covered escalator system about 800 m long links Central with the Mid-Levels, running downhill in the morning rush and uphill the rest of the day.",
+        "Chek Lap Kok Airport, opened in 1998 on an island enlarged by land reclamation, replaced the old Kai Tak Airport in the city."
       ],
       "dia": [
         "搞掂 gáau dim",
@@ -803,7 +823,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "1842年からイギリスが段階的に統治し、1997年7月1日に中国へ返還され「一国二制度」が敷かれた。",
         "かつて映画産業が大いに栄え、「東洋のハリウッド」と呼ばれた。",
-        "中環（セントラル）から半山区へのエスカレーターは、世界最長の屋外屋根付きエスカレーター。"
+        "中環（セントラル）から半山区まで全長約800mの屋根付き屋外エスカレーターが続き、朝は下り、それ以外の時間は上りで運行する。",
+        "1998年開港の赤鱲角（チェクラップコック）空港は埋め立てで拡張した島に建設され、市街地の啓徳空港に取って代わった。"
       ],
       "dia": [
         "搞掂（ガウディム）",
@@ -850,9 +871,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "歷史城區於 2005 年列入世界文化遺產，中西合璧的街景見證了四百多年的東西方交流。",
       "facts": [
-        "1999 年 12 月 20 日由葡萄牙移交中國，結束約四百年的葡萄牙管治。",
+        "1999 年 12 月 20 日由葡萄牙移交中國，結束四百多年的葡萄牙管治。",
         "博彩業收入在 2006 年超越美國拉斯維加斯，有「東方蒙地卡羅」之稱。",
-        "是世界上人口密度最高的地區之一。"
+        "是世界上人口密度最高的地區之一。",
+        "自 1954 年起在市街賽道東望洋跑道舉辦格蘭披治大賽車。"
       ],
       "dia": [
         "好食",
@@ -886,9 +908,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "Its Historic Centre was inscribed as a UNESCO World Heritage Site in 2005, showing over four hundred years of East-West exchange.",
       "facts": [
-        "Portugal handed it over to China on December 20, 1999, ending some four centuries of Portuguese administration.",
+        "Portugal handed it over to China on December 20, 1999, ending more than four centuries of Portuguese administration.",
         "Its gaming revenue overtook that of Las Vegas in 2006, and it is nicknamed the \"Monte Carlo of the Orient.\"",
-        "It is one of the most densely populated places in the world."
+        "It is one of the most densely populated places in the world.",
+        "Since 1954 it has hosted a Grand Prix on the Guia Circuit, a street circuit."
       ],
       "dia": [
         "好食 hóu sik",
@@ -922,9 +945,10 @@ Object.assign(window.KMAP_INFO.china.units, {
       ],
       "fact": "歴史地区は2005年に世界文化遺産に登録され、400年以上にわたる東西交流の跡を街並みに残している。",
       "facts": [
-        "1999年12月20日にポルトガルから中国へ返還され、約400年にわたるポルトガルの統治が終わった。",
+        "1999年12月20日にポルトガルから中国へ返還され、400年以上にわたるポルトガルの統治が終わった。",
         "カジノ収入は2006年にアメリカのラスベガスを上回り、「東洋のモンテカルロ」と呼ばれる。",
-        "世界で最も人口密度の高い地域の一つ。"
+        "世界で最も人口密度の高い地域の一つ。",
+        "1954年から市街地コースのギア・サーキットでグランプリが開かれている。"
       ],
       "dia": [
         "好食（ホウシク）",
@@ -973,7 +997,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "1997 年從四川省分出，成為中國第四個直轄市。",
         "抗日戰爭期間是中華民國的陪都（戰時首都）。",
-        "長江與嘉陵江在市區的朝天門匯流。"
+        "長江與嘉陵江在市區的朝天門匯流。",
+        "涪陵的白鶴梁題刻記錄了一千二百多年的長江枯水水位，被稱為「世界第一古代水文站」。"
       ],
       "dia": [
         "棒棒",
@@ -1009,7 +1034,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Split off from Sichuan in 1997, it became China's fourth municipality.",
         "During the Second Sino-Japanese War it was the wartime capital of the Republic of China.",
-        "The Yangtze and Jialing rivers meet at Chaotianmen in the city center."
+        "The Yangtze and Jialing rivers meet at Chaotianmen in the city center.",
+        "The Baiheliang inscriptions at Fuling record Yangtze low-water levels over more than 1,200 years and are called the world's oldest hydrological station."
       ],
       "dia": [
         "棒棒 bàngbàng",
@@ -1045,7 +1071,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "1997年に四川省から分かれ、中国4番目の直轄市となった。",
         "日中戦争中は中華民国の臨時首都（陪都）だった。",
-        "長江と嘉陵江が市街地の朝天門で合流する。"
+        "長江と嘉陵江が市街地の朝天門で合流する。",
+        "涪陵の白鶴梁題刻は1200年以上にわたる長江の渇水位を記録し、「世界最古の水文観測所」と呼ばれる。"
       ],
       "dia": [
         "棒棒（バンバン）",
@@ -1098,7 +1125,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "是野生大熊貓最主要的棲息地，臥龍等保護區是大熊貓保育的重鎮。",
         "改革開放的總設計師鄧小平出生於本省廣安。",
-        "自貢自古以井鹽聞名，有「鹽都」之稱，也以出土大量恐龍化石著稱。"
+        "自貢自古以井鹽聞名，有「鹽都」之稱，也以出土大量恐龍化石著稱。",
+        "詩人李白幼年隨家人遷居本省江油，在此度過青少年時期。"
       ],
       "dia": [
         "巴適",
@@ -1138,7 +1166,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "It is the main habitat of wild giant pandas, and reserves such as Wolong are centers of panda conservation.",
         "Deng Xiaoping, architect of China's reform and opening-up, was born in Guang'an in this province.",
-        "Zigong, long known for well salt and called the \"Salt Capital,\" is also famous for its many dinosaur fossils."
+        "Zigong, long known for well salt and called the \"Salt Capital,\" is also famous for its many dinosaur fossils.",
+        "The poet Li Bai moved with his family to Jiangyou in this province as a child and spent his youth there."
       ],
       "dia": [
         "巴适 bāshì",
@@ -1178,7 +1207,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "野生のジャイアントパンダの主な生息地で、臥龍などの保護区はパンダ保護の拠点。",
         "改革開放を主導した鄧小平は、この省の広安の生まれ。",
-        "自貢は古くから井塩で知られ「塩の都」と呼ばれるほか、恐竜化石が大量に出土することでも有名。"
+        "自貢は古くから井塩で知られ「塩の都」と呼ばれるほか、恐竜化石が大量に出土することでも有名。",
+        "詩人・李白は幼いころ家族とともにこの省の江油に移り住み、少年時代を過ごした。"
       ],
       "dia": [
         "巴適（バーシー）",
@@ -1227,7 +1257,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "位於此地的 FAST（五百米口徑球面電波望遠鏡，俗稱「天眼」）是世界最大的單口徑電波望遠鏡。",
       "facts": [
         "山地與丘陵佔全省面積九成以上，俗話說「天無三日晴，地無三里平」。",
-        "1935 年紅軍長征途中，著名的遵義會議在本省召開。"
+        "1935 年紅軍長征途中，著名的遵義會議在本省召開。",
+        "東南部黎平、從江一帶的侗族大歌是無伴奏的多聲部合唱，2009 年列入人類非物質文化遺產代表作名錄。"
       ],
       "dia": [
         "要得",
@@ -1266,7 +1297,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "FAST, the Five-hundred-meter Aperture Spherical Telescope nicknamed the \"Eye of Heaven\", is the largest single-dish radio telescope in the world.",
       "facts": [
         "Mountains and hills cover over 90% of the province; a local saying goes, \"no three days of clear sky, no three li of flat land.\"",
-        "The famous Zunyi Conference was held here in 1935 during the Red Army's Long March."
+        "The famous Zunyi Conference was held here in 1935 during the Red Army's Long March.",
+        "The Grand Song of the Dong people around Liping and Congjiang in the southeast, an unaccompanied polyphonic chorus, was inscribed as UNESCO Intangible Cultural Heritage in 2009."
       ],
       "dia": [
         "要得 yàodé",
@@ -1305,7 +1337,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "口径500メートルの球面電波望遠鏡FAST（通称「天眼」）は、世界最大の単一口径電波望遠鏡である。",
       "facts": [
         "山地と丘陵が面積の9割以上を占め、「天に三日の晴れなく、地に三里の平地なし」と言われる。",
-        "1935年、紅軍の長征の途中で有名な遵義会議がこの省で開かれた。"
+        "1935年、紅軍の長征の途中で有名な遵義会議がこの省で開かれた。",
+        "南東部の黎平・従江一帯に伝わるトン族大歌は無伴奏の多声部合唱で、2009年にユネスコ無形文化遺産に登録された。"
       ],
       "dia": [
         "要得（ヤオダー）",
@@ -1355,7 +1388,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "有 25 個世居少數民族，是中國少數民族種類最多的省份。",
         "省會四季溫和如春，有「春城」之稱。",
-        "與緬甸、寮國、越南三國接壤。"
+        "與緬甸、寮國、越南三國接壤。",
+        "麗江納西族的東巴文，是世界上少數仍在使用的象形文字之一。"
       ],
       "dia": [
         "整",
@@ -1395,7 +1429,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Home to 25 indigenous ethnic minorities, it has the greatest ethnic diversity of any province in China.",
         "Its capital is mild like spring all year round and is nicknamed the \"Spring City.\"",
-        "It borders three countries: Myanmar, Laos and Vietnam."
+        "It borders three countries: Myanmar, Laos and Vietnam.",
+        "The Dongba script of the Naxi people of Lijiang is one of the few pictographic scripts still in use in the world."
       ],
       "dia": [
         "整 zhěng",
@@ -1435,7 +1470,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "古くから住む少数民族が25もあり、中国で最も多くの民族が暮らす省。",
         "省都は一年中春のように温暖で、「春城」と呼ばれる。",
-        "ミャンマー・ラオス・ベトナムの3か国と国境を接する。"
+        "ミャンマー・ラオス・ベトナムの3か国と国境を接する。",
+        "麗江のナシ族のトンパ文字は、今も使われている数少ない象形文字の一つ。"
       ],
       "dia": [
         "整（ジョン）",
@@ -1480,7 +1516,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "平均海拔超過四千公尺，有「世界屋脊」之稱，世界第一高峰聖母峰的北坡就位於此。",
       "facts": [
         "雅魯藏布大峽谷是世界最深的峽谷之一。",
-        "2006 年青藏鐵路全線通車，從青海西寧通到本區首府。"
+        "2006 年青藏鐵路全線通車，從青海西寧通到本區首府。",
+        "日喀則的扎什倫布寺是歷代班禪喇嘛的駐錫地。"
       ],
       "dia": [
         "扎西德勒",
@@ -1515,7 +1552,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "With an average elevation above 4,000 meters it is called the \"Roof of the World\", and the north face of Mount Everest lies here.",
       "facts": [
         "The Yarlung Tsangpo Grand Canyon is one of the deepest canyons in the world.",
-        "The Qinghai–Tibet Railway opened in full in 2006, linking Xining in Qinghai to the region's capital."
+        "The Qinghai–Tibet Railway opened in full in 2006, linking Xining in Qinghai to the region's capital.",
+        "Tashilhunpo Monastery in Shigatse is the traditional seat of the Panchen Lamas."
       ],
       "dia": [
         "扎西德勒 zhāxī délè (Tashi Delek)",
@@ -1550,7 +1588,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "fact": "平均標高は4000メートルを超え、「世界の屋根」と呼ばれる。世界最高峰エベレストの北面もここにある。",
       "facts": [
         "ヤルンツァンポ大峡谷は世界で最も深い峡谷の一つ。",
-        "2006年に青蔵鉄道が全線開通し、青海省の西寧からこの自治区の区都まで結ばれた。"
+        "2006年に青蔵鉄道が全線開通し、青海省の西寧からこの自治区の区都まで結ばれた。",
+        "シガツェのタシルンポ寺は、歴代パンチェン・ラマの座所。"
       ],
       "dia": [
         "扎西徳勒（タシデレ）",
@@ -1604,7 +1643,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "黃帝陵位於本省黃陵縣，每年清明節都會舉行公祭。",
         "1937 年至 1947 年，中共中央以延安為根據地。",
-        "秦嶺東西橫貫省內，被視為中國南北方的地理分界線。"
+        "秦嶺東西橫貫省內，被視為中國南北方的地理分界線。",
+        "北部黃土高原上的安塞腰鼓，以豪邁奔放的群舞聞名全國。"
       ],
       "dia": [
         "嘹咋咧",
@@ -1644,7 +1684,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "The Mausoleum of the Yellow Emperor is in Huangling County here, with public ceremonies held every Qingming Festival.",
         "From 1937 to 1947, the Chinese Communist Party's central leadership was based in Yan'an.",
-        "The Qinling Mountains run east–west across the province and are regarded as the geographic divide between northern and southern China."
+        "The Qinling Mountains run east–west across the province and are regarded as the geographic divide between northern and southern China.",
+        "The Ansai waist drum dance from the Loess Plateau in the north is famous nationwide for its bold, energetic group performances."
       ],
       "dia": [
         "嘹咋咧 liáozǎle",
@@ -1684,7 +1725,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "黄帝陵はこの省の黄陵県にあり、毎年清明節に公式の祭祀が行われる。",
         "1937年から1947年まで、中国共産党の中央は延安を拠点としていた。",
-        "秦嶺山脈が省内を東西に貫き、中国の北と南を分ける地理的境界とされる。"
+        "秦嶺山脈が省内を東西に貫き、中国の北と南を分ける地理的境界とされる。",
+        "北部の黄土高原に伝わる安塞腰鼓は、豪快な群舞で全国に知られる。"
       ],
       "dia": [
         "嘹咋咧（リャオジャーレ）",
@@ -1734,7 +1776,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "省域東西狹長，綿延一千六百多公里。",
         "天水被視為伏羲的故鄉，有「羲皇故里」之稱。",
-        "玉門油田是新中國第一個石油工業基地。"
+        "玉門油田是新中國第一個石油工業基地。",
+        "天水的麥積山石窟與莫高窟、龍門石窟、雲岡石窟並稱中國四大石窟。"
       ],
       "dia": [
         "尕",
@@ -1774,7 +1817,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "The province is long and narrow, stretching more than 1,600 km from east to west.",
         "Tianshui is regarded as the hometown of the mythical ruler Fuxi.",
-        "The Yumen Oilfield was the People's Republic's first petroleum industry base."
+        "The Yumen Oilfield was the People's Republic's first petroleum industry base.",
+        "The Maijishan Grottoes at Tianshui rank with Mogao, Longmen and Yungang as one of China's four great cave-temple complexes."
       ],
       "dia": [
         "尕 gǎ",
@@ -1814,7 +1858,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "東西に細長く、1600キロ以上にわたって延びている。",
         "天水は伝説の帝王・伏羲のふるさととされ、「羲皇の故里」と呼ばれる。",
-        "玉門油田は新中国で最初の石油工業の拠点。"
+        "玉門油田は新中国で最初の石油工業の拠点。",
+        "天水の麦積山石窟は、莫高窟・龍門石窟・雲岡石窟と並ぶ中国四大石窟の一つ。"
       ],
       "dia": [
         "尕（ガー）",
@@ -1863,7 +1908,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "平均海拔超過三千公尺，大部分位於青藏高原的東北部。",
         "柴達木盆地的察爾汗鹽湖是中國最大的鹽湖，也是最大的鉀肥生產基地。",
-        "可可西里是藏羚羊的主要棲息地，2017 年列入世界自然遺產。"
+        "可可西里是藏羚羊的主要棲息地，2017 年列入世界自然遺產。",
+        "互助土族自治縣是中國唯一的土族自治縣。"
       ],
       "dia": [
         "尕",
@@ -1899,7 +1945,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Its average elevation exceeds 3,000 m, and most of it lies on the northeastern Tibetan Plateau.",
         "Qarhan Salt Lake in the Qaidam Basin is China's largest salt lake and its biggest potash fertilizer base.",
-        "Hoh Xil, a key habitat of the Tibetan antelope, became a World Natural Heritage Site in 2017."
+        "Hoh Xil, a key habitat of the Tibetan antelope, became a World Natural Heritage Site in 2017.",
+        "Huzhu Tu Autonomous County is the only autonomous county in China for the Tu (Monguor) people."
       ],
       "dia": [
         "尕 gǎ",
@@ -1935,7 +1982,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "平均標高は3000メートルを超え、大部分がチベット高原の北東部にある。",
         "ツァイダム盆地のチャルハン塩湖は中国最大の塩湖で、最大のカリ肥料の生産拠点でもある。",
-        "チベットカモシカの主な生息地ココシリが、2017年に世界自然遺産に登録された。"
+        "チベットカモシカの主な生息地ココシリが、2017年に世界自然遺産に登録された。",
+        "互助土族自治県は、中国で唯一の土族の自治県。"
       ],
       "dia": [
         "尕（ガー）",
@@ -1984,7 +2032,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "是中國回族最集中的省級行政區，回族約佔人口的三分之一。",
         "黃河灌溉的平原自古富饒，有「塞上江南」之稱。",
-        "面積約 6.6 萬平方公里，是中國面積最小的自治區。"
+        "面積約 6.6 萬平方公里，是中國面積最小的自治區。",
+        "賀蘭山東麓是中國知名的葡萄酒產區。"
       ],
       "dia": [
         "咥",
@@ -2020,7 +2069,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "It has the largest concentration of Hui Muslims of any provincial-level region, with the Hui making up about a third of the population.",
         "Its plains, irrigated by the Yellow River, have long been fertile, earning the name \"Jiangnan beyond the frontier.\"",
-        "Covering about 66,000 km², it is the smallest of China's autonomous regions."
+        "Covering about 66,000 km², it is the smallest of China's autonomous regions.",
+        "The eastern foothills of the Helan Mountains are one of China's best-known wine regions."
       ],
       "dia": [
         "咥 diē",
@@ -2056,7 +2106,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "回族が最も集中する省級行政区で、人口の約3分の1を回族が占める。",
         "黄河の水で潤う平野は古くから豊かで、「塞上の江南」と呼ばれる。",
-        "面積は約6.6万平方キロで、中国の自治区の中で最も小さい。"
+        "面積は約6.6万平方キロで、中国の自治区の中で最も小さい。",
+        "賀蘭山の東麓は、中国有数のワイン産地。"
       ],
       "dia": [
         "咥（ディエ）",
@@ -2104,7 +2155,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "首府是世界上距離海洋最遠的大城市。",
         "吐魯番盆地的艾丁湖低於海平面約 154 公尺，是中國陸地的最低點。",
-        "與八個國家接壤，是中國鄰國最多的省級行政區。"
+        "與八個國家接壤，是中國鄰國最多的省級行政區。",
+        "吐魯番一帶以名為「坎兒井」的地下暗渠引天山雪水灌溉農田。"
       ],
       "dia": [
         "巴扎",
@@ -2140,7 +2192,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "Its capital is the major city farthest from any ocean in the world.",
         "Lake Ayding in the Turpan Basin lies about 154 m below sea level, the lowest point on land in China.",
-        "It borders eight countries, more than any other provincial-level region in China."
+        "It borders eight countries, more than any other provincial-level region in China.",
+        "Around Turpan, underground channels called karez carry snowmelt from the Tian Shan to irrigate the fields."
       ],
       "dia": [
         "巴扎 bāzā",
@@ -2176,7 +2229,8 @@ Object.assign(window.KMAP_INFO.china.units, {
       "facts": [
         "区都は世界で最も海から遠い大都市。",
         "トルファン盆地のアイディン湖は海抜マイナス約154メートルで、中国の陸地で最も低い地点。",
-        "8か国と国境を接し、中国で最も多くの国と隣り合う省級行政区。"
+        "8か国と国境を接し、中国で最も多くの国と隣り合う省級行政区。",
+        "トルファン一帯では「カレーズ」と呼ばれる地下水路で天山の雪解け水を引き、畑を潤している。"
       ],
       "dia": [
         "巴扎（バーザー）",

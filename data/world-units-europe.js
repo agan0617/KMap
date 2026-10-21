@@ -25,7 +25,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗是紅底上一隻黑色雙頭鷹。",
         "民族英雄斯坎德培在 15 世紀率眾抵抗鄂圖曼帝國長達約 25 年。",
-        "1967 年獨裁政權宣布本國為世界上第一個無神論國家。"
+        "1967 年獨裁政權宣布本國為世界上第一個無神論國家。",
+        "1997 年全國性的老鼠會投資騙局崩盤，引發大規模動亂。"
       ],
       "dia": null,
       "wiki": "阿爾巴尼亞"
@@ -51,7 +52,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag shows a black double-headed eagle on a red field.",
         "The national hero Skanderbeg led resistance against the Ottoman Empire for about 25 years in the 15th century.",
-        "In 1967 the communist regime declared it the world's first atheist state."
+        "In 1967 the communist regime declared it the world's first atheist state.",
+        "In 1997 the collapse of nationwide pyramid investment schemes plunged the country into widespread unrest."
       ],
       "dia": null,
       "wiki": "Albania"
@@ -77,7 +79,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗は赤地に黒い双頭の鷲が描かれている。",
         "民族的英雄スカンデルベグは15世紀、約25年にわたってオスマン帝国に抵抗した。",
-        "1967年、共産主義政権は自国を世界初の無神論国家と宣言した。"
+        "1967年、共産主義政権は自国を世界初の無神論国家と宣言した。",
+        "1997年、全国に広がったねずみ講式の投資詐欺が破綻し、大規模な騒乱が起きた。"
       ],
       "dia": null,
       "wiki": "アルバニア"
@@ -108,7 +111,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "是世界上唯一以加泰隆尼亞語為唯一官方語言的國家。",
         "首都海拔約 1,023 公尺，是歐洲海拔最高的首都。",
-        "國內沒有機場，也沒有鐵路。"
+        "國內沒有機場，也沒有鐵路。",
+        "位於庇里牛斯山中，是夾在法國與西班牙之間的內陸小國。"
       ],
       "dia": null,
       "wiki": "安道爾"
@@ -132,7 +136,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is the only country in the world where Catalan is the sole official language.",
         "Its capital sits about 1,023 m above sea level, the highest capital in Europe.",
-        "The country has no airport and no railway of its own."
+        "The country has no airport and no railway of its own.",
+        "It is a small landlocked country in the Pyrenees, wedged between France and Spain."
       ],
       "dia": null,
       "wiki": "Andorra"
@@ -156,7 +161,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "カタルーニャ語を唯一の公用語とする世界で唯一の国である。",
         "首都は標高約1,023メートルで、ヨーロッパで最も高い所にある首都だ。",
-        "国内には空港も鉄道もない。"
+        "国内には空港も鉄道もない。",
+        "ピレネー山脈の中にあり、フランスとスペインに挟まれた小さな内陸国である。"
       ],
       "dia": null,
       "wiki": "アンドラ"
@@ -192,7 +198,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "作曲家莫札特出生於境內的薩爾斯堡。",
         "1955 年宣布永久中立，宣布中立的 10 月 26 日成為國慶日。",
-        "紅白紅三條橫紋的國旗，相傳源自中世紀公爵在戰後沾滿鮮血、只有腰帶處仍潔白的戰袍。"
+        "紅白紅三條橫紋的國旗，相傳源自中世紀公爵在戰後沾滿鮮血、只有腰帶處仍潔白的戰袍。",
+        "國名在德語中的意思是「東方的國度」。"
       ],
       "dia": null,
       "wiki": "奧地利"
@@ -218,7 +225,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The composer Mozart was born in Salzburg, within its borders.",
         "It declared permanent neutrality in 1955, and that day, October 26, became its national day.",
-        "Legend says its red-white-red flag comes from a medieval duke's tunic, soaked in blood after battle except where his belt had been."
+        "Legend says its red-white-red flag comes from a medieval duke's tunic, soaked in blood after battle except where his belt had been.",
+        "Its name in German means \"eastern realm\"."
       ],
       "dia": null,
       "wiki": "Austria"
@@ -244,7 +252,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "作曲家モーツァルトは国内のザルツブルクで生まれた。",
         "1955年に永世中立を宣言し、その10月26日がナショナル・デーになった。",
-        "赤・白・赤の国旗は、戦いで血に染まり、ベルトの部分だけ白く残った中世の公爵の衣に由来すると伝えられる。"
+        "赤・白・赤の国旗は、戦いで血に染まり、ベルトの部分だけ白く残った中世の公爵の衣に由来すると伝えられる。",
+        "国名はドイツ語で「東の国」という意味である。"
       ],
       "dia": null,
       "wiki": "オーストリア"
@@ -277,7 +286,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "歐盟主要機構與北約的總部都設在本國首都。",
         "1830 年脫離荷蘭而獨立。",
-        "《丁丁歷險記》的作者艾爾吉（Hergé）與《藍色小精靈》的作者貝約（Peyo）都是本國人。"
+        "《丁丁歷險記》的作者艾爾吉（Hergé）與《藍色小精靈》的作者貝約（Peyo）都是本國人。",
+        "北部的法蘭德斯說荷蘭語、南部的瓦隆說法語，國內有明確的語言分界線。"
       ],
       "dia": null,
       "wiki": "比利時"
@@ -303,7 +313,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its capital hosts the headquarters of NATO and the main institutions of the European Union.",
         "It became independent from the Netherlands in 1830.",
-        "Hergé, creator of Tintin, and Peyo, creator of the Smurfs, were both from here."
+        "Hergé, creator of Tintin, and Peyo, creator of the Smurfs, were both from here.",
+        "Dutch-speaking Flanders in the north and French-speaking Wallonia in the south are divided by an official language border."
       ],
       "dia": null,
       "wiki": "Belgium"
@@ -329,7 +340,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "首都にはNATO本部と欧州連合の主要機関が置かれている。",
         "1830年にオランダから独立した。",
-        "『タンタンの冒険』の作者エルジェも『スマーフ』の作者ペヨも、この国の出身だ。"
+        "『タンタンの冒険』の作者エルジェも『スマーフ』の作者ペヨも、この国の出身だ。",
+        "北部のフランデレンはオランダ語、南部のワロンはフランス語を話し、国内に明確な言語境界線がある。"
       ],
       "dia": null,
       "wiki": "ベルギー"
@@ -361,7 +373,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "西里爾字母是十世紀前後由當地中世紀帝國的學者發展成形，今日俄語、烏克蘭語等仍在使用。",
       "facts": [
         "人們點頭表示「不」、搖頭表示「是」，與多數國家相反。",
-        "黑海岸邊瓦爾納墓地出土的金器有 6,000 多年歷史，是世界最古老的黃金加工品之一。"
+        "黑海岸邊瓦爾納墓地出土的金器有 6,000 多年歷史，是世界最古老的黃金加工品之一。",
+        "最高峰穆薩拉峰海拔 2,925 公尺，是巴爾幹半島的最高峰。"
       ],
       "dia": null,
       "wiki": "保加利亞"
@@ -386,7 +399,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "The Cyrillic alphabet took shape here around the 10th century under a medieval empire, and is still used for Russian, Ukrainian and other languages.",
       "facts": [
         "People nod to mean \"no\" and shake their heads to mean \"yes\", the opposite of most countries.",
-        "Gold objects from the Varna Necropolis on the Black Sea coast are over 6,000 years old, among the oldest worked gold in the world."
+        "Gold objects from the Varna Necropolis on the Black Sea coast are over 6,000 years old, among the oldest worked gold in the world.",
+        "Its highest peak, Musala (2,925 m), is the highest mountain in the Balkan Peninsula."
       ],
       "dia": null,
       "wiki": "Bulgaria"
@@ -411,7 +425,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "キリル文字は10世紀ごろ、この地の中世帝国の学者たちによって形づくられ、今もロシア語やウクライナ語などで使われている。",
       "facts": [
         "うなずくと「いいえ」、首を横に振ると「はい」を意味し、多くの国とは逆である。",
-        "黒海沿岸のヴァルナ墓地から出土した金製品は6,000年以上前のもので、世界最古級の金細工である。"
+        "黒海沿岸のヴァルナ墓地から出土した金製品は6,000年以上前のもので、世界最古級の金細工である。",
+        "最高峰のムサラ山（標高2,925m）はバルカン半島の最高峰である。"
       ],
       "dia": null,
       "wiki": "ブルガリア"
@@ -448,7 +463,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1914 年奧匈帝國王儲斐迪南大公在本國首都遇刺，引發第一次世界大戰。",
         "國旗上的黃色三角形代表國土的形狀，三個角象徵三個主要民族。",
-        "海岸線只有涅姆一帶約 20 公里長。"
+        "海岸線只有涅姆一帶約 20 公里長。",
+        "1995 年簽署的代頓協定結束了境內三年多的戰爭。"
       ],
       "dia": null,
       "wiki": "波士尼亞與赫塞哥維納"
@@ -474,7 +490,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1914 Archduke Franz Ferdinand of Austria-Hungary was assassinated in its capital, sparking World War I.",
         "The yellow triangle on its flag echoes the country's shape, and its three corners stand for its three main peoples.",
-        "Its only coastline, around the town of Neum, is just about 20 km long."
+        "Its only coastline, around the town of Neum, is just about 20 km long.",
+        "The Dayton Agreement of 1995 ended more than three years of war on its territory."
       ],
       "dia": null,
       "wiki": "Bosnia and Herzegovina"
@@ -500,7 +517,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1914年、オーストリア＝ハンガリーの皇位継承者フランツ・フェルディナント大公がこの国の首都で暗殺され、第一次世界大戦の引き金となった。",
         "国旗の黄色い三角形は国土の形を表し、三つの角は三つの主要民族を象徴している。",
-        "海岸線はネウム周辺のわずか約20キロメートルしかない。"
+        "海岸線はネウム周辺のわずか約20キロメートルしかない。",
+        "1995年に調印されたデイトン合意により、国内で3年以上続いた戦争が終結した。"
       ],
       "dia": null,
       "wiki": "ボスニア・ヘルツェゴビナ"
@@ -535,7 +553,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "國土約四成被森林覆蓋，湖泊多達上萬座，因此有「藍眼睛之國」的美稱。",
       "facts": [
         "國旗靠旗桿的一側有紅白相間的傳統刺繡花紋。",
-        "1991 年宣告蘇聯解體的別洛韋日協定，是在本國境內的維斯庫利簽署的。"
+        "1991 年宣告蘇聯解體的別洛韋日協定，是在本國境內的維斯庫利簽署的。",
+        "1986 年車諾比核災的放射性落塵，約有七成落在本國境內。"
       ],
       "dia": null,
       "wiki": "白俄羅斯"
@@ -559,7 +578,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "About 40% of its land is forest and it has over ten thousand lakes, earning it the nickname \"the land of blue lakes\".",
       "facts": [
         "Its flag carries a red-and-white traditional embroidery pattern along the hoist side.",
-        "The 1991 Belovezha Accords, which declared the Soviet Union dissolved, were signed at Viskuli within its borders."
+        "The 1991 Belovezha Accords, which declared the Soviet Union dissolved, were signed at Viskuli within its borders.",
+        "About 70% of the radioactive fallout from the 1986 Chernobyl disaster landed on its territory."
       ],
       "dia": null,
       "wiki": "Belarus"
@@ -583,7 +603,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "国土の約4割が森林で、湖は1万を超え、「青い目の国」とも呼ばれる。",
       "facts": [
         "国旗の竿側には赤と白の伝統的な刺繍模様が入っている。",
-        "1991年にソ連の消滅を宣言したベロヴェーシ合意は、国内のヴィスクリで調印された。"
+        "1991年にソ連の消滅を宣言したベロヴェーシ合意は、国内のヴィスクリで調印された。",
+        "1986年のチェルノブイリ原発事故の放射性降下物は、約7割がこの国に降り注いだ。"
       ],
       "dia": null,
       "wiki": "ベラルーシ"
@@ -619,7 +640,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗是正方形，世界上只有它和梵蒂岡的國旗是正方形。",
         "紅十字會 1863 年創立於本國，其標誌正是本國國旗的顏色反轉。",
-        "2016 年通車的戈特哈德基線隧道長約 57 公里，是世界最長的鐵路隧道。"
+        "2016 年通車的戈特哈德基線隧道長約 57 公里，是世界最長的鐵路隧道。",
+        "國際奧林匹克委員會的總部設在境內的洛桑。"
       ],
       "dia": null,
       "wiki": "瑞士"
@@ -645,7 +667,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag is square; only it and the Vatican's flag are square.",
         "The Red Cross was founded here in 1863, and its emblem is the national flag with the colors reversed.",
-        "The Gotthard Base Tunnel, opened in 2016, is about 57 km long, the world's longest railway tunnel."
+        "The Gotthard Base Tunnel, opened in 2016, is about 57 km long, the world's longest railway tunnel.",
+        "The International Olympic Committee is headquartered in Lausanne, within its borders."
       ],
       "dia": null,
       "wiki": "Switzerland"
@@ -671,7 +694,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗は正方形で、正方形の国旗はこの国とバチカンだけである。",
         "赤十字は1863年にこの国で創設され、そのマークは国旗の色を反転させたものだ。",
-        "2016年に開通したゴッタルドベーストンネルは全長約57キロメートルで、世界最長の鉄道トンネルである。"
+        "2016年に開通したゴッタルドベーストンネルは全長約57キロメートルで、世界最長の鉄道トンネルである。",
+        "国際オリンピック委員会の本部は国内のローザンヌにある。"
       ],
       "dia": null,
       "wiki": "スイス"
@@ -709,7 +733,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "每人平均的啤酒消費量長年是世界第一。",
         "皮爾森啤酒（Pilsner）1842 年誕生於境內的皮爾森市。",
-        "現代軟式隱形眼鏡由本國化學家維赫特勒（Otto Wichterle）發明。"
+        "現代軟式隱形眼鏡由本國化學家維赫特勒（Otto Wichterle）發明。",
+        "作家卡夫卡出生於本國首都。"
       ],
       "dia": null,
       "wiki": "捷克"
@@ -736,7 +761,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It has long had the highest beer consumption per person in the world.",
         "Pilsner beer was first brewed in 1842 in the city of Plzeň, within its borders.",
-        "Modern soft contact lenses were invented by its chemist Otto Wichterle."
+        "Modern soft contact lenses were invented by its chemist Otto Wichterle.",
+        "The writer Franz Kafka was born in its capital."
       ],
       "dia": null,
       "wiki": "Czech Republic"
@@ -763,7 +789,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国民一人あたりのビール消費量は長年世界一である。",
         "ピルスナービールは1842年、国内のプルゼニで生まれた。",
-        "現代のソフトコンタクトレンズは、この国の化学者オットー・ヴィフテルレが発明した。"
+        "現代のソフトコンタクトレンズは、この国の化学者オットー・ヴィフテルレが発明した。",
+        "作家カフカはこの国の首都で生まれた。"
       ],
       "dia": null,
       "wiki": "チェコ"
@@ -800,7 +827,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "高速公路（Autobahn）有許多路段沒有速限。",
         "作曲家貝多芬出生於境內的波昂。",
-        "1989 年分隔東西的圍牆倒塌，隔年東西兩國統一。"
+        "1989 年分隔東西的圍牆倒塌，隔年東西兩國統一。",
+        "人口超過 8,000 萬，是歐盟人口最多的國家。"
       ],
       "dia": null,
       "wiki": "德國"
@@ -827,7 +855,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Many stretches of its Autobahn have no general speed limit.",
         "The composer Beethoven was born in Bonn, within its borders.",
-        "The wall dividing East and West fell in 1989, and the two states reunified the following year."
+        "The wall dividing East and West fell in 1989, and the two states reunified the following year.",
+        "With over 80 million people, it is the most populous country in the European Union."
       ],
       "dia": null,
       "wiki": "Germany"
@@ -854,7 +883,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "アウトバーンには速度制限のない区間が多い。",
         "作曲家ベートーヴェンは国内のボンで生まれた。",
-        "1989年に東西を隔てた壁が崩壊し、翌年に東西の両国が統一された。"
+        "1989年に東西を隔てた壁が崩壊し、翌年に東西の両国が統一された。",
+        "人口は8,000万人を超え、EUで最も人口が多い国である。"
       ],
       "dia": null,
       "wiki": "ドイツ"
@@ -891,7 +921,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "紅底白十字的國旗被認為是世界上仍在使用的最古老國旗。",
         "格陵蘭與法羅群島都是王國內的自治領地。",
-        "童話作家安徒生出生於境內的歐登塞。"
+        "童話作家安徒生出生於境內的歐登塞。",
+        "本土由日德蘭半島與數百座島嶼組成。"
       ],
       "dia": null,
       "wiki": "丹麥"
@@ -918,7 +949,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its white-cross-on-red flag is considered the oldest national flag still in use.",
         "Greenland and the Faroe Islands are both self-governing parts of its realm.",
-        "The fairy-tale writer Hans Christian Andersen was born in Odense, within its borders."
+        "The fairy-tale writer Hans Christian Andersen was born in Odense, within its borders.",
+        "Its mainland territory consists of the Jutland peninsula and several hundred islands."
       ],
       "dia": null,
       "wiki": "Denmark"
@@ -945,7 +977,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "赤地に白十字の国旗は、現在も使われている世界最古の国旗とされる。",
         "グリーンランドとフェロー諸島は、いずれもこの王国内の自治領である。",
-        "童話作家アンデルセンは国内のオーデンセで生まれた。"
+        "童話作家アンデルセンは国内のオーデンセで生まれた。",
+        "本土はユトランド半島と数百の島々からなる。"
       ],
       "dia": null,
       "wiki": "デンマーク"
@@ -978,7 +1011,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "每年 8 月在布尼奧爾舉行互丟番茄的「番茄大戰」節慶。",
         "位於非洲西北外海的加那利群島屬於本國。",
-        "畫家畢卡索出生於境內的馬拉加。"
+        "畫家畢卡索出生於境內的馬拉加。",
+        "除了全國通用的卡斯提亞語，加泰隆尼亞語、加利西亞語與巴斯克語也在各自的自治區具有官方地位。"
       ],
       "dia": null,
       "wiki": "西班牙"
@@ -1004,7 +1038,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Every August the town of Buñol holds La Tomatina, a festival where people pelt each other with tomatoes.",
         "The Canary Islands, off northwest Africa, belong to it.",
-        "The painter Pablo Picasso was born in Málaga, within its borders."
+        "The painter Pablo Picasso was born in Málaga, within its borders.",
+        "Besides Castilian, Catalan, Galician and Basque are co-official in their own autonomous communities."
       ],
       "dia": null,
       "wiki": "Spain"
@@ -1030,7 +1065,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "毎年8月、ブニョールの町でトマトを投げ合う祭り「トマティーナ」が開かれる。",
         "アフリカ北西沖のカナリア諸島はこの国の領土である。",
-        "画家ピカソは国内のマラガで生まれた。"
+        "画家ピカソは国内のマラガで生まれた。",
+        "全国共通のカスティーリャ語のほか、カタルーニャ語・ガリシア語・バスク語もそれぞれの自治州で公用語になっている。"
       ],
       "dia": null,
       "wiki": "スペイン"
@@ -1062,7 +1098,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "2005 年成為全球第一個舉行具法律效力的全國網路投票的國家。",
       "facts": [
         "網路電話 Skype 的核心程式由本國工程師開發。",
-        "2014 年推出全球第一個「電子居民（e-Residency）」計畫，外國人也能申請數位身分。"
+        "2014 年推出全球第一個「電子居民（e-Residency）」計畫，外國人也能申請數位身分。",
+        "境內最大的島嶼是薩雷馬島。"
       ],
       "dia": null,
       "wiki": "愛沙尼亞"
@@ -1087,7 +1124,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "In 2005 it became the first country to hold a legally binding nationwide election with internet voting.",
       "facts": [
         "The core software of Skype was developed by engineers from here.",
-        "In 2014 it launched the world's first e-Residency program, giving foreigners a digital identity."
+        "In 2014 it launched the world's first e-Residency program, giving foreigners a digital identity.",
+        "Its largest island is Saaremaa."
       ],
       "dia": null,
       "wiki": "Estonia"
@@ -1112,7 +1150,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "2005年、法的拘束力のある全国選挙でインターネット投票を実施した世界初の国となった。",
       "facts": [
         "インターネット電話スカイプの中核ソフトは、この国の技術者が開発した。",
-        "2014年、外国人にもデジタルIDを発行する世界初の「電子居住権（e-Residency）」制度を始めた。"
+        "2014年、外国人にもデジタルIDを発行する世界初の「電子居住権（e-Residency）」制度を始めた。",
+        "国内最大の島はサーレマー島である。"
       ],
       "dia": null,
       "wiki": "エストニア"
@@ -1149,7 +1188,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "有「千湖之國」之稱，湖泊超過 18 萬座。",
         "政府從 1938 年起會送新生兒家庭一個裝滿育兒用品、可當嬰兒床的紙箱。",
-        "作業系統 Linux 的創始人托瓦茲（Linus Torvalds）是本國人。"
+        "作業系統 Linux 的創始人托瓦茲（Linus Torvalds）是本國人。",
+        "國土約四分之一位於北極圈以北。"
       ],
       "dia": null,
       "wiki": "芬蘭"
@@ -1175,7 +1215,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Known as the land of a thousand lakes, it actually has more than 180,000.",
         "Since 1938 the state has given new parents a box of baby supplies that doubles as a crib.",
-        "Linus Torvalds, creator of Linux, comes from here."
+        "Linus Torvalds, creator of Linux, comes from here.",
+        "About a quarter of its territory lies north of the Arctic Circle."
       ],
       "dia": null,
       "wiki": "Finland"
@@ -1201,7 +1242,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "「千の湖の国」と呼ばれ、湖の数は18万を超える。",
         "1938年から、政府は新生児のいる家庭に、ベビーベッドにもなる育児用品入りの箱を贈っている。",
-        "Linuxの生みの親リーナス・トーバルズはこの国の出身だ。"
+        "Linuxの生みの親リーナス・トーバルズはこの国の出身だ。",
+        "国土の約4分の1が北極圏の北にある。"
       ],
       "dia": null,
       "wiki": "フィンランド"
@@ -1235,7 +1277,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "連同海外領土共有 12 個時區，是世界上時區最多的國家。",
         "國慶日 7 月 14 日紀念 1789 年大革命中攻占巴士底監獄。",
-        "只有境內香檳區依規定釀造的氣泡酒，才能以「香檳（Champagne）」之名販售。"
+        "只有境內香檳區依規定釀造的氣泡酒，才能以「香檳（Champagne）」之名販售。",
+        "1998 年與 2018 年兩度贏得世界盃足球賽冠軍。"
       ],
       "dia": null,
       "wiki": "法國"
@@ -1262,7 +1305,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Counting its overseas territories, it spans 12 time zones, more than any other country.",
         "Its national day, July 14, marks the storming of the Bastille in the 1789 Revolution.",
-        "Only sparkling wine made under the rules of its Champagne region may be sold as \"Champagne\"."
+        "Only sparkling wine made under the rules of its Champagne region may be sold as \"Champagne\".",
+        "It won the FIFA World Cup in 1998 and 2018."
       ],
       "dia": null,
       "wiki": "France"
@@ -1289,7 +1333,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "海外領土を含めると12の時間帯があり、世界で最も時間帯が多い国である。",
         "7月14日の革命記念日は、1789年の革命でのバスティーユ牢獄襲撃を記念している。",
-        "「シャンパン」と名乗れるのは、国内のシャンパーニュ地方で規定どおりに造られた発泡ワインだけである。"
+        "「シャンパン」と名乗れるのは、国内のシャンパーニュ地方で規定どおりに造られた発泡ワインだけである。",
+        "1998年と2018年の2度、サッカーのワールドカップで優勝した。"
       ],
       "dia": null,
       "wiki": "フランス"
@@ -1323,7 +1368,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "由英格蘭、蘇格蘭、威爾斯與北愛爾蘭四個部分組成。",
         "國旗俗稱「米字旗」，由三個守護聖人的十字疊合而成。",
-        "劇作家莎士比亞出生於境內的史特拉福。"
+        "劇作家莎士比亞出生於境內的史特拉福。",
+        "1825 年，世界第一條公共蒸汽鐵路在境內的斯托克頓與達靈頓之間通車。"
       ],
       "dia": null,
       "wiki": "英國"
@@ -1350,7 +1396,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is made up of four parts: England, Scotland, Wales and Northern Ireland.",
         "Its flag, the Union Jack, combines the crosses of three patron saints.",
-        "The playwright William Shakespeare was born in Stratford-upon-Avon, within its borders."
+        "The playwright William Shakespeare was born in Stratford-upon-Avon, within its borders.",
+        "In 1825 the world's first public steam railway opened between Stockton and Darlington, within its borders."
       ],
       "dia": null,
       "wiki": "United Kingdom"
@@ -1377,7 +1424,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "イングランド、スコットランド、ウェールズ、北アイルランドの四つの地域から成る。",
         "国旗「ユニオンジャック」は三人の守護聖人の十字を重ね合わせたものだ。",
-        "劇作家シェイクスピアは国内のストラトフォード・アポン・エイヴォンで生まれた。"
+        "劇作家シェイクスピアは国内のストラトフォード・アポン・エイヴォンで生まれた。",
+        "1825年、世界初の公共蒸気鉄道が国内のストックトン～ダーリントン間で開業した。"
       ],
       "dia": null,
       "wiki": "イギリス"
@@ -1411,7 +1459,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗的九條藍白橫紋，相傳對應獨立戰爭口號「不自由，毋寧死」的九個音節。",
         "「民主（democracy）」一詞源自本國的古代語言，意思是「人民的統治」。",
-        "擁有數千座大小島嶼，是歐洲島嶼最多的國家之一。"
+        "愛琴海上的島嶼絕大多數屬於本國。",
+        "古代哲學家蘇格拉底、柏拉圖與亞里斯多德都是本國的先人。"
       ],
       "dia": null,
       "wiki": "希臘"
@@ -1438,7 +1487,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The nine blue and white stripes of its flag are said to match the nine syllables of the independence-war motto \"Freedom or Death\".",
         "The word \"democracy\" comes from its ancient language, meaning \"rule by the people\".",
-        "With thousands of islands and islets, it is among the most island-rich countries in Europe."
+        "Most of the islands in the Aegean Sea belong to it.",
+        "The ancient philosophers Socrates, Plato and Aristotle were all from here."
       ],
       "dia": null,
       "wiki": "Greece"
@@ -1465,7 +1515,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗の青と白の9本の横縞は、独立戦争の標語「自由か死か」の9音節を表すといわれる。",
         "「デモクラシー」という言葉はこの国の古代語に由来し、「民衆の支配」を意味する。",
-        "大小数千の島々を持ち、ヨーロッパでも有数の島の多い国である。"
+        "エーゲ海に浮かぶ島々の大半はこの国に属している。",
+        "古代の哲学者ソクラテス、プラトン、アリストテレスはみなこの国の人である。"
       ],
       "dia": null,
       "wiki": "ギリシャ"
@@ -1501,7 +1552,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "領帶起源於 17 世紀本國傭兵繫的領巾，法文 cravate 一詞即由此而來。",
         "大麥町犬（Dalmatian）的名稱來自本國的達爾馬提亞地區。",
-        "國旗中央的國徽是紅白相間的棋盤格。"
+        "國旗中央的國徽是紅白相間的棋盤格。",
+        "2023 年起改用歐元，同年加入申根區。"
       ],
       "dia": null,
       "wiki": "克羅埃西亞"
@@ -1527,7 +1579,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The necktie grew out of the scarves worn by its 17th-century soldiers; the French word cravate comes from them.",
         "The Dalmatian dog is named after its Dalmatia region.",
-        "The coat of arms on its flag is a red-and-white checkerboard."
+        "The coat of arms on its flag is a red-and-white checkerboard.",
+        "It adopted the euro and joined the Schengen Area in 2023."
       ],
       "dia": null,
       "wiki": "Croatia"
@@ -1553,7 +1606,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ネクタイは17世紀にこの国の兵士が巻いていたスカーフが起源で、フランス語のcravateもそこから来ている。",
         "犬種ダルメシアンの名は、この国のダルマチア地方に由来する。",
-        "国旗の中央の国章は赤と白の市松模様である。"
+        "国旗の中央の国章は赤と白の市松模様である。",
+        "2023年にユーロを導入し、同じ年にシェンゲン圏にも加わった。"
       ],
       "dia": null,
       "wiki": "クロアチア"
@@ -1590,7 +1644,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "原子筆由本國人比羅（Bíró László）發明，許多地方至今仍叫它 biro。",
         "本國語言屬烏拉爾語系，與芬蘭語、愛沙尼亞語是遠親，與周邊國家語言截然不同。",
-        "科學家聖捷爾吉（Szent-Györgyi Albert）因維生素 C 的研究獲得 1937 年諾貝爾獎。"
+        "科學家聖捷爾吉（Szent-Györgyi Albert）因維生素 C 的研究獲得 1937 年諾貝爾獎。",
+        "1896 年，歐洲大陸第一條地鐵在本國首都通車。"
       ],
       "dia": null,
       "wiki": "匈牙利"
@@ -1617,7 +1672,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The ballpoint pen was invented by its native László Bíró, which is why it is still called a biro in many places.",
         "Its language is Uralic, distantly related to Finnish and Estonian and unlike its neighbors' languages.",
-        "Its scientist Albert Szent-Györgyi won the 1937 Nobel Prize for his work on vitamin C."
+        "Its scientist Albert Szent-Györgyi won the 1937 Nobel Prize for his work on vitamin C.",
+        "In 1896 the first underground railway in continental Europe opened in its capital."
       ],
       "dia": null,
       "wiki": "Hungary"
@@ -1644,7 +1700,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ボールペンはこの国出身のビーロー・ラースローが発明し、今も各地で「biro」と呼ばれる。",
         "この国の言語はウラル語族に属し、フィンランド語やエストニア語の遠い親戚で、周辺国の言語とはまったく異なる。",
-        "この国の科学者セント＝ジェルジ・アルベルトは、ビタミンCの研究で1937年にノーベル賞を受けた。"
+        "この国の科学者セント＝ジェルジ・アルベルトは、ビタミンCの研究で1937年にノーベル賞を受けた。",
+        "1896年、ヨーロッパ大陸初の地下鉄がこの国の首都で開業した。"
       ],
       "dia": null,
       "wiki": "ハンガリー"
@@ -1680,7 +1737,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國徽是一把豎琴，硬幣與護照上都看得到。",
         "每年 3 月 17 日的聖派翠克節是國定假日，世界各地都會以綠色慶祝。",
-        "諾貝爾文學獎得主葉慈、蕭伯納、貝克特與希尼都出身本國。"
+        "諾貝爾文學獎得主葉慈、蕭伯納、貝克特與希尼都出身本國。",
+        "2015 年成為世界上第一個以全民公投通過同性婚姻的國家。"
       ],
       "dia": null,
       "wiki": "愛爾蘭"
@@ -1706,7 +1764,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its national emblem is a harp, seen on its coins and passports.",
         "St Patrick's Day on March 17 is its national holiday, celebrated in green around the world.",
-        "Nobel literature laureates Yeats, Shaw, Beckett and Heaney all came from here."
+        "Nobel literature laureates Yeats, Shaw, Beckett and Heaney all came from here.",
+        "In 2015 it became the first country in the world to legalize same-sex marriage by popular vote."
       ],
       "dia": null,
       "wiki": "Republic of Ireland"
@@ -1732,7 +1791,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国章はハープで、硬貨やパスポートにも描かれている。",
         "3月17日の聖パトリックの祝日は国民の祝日で、世界各地で緑色を身につけて祝われる。",
-        "ノーベル文学賞受賞者のイェイツ、バーナード・ショー、ベケット、ヒーニーはいずれもこの国の出身である。"
+        "ノーベル文学賞受賞者のイェイツ、バーナード・ショー、ベケット、ヒーニーはいずれもこの国の出身である。",
+        "2015年、国民投票で同性婚を認めた世界初の国となった。"
       ],
       "dia": null,
       "wiki": "アイルランド"
@@ -1766,7 +1826,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "多數人沒有家族姓氏，而是用父名加上「之子（-son）」或「之女（-dóttir）」。",
         "國土位在大西洋中洋脊上，北美板塊與歐亞板塊在此分離。",
-        "1980 年選出的芬博阿多蒂爾，是世界上第一位經民選產生的女性總統。"
+        "1980 年選出的芬博阿多蒂爾，是世界上第一位經民選產生的女性總統。",
+        "沒有常備軍隊，是北約創始會員國中唯一沒有軍隊的國家。"
       ],
       "dia": null,
       "wiki": "冰島"
@@ -1793,7 +1854,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Most people have no family surname, using their father's name plus -son or -dóttir instead.",
         "It sits on the Mid-Atlantic Ridge, where the North American and Eurasian plates pull apart.",
-        "Vigdís Finnbogadóttir, elected in 1980, was the world's first democratically elected female president."
+        "Vigdís Finnbogadóttir, elected in 1980, was the world's first democratically elected female president.",
+        "It has no standing army, the only founding member of NATO without one."
       ],
       "dia": null,
       "wiki": "Iceland"
@@ -1820,7 +1882,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "多くの人は家の姓を持たず、父親の名に「-son（息子）」や「-dóttir（娘）」を付けて名乗る。",
         "国土は大西洋中央海嶺の上にあり、北米プレートとユーラシアプレートがここで離れていく。",
-        "1980年に選ばれたヴィグディス・フィンボガドゥティルは、世界初の民主的選挙で選ばれた女性大統領である。"
+        "1980年に選ばれたヴィグディス・フィンボガドゥティルは、世界初の民主的選挙で選ばれた女性大統領である。",
+        "常備軍を持たず、NATO原加盟国で唯一軍隊のない国である。"
       ],
       "dia": null,
       "wiki": "アイスランド"
@@ -1854,7 +1917,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國土形狀像一隻長靴。",
         "歐洲最高的活火山埃特納火山位於本國的西西里島。",
-        "14 世紀起，文藝復興運動從境內的佛羅倫斯擴展到全歐洲。"
+        "14 世紀起，文藝復興運動從境內的佛羅倫斯擴展到全歐洲。",
+        "歌劇在 16 世紀末誕生於本國的佛羅倫斯。"
       ],
       "dia": null,
       "wiki": "義大利"
@@ -1881,7 +1945,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its mainland is shaped like a boot.",
         "Mount Etna on Sicily, part of this country, is the tallest active volcano in Europe.",
-        "From the 14th century, the Renaissance spread from Florence, within its borders, across Europe."
+        "From the 14th century, the Renaissance spread from Florence, within its borders, across Europe.",
+        "Opera was born in Florence, within its borders, at the end of the 16th century."
       ],
       "dia": null,
       "wiki": "Italy"
@@ -1908,7 +1973,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国土の形は長靴に似ている。",
         "ヨーロッパ最高の活火山エトナ山は、この国のシチリア島にある。",
-        "14世紀以降、ルネサンスは国内のフィレンツェからヨーロッパ全土へ広がった。"
+        "14世紀以降、ルネサンスは国内のフィレンツェからヨーロッパ全土へ広がった。",
+        "オペラは16世紀末、国内のフィレンツェで誕生した。"
       ],
       "dia": null,
       "wiki": "イタリア"
@@ -1939,7 +2005,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "國歌《歐洲》沒有歌詞，國旗上畫有國土輪廓與六顆星。",
       "facts": [
         "2008 年宣布獨立，國際上對其地位的承認至今仍有分歧。",
-        "不是歐元區成員，卻使用歐元作為貨幣。"
+        "人口中約九成是阿爾巴尼亞族。",
+        "2016 年首次參加奧運，柔道選手凱爾門迪就拿下金牌。"
       ],
       "dia": null,
       "wiki": "科索沃"
@@ -1963,7 +2030,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "Its national anthem, \"Europe\", has no lyrics, and its flag shows an outline of the territory under six stars.",
       "facts": [
         "It declared independence in 2008, and international recognition of its status remains divided.",
-        "It is not part of the eurozone, yet it uses the euro as its currency."
+        "Around 90% of its population is ethnically Albanian.",
+        "At its first Olympics in 2016, judoka Majlinda Kelmendi won a gold medal."
       ],
       "dia": null,
       "wiki": "Kosovo"
@@ -1987,7 +2055,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "国歌「ヨーロッパ」には歌詞がなく、国旗には国土の形と6つの星が描かれている。",
       "facts": [
         "2008年に独立を宣言したが、その地位の承認をめぐる国際社会の立場は今も分かれている。",
-        "ユーロ圏の加盟国ではないが、通貨としてユーロを使っている。"
+        "人口の約9割をアルバニア系住民が占める。",
+        "初めて五輪に参加した2016年、柔道のケルメンディが金メダルを獲得した。"
       ],
       "dia": null,
       "wiki": "コソボ"
@@ -2023,7 +2092,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1868 年廢除軍隊，從此沒有自己的軍隊。",
         "沒有自己的貨幣，使用瑞士法郎。",
-        "以假牙起家的全球牙科材料公司義獲嘉（Ivoclar）總部設在本國的沙恩。"
+        "以假牙起家的全球牙科材料公司義獲嘉（Ivoclar）總部設在本國的沙恩。",
+        "西側以萊茵河為界，與瑞士隔河相望。"
       ],
       "dia": null,
       "wiki": "列支敦斯登"
@@ -2048,7 +2118,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It abolished its army in 1868 and has had none since.",
         "It has no currency of its own and uses the Swiss franc.",
-        "Ivoclar, a global dental company that began by making artificial teeth, is headquartered in Schaan here."
+        "Ivoclar, a global dental company that began by making artificial teeth, is headquartered in Schaan here.",
+        "Its western border with Switzerland follows the Rhine."
       ],
       "dia": null,
       "wiki": "Liechtenstein"
@@ -2073,7 +2144,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1868年に軍隊を廃止し、以来自国の軍隊を持たない。",
         "独自の通貨を持たず、スイス・フランを使っている。",
-        "人工歯の製造から始まった世界的な歯科材料メーカー、イボクラールはこの国のシャーンに本社を置く。"
+        "人工歯の製造から始まった世界的な歯科材料メーカー、イボクラールはこの国のシャーンに本社を置く。",
+        "西側はライン川を境にスイスと接している。"
       ],
       "dia": null,
       "wiki": "リヒテンシュタイン"
@@ -2109,7 +2181,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國名在 1009 年首次出現在文獻中。",
         "14～15 世紀時，大公國的版圖從波羅的海延伸到黑海，是當時歐洲面積最大的國家之一。",
-        "籃球極受歡迎，常被稱為國民的「第二宗教」。"
+        "籃球極受歡迎，常被稱為國民的「第二宗教」。",
+        "2015 年改用歐元，是波羅的海三國中最後一個加入歐元區的。"
       ],
       "dia": null,
       "wiki": "立陶宛"
@@ -2135,7 +2208,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its name first appeared in written records in 1009.",
         "In the 14th–15th centuries its Grand Duchy stretched from the Baltic to the Black Sea, among the largest states in Europe.",
-        "Basketball is so popular that it is often called the nation's \"second religion\"."
+        "Basketball is so popular that it is often called the nation's \"second religion\".",
+        "It adopted the euro in 2015, the last of the three Baltic states to do so."
       ],
       "dia": null,
       "wiki": "Lithuania"
@@ -2161,7 +2235,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国名は1009年に初めて文献に登場した。",
         "14～15世紀、この国の大公国はバルト海から黒海まで広がり、当時ヨーロッパ最大級の国だった。",
-        "バスケットボールの人気はすさまじく、「第二の宗教」と呼ばれるほどだ。"
+        "バスケットボールの人気はすさまじく、「第二の宗教」と呼ばれるほどだ。",
+        "2015年にユーロを導入し、バルト三国で最後にユーロ圏入りした。"
       ],
       "dia": null,
       "wiki": "リトアニア"
@@ -2194,7 +2269,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2020 年起成為世界上第一個全國大眾運輸免費的國家。",
         "歐盟法院設在本國首都。",
-        "每人平均國內生產毛額長年名列世界前茅。"
+        "每人平均國內生產毛額長年名列世界前茅。",
+        "與比利時、荷蘭合稱「比荷盧」三國。"
       ],
       "dia": null,
       "wiki": "盧森堡"
@@ -2220,7 +2296,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 2020 it became the first country in the world to make all public transport free nationwide.",
         "The Court of Justice of the European Union sits in its capital.",
-        "Its GDP per person has long ranked among the highest in the world."
+        "Its GDP per person has long ranked among the highest in the world.",
+        "Together with Belgium and the Netherlands it forms the Benelux."
       ],
       "dia": null,
       "wiki": "Luxembourg"
@@ -2246,7 +2323,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2020年、世界で初めて全国の公共交通機関を無料にした国となった。",
         "欧州連合司法裁判所はこの国の首都にある。",
-        "一人あたりGDPは長年、世界トップクラスである。"
+        "一人あたりGDPは長年、世界トップクラスである。",
+        "ベルギー、オランダとあわせて「ベネルクス三国」と呼ばれる。"
       ],
       "dia": null,
       "wiki": "ルクセンブルク"
@@ -2278,7 +2356,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "森林覆蓋率超過一半，是歐洲森林最茂密的國家之一。",
       "facts": [
         "本國語言與立陶宛語是現存僅有的兩種波羅的語。",
-        "芭蕾舞巨星巴瑞辛尼可夫出生於本國首都。"
+        "芭蕾舞巨星巴瑞辛尼可夫出生於本國首都。",
+        "首都是波羅的海三國中最大的城市。"
       ],
       "dia": null,
       "wiki": "拉脫維亞"
@@ -2303,7 +2382,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "More than half of its land is covered by forest, among the highest shares in Europe.",
       "facts": [
         "Its language and Lithuanian are the only two Baltic languages still spoken.",
-        "The ballet star Mikhail Baryshnikov was born in its capital."
+        "The ballet star Mikhail Baryshnikov was born in its capital.",
+        "Its capital is the largest city in the three Baltic states."
       ],
       "dia": null,
       "wiki": "Latvia"
@@ -2328,7 +2408,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "国土の半分以上が森林で、ヨーロッパでも森林率の高い国のひとつ。",
       "facts": [
         "この国の言語とリトアニア語は、現存する二つだけのバルト語派の言語である。",
-        "バレエの名手ミハイル・バリシニコフはこの国の首都で生まれた。"
+        "バレエの名手ミハイル・バリシニコフはこの国の首都で生まれた。",
+        "首都はバルト三国で最大の都市である。"
       ],
       "dia": null,
       "wiki": "ラトビア"
@@ -2364,7 +2445,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "每年在市區街道上舉辦一級方程式（F1）大獎賽。",
         "紅白兩色的國旗與印尼國旗幾乎相同，只差在長寬比例。",
-        "好萊塢女星葛麗絲·凱莉於 1956 年嫁給本國的蘭尼埃三世親王。"
+        "好萊塢女星葛麗絲·凱莉於 1956 年嫁給本國的蘭尼埃三世親王。",
+        "人口密度是世界上最高的國家。"
       ],
       "dia": null,
       "wiki": "摩納哥"
@@ -2390,7 +2472,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Every year a Formula One Grand Prix is raced on its city streets.",
         "Its red-and-white flag is almost identical to Indonesia's, differing only in proportions.",
-        "Hollywood star Grace Kelly married its ruler, Prince Rainier III, in 1956."
+        "Hollywood star Grace Kelly married its ruler, Prince Rainier III, in 1956.",
+        "It is the most densely populated country in the world."
       ],
       "dia": null,
       "wiki": "Monaco"
@@ -2416,7 +2499,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "毎年、市街地の公道でF1グランプリが開かれる。",
         "赤と白の国旗はインドネシアの国旗とほぼ同じで、縦横比だけが違う。",
-        "ハリウッド女優グレース・ケリーは1956年、この国のレーニエ3世大公と結婚した。"
+        "ハリウッド女優グレース・ケリーは1956年、この国のレーニエ3世大公と結婚した。",
+        "人口密度が世界で最も高い国である。"
       ],
       "dia": null,
       "wiki": "モナコ"
@@ -2448,7 +2532,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2023 年國會正式把官方語言的名稱定為羅馬尼亞語。",
         "德涅斯特河東岸的「德涅斯特河沿岸」地區自行宣布獨立，未獲國際承認。",
-        "是夾在羅馬尼亞與烏克蘭之間的內陸國。"
+        "是夾在羅馬尼亞與烏克蘭之間的內陸國。",
+        "國土的輪廓常被比喻成一串葡萄，葡萄酒是重要產業。"
       ],
       "dia": null,
       "wiki": "摩爾多瓦"
@@ -2473,7 +2558,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 2023 its parliament officially named the state language Romanian.",
         "Transnistria, the strip east of the Dniester River, has declared itself independent without international recognition.",
-        "It is a landlocked country squeezed between Romania and Ukraine."
+        "It is a landlocked country squeezed between Romania and Ukraine.",
+        "Its outline is often likened to a bunch of grapes, and wine is a key industry."
       ],
       "dia": null,
       "wiki": "Moldova"
@@ -2498,7 +2584,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2023年、議会は公用語の名称を正式にルーマニア語と定めた。",
         "ドニエストル川東岸の沿ドニエストル地域は独立を宣言しているが、国際的には承認されていない。",
-        "ルーマニアとウクライナに挟まれた内陸国である。"
+        "ルーマニアとウクライナに挟まれた内陸国である。",
+        "国土の形はよくブドウの房にたとえられ、ワインは重要な産業である。"
       ],
       "dia": null,
       "wiki": "モルドバ"
@@ -2533,7 +2620,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "德蕾莎修女出生於該國首都。",
       "facts": [
         "2019 年依與希臘簽訂的普雷斯帕協議改為現在的國名。",
-        "國旗是紅底上一輪放出八道光芒的黃色太陽。"
+        "國旗是紅底上一輪放出八道光芒的黃色太陽。",
+        "與阿爾巴尼亞共有奧赫里德湖，那是歐洲最古老的湖泊之一。"
       ],
       "dia": null,
       "wiki": "北馬其頓"
@@ -2558,7 +2646,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "Mother Teresa was born in its capital city.",
       "facts": [
         "It adopted its current name in 2019 under the Prespa Agreement with Greece.",
-        "Its flag shows a yellow sun with eight rays on a red field."
+        "Its flag shows a yellow sun with eight rays on a red field.",
+        "It shares Lake Ohrid, one of Europe's oldest lakes, with Albania."
       ],
       "dia": null,
       "wiki": "North Macedonia"
@@ -2583,7 +2672,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "マザー・テレサは、この国の首都で生まれた。",
       "facts": [
         "2019年、ギリシャとのプレスパ合意により現在の国名に改めた。",
-        "国旗は赤地に8本の光を放つ黄色い太陽が描かれている。"
+        "国旗は赤地に8本の光を放つ黄色い太陽が描かれている。",
+        "ヨーロッパ最古級の湖であるオフリド湖をアルバニアと分け合っている。"
       ],
       "dia": null,
       "wiki": "北マケドニア"
@@ -2619,7 +2709,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗左上角有喬治十字勳章，是英王表彰二戰期間全島軍民堅守而頒授的。",
         "國語是唯一以拉丁字母書寫的閃語族語言。",
-        "是歐盟面積與人口都最小的成員國。"
+        "是歐盟面積與人口都最小的成員國。",
+        "1565 年聖約翰騎士團在此擊退鄂圖曼帝國的大圍攻。"
       ],
       "dia": null,
       "wiki": "馬爾他"
@@ -2645,7 +2736,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag bears the George Cross, awarded by the British king for the islanders' endurance in World War II.",
         "Its national language is the only Semitic language written in the Latin alphabet.",
-        "It is the smallest member of the European Union by both area and population."
+        "It is the smallest member of the European Union by both area and population.",
+        "In 1565 the Knights of St John repelled the Ottoman Empire's Great Siege here."
       ],
       "dia": null,
       "wiki": "Malta"
@@ -2671,7 +2763,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗の左上にはジョージ・クロスがあり、第二次世界大戦中の島民の奮闘をたたえて英国王から授与されたものだ。",
         "この国の言語は、ラテン文字で書かれる唯一のセム語派の言語である。",
-        "面積・人口ともにEU加盟国で最小の国である。"
+        "面積・人口ともにEU加盟国で最小の国である。",
+        "1565年、聖ヨハネ騎士団がここでオスマン帝国の大包囲を退けた。"
       ],
       "dia": null,
       "wiki": "マルタ"
@@ -2703,7 +2796,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "塔拉河峽谷深約 1300 公尺，常被稱為歐洲最深的峽谷。",
       "facts": [
         "2006 年經公投脫離與塞爾維亞的聯邦而獨立。",
-        "國名的意思是「黑色的山」。"
+        "國名的意思是「黑色的山」。",
+        "2017 年加入北約。"
       ],
       "dia": null,
       "wiki": "蒙特內哥羅"
@@ -2728,7 +2822,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "The Tara River Canyon is about 1,300 m deep and is often called the deepest canyon in Europe.",
       "facts": [
         "It became independent in 2006 after a referendum to leave its union with Serbia.",
-        "Its name means \"black mountain\"."
+        "Its name means \"black mountain\".",
+        "It joined NATO in 2017."
       ],
       "dia": null,
       "wiki": "Montenegro"
@@ -2753,7 +2848,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "タラ川渓谷は深さ約1300mで、ヨーロッパ最深の渓谷とよく言われる。",
       "facts": [
         "2006年の住民投票でセルビアとの連邦から独立した。",
-        "国名は「黒い山」という意味だ。"
+        "国名は「黒い山」という意味だ。",
+        "2017年にNATOに加盟した。"
       ],
       "dia": null,
       "wiki": "モンテネグロ"
@@ -2790,7 +2886,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "自行車的數量比人口還多。",
         "17 世紀曾爆發「鬱金香狂熱」，一顆球根的價格被炒得比房子還貴。",
-        "畫家林布蘭與梵谷都是本國人。"
+        "畫家林布蘭與梵谷都是本國人。",
+        "國會與中央政府設在海牙，而不是憲法上的首都。"
       ],
       "dia": null,
       "wiki": "荷蘭"
@@ -2817,7 +2914,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It has more bicycles than people.",
         "In the 17th century \"tulip mania\" drove the price of a single bulb above that of a house.",
-        "The painters Rembrandt and Van Gogh were both from here."
+        "The painters Rembrandt and Van Gogh were both from here.",
+        "Its parliament and government sit in The Hague rather than in the constitutional capital."
       ],
       "dia": null,
       "wiki": "Netherlands"
@@ -2844,7 +2942,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "自転車の数が人口よりも多い。",
         "17世紀には「チューリップ・バブル」が起き、球根一つが家より高値で取引された。",
-        "画家のレンブラントもゴッホもこの国の出身だ。"
+        "画家のレンブラントもゴッホもこの国の出身だ。",
+        "議会と政府は憲法上の首都ではなく、ハーグに置かれている。"
       ],
       "dia": null,
       "wiki": "オランダ"
@@ -2877,7 +2976,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "諾貝爾獎中只有和平獎在本國首都頒發，其他獎項在瑞典。",
         "1911 年第一個抵達南極點的探險家阿蒙森是本國人。",
-        "北極圈內的斯瓦巴群島屬於本國。"
+        "北極圈內的斯瓦巴群島屬於本國。",
+        "1905 年和平解除與瑞典的聯合而獨立。"
       ],
       "dia": null,
       "wiki": "挪威"
@@ -2903,7 +3003,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The Nobel Peace Prize is the only Nobel awarded in its capital; the others are given in Sweden.",
         "Roald Amundsen, the first to reach the South Pole in 1911, was from here.",
-        "The Arctic archipelago of Svalbard belongs to it."
+        "The Arctic archipelago of Svalbard belongs to it.",
+        "In 1905 it peacefully dissolved its union with Sweden and became independent."
       ],
       "dia": null,
       "wiki": "Norway"
@@ -2929,7 +3030,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ノーベル賞のうち平和賞だけがこの国の首都で授与され、他の賞はスウェーデンで授与される。",
         "1911年に初めて南極点に到達した探検家アムンセンはこの国の出身だ。",
-        "北極圏のスヴァールバル諸島はこの国の領土である。"
+        "北極圏のスヴァールバル諸島はこの国の領土である。",
+        "1905年、スウェーデンとの連合を平和的に解消して独立した。"
       ],
       "dia": null,
       "wiki": "ノルウェー"
@@ -2966,7 +3068,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "提出日心說的天文學家哥白尼出生於境內的托倫。",
         "作曲家蕭邦出生於本國。",
-        "1980 年在格但斯克造船廠誕生的「團結工聯」，是東歐共產集團第一個獨立工會。"
+        "1980 年在格但斯克造船廠誕生的「團結工聯」，是東歐共產集團第一個獨立工會。",
+        "1683 年國王索別斯基率軍在維也納城下擊敗鄂圖曼大軍。"
       ],
       "dia": null,
       "wiki": "波蘭"
@@ -2993,7 +3096,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Copernicus, who proposed the Sun-centered model, was born in Toruń, within its borders.",
         "The composer Frédéric Chopin was born here.",
-        "Solidarity, born at the Gdańsk shipyard in 1980, was the first independent trade union in the Soviet bloc."
+        "Solidarity, born at the Gdańsk shipyard in 1980, was the first independent trade union in the Soviet bloc.",
+        "In 1683 its king Jan III Sobieski led the army that defeated the Ottomans at the gates of Vienna."
       ],
       "dia": null,
       "wiki": "Poland"
@@ -3020,7 +3124,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "地動説を唱えた天文学者コペルニクスは国内のトルンで生まれた。",
         "作曲家ショパンはこの国で生まれた。",
-        "1980年にグダニスク造船所で生まれた「連帯」は、東側陣営で初の独立労組だった。"
+        "1980年にグダニスク造船所で生まれた「連帯」は、東側陣営で初の独立労組だった。",
+        "1683年、ソビエスキ王がウィーン郊外でオスマン軍を打ち破った。"
       ],
       "dia": null,
       "wiki": "ポーランド"
@@ -3057,7 +3162,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "本國語言也是巴西、安哥拉、莫三比克等國的官方語言。",
         "1373 年與英格蘭締結的同盟，是世界上至今仍有效的最古老同盟。",
-        "軟木產量約佔全世界的一半，是最大的軟木生產國。"
+        "軟木產量約佔全世界的一半，是最大的軟木生產國。",
+        "1755 年的大地震與海嘯幾乎摧毀了首都。"
       ],
       "dia": null,
       "wiki": "葡萄牙"
@@ -3084,7 +3190,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its language is also official in Brazil, Angola, Mozambique and others.",
         "Its alliance with England, signed in 1373, is the oldest alliance in the world still in force.",
-        "It produces about half of the world's cork, more than any other country."
+        "It produces about half of the world's cork, more than any other country.",
+        "The great earthquake and tsunami of 1755 nearly destroyed its capital."
       ],
       "dia": null,
       "wiki": "Portugal"
@@ -3111,7 +3218,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "この国の言語は、ブラジル、アンゴラ、モザンビークなどでも公用語である。",
         "1373年にイングランドと結んだ同盟は、現在も有効な世界最古の同盟である。",
-        "コルクの生産量は世界の約半分を占め、世界最大のコルク生産国である。"
+        "コルクの生産量は世界の約半分を占め、世界最大のコルク生産国である。",
+        "1755年の大地震と津波で首都はほぼ壊滅した。"
       ],
       "dia": null,
       "wiki": "ポルトガル"
@@ -3146,9 +3254,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "吸血鬼德古拉的傳說以境內的特蘭西瓦尼亞為舞台。",
       "facts": [
-        "本國語言屬於源自拉丁語的羅曼語族，是東歐少見的拉丁語系語言。",
         "多瑙河三角洲大部分位於本國境內。",
-        "體操選手柯曼妮奇在 1976 年奧運拿下奧運史上第一個滿分 10 分。"
+        "體操選手柯曼妮奇在 1976 年奧運拿下奧運史上第一個滿分 10 分。",
+        "除了俄羅斯以外，是歐洲棕熊數量最多的國家。"
       ],
       "dia": null,
       "wiki": "羅馬尼亞"
@@ -3173,9 +3281,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "The legend of Dracula is set in Transylvania, within its borders.",
       "facts": [
-        "Its language is a Romance language descended from Latin, rare in Eastern Europe.",
         "Most of the Danube Delta lies within its borders.",
-        "Gymnast Nadia Comăneci scored the first perfect 10 in Olympic history at the 1976 Games."
+        "Gymnast Nadia Comăneci scored the first perfect 10 in Olympic history at the 1976 Games.",
+        "Outside Russia, it has the largest brown bear population in Europe."
       ],
       "dia": null,
       "wiki": "Romania"
@@ -3200,9 +3308,9 @@ Object.assign(window.KMAP_INFO.world.units, {
       ],
       "fact": "吸血鬼ドラキュラの伝説は、国内のトランシルヴァニアが舞台になっている。",
       "facts": [
-        "この国の言語はラテン語から派生したロマンス諸語の一つで、東欧では珍しい。",
         "ドナウ・デルタの大部分は国内にある。",
-        "体操選手ナディア・コマネチは1976年の五輪で、五輪史上初の満点10点を出した。"
+        "体操選手ナディア・コマネチは1976年の五輪で、五輪史上初の満点10点を出した。",
+        "ロシアを除けば、ヨーロッパで最もヒグマの多い国である。"
       ],
       "dia": null,
       "wiki": "ルーマニア"
@@ -3240,7 +3348,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1961 年蘇聯太空人加加林成為第一個進入太空的人。",
         "西伯利亞鐵路全長約 9,289 公里，是世界最長的鐵路線。",
-        "伏爾加河是歐洲最長的河流。"
+        "伏爾加河是歐洲最長的河流。",
+        "國境同時與挪威和北韓相鄰。"
       ],
       "dia": null,
       "wiki": "俄羅斯"
@@ -3267,7 +3376,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1961 the Soviet cosmonaut Yuri Gagarin became the first human in space.",
         "The Trans-Siberian Railway, about 9,289 km long, is the longest railway line in the world.",
-        "The Volga is the longest river in Europe."
+        "The Volga is the longest river in Europe.",
+        "Its borders touch both Norway and North Korea."
       ],
       "dia": null,
       "wiki": "Russia"
@@ -3294,7 +3404,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1961年、ソ連の宇宙飛行士ガガーリンが人類で初めて宇宙へ行った。",
         "シベリア鉄道は全長約9,289キロメートルで、世界最長の鉄道路線である。",
-        "ヴォルガ川はヨーロッパ最長の川である。"
+        "ヴォルガ川はヨーロッパ最長の川である。",
+        "ノルウェーとも北朝鮮とも国境を接している。"
       ],
       "dia": null,
       "wiki": "ロシア"
@@ -3327,7 +3438,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "傳說建於西元 301 年，被認為是世界上現存最古老的共和國。",
       "facts": [
         "國家元首是兩位「執政官」，每半年改選一次。",
-        "面積約 61 平方公里，是歐洲第三小的國家。"
+        "面積約 61 平方公里，是歐洲第三小的國家。",
+        "1861 年曾授予美國總統林肯榮譽公民的身分。"
       ],
       "dia": null,
       "wiki": "聖馬利諾"
@@ -3350,7 +3462,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "Founded, by tradition, in AD 301, it is considered the oldest surviving republic in the world.",
       "facts": [
         "Its heads of state are two Captains Regent, elected every six months.",
-        "At about 61 km², it is the third-smallest country in Europe."
+        "At about 61 km², it is the third-smallest country in Europe.",
+        "In 1861 it made US President Abraham Lincoln an honorary citizen."
       ],
       "dia": null,
       "wiki": "San Marino"
@@ -3373,7 +3486,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "伝承では301年の建国とされ、現存する世界最古の共和国といわれる。",
       "facts": [
         "国家元首は2人の執政で、半年ごとに選ばれる。",
-        "面積は約61平方キロメートルで、ヨーロッパで3番目に小さい国である。"
+        "面積は約61平方キロメートルで、ヨーロッパで3番目に小さい国である。",
+        "1861年、アメリカのリンカーン大統領に名誉市民の称号を贈った。"
       ],
       "dia": null,
       "wiki": "サンマリノ"
@@ -3405,7 +3519,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "網球名將喬科維奇（Novak Djokovic）的故鄉。",
       "facts": [
         "本國語言同時使用西里爾字母與拉丁字母兩種書寫方式。",
-        "首都位於薩瓦河匯入多瑙河的地方。"
+        "首都位於薩瓦河匯入多瑙河的地方。",
+        "2006 年蒙特內哥羅獨立後，成為沒有海岸線的內陸國。"
       ],
       "dia": null,
       "wiki": "塞爾維亞"
@@ -3430,7 +3545,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "It is the home country of tennis star Novak Djokovic.",
       "facts": [
         "Its language is written in both the Cyrillic and Latin alphabets.",
-        "Its capital lies where the Sava River flows into the Danube."
+        "Its capital lies where the Sava River flows into the Danube.",
+        "After Montenegro became independent in 2006, it was left landlocked."
       ],
       "dia": null,
       "wiki": "Serbia"
@@ -3455,7 +3571,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "テニスのスター選手ノバク・ジョコビッチの母国。",
       "facts": [
         "この国の言語はキリル文字とラテン文字の両方で書かれる。",
-        "首都はサヴァ川がドナウ川に合流する地点にある。"
+        "首都はサヴァ川がドナウ川に合流する地点にある。",
+        "2006年にモンテネグロが独立したことで、海のない内陸国になった。"
       ],
       "dia": null,
       "wiki": "セルビア"
@@ -3491,7 +3608,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "以人口平均計算，是世界汽車產量最高的國家。",
       "facts": [
         "1993 年與捷克和平分離，被稱為「天鵝絨分離」。",
-        "國徽是藍色三座山上立著一個白色雙十字。"
+        "國徽是藍色三座山上立著一個白色雙十字。",
+        "2009 年起使用歐元。"
       ],
       "dia": null,
       "wiki": "斯洛伐克"
@@ -3516,7 +3634,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "It produces more cars per capita than any other country in the world.",
       "facts": [
         "It split peacefully from the Czech Republic in 1993, the so-called Velvet Divorce.",
-        "Its coat of arms shows a white double cross on three blue hills."
+        "Its coat of arms shows a white double cross on three blue hills.",
+        "It has used the euro since 2009."
       ],
       "dia": null,
       "wiki": "Slovakia"
@@ -3541,7 +3660,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "人口あたりの自動車生産台数は世界一。",
       "facts": [
         "1993年、チェコと平和的に分離した。「ビロード離婚」と呼ばれる。",
-        "国章は青い三つの山の上に白い二重十字が立つ図柄だ。"
+        "国章は青い三つの山の上に白い二重十字が立つ図柄だ。",
+        "2009年からユーロを使っている。"
       ],
       "dia": null,
       "wiki": "スロバキア"
@@ -3576,7 +3696,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "「喀斯特地形」一詞來自境內的卡斯特高原（Kras）。",
       "facts": [
         "國徽上畫著本國最高峰特里格拉夫峰。",
-        "著名的白色利皮札馬，得名於境內的利皮察馬場。"
+        "著名的白色利皮札馬，得名於境內的利皮察馬場。",
+        "2007 年成為第一個加入歐元區的前共產國家。"
       ],
       "dia": null,
       "wiki": "斯洛維尼亞"
@@ -3601,7 +3722,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "The word \"karst\" comes from the Kras plateau within its borders.",
       "facts": [
         "Its coat of arms depicts Triglav, the country's highest peak.",
-        "The famous white Lipizzaner horses are named after the Lipica stud farm within its borders."
+        "The famous white Lipizzaner horses are named after the Lipica stud farm within its borders.",
+        "In 2007 it became the first former communist country to join the eurozone."
       ],
       "dia": null,
       "wiki": "Slovenia"
@@ -3626,7 +3748,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "fact": "「カルスト」という言葉は、国内のクラス高原に由来する。",
       "facts": [
         "国章には国内最高峰のトリグラフ山が描かれている。",
-        "有名な白馬リピッツァナーは、国内のリピツァ牧場にちなんで名付けられた。"
+        "有名な白馬リピッツァナーは、国内のリピツァ牧場にちなんで名付けられた。",
+        "2007年、旧共産圏の国として初めてユーロ圏に加わった。"
       ],
       "dia": null,
       "wiki": "スロベニア"
@@ -3660,7 +3783,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "家具品牌 IKEA 與汽車品牌 Volvo 都創立於本國。",
         "流行樂團 ABBA 在 1974 年歐洲歌唱大賽以〈Waterloo〉奪冠而走紅全球。",
-        "「監察使（Ombudsman）」一詞與制度源自本國，1809 年設立。"
+        "「監察使（Ombudsman）」一詞與制度源自本國，1809 年設立。",
+        "1986 年總理帕爾梅在首都街頭遭槍殺。"
       ],
       "dia": null,
       "wiki": "瑞典"
@@ -3687,7 +3811,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Both IKEA and Volvo were founded here.",
         "The pop group ABBA shot to fame by winning Eurovision 1974 with \"Waterloo\".",
-        "The word and institution of the ombudsman originated here, established in 1809."
+        "The word and institution of the ombudsman originated here, established in 1809.",
+        "In 1986 Prime Minister Olof Palme was shot dead on a street in its capital."
       ],
       "dia": null,
       "wiki": "Sweden"
@@ -3714,7 +3839,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "家具のイケアも自動車のボルボもこの国で創業した。",
         "ポップグループABBAは1974年のユーロビジョンで「恋のウォータールー」を歌って優勝し、世界的に人気となった。",
-        "「オンブズマン」という言葉と制度は、1809年にこの国で生まれた。"
+        "「オンブズマン」という言葉と制度は、1809年にこの国で生まれた。",
+        "1986年、パルメ首相が首都の路上で銃撃され死亡した。"
       ],
       "dia": null,
       "wiki": "スウェーデン"
@@ -3748,7 +3874,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "藍黃兩色的國旗象徵藍天與金黃的麥田。",
         "1986 年發生核災的車諾比核電廠位於本國北部。",
-        "世界最大的運輸機安托諾夫 An-225 由本國設計製造，2022 年在戰爭中被摧毀。"
+        "世界最大的運輸機安托諾夫 An-225 由本國設計製造，2022 年在戰爭中被摧毀。",
+        "是國土完全位於歐洲的國家中面積最大的。"
       ],
       "dia": null,
       "wiki": "烏克蘭"
@@ -3775,7 +3902,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its blue-and-yellow flag represents blue sky over golden wheat fields.",
         "The Chernobyl nuclear plant, site of the 1986 disaster, is in its north.",
-        "The Antonov An-225, the world's largest cargo plane, was built here and destroyed in the war in 2022."
+        "The Antonov An-225, the world's largest cargo plane, was built here and destroyed in the war in 2022.",
+        "It is the largest country lying entirely within Europe."
       ],
       "dia": null,
       "wiki": "Ukraine"
@@ -3802,7 +3930,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "青と黄の国旗は青空と黄金色の麦畑を表す。",
         "1986年に事故を起こしたチェルノブイリ原発は、この国の北部にある。",
-        "世界最大の輸送機アントノフAn-225はこの国で造られ、2022年に戦争で破壊された。"
+        "世界最大の輸送機アントノフAn-225はこの国で造られ、2022年に戦争で破壊された。",
+        "国土がすべてヨーロッパにある国の中で、面積が最も大きい。"
       ],
       "dia": null,
       "wiki": "ウクライナ"
@@ -3836,7 +3965,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國家元首是天主教教宗。",
         "自 1506 年起由瑞士近衛隊負責護衛。",
-        "人口只有數百人，是世界上人口最少的國家。"
+        "人口只有數百人，是世界上人口最少的國家。",
+        "教廷的官方語言是拉丁語，境內銀行的自動提款機也有拉丁語選項。"
       ],
       "dia": null,
       "wiki": "梵蒂岡"
@@ -3859,7 +3989,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its head of state is the Pope.",
         "It has been guarded by the Swiss Guard since 1506.",
-        "With only a few hundred residents, it has the smallest population of any country."
+        "With only a few hundred residents, it has the smallest population of any country.",
+        "Latin is the official language of the Holy See, and even the ATMs here offer a Latin option."
       ],
       "dia": null,
       "wiki": "Vatican City"
@@ -3882,7 +4013,8 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国家元首はローマ教皇である。",
         "1506年からスイス衛兵が警護を担っている。",
-        "人口は数百人ほどで、世界で最も人口の少ない国である。"
+        "人口は数百人ほどで、世界で最も人口の少ない国である。",
+        "ローマ教皇庁の公用語はラテン語で、国内の銀行のATMにもラテン語の表示がある。"
       ],
       "dia": null,
       "wiki": "バチカン"
