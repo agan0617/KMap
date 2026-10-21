@@ -38,7 +38,48 @@ small { font-size: .78em; color: var(--muted); }
 .logo h1 { font-size: 26px; letter-spacing: .08em; font-weight: 800; }
 .logo-dog { border: 0; background: none; padding: 0; line-height: 0; border-radius: 50%; }
 .logo-dog:active { transform: scale(.92); }
-.mode.closet { grid-column: 1 / -1; background: linear-gradient(120deg, #fff4dc, #f6e3bd); }
+/* 首頁 Komugi 小屋 */
+.hero { display: flex; gap: 10px; align-items: center; background: linear-gradient(135deg, #fff6e2, #f6e3bd); border-radius: 18px; padding: 8px 12px 8px 4px; box-shadow: 0 0 0 1.5px var(--line) inset; }
+.hero-dog { border: 0; background: none; padding: 0; line-height: 0; flex-shrink: 0; }
+.hero-dog .komugi { animation: hop 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+.hero-side { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.hero-title { font-weight: 800; color: var(--red); font-size: 15px; }
+.hero-title::before { content: '🏅 '; }
+.bubble { position: relative; background: #fff; border-radius: 12px; padding: 7px 10px; font-size: 13px; line-height: 1.45; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.bubble::before { content: ''; position: absolute; left: -7px; top: 14px; border: 7px solid transparent; border-right-color: #fff; border-left: 0; }
+.hero-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.coins { font-weight: 800; color: #8a5a32; }
+.coins.big { font-size: 22px; }
+.btn.small { padding: 5px 10px; font-size: 13px; border-radius: 10px; position: relative; }
+.badge { position: absolute; top: -7px; right: -7px; background: var(--gold); color: #fff; font-style: normal; font-size: 11px; font-weight: 900; border-radius: 9px; min-width: 18px; height: 18px; line-height: 18px; text-align: center; padding: 0 4px; animation: pop .6s infinite alternate; }
+.coin-pop { position: absolute; right: 12px; top: 34px; font-weight: 900; color: #8a5a32; font-size: 14px; animation: coinUp .9s ease-out forwards; pointer-events: none; }
+.hud { position: relative; }
+@keyframes coinUp { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-22px); opacity: 0; } }
+/* 稀有度 */
+.rar-N { --rar: #9a9a9a; } .rar-R { --rar: #4a90d9; } .rar-SR { --rar: #9a5fd0; } .rar-SSR { --rar: #e3a92b; }
+.item-tile { position: relative; }
+.item-tile .rar { position: absolute; top: 4px; left: 6px; font-style: normal; font-size: 10px; font-weight: 900; color: #fff; background: var(--rar); border-radius: 6px; padding: 0 5px; }
+.item-tile.rar-SSR.got { background: linear-gradient(160deg, #fff8e0, #fff); }
+.item-tile.rar-SR.got { background: linear-gradient(160deg, #f6eefc, #fff); }
+.ctabs { margin: 4px 0 6px; position: sticky; top: -18px; background: var(--paper2); padding: 6px 0; z-index: 1; }
+.closet-dog .komugi.full { animation: hop 2s ease-in-out infinite; }
+.set-row { border: 1.5px solid var(--line); border-radius: 14px; padding: 8px 10px; margin-bottom: 8px; background: var(--paper2); }
+.set-row.done { border-color: var(--gold); background: #fffaf0; }
+.set-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.set-items { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+.mini { line-height: 0; border-radius: 8px; background: #fff; }
+.mini.locked .komugi { filter: grayscale(1) brightness(.5) opacity(.4); }
+.set-actions { display: flex; gap: 6px; margin-top: 6px; }
+/* 扭蛋 */
+.gacha { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.machine.spin { animation: shake .18s 6; }
+.gacha-res { position: relative; border: 3px solid var(--rar); border-radius: 18px; padding: 14px 24px 10px; background: #fff; display: flex; flex-direction: column; align-items: center; gap: 4px; animation: stampIn .5s both; }
+.gacha-res.rar-SSR { box-shadow: 0 0 24px rgba(227,169,43,.7); }
+.gacha-res .rar { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-style: normal; font-weight: 900; color: #fff; background: var(--rar); border-radius: 8px; padding: 0 10px; }
+.gacha-res b { font-size: 18px; }
+.new { color: var(--red); font-weight: 900; font-style: normal; }
+details.small { font-size: 12px; max-width: 360px; }
+.btn[disabled] { opacity: .45; }
 /* 衣櫃與結算的配件格 */
 .closet { display: flex; flex-direction: column; gap: 6px; }
 .closet-dog { text-align: center; }

@@ -14,9 +14,17 @@ const Store = (() => {
     v = v || {};
     v.settings = Object.assign({ bgm: true, sfx: true, labels: true, lang: null }, v.settings);
     v.regions = v.regions || {};
-    v.meta = Object.assign({ stats: {}, ach: {}, outfit: {}, outfitAt: 0 }, v.meta);
+    v.meta = Object.assign({ stats: {}, ach: {}, outfit: {}, outfitAt: 0, owned: {}, earn: {}, spend: {}, pulls: {}, pity: {}, title: null, titleAt: 0 }, v.meta);
     return v;
   }
+  // 裝置 id：肉球幣、扭蛋次數按裝置分開記，合併時各裝置取大的再加總，兩台同時玩不會吃掉對方的幣
+  const DEV = (() => {
+    let d = null;
+    try { d = localStorage.getItem('kmap.dev'); } catch (e) { /* 私密模式 */ }
+    if (!d) { d = 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); try { localStorage.setItem('kmap.dev', d); } catch (e) { /* 存不了就每次新的 */ } }
+    return d;
+  })();
+  const sum = o => Object.values(o || {}).reduce((a, b) => a + b, 0);
   let onProgress = null;   // 進度有變時呼叫（雲端同步排程推上去）
   function save(progress = true) {
     try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* 存不了就算了 */ }
@@ -142,7 +150,7 @@ const Store = (() => {
   }
   // 統計取大的（語言是集合）、成就聯集取最早的日期、裝扮用最近改的那一份
   function mergeMeta(a = {}, b = {}) {
-    const r = { stats: {}, ach: {}, outfit: {}, outfitAt: 0 };
+    const r = { stats: {}, ach: {}, outfit: {}, outfitAt: 0, owned: {} };
     const sa = a.stats || {}, sb = b.stats || {};
     for (const k of new Set([...Object.keys(sa), ...Object.keys(sb)])) {
       r.stats[k] = k === 'langs' ? Object.assign({}, sb.langs, sa.langs) : Math.max(sa[k] || 0, sb[k] || 0);
@@ -152,6 +160,13 @@ const Store = (() => {
     }
     const newer = (a.outfitAt || 0) >= (b.outfitAt || 0) ? a : b;
     r.outfit = Object.assign({}, newer.outfit); r.outfitAt = newer.outfitAt || 0;
+    for (const k of new Set([...Object.keys(a.owned || {}), ...Object.keys(b.owned || {})])) r.owned[k] = [a.owned?.[k], b.owned?.[k]].filter(Boolean).sort()[0];
+    for (const f of ['earn', 'spend', 'pulls', 'pity']) {
+      r[f] = {};
+      for (const d of new Set([...Object.keys(a[f] || {}), ...Object.keys(b[f] || {})])) r[f][d] = Math.max(a[f]?.[d] || 0, b[f]?.[d] || 0);
+    }
+    const nt = (a.titleAt || 0) >= (b.titleAt || 0) ? a : b;
+    r.title = nt.title || null; r.titleAt = nt.titleAt || 0;
     return r;
   }
   function mergeProgress(a = {}, b = {}) {
@@ -180,6 +195,18 @@ const Store = (() => {
     save();
   }
   function unlock(id) { if (!s.meta.ach[id]) { s.meta.ach[id] = dayKey(); save(); } }
+  // ── 肉球幣、配件、扭蛋 ──
+  const M = () => s.meta;
+  const coins = () => sum(M().earn) - sum(M().spend);
+  function earn(n) { if (n > 0) { M().earn[DEV] = (M().earn[DEV] || 0) + n; save(); } }
+  function spend(n) { M().spend[DEV] = (M().spend[DEV] || 0) + n; save(); }
+  const owns = item => !!M().owned[item];
+  function own(item) { if (!M().owned[item]) { M().owned[item] = dayKey(); save(); } }
+  const pullCount = () => sum(M().pulls);
+  const pity = () => M().pity[DEV] || 0;
+  // 抽完一次：rare＝這次出了 SR 以上（保底計數歸零）
+  function pulled(rare) { M().pulls[DEV] = (M().pulls[DEV] || 0) + 1; M().pity[DEV] = rare ? 0 : pity() + 1; save(); }
+  function setTitle(id) { M().title = id; M().titleAt = Date.now(); save(); }
   function wear(slot, item) {
     s.meta.outfit = Object.assign({}, s.meta.outfit, { [slot]: item || undefined });
     if (!item) delete s.meta.outfit[slot];
@@ -192,6 +219,7 @@ const Store = (() => {
     setSetting(k, v) { s.settings[k] = v; save(false); },
     progress: () => s.regions, meta: () => s.meta, mergeProgress, mergeIn, sameAsLocal,
     stats: () => s.meta.stats, stat, achievements: () => s.meta.ach, unlock, outfit: () => s.meta.outfit, wear, dailyGrid,
+    coins, earn, spend, owns, own, owned: () => s.meta.owned, pullCount, pity, pulled, title: () => s.meta.title, setTitle,
     onProgress(fn) { onProgress = fn; },
     today, dayKey, level, unit: (k, id) => region(k).units[id], record, nextHint, weight, counts,
     daily, setDaily, streak, best, setBest,

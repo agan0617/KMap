@@ -23,6 +23,18 @@
         <button class="icon-btn" id="hSettings" type="button" data-ta="settings">⚙</button>
       </div>
     </header>
+    <section class="hero">
+      <button type="button" class="hero-dog" id="heroDog" data-ta="closet.title"></button>
+      <div class="hero-side">
+        <div class="hero-title" id="heroTitle"></div>
+        <div class="bubble" id="heroBubble"></div>
+        <div class="hero-row">
+          <span class="coins" id="heroCoins"></span>
+          <button type="button" class="btn small" id="hCloset" data-t="closet.btn"></button>
+          <button type="button" class="btn small primary" id="hGacha"><span data-t="gacha.btn"></span><i class="badge" id="gachaBadge" hidden></i></button>
+        </div>
+      </div>
+    </section>
     <nav class="regions" id="regionTabs"></nav>
     <nav class="scopes" id="scopeTabs"></nav>
     <div class="home-map" id="homeMap"></div>
@@ -35,7 +47,6 @@
       <button class="mode" data-mode="timed" type="button"><b data-t="mode.timed"></b><small id="timedBest"></small></button>
       <button class="mode" data-mode="explore" type="button"><b data-t="mode.explore"></b><small data-t="modeDesc.explore"></small></button>
       <button class="mode" id="mBook" type="button"><b data-t="mode.book"></b><small id="bookInfo"></small></button>
-      <button class="mode closet" id="mCloset" type="button"><b data-t="closet.btn"></b><small id="closetInfo"></small></button>
     </div>
   </section>
 
@@ -104,6 +115,7 @@
 <script src="js/version.js"></script>
 <script src="js/store.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/i18n-rewards.js"></script>
 <script src="js/sync.js"></script>
 <script src="js/regions.js"></script>
 <script src="js/audio.js"></script>

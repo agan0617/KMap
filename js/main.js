@@ -127,7 +127,7 @@ function renderHome() {
   $('#dailyInfo').textContent = (d == null ? t('dailyNone') : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '');
   $('#timedBest').textContent = Store.best(R.key, 'timed') ? t('timedBest', Store.best(R.key, 'timed')) : t('modeDesc.timed');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
-  $('#closetInfo').textContent = `${Object.keys(Store.achievements()).length} / ${Rewards.ACH.length}`;
+  renderHero();
 }
 
 // ── 知識卡 ──
@@ -220,7 +220,8 @@ function answer(id) {
   P.answered = true;
   const ch = Store.record(R.key, q.id, q.type, ok);
   P.marks.push(ok ? '🟩' : '🟥');
-  if (ok) { Store.stat('langs', lang()); Store.stat('maxCombo', P.combo + 1); }
+  if (ok) { Store.stat('langs', lang()); Store.stat('maxCombo', P.combo + 1); gain(Rewards.EARN.ok + (P.combo + 1 >= 5 ? Rewards.EARN.combo : 0)); }
+  if (ch.to > ch.from) gain(LEVEL_COINS[ch.to]);
   celebrate(Rewards.check());
   if (ch.to > ch.from) {
     P.ups.push({ id: q.id, to: ch.to });
@@ -271,13 +272,17 @@ function finishQuiz() {
     head = `<div class="big-score">${P.score}<small>${esc(t('pts'))}</small></div>${rec ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('best', Store.best(R.key, 'timed')))}</div>`}`;
   } else {
     let extra = '';
-    if (P.mode === 'daily') { Store.setDaily(R.key, P.score, P.marks.join('')); extra = `<div class="muted">${esc(t('streakDays', Store.streak(R.key)))}</div>`; }
+    if (P.mode === 'daily') {
+      if (Store.daily(R.key) == null) gain(Rewards.EARN.daily + (P.score === P.qs.length ? Rewards.EARN.dailyPerfect : 0));   // 每天第一次才給
+      Store.setDaily(R.key, P.score, P.marks.join(''));
+      extra = `<div class="muted">${esc(t('streakDays', Store.streak(R.key)))}</div>`;
+    }
     head = `<div class="big-score">${P.score}<small> / ${total}</small></div>${extra}`;
   }
   const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
   const stamps = P.stamps.map(id => stampHtml(id)).join('');
   celebrate(Rewards.check());   // 限時最佳分數、今日挑戰全對／連續天數在結算時才算得出來
-  const items = P.items.map(it => `<div class="item-tile got">${komugiImg(56, { [KOMUGI_ITEMS[it].slot]: it })}<small>${esc(t('closet.items')[it])}</small></div>`).join('');
+  const items = P.items.map(it => `<div class="item-tile got rar-${KOMUGI_ITEMS[it].rar}">${itemImg(it, 56)}<small>${esc(itemName(it))}</small></div>`).join('');
   Sound.play(P.score >= (total || 10) * 0.8 ? 'goal' : 'level');
   openModal(`
     <div class="result">
@@ -285,6 +290,7 @@ function finishQuiz() {
       <h2>${esc(t('finished', t('mode.' + P.mode)))}</h2>
       ${head}
       <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
+      ${P.coins ? `<div class="coins">${esc(t('coinsGot', '+' + P.coins))}</div>` : ''}
       ${stamps ? `<h3>${esc(t('newStamps'))}</h3><div class="stamps">${stamps}</div>` : ''}
       ${ups ? `<h3>${esc(t('ups'))}</h3><div class="chips">${ups}</div>` : ''}
       ${items ? `<h3>${esc(t('closet.newItems'))}</h3><div class="items">${items}</div>` : ''}
@@ -339,7 +345,9 @@ function travelGoal() {
   if (!P.peek) {
     const ch = Store.record(R.key, P.to, 'loc', true);
     if (ch.to === 3) Sound.play('stamp'); else if (ch.to > ch.from) Sound.play('level');
+    if (ch.to > ch.from) gain(LEVEL_COINS[ch.to]);
   }
+  gain(stars * Rewards.EARN.star);
   Store.stat('trips');
   if (stars === 3) Store.stat('trips3');
   celebrate(Rewards.check());
@@ -385,42 +393,121 @@ function renderBook() {
   $('#bookBody').innerHTML = html;
 }
 
-// ── 成就與 Komugi 衣櫃 ──
-function refreshDog() { $('#logoDog').innerHTML = komugiImg(44); }
-// 新解鎖的配件：跳通知、記到這一局的結算裡
+// ── Komugi：首頁小屋、成就、衣櫃、扭蛋 ──
+const itemName = it => t('closet.items')[it] || it;
+const achText = a => t('closet.ach')[a.id].replace('{0}', a.target);
+function refreshDog() {
+  $('#logoDog').innerHTML = komugiImg(44);
+  renderHero();
+}
+// 首頁小屋：全身 Komugi、稱號、下一個獎勵、肉球幣、扭蛋還能抽幾次
+function renderHero() {
+  if (!$('#heroDog')) return;
+  $('#heroDog').innerHTML = komugiFullImg(104);
+  const title = Store.title();
+  $('#heroTitle').textContent = t('closet.titles')[title && Rewards.SETS.some(x => x.id === title && Rewards.setDone(x)) ? title : 'none'];
+  const g = Rewards.nextGoal(R?.key);
+  $('#heroBubble').textContent = g ? t('hero.goal', achText(g.a), g.left, itemName(g.a.item)) : t('hero.allDone');
+  $('#heroCoins').textContent = '🐾 ' + Store.coins();
+  const n = Math.floor(Store.coins() / Rewards.PULL_COST);
+  $('#gachaBadge').hidden = !n; $('#gachaBadge').textContent = n;
+}
+// 賺肉球幣：記到這一局的合計，畫面上跳一下
+function gain(n) {
+  if (!n) return;
+  Store.earn(n);
+  if (P) P.coins = (P.coins || 0) + n;
+  const s = $('#pStat');
+  if (s && !$('#play').hidden) {
+    const f = document.createElement('span'); f.className = 'coin-pop'; f.textContent = `+${n}🐾`;
+    s.appendChild(f); setTimeout(() => f.remove(), 900);
+  }
+}
+const LEVEL_COINS = [0, Rewards.EARN.visit, Rewards.EARN.familiar, Rewards.EARN.stamp];
+// 新解鎖的成就：跳通知、記到這一局的結算裡（成就的幣在 Rewards.check 裡已經發了）
 function celebrate(fresh) {
   if (!fresh.length) return;
   fresh.forEach((a, i) => setTimeout(() => {
-    toast(`${komugiImg(64, { [KOMUGI_ITEMS[a.item].slot]: a.item })}<b>${esc(t('closet.got', t('closet.items')[a.item]))}</b>`, 2200);
+    toast(`${itemImg(a.item, 64)}<b>${esc(t('closet.got', itemName(a.item)))}</b>`, 2200);
     Sound.play('level');
   }, 400 + i * 2300));
-  if (P) P.items.push(...fresh.map(a => a.item));
-  refreshDog();
-}
-function closetHtml() {
-  const got = Store.achievements(), outfit = Store.outfit(), ctx = Rewards.context();
-  let html = `<div class="closet"><div class="closet-dog">${komugiImg(120)}</div><h2>${esc(t('closet.title'))}</h2><p class="muted">${esc(t('closet.desc'))}</p>`;
-  for (const slot of KOMUGI_SLOTS) {
-    html += `<h3>${esc(t('closet.slots')[slot])}</h3><div class="items">`;
-    for (const a of Rewards.ACH.filter(x => KOMUGI_ITEMS[x.item].slot === slot)) {
-      const has = !!got[a.id], on = outfit[slot] === a.item;
-      const prog = `${Math.min(a.value(ctx), a.target)} / ${a.target}`;
-      html += `<button type="button" class="item-tile ${has ? 'got' : 'locked'} ${on ? 'on' : ''}" ${has ? `data-wear="${a.item}"` : 'disabled'}>
-        ${komugiImg(56, { [slot]: a.item })}<b>${esc(t('closet.items')[a.item])}</b>
-        <small>${esc(t('closet.ach')[a.id].replace('{0}', a.target))}${has ? (on ? '・' + esc(t('closet.wearing')) : '') : '・' + prog}</small></button>`;
-    }
-    html += '</div>';
-  }
-  return html + '</div>';
-}
-function showCloset() { openModal(closetHtml()); }
-function toggleWear(item) {
-  const slot = KOMUGI_ITEMS[item].slot;
-  Store.wear(slot, Store.outfit()[slot] === item ? null : item);
-  $('#modalBody').innerHTML = closetHtml();
+  if (P) { P.items.push(...fresh.map(a => a.item)); P.coins = (P.coins || 0) + fresh.length * Rewards.EARN.ach; }
   refreshDog();
 }
 
+// 衣櫃：上面是全身預覽，下面依部位分頁，最後一頁是套裝
+let closetTab = 'head';
+function closetHtml() {
+  const outfit = Store.outfit(), ctx = Rewards.context(), got = Store.achievements();
+  const total = Object.keys(KOMUGI_ITEMS).length, have = Object.keys(KOMUGI_ITEMS).filter(Store.owns).length;
+  const tabs = [...KOMUGI_SLOTS, 'sets'].map(k => `<button type="button" class="${k === closetTab ? 'on' : ''}" data-ctab="${k}">${esc(k === 'sets' ? t('closet.sets') : t('closet.slots')[k])}</button>`).join('');
+  let body = '';
+  if (closetTab === 'sets') {
+    for (const st of Rewards.SETS) {
+      const done = Rewards.setDone(st), on = Store.title() === st.id;
+      body += `<div class="set-row ${done ? 'done' : ''}"><div class="set-head"><b>${esc(t('closet.setNames')[st.id])}</b><small>「${esc(t('closet.titles')[st.id])}」 ${Rewards.setProgress(st)} / ${st.items.length}</small></div>
+        <div class="set-items">${st.items.map(i => `<span class="mini ${Store.owns(i) ? '' : 'locked'}" title="${esc(itemName(i))}">${itemImg(i, 40)}</span>`).join('')}</div>
+        ${done ? `<div class="set-actions"><button type="button" class="btn small" data-wearset="${st.id}">${esc(t('closet.wearSet'))}</button><button type="button" class="btn small ${on ? 'primary' : ''}" data-title="${st.id}">${esc(on ? t('closet.titleOn') : t('closet.useTitle'))}</button></div>` : ''}</div>`;
+    }
+  } else {
+    body = '<div class="items">';
+    for (const it of Object.keys(KOMUGI_ITEMS).filter(k => KOMUGI_ITEMS[k].slot === closetTab)) {
+      const own = Store.owns(it), on = outfit[closetTab] === it, rar = KOMUGI_ITEMS[it].rar;
+      const a = Rewards.ACH.find(x => x.item === it);
+      const how = own ? (on ? t('closet.wearing') : '') : a ? `${achText(a)}・${Math.min(a.value(ctx), a.target)} / ${a.target}` : t('closet.locked');
+      body += `<button type="button" class="item-tile rar-${rar} ${own ? 'got' : 'locked'} ${on ? 'on' : ''}" ${own ? `data-wear="${it}"` : 'disabled'}>
+        <i class="rar">${rar}</i>${itemImg(it, 56)}<b>${esc(own || a ? itemName(it) : '？？？')}</b><small>${esc(how)}</small></button>`;
+    }
+    body += '</div>';
+  }
+  return `<div class="closet"><div class="closet-dog">${komugiFullImg(120)}</div><h2>${esc(t('closet.title'))}</h2>
+    <p class="muted">${esc(t('closet.desc'))} ${esc(t('closet.owned', have, total))}</p>
+    <nav class="scopes ctabs">${tabs}</nav>${body}</div>`;
+}
+function showCloset() { openModal(closetHtml()); showOnChip(); }
+function rerenderCloset() { const y = $('#modal .sheet').scrollTop; $('#modalBody').innerHTML = closetHtml(); $('#modal .sheet').scrollTop = y; refreshDog(); }
+function toggleWear(item) {
+  const slot = KOMUGI_ITEMS[item].slot;
+  Store.wear(slot, Store.outfit()[slot] === item ? null : item);
+  rerenderCloset();
+}
+function wearSet(id) { for (const i of Rewards.SETS.find(x => x.id === id).items) Store.wear(KOMUGI_ITEMS[i].slot, i); rerenderCloset(); }
+
+// 扭蛋機
+function gachaHtml(res) {
+  const coins = Store.coins(), can = coins >= Rewards.PULL_COST;
+  const machine = `<svg viewBox="0 0 120 150" width="120" height="150" class="machine ${res === 'spin' ? 'spin' : ''}"><rect x="20" y="70" width="80" height="70" rx="10" fill="#c8402c"/><circle cx="60" cy="48" r="42" fill="rgba(255,255,255,.75)" stroke="#c8402c" stroke-width="4"/>
+    ${[[42, 40, '#4a90d9'], [62, 30, '#f2c23a'], [76, 50, '#6aae5b'], [50, 62, '#f08cb0'], [70, 68, '#9a74c9'], [36, 58, '#e0864a']].map(([x, y, c]) => `<circle cx="${x}" cy="${y}" r="9" fill="${c}"/>`).join('')}
+    <circle cx="60" cy="100" r="11" fill="#fff4dc" stroke="#8f2a1c" stroke-width="3"/><path d="M53 100 L67 100" stroke="#8f2a1c" stroke-width="4" stroke-linecap="round"/><rect x="44" y="120" width="32" height="12" rx="4" fill="#8f2a1c"/></svg>`;
+  let out = '';
+  if (res && res !== 'spin') {
+    const r = res;
+    out = `<div class="gacha-res rar-${r.rar}"><i class="rar">${r.rar}</i>${itemImg(r.item, 96)}<b>${esc(itemName(r.item))}</b>
+      <small>${r.dup ? esc(t('gacha.dup', Rewards.DUP_REFUND)) : `<em class="new">${esc(t('gacha.isNew'))}</em>`}</small></div>`;
+  }
+  const left = Rewards.PITY - Store.pity();
+  return `<div class="gacha"><h2>${esc(t('gacha.title'))}</h2>${res && res !== 'spin' ? out : machine}
+    <div class="coins big">🐾 ${coins}</div><div class="muted">${esc(t('gacha.cost', Rewards.PULL_COST))}・${esc(t('gacha.pity', left))}</div>
+    ${can ? '' : `<p class="muted">${esc(t('gacha.notEnough'))}</p>`}
+    <div class="actions">
+      ${res && res !== 'spin' && !res.dup ? `<button type="button" class="btn" data-wear-now="${res.item}">${esc(t('gacha.wear'))}</button>` : ''}
+      <button type="button" class="btn primary" data-pull ${can ? '' : 'disabled'}>${esc(res && res !== 'spin' ? t('gacha.again') : t('gacha.pull'))}</button>
+    </div>
+    <details class="muted small"><summary>${esc(t('gacha.rates'))}</summary>${esc(t('gacha.earnTip'))}</details></div>`;
+}
+function showGacha() { openModal(gachaHtml()); }
+function doPull() {
+  if (Store.coins() < Rewards.PULL_COST) return;
+  $('#modalBody').innerHTML = gachaHtml('spin');
+  Sound.play('tick');
+  setTimeout(() => {
+    const r = Rewards.pull();
+    if (!r) return;
+    Sound.play(r.rar === 'SSR' || r.rar === 'SR' ? 'goal' : r.dup ? 'tap' : 'level');
+    $('#modalBody').innerHTML = gachaHtml(r);
+    refreshDog();
+  }, 1100);
+}
 // ── 今日挑戰分享：方格＋連續天數，手機叫出分享選單，不行就複製 ──
 async function shareDaily() {
   const grid = Store.dailyGrid(R.key) || P?.marks?.join('') || '';
@@ -505,8 +592,14 @@ document.addEventListener('click', e => {
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
   else if (b.id === 'mDaily') { Sound.play('tap'); startMode('daily'); }
   else if (b.id === 'mBook') { Sound.play('tap'); renderBook(); show('book'); }
-  else if (b.id === 'mCloset' || b.id === 'logoDog') { Sound.play('tap'); showCloset(); }
+  else if (b.id === 'hCloset' || b.id === 'heroDog' || b.id === 'logoDog') { Sound.play('tap'); closetTab = 'head'; showCloset(); }
+  else if (b.id === 'hGacha') { Sound.play('tap'); showGacha(); }
+  else if (b.dataset.ctab) { Sound.play('tap'); closetTab = b.dataset.ctab; rerenderCloset(); showOnChip(); }
   else if (b.dataset.wear) { Sound.play('tap'); toggleWear(b.dataset.wear); }
+  else if (b.dataset.wearset) { Sound.play('level'); wearSet(b.dataset.wearset); }
+  else if (b.dataset.title) { Sound.play('tap'); Store.setTitle(Store.title() === b.dataset.title ? null : b.dataset.title); rerenderCloset(); }
+  else if (b.hasAttribute('data-pull')) doPull();
+  else if (b.dataset.wearNow) { const it = b.dataset.wearNow; Store.wear(KOMUGI_ITEMS[it].slot, it); Sound.play('level'); refreshDog(); toast(`${itemImg(it, 56)}<b>${esc(itemName(it))}</b>`); }
   else if (b.hasAttribute('data-share')) shareDaily();
   else if (b.dataset.scope) { Sound.play('tap'); setScope(b.dataset.scope); }
   else if (b.id === 'pBack' || b.id === 'bBack') goHome();
