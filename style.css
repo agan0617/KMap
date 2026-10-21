@@ -286,3 +286,8 @@ dd small { margin-left: 3px; }
 .map-corner { position: absolute; right: 10px; bottom: 10px; z-index: 2; background: var(--glass); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
 #mBook b { font-weight: 700; }
 #mBook small { margin-left: 4px; font-size: 11px; }
+.map-unlock { position: absolute; left: 10px; top: 10px; z-index: 2; background: var(--glass); border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; box-shadow: 0 1px 3px rgba(0,0,0,.15); pointer-events: none; }
+.daily-bonus { font-weight: 800; color: #8a5a32; background: var(--hero1); border-radius: 12px; padding: 6px 14px; }
+body[data-theme="night"] .daily-bonus { color: var(--gold); }
+/* 衣櫃開著時視窗固定高度，切分頁內容再少也不跳（Ken 2026-10-21 要求）；內容在視窗裡捲 */
+.sheet.fixed { height: 88dvh; }

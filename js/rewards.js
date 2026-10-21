@@ -6,7 +6,7 @@ const Rewards = (() => {
   const PULL_COST = 30, DUP_REFUND = 10, PITY = 10;
   const RATE = { N: 55, R: 30, SR: 12, SSR: 3 };
   // 賺幣規則（main.js 在對應的時機呼叫 earn）
-  const EARN = { ok: 2, combo: 1, visit: 3, familiar: 5, stamp: 15, daily: 10, dailyPerfect: 20, star: 5, ach: 30 };
+  const EARN = { ok: 2, combo: 1, visit: 3, familiar: 5, stamp: 15, daily: 10, dailyPerfect: 20, dailyAgain: 5, dailyAgainPerfect: 10, star: 5, ach: 30 };
 
   // stamps(region)：那個地區蓋了幾個章；全制霸用該地區的總數
   const ACH = [

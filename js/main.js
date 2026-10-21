@@ -50,8 +50,9 @@ function music(style) {
   bgmStyle = style;
   Sound.bgm(R.key, Store.settings().bgm ? style : null);
 }
-function openModal(html, onClose) {
+function openModal(html, onClose, fixed = false) {
   $('#modalBody').innerHTML = html;
+  $('#modal .sheet').classList.toggle('fixed', fixed);
   $('#modal').hidden = false;
   $('#modal')._onClose = onClose;
 }
@@ -144,7 +145,10 @@ function renderHome() {
     <div class="bar">${seg(3, 'l3')}${seg(2, 'l2')}${seg(1, 'l1')}${seg(0, 'l0')}</div>
     <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span><b>${c[3]} / ${n}</b></div>`;
   const d = Store.daily(R.key), st = Store.streak(R.key);
-  $('#dailyInfo').textContent = (d == null ? t('dailyNone') : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '');
+  $('#dailyInfo').textContent = (d == null ? t('dailyNone') : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '') + (d == null ? '' : t('dailyAgainHint', Rewards.EARN.dailyAgain));
+  // 地圖左上角的解鎖百分比：到訪以上的地方佔比（Ken 2026-10-21 要求）
+  const unlocked = n - c[0];
+  $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
   $('#timedBest').textContent = Store.best(R.key, 'timed') ? t('timedBest', Store.best(R.key, 'timed')) : t('modeDesc.timed');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
   renderHero();
@@ -213,7 +217,8 @@ function startMode(mode) {
   music(mode === 'timed' ? 'fast' : 'calm');
   // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
   playMap.paint(() => '');
-  if (mode === 'daily') P.qs = Quiz.daily(R);
+  // 今日挑戰：每天第一次是固定題組（分享用）；做完再玩就換一組新題（照複習優先度出），另給再挑戰獎勵（Ken 2026-10-21 要求）
+  if (mode === 'daily') { P.again = Store.daily(R.key) != null; P.qs = P.again ? Quiz.session(R, 'mix', ROUND, R.ids) : Quiz.daily(R); }
   else if (mode === 'timed') { P.qs = []; P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
   else P.qs = Quiz.session(R, mode, ROUND, pool());
   playMap.onTap(answer);
@@ -296,9 +301,11 @@ function finishQuiz() {
   } else {
     let extra = '';
     if (P.mode === 'daily') {
-      if (Store.daily(R.key) == null) gain(Rewards.EARN.daily + (P.score === P.qs.length ? Rewards.EARN.dailyPerfect : 0));   // 每天第一次才給
-      Store.setDaily(R.key, P.score, P.marks.join(''));
-      extra = `<div class="muted">${esc(t('streakDays', Store.streak(R.key)))}</div>`;
+      const perfect = P.score === P.qs.length, E = Rewards.EARN;
+      const bonus = P.again ? E.dailyAgain + (perfect ? E.dailyAgainPerfect : 0) : E.daily + (perfect ? E.dailyPerfect : 0);
+      gain(bonus);
+      if (!P.again) Store.setDaily(R.key, P.score, P.marks.join(''));   // 成績與方格只記每天第一次
+      extra = `<div class="daily-bonus">🎁 ${esc(t(P.again ? 'dailyAgainBonus' : 'dailyBonus', bonus))}${perfect ? ' ' + esc(t('perfectBonus')) : ''}</div><div class="muted">${esc(t('streakDays', Store.streak(R.key)))}</div>`;
     }
     head = `<div class="big-score">${P.score}<small> / ${total}</small></div>${extra}`;
   }
@@ -319,7 +326,7 @@ function finishQuiz() {
       ${items ? `<h3>${esc(t('closet.newItems'))}</h3><div class="items">${items}</div>` : ''}
       <div class="actions">
         <button type="button" class="btn" data-home>${esc(t('home'))}</button>
-        ${P.mode === 'daily' ? `<button type="button" class="btn primary" data-share>${esc(t('share.btn'))}</button>` : `<button type="button" class="btn primary" data-again="${P.mode}">${esc(t('again'))}</button>`}
+        ${P.mode === 'daily' ? `<button type="button" class="btn" data-share>${esc(t('share.btn'))}</button><button type="button" class="btn primary" data-again="daily">${esc(t('dailyAgain'))}</button>` : `<button type="button" class="btn primary" data-again="${P.mode}">${esc(t('again'))}</button>`}
       </div>
     </div>`, null);
   P.qs = null;
@@ -487,7 +494,7 @@ function closetHtml() {
     <p class="muted">${esc(t('closet.desc'))} ${esc(t('closet.owned', have, total))}</p>
     <nav class="scopes ctabs">${tabs}</nav>${body}</div>`;
 }
-function showCloset() { openModal(closetHtml()); showOnChip(); }
+function showCloset() { openModal(closetHtml(), null, true); showOnChip(); }
 function rerenderCloset() { const y = $('#modal .sheet').scrollTop; $('#modalBody').innerHTML = closetHtml(); $('#modal .sheet').scrollTop = y; refreshDog(); }
 function toggleWear(item) {
   const slot = KOMUGI_ITEMS[item].slot;

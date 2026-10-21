@@ -41,7 +41,7 @@
           pirate: '船長', ninja: '忍者', school: '優等生', cat: '貓奴', nightmarket: '夜市達人', samurai: '武士', panda: '熊貓飼育員', ocean: '海洋之子', party: '派對動物', future: '未來人', dragon: '龍騎士', ice: '滑冰選手' },
       },
       hero: { goal: '下一個獎勵：{0}（還差 {1}）就能拿到「{2}」！', allDone: '所有成就都拿到了，太厲害了！' },
-      gacha: { btn: '扭蛋', title: '扭蛋機', cost: '{0} 🐾 扭一次', pull: '扭一次', again: '再扭一次', wear: '穿上', notEnough: '肉球幣不夠：答題、蓋章、旅行、今日挑戰都能賺', pity: '再 {0} 次保底 SR 以上', dup: '已經有了，退回 {0} 🐾', isNew: 'NEW!', rates: '機率：N 55%・R 30%・SR 12%・SSR 3%', earnTip: '答對 +2、連擊 +1、到訪 +3、熟悉 +5、蓋章 +15、旅行每顆星 +5、今日挑戰 +10（全對再 +20）、成就 +30' },
+      gacha: { btn: '扭蛋', title: '扭蛋機', cost: '{0} 🐾 扭一次', pull: '扭一次', again: '再扭一次', wear: '穿上', notEnough: '肉球幣不夠：答題、蓋章、旅行、今日挑戰都能賺', pity: '再 {0} 次保底 SR 以上', dup: '已經有了，退回 {0} 🐾', isNew: 'NEW!', rates: '機率：N 55%・R 30%・SR 12%・SSR 3%', earnTip: '答對 +2、連擊 +1、到訪 +3、熟悉 +5、蓋章 +15、旅行每顆星 +5、今日挑戰 +10（全對再 +20）、再挑戰 +5（全對再 +10）、成就 +30' },
       coinsGot: '獲得 🐾 {0}',
     },
     en: {
@@ -84,7 +84,7 @@
           pirate: 'Captain', ninja: 'Ninja', school: 'Honor Student', cat: 'Cat Person', nightmarket: 'Night Market Pro', samurai: 'Samurai', panda: 'Panda Keeper', ocean: 'Child of the Sea', party: 'Party Animal', future: 'Time Traveler', dragon: 'Dragon Knight', ice: 'Figure Skater' },
       },
       hero: { goal: 'Next reward: {0} ({1} to go) for the {2}!', allDone: 'Every achievement unlocked — amazing!' },
-      gacha: { btn: 'Capsules', title: 'Capsule Machine', cost: '{0} 🐾 per spin', pull: 'Spin', again: 'Spin again', wear: 'Wear it', notEnough: 'Not enough paw coins — earn them by answering, stamping, travelling and the Daily Challenge', pity: 'SR or better guaranteed in {0}', dup: 'Already owned — {0} 🐾 refunded', isNew: 'NEW!', rates: 'Rates: N 55% · R 30% · SR 12% · SSR 3%', earnTip: 'Correct +2, combo +1, visited +3, familiar +5, stamp +15, trip +5 per star, Daily Challenge +10 (+20 if perfect), achievement +30' },
+      gacha: { btn: 'Capsules', title: 'Capsule Machine', cost: '{0} 🐾 per spin', pull: 'Spin', again: 'Spin again', wear: 'Wear it', notEnough: 'Not enough paw coins — earn them by answering, stamping, travelling and the Daily Challenge', pity: 'SR or better guaranteed in {0}', dup: 'Already owned — {0} 🐾 refunded', isNew: 'NEW!', rates: 'Rates: N 55% · R 30% · SR 12% · SSR 3%', earnTip: 'Correct +2, combo +1, visited +3, familiar +5, stamp +15, trip +5 per star, Daily Challenge +10 (+20 if perfect), replay +5 (+10 if perfect), achievement +30' },
       coinsGot: 'Earned 🐾 {0}',
     },
     ja: {
@@ -127,7 +127,7 @@
           pirate: '船長', ninja: '忍者', school: '優等生', cat: '猫好き', nightmarket: '夜市の達人', samurai: '侍', panda: 'パンダ飼育員', ocean: '海の子', party: 'パーティーアニマル', future: '未来人', dragon: 'ドラゴンナイト', ice: 'フィギュアスケーター' },
       },
       hero: { goal: '次のごほうび：{0}（あと {1}）で「{2}」！', allDone: '実績をすべて達成！すごい！' },
-      gacha: { btn: 'ガチャ', title: 'ガチャマシン', cost: '1 回 {0} 🐾', pull: '回す', again: 'もう一回', wear: '着てみる', notEnough: '肉球コインが足りません。解答・制覇・旅・今日のチャレンジで貯まります', pity: 'あと {0} 回で SR 以上確定', dup: '持っている小物。{0} 🐾 返却', isNew: 'NEW!', rates: '確率：N 55%・R 30%・SR 12%・SSR 3%', earnTip: '正解 +2、コンボ +1、訪問 +3、習熟 +5、制覇 +15、旅の星 1 つ +5、今日のチャレンジ +10（全問正解でさらに +20）、実績 +30' },
+      gacha: { btn: 'ガチャ', title: 'ガチャマシン', cost: '1 回 {0} 🐾', pull: '回す', again: 'もう一回', wear: '着てみる', notEnough: '肉球コインが足りません。解答・制覇・旅・今日のチャレンジで貯まります', pity: 'あと {0} 回で SR 以上確定', dup: '持っている小物。{0} 🐾 返却', isNew: 'NEW!', rates: '確率：N 55%・R 30%・SR 12%・SSR 3%', earnTip: '正解 +2、コンボ +1、訪問 +3、習熟 +5、制覇 +15、旅の星 1 つ +5、今日のチャレンジ +10（全問正解でさらに +20）、再挑戦 +5（全問正解でさらに +10）、実績 +30' },
       coinsGot: '🐾 {0} 獲得',
     },
   };
