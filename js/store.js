@@ -118,6 +118,20 @@ const Store = (() => {
     return n;
   }
 
+  // 今日挑戰當天的累計（第一次＋再挑戰）：組數、答對／題數、賺的肉球幣、升級與蓋章數（Ken 2026-10-21 要求做完再玩要看得到今天的總收穫）
+  // 只留最近 7 天；同步時同一天各欄取大的（同一天兩台各玩，不會加總，但不會倒退）
+  const DX = ['runs', 'ok', 'n', 'coins', 'ups', 'stamps'];
+  function addDailyRun(key, run) {
+    const r = region(key), k = dayKey();
+    r.dx = r.dx || {};
+    const d = r.dx[k] || (r.dx[k] = { runs: 0, ok: 0, n: 0, coins: 0, ups: 0, stamps: 0 });
+    d.runs++;
+    for (const f of DX.slice(1)) d[f] += run[f] || 0;
+    for (const old of Object.keys(r.dx)) if (old < dayKey(today() - 6)) delete r.dx[old];
+    save();
+  }
+  const dailyTotal = key => region(key).dx?.[dayKey()] || null;
+
   function best(key, mode) { return region(key).best[mode] || 0; }
   function setBest(key, mode, v) {
     const r = region(key);
@@ -146,6 +160,12 @@ const Store = (() => {
     for (const k of new Set([...Object.keys(a.best || {}), ...Object.keys(b.best || {})])) r.best[k] = Math.max(a.best?.[k] || 0, b.best?.[k] || 0);
     Object.assign(r.daily, b.daily, a.daily);   // 同一天兩邊都有就留本機的（每天只記第一次）
     r.grid = Object.assign({}, b.grid, a.grid);
+    const dx = {};
+    for (const k of new Set([...Object.keys(a.dx || {}), ...Object.keys(b.dx || {})])) {
+      dx[k] = {};
+      for (const f of DX) dx[k][f] = Math.max(a.dx?.[k]?.[f] || 0, b.dx?.[k]?.[f] || 0);
+    }
+    if (Object.keys(dx).length) r.dx = dx;
     return r;
   }
   // 統計取大的（語言是集合）、成就聯集取最早的日期、裝扮用最近改的那一份
@@ -222,6 +242,6 @@ const Store = (() => {
     coins, earn, spend, owns, own, owned: () => s.meta.owned, pullCount, pity, pulled, title: () => s.meta.title, setTitle,
     onProgress(fn) { onProgress = fn; },
     today, dayKey, level, unit: (k, id) => region(k).units[id], record, nextHint, weight, counts,
-    daily, setDaily, streak, best, setBest,
+    daily, setDaily, streak, best, setBest, addDailyRun, dailyTotal,
   };
 })();

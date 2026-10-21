@@ -313,3 +313,5 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .q-main.flag-q { font-size: 48px; line-height: 1.1; }
 .panel.answered .silhouette { height: 44px; }
 .panel.answered .q-main.flag-q { font-size: 36px; }
+/* 今日挑戰做完後的今天總進度 */
+.daily-total { display: inline-block; margin-top: 3px; font-weight: 700; opacity: .95; }

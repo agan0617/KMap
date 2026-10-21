@@ -146,7 +146,11 @@ function renderHome() {
     <div class="bar">${seg(3, 'l3')}${seg(2, 'l2')}${seg(1, 'l1')}${seg(0, 'l0')}</div>
     <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span><b>${c[3]} / ${n}</b></div>`;
   const d = Store.daily(R.key), st = Store.streak(R.key);
-  $('#dailyInfo').textContent = (d == null ? t('dailyNone', Rewards.EARN.daily) : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '') + (d == null ? '' : t('dailyAgainHint', Rewards.EARN.dailyAgain));
+  const tot = Store.dailyTotal(R.key);
+  // 做完以後多一行今天的總進度：玩了幾組、答對幾題、賺了多少肉球幣、升級與蓋章
+  const totLine = d != null && tot ? t('dailyTotal', tot.runs, tot.ok, tot.n, tot.coins) + (tot.ups ? t('dailyUps', tot.ups) : '') + (tot.stamps ? t('dailyStamps', tot.stamps) : '') : '';
+  $('#dailyInfo').innerHTML = esc((d == null ? t('dailyNone', Rewards.EARN.daily) : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '') + (d == null ? '' : t('dailyAgainHint', Rewards.EARN.dailyAgain)))
+    + (totLine ? `<br><span class="daily-total">${esc(totLine)}</span>` : '');
   // 地圖左上角的解鎖百分比：到訪以上的地方佔比（Ken 2026-10-21 要求）
   const unlocked = n - c[0];
   $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
@@ -348,6 +352,7 @@ function finishQuiz() {
         : [[t('dailyBonus'), E.daily], perfect && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]];
       const got = parts.filter(Boolean), bonus = got.reduce((s, [, n]) => s + n, 0);
       gain(bonus);
+      Store.addDailyRun(R.key, { ok: P.score, n: P.qs.length, coins: P.coins || 0, ups: P.ups.length, stamps: P.stamps.length });
       extra = `<div class="daily-bonus"><b>🎁 +${bonus} 🐾</b><small>${got.map(([k, n]) => `${esc(k)} +${n}`).join('・')}</small></div><div class="muted">${esc(t('streakDays', streak))}</div>`;
     }
     head = `<div class="big-score">${P.score}<small> / ${total}</small></div>${extra}`;
