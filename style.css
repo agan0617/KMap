@@ -283,7 +283,8 @@ dd small { margin-left: 3px; }
 
 /* 首頁地圖：不能平移縮放（頁面下滑才不會誤觸），圖鑑按鈕放角落 */
 .map.static { touch-action: pan-y; }
-.map-corner { position: absolute; right: 10px; bottom: 10px; z-index: 2; background: var(--glass); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+/* 要寫成 .btn.map-corner 才贏得過 .btn.small 的 position: relative，否則按鈕會被擠出地圖框裁掉 */
+.btn.map-corner { position: absolute; right: 10px; bottom: 10px; z-index: 2; background: var(--glass); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
 #mBook b { font-weight: 700; }
 #mBook small { margin-left: 4px; font-size: 11px; }
 .map-unlock { position: absolute; left: 10px; top: 10px; z-index: 2; background: var(--glass); border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; box-shadow: 0 1px 3px rgba(0,0,0,.15); pointer-events: none; }
