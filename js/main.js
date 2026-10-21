@@ -489,6 +489,8 @@ function renderHero() {
   $('#heroCoins').textContent = '🐾 ' + Store.coins();
   const n = Math.floor(Store.coins() / Rewards.PULL_COST);
   $('#gachaBadge').hidden = !n; $('#gachaBadge').textContent = n;
+  // 三顆按鈕平常同色；肉球幣夠扭時扭蛋才變紅（Ken 2026-10-21 指定）
+  $('#hGacha').classList.toggle('primary', n > 0);
 }
 // 賺肉球幣：記到這一局的合計，畫面上跳一下
 function gain(n) {
@@ -558,22 +560,43 @@ function gachaHtml(res) {
     ${[[42, 40, '#4a90d9'], [62, 30, '#f2c23a'], [76, 50, '#6aae5b'], [50, 62, '#f08cb0'], [70, 68, '#9a74c9'], [36, 58, '#e0864a']].map(([x, y, c]) => `<circle cx="${x}" cy="${y}" r="9" fill="${c}"/>`).join('')}
     <circle cx="60" cy="100" r="11" fill="#fff4dc" stroke="#8f2a1c" stroke-width="3"/><path d="M53 100 L67 100" stroke="#8f2a1c" stroke-width="4" stroke-linecap="round"/><rect x="44" y="120" width="32" height="12" rx="4" fill="#8f2a1c"/></svg>`;
   let out = '';
-  if (res && res !== 'spin') {
+  if (Array.isArray(res)) {
+    // 全部扭：一次列出這一輪拿到的所有配件，新的排前面
+    const newN = res.filter(r => !r.dup).length, dupN = res.length - newN;
+    const tiles = [...res].sort((a, b) => a.dup - b.dup).map(r => `<div class="item-tile got rar-${r.rar}"><i class="rar">${r.rar}</i>${itemImg(r.item, 48)}<b>${esc(itemName(r.item))}</b><small>${r.dup ? esc(t('gacha.dupShort')) : `<em class="new">${esc(t('gacha.isNew'))}</em>`}</small></div>`).join('');
+    out = `<div class="muted">${esc(t('gacha.multiSum', res.length, newN, dupN, dupN * Rewards.DUP_REFUND))}</div><div class="items gacha-multi">${tiles}</div>`;
+  } else if (res && res !== 'spin') {
     const r = res;
     out = `<div class="gacha-res rar-${r.rar}"><i class="rar">${r.rar}</i>${itemImg(r.item, 96)}<b>${esc(itemName(r.item))}</b>
       <small>${r.dup ? esc(t('gacha.dup', Rewards.DUP_REFUND)) : `<em class="new">${esc(t('gacha.isNew'))}</em>`}</small></div>`;
   }
   const left = Rewards.PITY - Store.pity();
+  const n = Math.floor(coins / Rewards.PULL_COST);
   return `<div class="gacha"><h2>${esc(t('gacha.title'))}</h2>${res && res !== 'spin' ? out : machine}
     <div class="coins big">🐾 ${coins}</div><div class="muted">${esc(t('gacha.cost', Rewards.PULL_COST))}・${esc(t('gacha.pity', left))}</div>
     ${can ? '' : `<p class="muted">${esc(t('gacha.notEnough'))}</p>`}
     <div class="actions">
-      ${res && res !== 'spin' && !res.dup ? `<button type="button" class="btn" data-wear-now="${res.item}">${esc(t('gacha.wear'))}</button>` : ''}
+      ${res && res !== 'spin' && !Array.isArray(res) && !res.dup ? `<button type="button" class="btn" data-wear-now="${res.item}">${esc(t('gacha.wear'))}</button>` : ''}
       <button type="button" class="btn primary" data-pull ${can ? '' : 'disabled'}>${esc(res && res !== 'spin' ? t('gacha.again') : t('gacha.pull'))}</button>
+      ${n >= 2 ? `<button type="button" class="btn primary" data-pull-all>${esc(t('gacha.pullAll', n))}</button>` : ''}
     </div>
     <details class="muted small"><summary>${esc(t('gacha.rates'))}</summary>${esc(t('gacha.earnTip'))}</details></div>`;
 }
 function showGacha() { openModal(gachaHtml()); }
+// 全部扭：肉球幣夠幾次就扭幾次（重複退回的幣夠的話也接著扭），最後一次列出全部結果
+function doPullAll() {
+  if (Store.coins() < Rewards.PULL_COST) return;
+  $('#modalBody').innerHTML = gachaHtml('spin');
+  Sound.play('tick');
+  setTimeout(() => {
+    const got = [];
+    while (Store.coins() >= Rewards.PULL_COST && got.length < 200) { const r = Rewards.pull(); if (!r) break; got.push(r); }
+    if (!got.length) return;
+    Sound.play(got.some(r => r.rar === 'SSR' || r.rar === 'SR') ? 'goal' : 'level');
+    $('#modalBody').innerHTML = gachaHtml(got);
+    refreshDog();
+  }, 1100);
+}
 function doPull() {
   if (Store.coins() < Rewards.PULL_COST) return;
   $('#modalBody').innerHTML = gachaHtml('spin');
@@ -681,6 +704,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.wearset) { Sound.play('level'); wearSet(b.dataset.wearset); }
   else if (b.dataset.title) { Sound.play('tap'); Store.setTitle(Store.title() === b.dataset.title ? null : b.dataset.title); rerenderCloset(); }
   else if (b.hasAttribute('data-pull')) doPull();
+  else if (b.hasAttribute('data-pull-all')) doPullAll();
   else if (b.dataset.wearNow) { const it = b.dataset.wearNow; Store.wear(KOMUGI_ITEMS[it].slot, it); Sound.play('level'); refreshDog(); toast(`${itemImg(it, 56)}<b>${esc(itemName(it))}</b>`); }
   else if (b.hasAttribute('data-share')) shareDaily();
   else if (b.dataset.scope) { Sound.play('tap'); setScope(b.dataset.scope); }

@@ -315,3 +315,6 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .panel.answered .q-main.flag-q { font-size: 36px; }
 /* 今日挑戰做完後的今天總進度 */
 .daily-total { display: inline-block; margin-top: 3px; font-weight: 700; opacity: .95; }
+/* 全部扭的結果：小格子一次列出 */
+.gacha-multi { width: 100%; max-height: 46dvh; overflow-y: auto; }
+.gacha-multi .item-tile { position: relative; }
