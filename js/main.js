@@ -669,7 +669,10 @@ document.addEventListener('change', e => {
   Store.setSetting(k, e.target.checked);
   if (k === 'bgm') music(bgmStyle);
 });
-$('#modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
+// 按下和放開都在遮罩上才關：地圖在 pointerup 就開卡片，瀏覽器隨後補送的 click 會落在剛蓋上來的遮罩上
+let downOnScrim = false;
+$('#modal').addEventListener('pointerdown', e => { downOnScrim = e.target.id === 'modal'; });
+$('#modal').addEventListener('click', e => { if (e.target.id === 'modal' && downOnScrim) closeModal(); downOnScrim = false; });
 // 瀏覽器規定要使用者先互動才能出聲
 document.addEventListener('pointerdown', function unlock() {
   Sound.init(); music(bgmStyle);
