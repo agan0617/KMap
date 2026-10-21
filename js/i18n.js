@@ -81,7 +81,7 @@ const STRINGS = {
     appName: 'K地図',
     lv: ['未踏', '訪問', '習熟', '制覇'],
     mode: { loc: '場所当て', know: 'ヒントで当てる', daily: '今日のチャレンジ', timed: 'タイムアタック', travel: '隣県めぐり', explore: '図鑑', book: '御朱印帳' },
-    modeDesc: { loc: '指定された場所をタップ', know: '名物・名所から当てる', travel: 'Komugi とゴールまで歩こう', timed: '60 秒で何問解ける？', explore: '地図をタップしてカードを見る' },
+    modeDesc: { loc: '指定された場所をタップ', know: '名物・名所から当てる', travel: 'こむぎとゴールまで歩こう', timed: '60 秒で何問解ける？', explore: '地図をタップしてカードを見る' },
     region: { japan: '日本', taiwan: '台湾', china: '中国', world: '世界' },
     regionUnit: { japan: '都道府県', china: '省', world: '国' },
     soon: '準備中', scopeAll: 'すべて',

@@ -191,6 +191,8 @@ function startMode(mode) {
   if (mode === 'explore') return startExplore();
   if (mode === 'travel') return startTravel();
   music(mode === 'timed' ? 'fast' : 'calm');
+  // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
+  playMap.paint(() => '');
   if (mode === 'daily') P.qs = Quiz.daily(R);
   else if (mode === 'timed') { P.qs = []; P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
   else P.qs = Quiz.session(R, mode, ROUND, pool());
@@ -228,7 +230,6 @@ function answer(id) {
     if (ch.to === 3) { P.stamps.push(q.id); toast(`${stampHtml(q.id)}<b>${esc(t('mastered', R.short(q.id)))}</b>`, 1800); Sound.play('stamp'); }
     else setTimeout(() => Sound.play('level'), 250);
   }
-  playMap.paint(masteryColor);
   const cardBtn = `<button type="button" class="btn" data-card="${q.id}">${esc(t('card'))}</button>`;
   const nextBtn = `<button type="button" class="btn primary" data-next>${esc(t('next'))}</button>`;
   if (ok) {

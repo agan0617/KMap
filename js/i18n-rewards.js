@@ -89,8 +89,8 @@
     },
     ja: {
       closet: {
-        title: 'Komugi のクローゼット', btn: 'クローゼット', desc: '持っている小物をタップで着け外し。同じ部位は 1 つだけ。',
-        wearing: '装着中', got: 'Komugi が「{0}」を手に入れた！', newItems: '新しい小物', sets: 'セット', wearSet: 'セットで着る', useTitle: '称号にする', titleOn: '使用中',
+        title: 'こむぎのクローゼット', btn: 'クローゼット', desc: '持っている小物をタップで着け外し。同じ部位は 1 つだけ。',
+        wearing: '装着中', got: 'こむぎが「{0}」を手に入れた！', newItems: '新しい小物', sets: 'セット', wearSet: 'セットで着る', useTitle: '称号にする', titleOn: '使用中',
         locked: 'ガチャ', lockedAch: '実績', owned: '収集 {0} / {1}',
         slots: { head: '頭', eyes: '目', face: '顔', neck: '首', body: '服', back: '背中', hand: '手', feet: '足', buddy: '相棒', bg: '背景' },
         items: { strawhat: '麦わら帽子', beret: 'ベレー帽', headband: 'ヘアバンド', hachimaki: '必勝はちまき', gradcap: '角帽', conical: '笠', crown: '王冠', chefhat: 'コック帽',
