@@ -351,6 +351,15 @@ document.addEventListener('pointerdown', function unlock() {
 });
 document.addEventListener('visibilitychange', () => { if (document.hidden) Sound.stopBgm(); else music(bgmStyle); });
 
+// Android App 的返回鍵：先關彈窗、再回首頁，都沒有才讓 App 退到背景
+window.KMAP = {
+  onBack() {
+    if (!$('#modal').hidden) { closeModal(); return true; }
+    if ($('#home').hidden) { goHome(); return true; }
+    return false;
+  },
+};
+
 // ── 啟動 ──
 R = regionData('japan');
 $('#logoDog').innerHTML = komugiImg(44);

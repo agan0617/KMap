@@ -1,5 +1,5 @@
-/* 離線快取：先用快取、背景更新。改了網頁要記得改 VERSION，舊快取才會被換掉 */
-const VERSION = 'kmap-1.0.0';
+﻿/* ?Ｙ?敹怠?嚗??典翰???舀?啜鈭雯??閮???VERSION嚗?敹怠???鋡急???*/
+const VERSION = 'kmap-1.0.1';
 const FILES = [
   './', 'index.html', 'style.css', 'manifest.webmanifest',
   'data/japan-map.js', 'data/japan-info.js',
@@ -8,7 +8,7 @@ const FILES = [
 ];
 
 self.addEventListener('install', e => {
-  // cache: 'reload' 繞過瀏覽器的 HTTP 快取，GitHub Pages 的檔案快取 10 分鐘
+  // cache: 'reload' 蝜??汗?函? HTTP 敹怠?嚗itHub Pages ??獢翰??10 ??
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(FILES.map(f => new Request(f, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
