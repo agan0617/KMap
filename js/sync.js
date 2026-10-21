@@ -1,7 +1,8 @@
 // 雲端存檔：進度同步到私有 repo CloudSave 的 saves/kmap.json（做法同魔塔、K書吧：瀏覽器直接打 GitHub API，沒有中間伺服器）。
 // token 存在這台裝置。K地圖跟 K書吧、魔塔在同一個網域（agan0617.github.io），這台瀏覽器連過它們就直接沿用那組 token；
 // App 的 WebView 跟瀏覽器資料分開，要在 App 裡另外貼一次。
-// 合併規則在 Store.mergeProgress：熟練度取高的、複習排程用最近玩的那一份，所以多台裝置同時玩也不會互相蓋掉。
+// 合併規則在 Store.mergeProgress／mergeMeta：熟練度取高的、複習排程用最近玩的那一份、成就聯集、裝扮用最近改的，
+// 所以多台裝置同時玩也不會互相蓋掉。檔案格式 { v: 2, at, progress, meta }（v1 沒有 meta，照樣讀得進來）。
 const Sync = (() => {
   const FILE = 'saves/kmap.json';
   const OWN = 'kmap:gh';
@@ -63,8 +64,8 @@ const Sync = (() => {
       try {
         const r = await this.fetchRemote();
         this.sha = r.sha;
-        const changed = Store.mergeIn(r.data?.progress);
-        if (!r.data || JSON.stringify(Store.progress()) !== JSON.stringify(Store.mergeProgress(r.data.progress, {}))) await this.push();
+        const changed = Store.mergeIn(r.data?.progress, r.data?.meta);
+        if (!r.data || !Store.sameAsLocal(r.data.progress, r.data.meta)) await this.push();
         else this.set('ok');
         return changed;
       } catch (e) { this.fail(e); return false; }
@@ -89,10 +90,10 @@ const Sync = (() => {
             if (this.sha === null || tries > 0) {
               const r = await this.fetchRemote();
               this.sha = r.sha;
-              if (r.data) Store.mergeIn(r.data.progress);
+              if (r.data) Store.mergeIn(r.data.progress, r.data.meta);
             }
             const body = { message: `K地圖進度 ${device()} ${new Date().toISOString().slice(0, 16)}`,
-              content: b64enc(JSON.stringify({ v: 1, at: Date.now(), progress: Store.progress() })) };
+              content: b64enc(JSON.stringify({ v: 2, at: Date.now(), progress: Store.progress(), meta: Store.meta() })) };
             if (this.sha) body.sha = this.sha;
             const j = await this.api('contents/' + FILE, { method: 'PUT', body: JSON.stringify(body), keepalive: !!keepalive });
             this.sha = j.content.sha;

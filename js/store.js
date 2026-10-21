@@ -1,7 +1,7 @@
 // 進度存檔（瀏覽器 localStorage）。
 // 每一塊的熟練度：0 未踏 → 1 到訪（答對一次）→ 2 熟悉（隔 2 天以上又答對）→ 3 制霸（熟悉＋找位置與知識題都答對過）。
 // 另外用 Leitner 盒子排複習：答對往後排、答錯回到今天。
-// 進度（regions）會由 js/sync.js 同步到 CloudSave；settings（語言、音樂…）只留在這台裝置。
+// 進度（regions）與 meta（統計、成就、Komugi 裝扮）會由 js/sync.js 同步到 CloudSave；settings（語言、音樂…）只留在這台裝置。
 const Store = (() => {
   const KEY = 'kmap.v1';
   const GAP_DAYS = 2;
@@ -14,6 +14,7 @@ const Store = (() => {
     v = v || {};
     v.settings = Object.assign({ bgm: true, sfx: true, labels: true, lang: null }, v.settings);
     v.regions = v.regions || {};
+    v.meta = Object.assign({ stats: {}, ach: {}, outfit: {}, outfitAt: 0 }, v.meta);
     return v;
   }
   let onProgress = null;   // 進度有變時呼叫（雲端同步排程推上去）
@@ -26,7 +27,7 @@ const Store = (() => {
   const dayKey = (n = today()) => new Date(n * 86400000).toISOString().slice(0, 10);
 
   function region(key) {
-    return s.regions[key] || (s.regions[key] = { units: {}, best: {}, daily: {} });
+    return s.regions[key] || (s.regions[key] = { units: {}, best: {}, daily: {}, grid: {} });
   }
   function unit(key, id) {
     const r = region(key);
@@ -89,10 +90,18 @@ const Store = (() => {
 
   // 今日挑戰：每天第一次的成績才算，連續天數另計
   function daily(key) { return region(key).daily[dayKey()] ?? null; }
-  function setDaily(key, score) {
+  // grid：每題對錯的方格字串（分享用），跟分數一樣只記當天第一次
+  function setDaily(key, score, grid) {
     const r = region(key), k = dayKey();
-    if (r.daily[k] == null) { r.daily[k] = score; save(); }
+    if (r.daily[k] == null) {
+      r.daily[k] = score;
+      (r.grid = r.grid || {})[k] = grid;
+      s.meta.stats.streakBest = Math.max(s.meta.stats.streakBest || 0, streak(key));
+      if (score === 10) s.meta.stats.dailyPerfect = (s.meta.stats.dailyPerfect || 0) + 1;
+      save();
+    }
   }
+  const dailyGrid = key => region(key).grid?.[dayKey()] || '';
   function streak(key) {
     const r = region(key);
     let n = 0, t = today();
@@ -128,6 +137,21 @@ const Store = (() => {
     for (const id of new Set([...Object.keys(a.units || {}), ...Object.keys(b.units || {})])) r.units[id] = mergeUnit(a.units?.[id], b.units?.[id]);
     for (const k of new Set([...Object.keys(a.best || {}), ...Object.keys(b.best || {})])) r.best[k] = Math.max(a.best?.[k] || 0, b.best?.[k] || 0);
     Object.assign(r.daily, b.daily, a.daily);   // 同一天兩邊都有就留本機的（每天只記第一次）
+    r.grid = Object.assign({}, b.grid, a.grid);
+    return r;
+  }
+  // 統計取大的（語言是集合）、成就聯集取最早的日期、裝扮用最近改的那一份
+  function mergeMeta(a = {}, b = {}) {
+    const r = { stats: {}, ach: {}, outfit: {}, outfitAt: 0 };
+    const sa = a.stats || {}, sb = b.stats || {};
+    for (const k of new Set([...Object.keys(sa), ...Object.keys(sb)])) {
+      r.stats[k] = k === 'langs' ? Object.assign({}, sb.langs, sa.langs) : Math.max(sa[k] || 0, sb[k] || 0);
+    }
+    for (const k of new Set([...Object.keys(a.ach || {}), ...Object.keys(b.ach || {})])) {
+      r.ach[k] = [a.ach?.[k], b.ach?.[k]].filter(Boolean).sort()[0];
+    }
+    const newer = (a.outfitAt || 0) >= (b.outfitAt || 0) ? a : b;
+    r.outfit = Object.assign({}, newer.outfit); r.outfitAt = newer.outfitAt || 0;
     return r;
   }
   function mergeProgress(a = {}, b = {}) {
@@ -135,18 +159,39 @@ const Store = (() => {
     for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) r[k] = mergeRegion(a[k], b[k]);
     return r;
   }
-  // 雲端的進度併進來；回傳本機有沒有被改到
-  function mergeIn(remote) {
-    const merged = mergeProgress(s.regions, remote || {});
-    const changed = JSON.stringify(merged) !== JSON.stringify(s.regions);
-    if (changed) { s.regions = merged; save(false); }
+  // 雲端的進度與 meta 併進來；回傳本機有沒有被改到
+  function mergeIn(remote, remoteMeta) {
+    const merged = mergeProgress(s.regions, remote || {}), meta = mergeMeta(s.meta, remoteMeta || {});
+    const changed = JSON.stringify([merged, meta]) !== JSON.stringify([s.regions, s.meta]);
+    if (changed) { s.regions = merged; s.meta = meta; save(false); }
     return changed;
+  }
+  // 雲端那份跟本機合併後是否就等於本機（不等於就要推上去）
+  const sameAsLocal = (remote, remoteMeta) =>
+    JSON.stringify([mergeProgress(remote || {}, {}), mergeMeta(remoteMeta || {}, {})]) === JSON.stringify([mergeProgress(s.regions, {}), mergeMeta(s.meta, {})]);
+
+  // ── 統計、成就、裝扮 ──
+  function stat(k, v) {
+    const st = s.meta.stats;
+    if (k === 'langs') { if (st.langs?.[v]) return; st.langs = Object.assign({}, st.langs, { [v]: 1 }); }
+    else if (k === 'trips' || k === 'trips3') st[k] = (st[k] || 0) + 1;
+    else if ((st[k] || 0) >= v) return;
+    else st[k] = v;
+    save();
+  }
+  function unlock(id) { if (!s.meta.ach[id]) { s.meta.ach[id] = dayKey(); save(); } }
+  function wear(slot, item) {
+    s.meta.outfit = Object.assign({}, s.meta.outfit, { [slot]: item || undefined });
+    if (!item) delete s.meta.outfit[slot];
+    s.meta.outfitAt = Date.now();
+    save();
   }
 
   return {
     settings: () => s.settings,
     setSetting(k, v) { s.settings[k] = v; save(false); },
-    progress: () => s.regions, mergeProgress, mergeIn,
+    progress: () => s.regions, meta: () => s.meta, mergeProgress, mergeIn, sameAsLocal,
+    stats: () => s.meta.stats, stat, achievements: () => s.meta.ach, unlock, outfit: () => s.meta.outfit, wear, dailyGrid,
     onProgress(fn) { onProgress = fn; },
     today, dayKey, level, unit: (k, id) => region(k).units[id], record, nextHint, weight, counts,
     daily, setDaily, streak, best, setBest,

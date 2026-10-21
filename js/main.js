@@ -127,6 +127,7 @@ function renderHome() {
   $('#dailyInfo').textContent = (d == null ? t('dailyNone') : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '');
   $('#timedBest').textContent = Store.best(R.key, 'timed') ? t('timedBest', Store.best(R.key, 'timed')) : t('modeDesc.timed');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
+  $('#closetInfo').textContent = `${Object.keys(Store.achievements()).length} / ${Rewards.ACH.length}`;
 }
 
 // ── 知識卡 ──
@@ -186,7 +187,7 @@ function startMode(mode) {
   $('#pTitle').textContent = mode === 'book' ? R.label('book') : t('mode.' + mode);
   $('#pTimer').hidden = mode !== 'timed';
   clearInterval(P?.timer);
-  P = { mode, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false };
+  P = { mode, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], items: [] };
   if (mode === 'explore') return startExplore();
   if (mode === 'travel') return startTravel();
   music(mode === 'timed' ? 'fast' : 'calm');
@@ -218,6 +219,9 @@ function answer(id) {
   const q = P.qs[P.i], ok = id === q.id;
   P.answered = true;
   const ch = Store.record(R.key, q.id, q.type, ok);
+  P.marks.push(ok ? '🟩' : '🟥');
+  if (ok) { Store.stat('langs', lang()); Store.stat('maxCombo', P.combo + 1); }
+  celebrate(Rewards.check());
   if (ch.to > ch.from) {
     P.ups.push({ id: q.id, to: ch.to });
     if (ch.to === 3) { P.stamps.push(q.id); toast(`${stampHtml(q.id)}<b>${esc(t('mastered', R.short(q.id)))}</b>`, 1800); Sound.play('stamp'); }
@@ -267,11 +271,13 @@ function finishQuiz() {
     head = `<div class="big-score">${P.score}<small>${esc(t('pts'))}</small></div>${rec ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('best', Store.best(R.key, 'timed')))}</div>`}`;
   } else {
     let extra = '';
-    if (P.mode === 'daily') { Store.setDaily(R.key, P.score); extra = `<div class="muted">${esc(t('streakDays', Store.streak(R.key)))}</div>`; }
+    if (P.mode === 'daily') { Store.setDaily(R.key, P.score, P.marks.join('')); extra = `<div class="muted">${esc(t('streakDays', Store.streak(R.key)))}</div>`; }
     head = `<div class="big-score">${P.score}<small> / ${total}</small></div>${extra}`;
   }
   const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
   const stamps = P.stamps.map(id => stampHtml(id)).join('');
+  celebrate(Rewards.check());   // 限時最佳分數、今日挑戰全對／連續天數在結算時才算得出來
+  const items = P.items.map(it => `<div class="item-tile got">${komugiImg(56, { [KOMUGI_ITEMS[it].slot]: it })}<small>${esc(t('closet.items')[it])}</small></div>`).join('');
   Sound.play(P.score >= (total || 10) * 0.8 ? 'goal' : 'level');
   openModal(`
     <div class="result">
@@ -281,9 +287,10 @@ function finishQuiz() {
       <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
       ${stamps ? `<h3>${esc(t('newStamps'))}</h3><div class="stamps">${stamps}</div>` : ''}
       ${ups ? `<h3>${esc(t('ups'))}</h3><div class="chips">${ups}</div>` : ''}
+      ${items ? `<h3>${esc(t('closet.newItems'))}</h3><div class="items">${items}</div>` : ''}
       <div class="actions">
         <button type="button" class="btn" data-home>${esc(t('home'))}</button>
-        ${P.mode === 'daily' ? '' : `<button type="button" class="btn primary" data-again="${P.mode}">${esc(t('again'))}</button>`}
+        ${P.mode === 'daily' ? `<button type="button" class="btn primary" data-share>${esc(t('share.btn'))}</button>` : `<button type="button" class="btn primary" data-again="${P.mode}">${esc(t('again'))}</button>`}
       </div>
     </div>`, null);
   P.qs = null;
@@ -296,7 +303,7 @@ function startTravel() {
   Object.assign(P, { from: trip.from, to: trip.to, best: trip.best, cur: trip.from, steps: 0, trail: [trip.from], peek: false, done: false });
   playMap.showLinks(true);
   playMap.mark(trip.from, 'here'); playMap.label(trip.from, R.short(trip.from), 'here');
-  P.dog = playMap.marker(KOMUGI_SVG, trip.from);
+  P.dog = playMap.marker(komugiArt(), trip.from);
   // 放大到起點附近（三步內）小縣才點得到；不照終點的方向放大，免得洩題
   const { dist } = Quiz.bfs(R, trip.from);
   playMap.focus(R.ids.filter(id => dist[id] <= 3 && !(R.map.frames || []).some(f => f.id === id)), 1.2);
@@ -333,6 +340,9 @@ function travelGoal() {
     const ch = Store.record(R.key, P.to, 'loc', true);
     if (ch.to === 3) Sound.play('stamp'); else if (ch.to > ch.from) Sound.play('level');
   }
+  Store.stat('trips');
+  if (stars === 3) Store.stat('trips3');
+  celebrate(Rewards.check());
   playMap.paint(masteryColor);
   playMap.mark(P.to, 'goal');
   playMap.path(Quiz.route(R, P.from, P.to));
@@ -375,6 +385,59 @@ function renderBook() {
   $('#bookBody').innerHTML = html;
 }
 
+// ── 成就與 Komugi 衣櫃 ──
+function refreshDog() { $('#logoDog').innerHTML = komugiImg(44); }
+// 新解鎖的配件：跳通知、記到這一局的結算裡
+function celebrate(fresh) {
+  if (!fresh.length) return;
+  fresh.forEach((a, i) => setTimeout(() => {
+    toast(`${komugiImg(64, { [KOMUGI_ITEMS[a.item].slot]: a.item })}<b>${esc(t('closet.got', t('closet.items')[a.item]))}</b>`, 2200);
+    Sound.play('level');
+  }, 400 + i * 2300));
+  if (P) P.items.push(...fresh.map(a => a.item));
+  refreshDog();
+}
+function closetHtml() {
+  const got = Store.achievements(), outfit = Store.outfit(), ctx = Rewards.context();
+  let html = `<div class="closet"><div class="closet-dog">${komugiImg(120)}</div><h2>${esc(t('closet.title'))}</h2><p class="muted">${esc(t('closet.desc'))}</p>`;
+  for (const slot of KOMUGI_SLOTS) {
+    html += `<h3>${esc(t('closet.slots')[slot])}</h3><div class="items">`;
+    for (const a of Rewards.ACH.filter(x => KOMUGI_ITEMS[x.item].slot === slot)) {
+      const has = !!got[a.id], on = outfit[slot] === a.item;
+      const prog = `${Math.min(a.value(ctx), a.target)} / ${a.target}`;
+      html += `<button type="button" class="item-tile ${has ? 'got' : 'locked'} ${on ? 'on' : ''}" ${has ? `data-wear="${a.item}"` : 'disabled'}>
+        ${komugiImg(56, { [slot]: a.item })}<b>${esc(t('closet.items')[a.item])}</b>
+        <small>${esc(t('closet.ach')[a.id].replace('{0}', a.target))}${has ? (on ? '・' + esc(t('closet.wearing')) : '') : '・' + prog}</small></button>`;
+    }
+    html += '</div>';
+  }
+  return html + '</div>';
+}
+function showCloset() { openModal(closetHtml()); }
+function toggleWear(item) {
+  const slot = KOMUGI_ITEMS[item].slot;
+  Store.wear(slot, Store.outfit()[slot] === item ? null : item);
+  $('#modalBody').innerHTML = closetHtml();
+  refreshDog();
+}
+
+// ── 今日挑戰分享：方格＋連續天數，手機叫出分享選單，不行就複製 ──
+async function shareDaily() {
+  const grid = Store.dailyGrid(R.key) || P?.marks?.join('') || '';
+  const score = Store.daily(R.key) ?? 0, st = Store.streak(R.key);
+  const text = `${t('appName')} ${t('mode.daily')} ${Store.dayKey()}・${t('region.' + R.key)}\n${grid} ${score}/10${st ? '\n' + t('share.streak', st) : ''}\nhttps://agan0617.github.io/KMap/`;
+  try {
+    if (navigator.share) { await navigator.share({ text }); return; }
+  } catch (e) { if (e.name === 'AbortError') return; }
+  try { await navigator.clipboard.writeText(text); }
+  catch (e) {
+    const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e2) { /* 真的複製不了 */ }
+    ta.remove();
+  }
+  toast(esc(t('share.copied')));
+}
+
 // ── 設定 ──
 function showSettings() {
   const s = Store.settings();
@@ -409,6 +472,8 @@ function refreshCloud() { const b = $('#cloudBox'); if (b) b.innerHTML = cloudHt
 async function cloudPull() {
   const changed = await Sync.pull();
   if (!changed) return;
+  refreshDog();
+  celebrate(Rewards.check());
   if (!$('#home').hidden) renderHome();
   else if (!$('#book').hidden) renderBook();
   else if (playMap && P && !P.qs) playMap.paint(masteryColor);
@@ -440,6 +505,9 @@ document.addEventListener('click', e => {
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
   else if (b.id === 'mDaily') { Sound.play('tap'); startMode('daily'); }
   else if (b.id === 'mBook') { Sound.play('tap'); renderBook(); show('book'); }
+  else if (b.id === 'mCloset' || b.id === 'logoDog') { Sound.play('tap'); showCloset(); }
+  else if (b.dataset.wear) { Sound.play('tap'); toggleWear(b.dataset.wear); }
+  else if (b.hasAttribute('data-share')) shareDaily();
   else if (b.dataset.scope) { Sound.play('tap'); setScope(b.dataset.scope); }
   else if (b.id === 'pBack' || b.id === 'bBack') goHome();
   else if (b.id === 'hSettings') showSettings();
@@ -492,12 +560,13 @@ window.KMAP = {
 // ── 啟動 ──
 if (!Store.settings().lang) Store.setSetting('lang', defaultLang());
 R = regionData(Store.settings().region || REGIONS[0].key) || regionData(REGIONS[0].key);
-$('#logoDog').innerHTML = komugiImg(44);
+refreshDog();
 $('#appVer').textContent = 'v' + APP_VERSION;
 applyLang();
 renderTabs();
 renderHome();
 Store.onProgress(() => Sync.schedule());
+celebrate(Rewards.check());
 Sync.onStatus = refreshCloud;
 cloudPull();
 if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js');
