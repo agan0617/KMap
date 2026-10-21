@@ -491,7 +491,7 @@ window.KMAP = {
 
 // ── 啟動 ──
 if (!Store.settings().lang) Store.setSetting('lang', defaultLang());
-R = regionData(Store.settings().region || 'japan') || regionData('japan');
+R = regionData(Store.settings().region || REGIONS[0].key) || regionData(REGIONS[0].key);
 $('#logoDog').innerHTML = komugiImg(44);
 $('#appVer').textContent = 'v' + APP_VERSION;
 applyLang();

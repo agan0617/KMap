@@ -2,9 +2,10 @@
 // 知識卡有兩種寫法：
 // - 日本（schema 預設）：data/japan-info.js 是中文底稿，data/japan-info.<en|ja>.js 是逐項對應的翻譯
 // - 中國、世界（schema: 'multi'）：data/<區>-info.js 放分區與欄位名稱，data/<區>-units-*.js 每一區直接寫中英日三份
+// 順序就是首頁分頁的順序，第一個是預設地區（Ken 是臺灣人，臺灣放第一個）
 const REGIONS = [
-  { key: 'japan', ready: true },
   { key: 'taiwan', ready: true },
+  { key: 'japan', ready: true },
   { key: 'china', ready: true },
   { key: 'world', ready: true },
 ];
