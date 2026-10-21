@@ -42,6 +42,11 @@ const Rewards = (() => {
     { id: 'w10', region: 'world', item: 'sombrero', target: 10, value: c => c.rs.world },
     { id: 'w50', region: 'world', item: 'suit', target: 50, value: c => c.rs.world },
     { id: 'w100', region: 'world', item: 'eiffel', target: 100, value: c => c.rs.world },
+    // 1.6.0：每個地區再加一階，送夥伴或頭盔
+    { id: 'tw18', region: 'taiwan', item: 'formosanbear', target: 18, value: c => c.rs.taiwan },
+    { id: 'jp35', region: 'japan', item: 'kabuto', target: 35, value: c => c.rs.japan },
+    { id: 'cn25', region: 'china', item: 'panda', target: 25, value: c => c.rs.china },
+    { id: 'w150', region: 'world', item: 'dragon', target: 150, value: c => c.rs.world },
   ];
   const ACH_ITEMS = new Set(ACH.map(a => a.item));
   // 扭蛋池：不是成就送的配件
@@ -62,6 +67,19 @@ const Rewards = (() => {
     { id: 'summer', items: ['lei', 'beach', 'balloon'] },
     { id: 'angel', items: ['angelwings', 'flowercrown', 'heartglasses'] },
     { id: 'king', items: ['crown', 'medal', 'trophy'] },
+    // 1.6.0
+    { id: 'pirate', items: ['piratehat', 'eyepatch', 'piratecoat', 'cutlass', 'parrot'] },
+    { id: 'ninja', items: ['ninjahood', 'ninjasuit', 'shuriken'] },
+    { id: 'school', items: ['sailoruniform', 'randoseru', 'bandaid', 'lollipop'] },
+    { id: 'cat', items: ['catears', 'whiskers', 'cat'] },
+    { id: 'nightmarket', items: ['nightmarket', 'pineapplecake', 'formosanbear'] },
+    { id: 'samurai', items: ['kabuto', 'armor', 'torii'] },
+    { id: 'panda', items: ['hanfu', 'panda', 'bamboo'] },
+    { id: 'ocean', items: ['flippers', 'surfboard', 'penguin'] },
+    { id: 'party', items: ['partyhat', 'cheekstars', 'rainbow'] },
+    { id: 'future', items: ['jetpack', 'vr', 'space'] },
+    { id: 'dragon', items: ['dragon', 'magicwand', 'batwings'] },
+    { id: 'ice', items: ['snow', 'beanie', 'iceskates'] },
   ];
 
   const cache = {};
