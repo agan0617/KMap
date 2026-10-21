@@ -17,6 +17,8 @@
   color: var(--ink);
   -webkit-tap-highlight-color: transparent;
 }
+/* 日文介面優先用日文字型，漢字字形才對 */
+:root:lang(ja) { font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans TC", sans-serif; }
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; background: var(--paper); overscroll-behavior: none; }
 body { background: radial-gradient(circle at 20% 10%, #fbf4e3 0, transparent 60%), var(--paper); }
@@ -33,6 +35,10 @@ small { font-size: .78em; color: var(--muted); }
 .home-head { display: flex; align-items: center; justify-content: space-between; padding-top: env(safe-area-inset-top); }
 .logo { display: flex; align-items: center; gap: 8px; }
 .logo h1 { font-size: 26px; letter-spacing: .08em; font-weight: 800; }
+.head-right { display: flex; align-items: center; gap: 6px; }
+.lang-switch { display: flex; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--paper2); }
+.lang-switch button { border: 0; background: transparent; padding: 5px 9px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.lang-switch button.on { background: var(--red); color: #fff; }
 .icon-btn { border: 0; background: transparent; font-size: 24px; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; }
 .icon-btn:active { background: rgba(0,0,0,.06); }
 .regions { display: flex; gap: 8px; }

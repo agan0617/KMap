@@ -1,9 +1,9 @@
 ﻿/* 離線快取：先用快取、背景更新。改了網頁要記得改 VERSION，舊快取才會被換掉 */
-const VERSION = 'kmap-1.0.2';
+const VERSION = 'kmap-1.1.0';
 const FILES = [
   './', 'index.html', 'style.css', 'manifest.webmanifest',
-  'data/japan-map.js', 'data/japan-info.js',
-  'js/regions.js', 'js/store.js', 'js/audio.js', 'js/komugi.js', 'js/map.js', 'js/quiz.js', 'js/main.js',
+  'data/japan-map.js', 'data/japan-info.js', 'data/japan-info.en.js', 'data/japan-info.ja.js',
+  'js/store.js', 'js/i18n.js', 'js/regions.js', 'js/audio.js', 'js/komugi.js', 'js/map.js', 'js/quiz.js', 'js/main.js',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
 ];
 

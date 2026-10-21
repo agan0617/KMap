@@ -11,7 +11,7 @@ const Store = (() => {
     let v = null;
     try { v = JSON.parse(localStorage.getItem(KEY)); } catch (e) { /* 私密模式等 */ }
     v = v || {};
-    v.settings = Object.assign({ bgm: true, sfx: true, labels: true }, v.settings);
+    v.settings = Object.assign({ bgm: true, sfx: true, labels: true, lang: null }, v.settings);
     v.regions = v.regions || {};
     return v;
   }
@@ -51,19 +51,19 @@ const Store = (() => {
     return { from, to: u.lvl };
   }
 
-  // 什麼時候能升到熟悉（給知識卡顯示）
+  // 離下一級還差什麼（給知識卡顯示，文字由介面依語言組）
   function nextHint(key, id) {
     const u = region(key).units[id];
-    if (!u || u.lvl === 0) return '答對一次就算「到訪」';
+    if (!u || u.lvl === 0) return { k: 'l0' };
     if (u.lvl === 1) {
       const wait = u.first + GAP_DAYS - today();
-      return wait > 0 ? `${wait} 天後再答對就升「熟悉」` : '今天再答對就升「熟悉」';
+      return wait > 0 ? { k: 'wait', n: wait } : { k: 'today' };
     }
     if (u.lvl === 2) {
-      const need = [!u.types.loc && '找位置', !u.types.know && '知識找地點'].filter(Boolean);
-      return need.length ? `再用「${need.join('、')}」答對就「制霸」` : '再答對一次就「制霸」';
+      const need = ['loc', 'know'].filter(m => !u.types[m]);
+      return need.length ? { k: 'need', modes: need } : { k: 'once' };
     }
-    return `${u.stamped} 蓋章`;
+    return { k: 'stamped', date: u.stamped };
   }
 
   // 出題權重：該複習的、錯過的、還沒碰過的優先

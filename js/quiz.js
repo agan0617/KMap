@@ -13,36 +13,32 @@ const Quiz = (() => {
     return ids[ids.length - 1];
   }
 
-  const capLabel = ja => ({ '県': '縣廳', '府': '府廳', '都': '都廳', '道': '道廳' })[ja.slice(-1)] || '首府';
-  const stem = s => s.replace(/[県府都道市區（）都廳]/g, '');
+  const stem = s => s.replace(/[県府都道市區区（）]/g, '');
 
-  // 提示裡出現縣名或縣廳所在地名就等於洩題，日文寫法與繁中寫法都要遮
-  const TRAD = { 静: '靜', 広: '廣', 徳: '德', 縄: '繩', 児: '兒', 戸: '戶', 浜: '濱', 沢: '澤', 関: '關', 黒: '黑' };
-  const variants = s => [...new Set([s, [...s].map(c => TRAD[c] || c).join('')])];
+  // 提示裡出現縣名或縣廳所在地名就等於洩題，各語言的寫法都遮成○○
   function masker(R, id) {
-    const u = R.units[id];
-    const words = [...variants(R.short(id)), ...variants(stem(u.cap[0]))].filter(w => w.length > 1).sort((a, b) => b.length - a.length);
-    return t => words.reduce((s, w) => s.split(w).join('○○'), t);
+    const words = R.maskWords(id);
+    return s => words.reduce((acc, w) => acc.split(w).join('○○'), s);
   }
 
-  // 一塊能出的知識題提示
+  // 一塊能出的知識題提示（目前語言）
   function clues(R, id) {
-    const u = R.units[id], L = [], m = masker(R, id);
-    if (stem(u.cap[0]) !== stem(u.ja)) L.push({ k: 'cap', tag: capLabel(u.ja) + '所在地', t: `${u.cap[0]}（${u.cap[1]}）` });
-    for (const [n, k, q] of u.old) if (q) L.push({ k: 'old', tag: '舊國名', t: `${n}（${k}）` });
-    for (const f of u.foods) L.push({ k: 'food', tag: '名產', t: m(f) });
-    for (const s of u.sights) L.push({ k: 'sight', tag: '名勝', t: m(s) });
-    L.push({ k: 'fact', tag: '這裡是…', t: m(u.fact) });
-    if (u.dia && u.dia[2] !== 0) L.push({ k: 'dia', tag: '方言', t: `「${u.dia[0]}」＝${u.dia[1]}` });
+    const u = R.units[id], c = R.card(id), L = [], m = masker(R, id);
+    const both = (a, b) => (b && b !== a ? `${a}（${b}）` : a);
+    if (stem(u.cap[0]) !== stem(u.ja)) L.push({ k: 'cap', tag: c.capLabel, t: both(c.cap, c.capSub) });
+    for (const o of c.old) if (o.q) L.push({ k: 'old', tag: t('old'), t: both(o.n, o.sub) });
+    for (const f of c.foods) L.push({ k: 'food', tag: t('foods'), t: m(f) });
+    for (const s of c.sights) L.push({ k: 'sight', tag: t('sights'), t: m(s) });
+    L.push({ k: 'fact', tag: t('factClue'), t: m(c.fact) });
+    if (c.dia.q) L.push({ k: 'dia', tag: t('dia'), t: `「${c.dia.w}」＝${m(c.dia.m)}` });
     return L;
   }
 
   function question(R, type, id, r = Math.random) {
     if (type === 'mix') type = r() < 0.5 ? 'loc' : 'know';
-    const u = R.units[id];
-    if (type === 'loc') return { type, id, tag: '找位置', main: u.ja, sub: u.kana };
+    if (type === 'loc') return { type, id, tag: t('mode.loc'), main: R.name(id), sub: R.sub(id) };
     const c = pick(clues(R, id), r);
-    return { type, id, tag: c.tag, main: c.t, sub: '這是哪裡？', clue: c.k };
+    return { type, id, tag: c.tag, main: c.t, sub: t('where'), clue: c.k };
   }
 
   // 一輪練習：依複習權重抽，不重複

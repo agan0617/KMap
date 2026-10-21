@@ -1,0 +1,115 @@
+// 介面文字（中／英／日）。知識卡的翻譯在 data/<地區>-info.<語言>.js。
+// t('key', 參數…)：字串裡的 {0} {1} 依序換成參數；值是函式時直接呼叫。
+const LANGS = [
+  { key: 'zh', label: '中', html: 'zh-Hant' },
+  { key: 'en', label: 'EN', html: 'en' },
+  { key: 'ja', label: '日', html: 'ja' },
+];
+
+const STRINGS = {
+  zh: {
+    appName: 'K地圖',
+    lv: ['未踏', '到訪', '熟悉', '制霸'],
+    mode: { loc: '找位置', know: '知識找地點', daily: '今日挑戰', timed: '限時連擊', travel: '鄰接旅行', explore: '圖鑑', book: '御朱印帳' },
+    modeDesc: { loc: '點出指定的地方', know: '看名產、名勝猜地方', travel: '陪 Komugi 走到目的地', timed: '60 秒能答對幾題', explore: '點地圖看知識卡' },
+    region: { japan: '日本', china: '中國', world: '世界' },
+    regionUnit: { japan: '都道府縣', china: '省', world: '國家' },
+    soon: '製作中',
+    soonToast: '{0}（以{1}為單位）製作中',
+    dailyNone: '今天還沒挑戰', dailyDone: '今天 {0} / {1}', streak: '・連續 {0} 天',
+    timedBest: '最佳 {0} 分',
+    bookInfo: '已蓋 {0} / {1} 個章',
+    capital: { '県': '縣廳所在地', '府': '府廳所在地', '都': '都廳所在地', '道': '道廳所在地' },
+    old: '舊國名', foods: '名產', sights: '名勝', fact: '小知識', dia: '方言', factClue: '這裡是…',
+    source: '來源：日文維基百科〈{0}〉',
+    hint: { l0: '答對一次就算「到訪」', wait: '{0} 天後再答對就升「熟悉」', today: '今天再答對就升「熟悉」', need: '再用「{0}」答對就「制霸」', once: '再答對一次就「制霸」', stamped: '{0} 蓋章', sep: '、' },
+    where: '這是哪裡？',
+    ok: '答對！', up: '升級：{0}', wrong: '你點的是 {0}，答案是 {1}',
+    next: '下一題', card: '看知識卡',
+    score: '<b>{0}</b> 分', combo: '{0} 連擊',
+    finished: '{0}結束', pts: ' 分', newRec: '新紀錄！', best: '最佳 {0} 分', streakDays: '連續挑戰 {0} 天', maxCombo: '最高連擊 {0}',
+    newStamps: '新蓋的御朱印', ups: '升級', home: '回首頁', again: '再來一輪', mastered: '{0} 制霸！',
+    travelSub: '只能走到相鄰的地方，虛線是橋、隧道或航線', peek: '看目的地（少一顆星）',
+    notAdj: '{0} 跟 {1} 不相鄰', viaLink: '走{0}到了 {1}', arrived: '到了 {0}', steps: '{0} 步',
+    goal: '抵達 {0}！', goalSub: '你走了 {0} 步，最短是 {1} 步（地圖上的紅線）', travelAgain: '再走一趟',
+    exploreHint: '點地圖上的任何一塊看知識卡，雙指或滾輪可以放大', hideNames: '隱藏名稱', showNames: '顯示名稱',
+    settings: '設定', bgm: '背景音樂', sfx: '音效', labels: '圖鑑顯示地名', lang: '語言',
+    about: '進度存在這個瀏覽器裡。地圖：Natural Earth（公有領域）；知識卡依日文維基百科整理。',
+    zoomIn: '放大', zoomOut: '縮小', zoomReset: '全圖', back: '返回', close: '關閉',
+    links: {},
+  },
+  en: {
+    appName: 'KMap',
+    lv: ['Unvisited', 'Visited', 'Familiar', 'Mastered'],
+    mode: { loc: 'Find It', know: 'Clue Hunt', daily: 'Daily Challenge', timed: 'Combo Rush', travel: 'Neighbor Trip', explore: 'Field Guide', book: 'Stamp Book' },
+    modeDesc: { loc: 'Tap the place named', know: 'Guess from food, sights and facts', travel: 'Walk Komugi to the goal', timed: 'How many in 60 seconds?', explore: 'Tap the map to read cards' },
+    region: { japan: 'Japan', china: 'China', world: 'World' },
+    regionUnit: { japan: 'prefectures', china: 'provinces', world: 'countries' },
+    soon: 'Coming soon',
+    soonToast: '{0} ({1}) is coming soon',
+    dailyNone: 'Not played today', dailyDone: 'Today {0} / {1}', streak: ' · {0}-day streak',
+    timedBest: 'Best {0} pts',
+    bookInfo: '{0} / {1} stamps',
+    capital: { '県': 'Capital', '府': 'Capital', '都': 'Capital', '道': 'Capital' },
+    old: 'Old province', foods: 'Specialties', sights: 'Sights', fact: 'Did you know', dia: 'Dialect', factClue: 'This place…',
+    source: 'Source: Wikipedia “{0}”',
+    hint: { l0: 'Answer once to mark it Visited', wait: 'Answer again in {0} days to reach Familiar', today: 'Answer again today to reach Familiar', need: 'Answer in {0} to master it', once: 'One more right answer to master it', stamped: 'Stamped {0}', sep: ' and ' },
+    where: 'Where is this?',
+    ok: 'Correct!', up: 'Level up: {0}', wrong: 'You tapped {0}; the answer is {1}',
+    next: 'Next', card: 'Read card',
+    score: '<b>{0}</b> pts', combo: '{0} combo',
+    finished: '{0} complete', pts: ' pts', newRec: 'New record!', best: 'Best {0} pts', streakDays: '{0}-day streak', maxCombo: 'Best combo {0}',
+    newStamps: 'New stamps', ups: 'Level ups', home: 'Home', again: 'Play again', mastered: '{0} mastered!',
+    travelSub: 'Move only to neighbors; dashed lines are bridges, tunnels or ferries', peek: 'Show goal (−1 star)',
+    notAdj: '{0} does not border {1}', viaLink: 'Took the {0} to {1}', arrived: 'Now in {0}', steps: '{0} steps',
+    goal: 'Arrived in {0}!', goalSub: 'You took {0} steps; the shortest is {1} (red line on the map)', travelAgain: 'New trip',
+    exploreHint: 'Tap any area to read its card; pinch or scroll to zoom', hideNames: 'Hide names', showNames: 'Show names',
+    settings: 'Settings', bgm: 'Music', sfx: 'Sound effects', labels: 'Names on the field guide map', lang: 'Language',
+    about: 'Progress is saved in this browser. Map: Natural Earth (public domain); cards based on Wikipedia.',
+    zoomIn: 'Zoom in', zoomOut: 'Zoom out', zoomReset: 'Fit map', back: 'Back', close: 'Close',
+    links: { '青函隧道': 'Seikan Tunnel', '明石海峽大橋・大鳴門橋': 'Akashi Kaikyo & Onaruto bridges', '瀨戶大橋': 'Great Seto Bridge', '島波海道': 'Shimanami Kaido', '關門海峽': 'Kanmon Strait', '渡輪航線': 'ferry' },
+  },
+  ja: {
+    appName: 'K地図',
+    lv: ['未踏', '訪問', '習熟', '制覇'],
+    mode: { loc: '場所当て', know: 'ヒントで当てる', daily: '今日のチャレンジ', timed: 'タイムアタック', travel: '隣県めぐり', explore: '図鑑', book: '御朱印帳' },
+    modeDesc: { loc: '指定された場所をタップ', know: '名物・名所から当てる', travel: 'Komugi とゴールまで歩こう', timed: '60 秒で何問解ける？', explore: '地図をタップしてカードを見る' },
+    region: { japan: '日本', china: '中国', world: '世界' },
+    regionUnit: { japan: '都道府県', china: '省', world: '国' },
+    soon: '準備中',
+    soonToast: '{0}（{1}単位）は準備中',
+    dailyNone: '今日はまだ挑戦していません', dailyDone: '今日 {0} / {1}', streak: '・{0} 日連続',
+    timedBest: 'ベスト {0} 点',
+    bookInfo: '御朱印 {0} / {1}',
+    capital: { '県': '県庁所在地', '府': '府庁所在地', '都': '都庁所在地', '道': '道庁所在地' },
+    old: '旧国名', foods: '名物', sights: '名所', fact: '豆知識', dia: '方言', factClue: 'ここは…',
+    source: '出典：Wikipedia「{0}」',
+    hint: { l0: '1 回正解で「訪問」', wait: '{0} 日後にまた正解すると「習熟」', today: '今日また正解すると「習熟」', need: '「{0}」で正解すると「制覇」', once: 'あと 1 回正解で「制覇」', stamped: '{0} 御朱印', sep: '・' },
+    where: 'ここはどこ？',
+    ok: '正解！', up: 'レベルアップ：{0}', wrong: 'タップしたのは {0}、正解は {1}',
+    next: '次へ', card: 'カードを見る',
+    score: '<b>{0}</b> 点', combo: '{0} コンボ',
+    finished: '{0} 終了', pts: ' 点', newRec: '新記録！', best: 'ベスト {0} 点', streakDays: '{0} 日連続挑戦', maxCombo: '最大コンボ {0}',
+    newStamps: '新しい御朱印', ups: 'レベルアップ', home: 'ホームへ', again: 'もう一回', mastered: '{0} 制覇！',
+    travelSub: '隣の県にしか進めません。点線は橋・トンネル・航路', peek: 'ゴールを見る（星 −1）',
+    notAdj: '{0} は {1} と隣接していません', viaLink: '{0}を通って {1} へ', arrived: '{0} に着いた', steps: '{0} 歩',
+    goal: '{0} に到着！', goalSub: '{0} 歩でゴール。最短は {1} 歩（地図の赤線）', travelAgain: 'もう一度旅する',
+    exploreHint: '地図をタップするとカードが開きます。ピンチやホイールで拡大', hideNames: '名前を隠す', showNames: '名前を表示',
+    settings: '設定', bgm: 'BGM', sfx: '効果音', labels: '図鑑の地図に地名を表示', lang: '言語',
+    about: '進行状況はこのブラウザに保存されます。地図：Natural Earth（パブリックドメイン）、カードは日本語版 Wikipedia をもとに作成。',
+    zoomIn: '拡大', zoomOut: '縮小', zoomReset: '全体', back: '戻る', close: '閉じる',
+    links: { '青函隧道': '青函トンネル', '明石海峽大橋・大鳴門橋': '明石海峡大橋・大鳴門橋', '瀨戶大橋': '瀬戸大橋', '島波海道': 'しまなみ海道', '關門海峽': '関門海峡', '渡輪航線': 'フェリー航路' },
+  },
+};
+
+function lang() { return Store.settings().lang; }
+function t(key, ...args) {
+  let v = key.split('.').reduce((o, k) => o?.[k], STRINGS[lang()]);
+  if (v == null) v = key.split('.').reduce((o, k) => o?.[k], STRINGS.zh);
+  if (typeof v !== 'string') return v;
+  return v.replace(/\{(\d)\}/g, (_, i) => args[i] ?? '');
+}
+function defaultLang() {
+  const n = (navigator.language || '').toLowerCase();
+  return n.startsWith('ja') ? 'ja' : n.startsWith('zh') ? 'zh' : 'en';
+}
