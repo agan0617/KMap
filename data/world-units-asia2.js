@@ -24,7 +24,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "東北部巴達赫尚山區出產的青金石，數千年來遠銷埃及與兩河流域。",
         "國家運動是騎在馬背上搶奪山羊屍體的「馬背叼羊」（Buzkashi）。",
-        "1919 年擺脫英國的控制取得完全獨立，每年 8 月 19 日為獨立紀念日。"
+        "1919 年擺脫英國的控制取得完全獨立，每年 8 月 19 日為獨立紀念日。",
+        "1747 年艾哈邁德・沙・杜蘭尼建立的杜蘭尼帝國，被視為現代國家的起點。",
+        "東北角細長的瓦罕走廊一路延伸到與中國接壤的邊界。",
+        "官方語言是普什圖語與達利語（波斯語的一種）。",
+        "西部古城赫拉特曾是帖木兒王朝後期的首都與文化中心。"
       ],
       "dia": null,
       "wiki": "阿富汗"
@@ -49,7 +53,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Lapis lazuli from the mountains of Badakhshan in the northeast has been traded as far as Egypt and Mesopotamia for thousands of years.",
         "Its national sport is buzkashi, in which riders on horseback compete to grab and carry a goat carcass.",
-        "It gained full independence from British control in 1919, and 19 August is its Independence Day."
+        "It gained full independence from British control in 1919, and 19 August is its Independence Day.",
+        "The Durrani Empire founded by Ahmad Shah Durrani in 1747 is regarded as the beginning of the modern state.",
+        "The long, narrow Wakhan Corridor in the northeast stretches all the way to the border with China.",
+        "Its official languages are Pashto and Dari, a variety of Persian.",
+        "The western city of Herat was the capital and cultural centre of the later Timurid dynasty."
       ],
       "dia": null,
       "wiki": "Afghanistan"
@@ -74,7 +82,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北東部バダフシャーンの山地で採れるラピスラズリは、数千年前からエジプトやメソポタミアまで運ばれていた。",
         "国技は、馬に乗ってヤギの胴体を奪い合う「ブズカシ」。",
-        "1919年にイギリスの支配を脱して完全独立し、8月19日が独立記念日となっている。"
+        "1919年にイギリスの支配を脱して完全独立し、8月19日が独立記念日となっている。",
+        "1747年にアフマド・シャー・ドゥッラーニーが建てたドゥッラーニー朝が、近代国家の始まりとされる。",
+        "北東の細長いワハーン回廊が、中国との国境まで延びている。",
+        "公用語はパシュトー語とダリー語（ペルシア語の一種）。",
+        "西部の古都ヘラートは、ティムール朝後期の首都で文化の中心だった。"
       ],
       "dia": null,
       "wiki": "アフガニスタン"
@@ -107,7 +119,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2020 年發射「希望號」探測器，成為第一個探測火星的阿拉伯國家。",
         "居民之中外籍人士約佔近九成，本國公民只是少數。",
-        "國旗由旗桿側的紅色直條，加上綠、白、黑三道橫條組成。"
+        "國旗由旗桿側的紅色直條，加上綠、白、黑三道橫條組成。",
+        "2020 年啟用的巴拉卡核電廠，是阿拉伯世界第一座商業核電廠。",
+        "2021～2022 年在杜拜舉辦世界博覽會，是中東首次舉辦世博。",
+        "杜拜國際機場的國際旅客量長年居世界第一。",
+        "國鳥是獵隼，鷹獵是傳統文化，首都還有專門的獵鷹醫院。"
       ],
       "dia": null,
       "wiki": "阿拉伯聯合大公國"
@@ -133,7 +149,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 2020 it launched the Hope probe, becoming the first Arab country to send a mission to Mars.",
         "Foreign residents make up close to 90% of the population, so citizens are a small minority.",
-        "Its flag has a vertical red band at the hoist and horizontal stripes of green, white and black."
+        "Its flag has a vertical red band at the hoist and horizontal stripes of green, white and black.",
+        "The Barakah nuclear plant, which began operating in 2020, is the first commercial nuclear power plant in the Arab world.",
+        "Dubai hosted the World Expo in 2021–2022, the first held in the Middle East.",
+        "Dubai International Airport has long been the world's busiest airport for international passengers.",
+        "Its national bird is the falcon; falconry is a cherished tradition, and the capital even has a hospital just for falcons."
       ],
       "dia": null,
       "wiki": "United Arab Emirates"
@@ -159,7 +179,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2020年に探査機「HOPE（アル・アマル）」を打ち上げ、アラブ諸国で初めて火星探査を行った。",
         "住民の9割近くを外国人が占め、自国民は少数派。",
-        "国旗は旗竿側の赤い縦帯と、緑・白・黒の三本の横帯から成る。"
+        "国旗は旗竿側の赤い縦帯と、緑・白・黒の三本の横帯から成る。",
+        "2020年に稼働したバラカ原子力発電所は、アラブ世界初の商業用原発。",
+        "2021～2022年にドバイで万博が開かれ、中東で初めての万博となった。",
+        "ドバイ国際空港は、国際線の旅客数で長年世界一。",
+        "国鳥はハヤブサで、鷹狩りは伝統文化。首都にはハヤブサ専門の病院まである。"
       ],
       "dia": null,
       "wiki": "アラブ首長国連邦"
@@ -196,7 +220,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "使用本民族獨有的字母，由梅斯羅普・馬什托茨在五世紀初創制。",
         "民族象徵亞拉拉特山出現在國徽上，但這座山其實位於鄰國土耳其境內。",
-        "芭蕾舞曲〈劍舞〉的作曲家哈察都量出身這個民族，被視為國寶級人物。"
+        "芭蕾舞曲〈劍舞〉的作曲家哈察都量出身這個民族，被視為國寶級人物。",
+        "阿雷尼洞穴出土了約五千五百年前的皮鞋與約六千一百年前的釀酒設施，都是世界已知最古老的。",
+        "2011 年起把西洋棋列為小學必修課程。",
+        "國旗由紅、藍、橘三色橫條組成。",
+        "塔特夫修道院的空中纜車全長約五點七公里，被金氏世界紀錄列為最長的不停站往返式纜車。"
       ],
       "dia": null,
       "wiki": "亞美尼亞"
@@ -222,7 +250,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It uses its own unique alphabet, created by Mesrop Mashtots in the early 5th century.",
         "Mount Ararat, a national symbol shown on its coat of arms, actually stands across the border in Turkey.",
-        "Aram Khachaturian, composer of the \"Sabre Dance\", came from this nation and is revered as a national treasure."
+        "Aram Khachaturian, composer of the \"Sabre Dance\", came from this nation and is revered as a national treasure.",
+        "Areni-1 cave yielded a leather shoe about 5,500 years old and a winery about 6,100 years old, both the oldest known in the world.",
+        "Since 2011, chess has been a compulsory subject in its primary schools.",
+        "Its flag has three horizontal stripes of red, blue and orange.",
+        "The Wings of Tatev aerial tramway, about 5.7 km long, is listed by Guinness as the longest non-stop double-track reversible cable car."
       ],
       "dia": null,
       "wiki": "Armenia"
@@ -248,7 +280,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "独自の文字を使っており、5世紀初めにメスロプ・マシュトツが創った。",
         "民族の象徴アララト山は国章にも描かれているが、山そのものは隣国トルコの領内にある。",
-        "「剣の舞」の作曲家ハチャトゥリアンはこの民族の出身で、国の誇りとされている。"
+        "「剣の舞」の作曲家ハチャトゥリアンはこの民族の出身で、国の誇りとされている。",
+        "アレニ1洞窟からは約5500年前の革靴と約6100年前のワイン醸造所が見つかり、どちらも世界最古級。",
+        "2011年から小学校でチェスが必修科目になった。",
+        "国旗は赤・青・オレンジの3色の横縞。",
+        "タテヴ修道院へのロープウェイ「タテヴの翼」は全長約5.7kmで、ギネスに世界最長のノンストップ往復式ロープウェイとして認定された。"
       ],
       "dia": null,
       "wiki": "アルメニア"
@@ -281,7 +317,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1918 年成立的民主共和國，常被稱為穆斯林世界的第一個民主共和國。",
         "境內與裏海沿岸有近四百座泥火山，數量居世界前列。",
-        "2012 年在首都舉辦歐洲歌唱大賽（Eurovision）。"
+        "2012 年在首都舉辦歐洲歌唱大賽（Eurovision）。",
+        "十九世紀中葉在首都附近鑽出了世界上最早的工業油井之一。",
+        "國旗由藍、紅、綠三色橫條組成，中央是白色新月與八角星。",
+        "西南部的納希契萬自治共和國被亞美尼亞隔開，與本土不相連。",
+        "首都低於海平面約二十八公尺，是世界上海拔最低的首都。"
       ],
       "dia": null,
       "wiki": "亞塞拜然"
@@ -307,7 +347,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The democratic republic founded here in 1918 is often described as the first democratic republic in the Muslim world.",
         "Nearly 400 mud volcanoes are found on its land and Caspian coast, among the most of any country.",
-        "It hosted the Eurovision Song Contest in its capital in 2012."
+        "It hosted the Eurovision Song Contest in its capital in 2012.",
+        "In the mid-19th century one of the world's first industrial oil wells was drilled near the capital.",
+        "Its flag has blue, red and green horizontal stripes with a white crescent and eight-pointed star in the centre.",
+        "The Nakhchivan Autonomous Republic in the southwest is separated from the rest of the country by Armenia.",
+        "The capital lies about 28 m below sea level, making it the lowest-lying capital in the world."
       ],
       "dia": null,
       "wiki": "Azerbaijan"
@@ -333,7 +377,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1918年に成立した民主共和国は、イスラム世界で最初の民主共和国とよく言われる。",
         "国内とカスピ海沿岸には400近い泥火山があり、その数は世界有数。",
-        "2012年に首都でユーロビジョン・ソング・コンテストを開催した。"
+        "2012年に首都でユーロビジョン・ソング・コンテストを開催した。",
+        "19世紀半ばに首都近くで、世界最初期の工業用油井が掘られた。",
+        "国旗は青・赤・緑の横縞で、中央に白い三日月と八角星がある。",
+        "南西部のナヒチェヴァン自治共和国は、アルメニアに隔てられた飛び地になっている。",
+        "首都は海抜マイナス約28mにあり、世界で最も低い位置にある首都。"
       ],
       "dia": null,
       "wiki": "アゼルバイジャン"
@@ -366,7 +414,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "靠一座約二十五公里長的「法赫德國王大橋」與沙烏地阿拉伯相連。",
         "2004 年舉辦中東第一場一級方程式（F1）大獎賽。",
-        "國土約七百多平方公里，是中東面積最小的國家。"
+        "國土約七百多平方公里，是中東面積最小的國家。",
+        "青銅器時代連接美索不達米亞與印度河流域的貿易中心「迪爾蒙」以這裡為中心。",
+        "島上留有數萬座迪爾蒙時代的古墳丘，2019 年列入世界遺產。",
+        "國旗由紅色與白色組成，交界的白色鋸齒有五個尖角，象徵伊斯蘭教的五功。",
+        "國名在阿拉伯語中的意思是「兩片海」。"
       ],
       "dia": null,
       "wiki": "巴林"
@@ -392,7 +444,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is linked to Saudi Arabia by the King Fahd Causeway, about 25 km long.",
         "In 2004 it hosted the first Formula One Grand Prix in the Middle East.",
-        "With only about 780 square kilometres of land, it is the smallest country in the Middle East."
+        "With only about 780 square kilometres of land, it is the smallest country in the Middle East.",
+        "Dilmun, a Bronze Age trading hub linking Mesopotamia and the Indus Valley, was centred here.",
+        "Tens of thousands of Dilmun-era burial mounds survive on the island and were made a World Heritage Site in 2019.",
+        "Its red-and-white flag has a serrated edge with five white points, representing the Five Pillars of Islam.",
+        "Its name in Arabic means 'two seas'."
       ],
       "dia": null,
       "wiki": "Bahrain"
@@ -418,7 +474,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "全長約25キロの「キング・ファハド・コーズウェイ」でサウジアラビアとつながっている。",
         "2004年に中東で初めてF1グランプリを開催した。",
-        "国土は約780平方kmで、中東でもっとも小さな国である。"
+        "国土は約780平方kmで、中東でもっとも小さな国である。",
+        "青銅器時代にメソポタミアとインダス文明を結んだ交易の拠点「ディルムン」はここを中心に栄えた。",
+        "島にはディルムン時代の墳墓が数万基残り、2019年に世界遺産に登録された。",
+        "国旗は赤と白で、境目のギザギザは5つの白い山形になっており、イスラムの五行を表す。",
+        "国名はアラビア語で「二つの海」という意味。"
       ],
       "dia": null,
       "wiki": "バーレーン"
@@ -455,7 +515,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "古代以產銅聞名，拉丁文的「銅」（cuprum）一詞就源自這座島的名字。",
         "國旗白底上畫著銅色的全島輪廓與兩枝橄欖枝。",
         "受英國統治的影響，車輛靠左行駛。",
-        "1974 年後島嶼南北分裂，聯合國緩衝區至今仍把首都一分為二。"
+        "1974 年後島嶼南北分裂，聯合國緩衝區至今仍把首都一分為二。",
+        "官方語言是希臘語與土耳其語。",
+        "英國在島上仍保有阿克羅蒂利與德凱利亞兩塊主權基地區。",
+        "島上特有的野生「穆夫隆羊」被視為國家的象徵動物。"
       ],
       "dia": null,
       "wiki": "賽普勒斯"
@@ -481,7 +544,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "It was famous for copper in ancient times, and the Latin word for copper, cuprum, comes from the island's name.",
         "Its flag shows a copper-coloured outline of the whole island above two olive branches on a white field.",
         "A legacy of British rule, traffic drives on the left.",
-        "Since 1974 the island has been divided between north and south, and a UN buffer zone still splits its capital in two."
+        "Since 1974 the island has been divided between north and south, and a UN buffer zone still splits its capital in two.",
+        "Its official languages are Greek and Turkish.",
+        "Britain still holds two Sovereign Base Areas on the island, Akrotiri and Dhekelia.",
+        "The wild mouflon, a sheep found only on this island, is regarded as the national animal."
       ],
       "dia": null,
       "wiki": "Cyprus"
@@ -507,7 +573,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "古代から銅の産地として知られ、ラテン語で銅を意味する「クプルム」は島の名に由来する。",
         "国旗は白地に、銅色で描いた島全体の形と2本のオリーブの枝。",
         "イギリス統治の名残で、車は左側通行。",
-        "1974年以降、島は南北に分断され、国連の緩衝地帯が今も首都を二つに分けている。"
+        "1974年以降、島は南北に分断され、国連の緩衝地帯が今も首都を二つに分けている。",
+        "公用語はギリシャ語とトルコ語。",
+        "島には今もイギリスの主権基地領域、アクロティリとデケリアがある。",
+        "島固有の野生の羊「ムフロン」が国を象徴する動物とされている。"
       ],
       "dia": null,
       "wiki": "キプロス"
@@ -540,7 +609,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "使用自己獨有、外形圓潤的文字（姆赫德魯利字母）。",
         "國旗是白底紅色大十字，加上四個小紅十字的「五十字旗」。",
-        "前蘇聯領導人史達林出生於本國的哥里。"
+        "前蘇聯領導人史達林出生於本國的哥里。",
+        "德馬尼西出土約一百八十萬年前的古人類化石，是非洲以外最古老的人類化石之一。",
+        "本國語言稱自己的國家為「薩卡特維洛」（Sakartvelo）。",
+        "傳統的多聲部合唱在 2001 年被列入聯合國教科文組織的非物質文化遺產。",
+        "2003 年的「玫瑰革命」以和平方式促成政權更替。"
       ],
       "dia": null,
       "wiki": "喬治亞"
@@ -566,7 +639,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It writes its language in its own unique, rounded script, Mkhedruli.",
         "Its \"Five Cross Flag\" has a large red cross on white with four small red crosses.",
-        "Soviet leader Joseph Stalin was born in Gori in this country."
+        "Soviet leader Joseph Stalin was born in Gori in this country.",
+        "Fossils about 1.8 million years old found at Dmanisi are among the oldest human remains outside Africa.",
+        "In its own language the country is called Sakartvelo.",
+        "Its traditional polyphonic singing was recognised by UNESCO as intangible cultural heritage in 2001.",
+        "The 2003 Rose Revolution brought about a peaceful change of government."
       ],
       "dia": null,
       "wiki": "Georgia (country)"
@@ -592,7 +669,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "独自の丸みを帯びた文字（ムヘドルリ文字）を使っている。",
         "国旗は白地に大きな赤い十字と四つの小さな赤い十字を配した「五十字旗」。",
-        "旧ソ連の指導者スターリンは、この国のゴリで生まれた。"
+        "旧ソ連の指導者スターリンは、この国のゴリで生まれた。",
+        "ドマニシで見つかった約180万年前の人類化石は、アフリカ以外で最古級のもの。",
+        "自国の言葉では国のことを「サカルトヴェロ」と呼ぶ。",
+        "伝統的な多声合唱は、2001年にユネスコの無形文化遺産に選ばれた。",
+        "2003年の「バラ革命」で平和的に政権交代が起きた。"
       ],
       "dia": null,
       "wiki": "ジョージア"
@@ -625,7 +706,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1935 年以前，國際上多稱這個國家為「波斯」。",
         "官方曆法是以春分為元旦的太陽曆，新年稱為「諾魯茲」。",
-        "西元前六世紀，居魯士大帝在這片土地上建立阿契美尼德帝國，版圖橫跨亞、非、歐三洲。"
+        "西元前六世紀，居魯士大帝在這片土地上建立阿契美尼德帝國，版圖橫跨亞、非、歐三洲。",
+        "達馬萬德山海拔約五千六百一十公尺，是亞洲最高的火山。",
+        "1979 年的伊斯蘭革命推翻君主制，建立了伊斯蘭共和國。",
+        "國旗綠白紅三色交界處，各以阿拉伯文重複寫了 11 次「真主至大」，共 22 次。",
+        "東南部的盧特沙漠曾被衛星測得約攝氏七十度的地表溫度，是地球上最熱的地方之一。"
       ],
       "dia": null,
       "wiki": "伊朗"
@@ -651,7 +736,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Until 1935 the country was generally known internationally as Persia.",
         "Its official calendar is a solar calendar whose New Year, Nowruz, falls on the spring equinox.",
-        "In the 6th century BC Cyrus the Great founded the Achaemenid Empire here, which came to span Asia, Africa and Europe."
+        "In the 6th century BC Cyrus the Great founded the Achaemenid Empire here, which came to span Asia, Africa and Europe.",
+        "Mount Damavand, about 5,610 m high, is the highest volcano in Asia.",
+        "The Islamic Revolution of 1979 overthrew the monarchy and established an Islamic republic.",
+        "Along the edges of its green, white and red stripes, 'Allahu Akbar' is written 11 times each, 22 times in all.",
+        "Satellites have measured ground temperatures of about 70°C in the Lut Desert in the southeast, one of the hottest places on Earth."
       ],
       "dia": null,
       "wiki": "Iran"
@@ -677,7 +766,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1935年までは、国際的には「ペルシア」と呼ばれることが多かった。",
         "公式の暦は春分を元日とする太陽暦で、新年を「ノウルーズ」と呼ぶ。",
-        "紀元前6世紀、キュロス大王がこの地にアケメネス朝を興し、その版図はアジア・アフリカ・ヨーロッパの三大陸にまたがった。"
+        "紀元前6世紀、キュロス大王がこの地にアケメネス朝を興し、その版図はアジア・アフリカ・ヨーロッパの三大陸にまたがった。",
+        "ダマーヴァンド山は標高約5610mで、アジアで最も高い火山。",
+        "1979年のイスラム革命で王制が倒れ、イスラム共和国が成立した。",
+        "国旗の緑・白・赤の境目には「神は偉大なり」がそれぞれ11回、計22回書かれている。",
+        "南東部のルート砂漠では衛星で約70℃の地表温度が観測され、地球で最も暑い場所の一つとされる。"
       ],
       "dia": null,
       "wiki": "イラン"
@@ -713,7 +806,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "古巴比倫國王漢摩拉比在這片土地上頒布了著名的《漢摩拉比法典》。",
         "世界最古老的文學作品之一《吉爾伽美什史詩》，誕生於這片土地上的古代蘇美。",
-        "1258 年蒙古軍攻陷首都，終結了阿拔斯王朝。"
+        "1258 年蒙古軍攻陷首都，終結了阿拔斯王朝。",
+        "阿拔斯王朝時代首都的「智慧宮」翻譯了大量希臘典籍，是當時的學術中心。",
+        "北部的庫德斯坦地區享有高度自治，有自己的地方政府與議會。",
+        "南部的古城烏爾留有巨大的階梯式神廟「金字形神塔」，被視為亞伯拉罕的故鄉。",
+        "兩條大河在南部匯流成阿拉伯河，再注入波斯灣。"
       ],
       "dia": null,
       "wiki": "伊拉克"
@@ -739,7 +836,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The famous Code of Hammurabi was issued on this land by the Babylonian king Hammurabi.",
         "The Epic of Gilgamesh, one of the oldest works of literature in the world, comes from ancient Sumer on this land.",
-        "In 1258 Mongol forces sacked its capital, bringing the Abbasid Caliphate to an end."
+        "In 1258 Mongol forces sacked its capital, bringing the Abbasid Caliphate to an end.",
+        "Under the Abbasids, the capital's House of Wisdom translated many Greek classics and was a great centre of learning.",
+        "The Kurdistan Region in the north has broad autonomy, with its own government and parliament.",
+        "The ancient city of Ur in the south has a huge stepped temple, a ziggurat, and is traditionally held to be the home of Abraham.",
+        "Its two great rivers join in the south to form the Shatt al-Arab before flowing into the Persian Gulf."
       ],
       "dia": null,
       "wiki": "Iraq"
@@ -765,7 +866,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "古代バビロニアのハンムラビ王が、この地で有名な「ハンムラビ法典」を定めた。",
         "世界最古の文学作品の一つ「ギルガメシュ叙事詩」は、この地の古代シュメールで生まれた。",
-        "1258年にモンゴル軍が首都を攻め落とし、アッバース朝を滅ぼした。"
+        "1258年にモンゴル軍が首都を攻め落とし、アッバース朝を滅ぼした。",
+        "アッバース朝時代、首都の「知恵の館」ではギリシャの古典が大量に翻訳され、学問の中心だった。",
+        "北部のクルディスタン地域は高度な自治を認められ、独自の政府と議会を持つ。",
+        "南部の古代都市ウルには巨大な階段状の神殿「ジッグラト」が残り、アブラハムの故郷とされる。",
+        "二つの大河は南部で合流してシャットゥルアラブ川となり、ペルシャ湾に注ぐ。"
       ],
       "dia": null,
       "wiki": "イラク"
@@ -798,7 +903,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "以集體生活、共同勞動為特色的「基布茲」集體農場起源於此。",
         "現代的滴灌技術在這裡發展並推廣到全世界，讓乾旱地區也能耕作。",
-        "南部的內蓋夫沙漠佔了國土一半以上的面積。"
+        "南部的內蓋夫沙漠佔了國土一半以上的面積。",
+        "北部的加利利海（太巴列湖）低於海平面約兩百多公尺，是地球上海拔最低的淡水湖。",
+        "國旗是白底上下兩道藍色橫條，中央是藍色的大衛之星。",
+        "最南端的埃拉特是本國唯一面臨紅海的港市。",
+        "國會稱為「克奈塞特」（Knesset），共有 120 席。"
       ],
       "dia": null,
       "wiki": "以色列"
@@ -824,7 +933,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The kibbutz, a collective farming community based on shared work and property, originated here.",
         "Modern drip irrigation was developed here and spread around the world, making farming possible in dry lands.",
-        "The Negev Desert in the south covers more than half of its land area."
+        "The Negev Desert in the south covers more than half of its land area.",
+        "The Sea of Galilee in the north, more than 200 m below sea level, is the lowest freshwater lake on Earth.",
+        "Its flag is white with two horizontal blue stripes and a blue Star of David in the centre.",
+        "Eilat, at the southern tip, is its only port on the Red Sea.",
+        "Its parliament is called the Knesset and has 120 seats."
       ],
       "dia": null,
       "wiki": "Israel"
@@ -850,7 +963,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "共同生活・共同労働を特徴とする集団農場「キブツ」がここで生まれた。",
         "現代の点滴灌漑技術はここで開発されて世界に広まり、乾燥地での農業を可能にした。",
-        "南部のネゲブ砂漠が国土の半分以上を占めている。"
+        "南部のネゲブ砂漠が国土の半分以上を占めている。",
+        "北部のガリラヤ湖は海抜マイナス200m以上にあり、地球上で最も低い淡水湖。",
+        "国旗は白地に青い横線が上下2本、中央に青いダビデの星。",
+        "南端のエイラートは、紅海に面した唯一の港町。",
+        "国会は「クネセト」と呼ばれ、定数は120議席。"
       ],
       "dia": null,
       "wiki": "イスラエル"
@@ -886,7 +1003,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "唯一的出海口是南端面臨紅海亞喀巴灣的港市亞喀巴。",
         "國旗左側紅色三角形中有一顆白色七角星。",
-        "由哈希姆家族的國王統治，王室自稱是先知穆罕默德的後裔。"
+        "由哈希姆家族的國王統治，王室自稱是先知穆罕默德的後裔。",
+        "1946 年結束英國的委任統治，成為獨立的王國。",
+        "是世界主要的磷酸鹽與鉀鹽出口國之一。",
+        "首都在古希臘羅馬時代稱為「費拉德爾菲亞」（Philadelphia）。",
+        "西部的尼波山相傳是摩西眺望應許之地的地方。"
       ],
       "dia": null,
       "wiki": "約旦"
@@ -911,7 +1032,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its only access to the sea is the port of Aqaba at its southern tip, on the Gulf of Aqaba of the Red Sea.",
         "The red triangle on the left of its flag holds a white seven-pointed star.",
-        "It is ruled by kings of the Hashemite family, who trace their descent to the Prophet Muhammad."
+        "It is ruled by kings of the Hashemite family, who trace their descent to the Prophet Muhammad.",
+        "It became an independent kingdom in 1946, ending the British mandate.",
+        "It is one of the world's leading exporters of phosphate and potash.",
+        "In Greek and Roman times its capital was called Philadelphia.",
+        "Mount Nebo in the west is traditionally where Moses viewed the Promised Land."
       ],
       "dia": null,
       "wiki": "Jordan"
@@ -936,7 +1061,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "海への唯一の出口は、南端の紅海アカバ湾に面した港町アカバ。",
         "国旗の左側の赤い三角形の中に、白い七角星がある。",
-        "ハーシム家の国王が治める王国で、王家は預言者ムハンマドの子孫とされる。"
+        "ハーシム家の国王が治める王国で、王家は預言者ムハンマドの子孫とされる。",
+        "1946年にイギリスの委任統治が終わり、独立した王国になった。",
+        "リン鉱石とカリ塩の世界有数の輸出国。",
+        "首都はギリシャ・ローマ時代には「フィラデルフィア」と呼ばれていた。",
+        "西部のネボ山は、モーセが約束の地を眺めた場所と伝えられる。"
       ],
       "dia": null,
       "wiki": "ヨルダン"
@@ -969,7 +1098,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1961 年加加林從境內的拜科努爾太空發射場升空，成為第一個進入太空的人。",
         "東南部的天山山區是栽培蘋果祖先「塞威氏蘋果」的原生地。",
-        "1997 年把首都從南部的阿拉木圖遷到北方。"
+        "1997 年把首都從南部的阿拉木圖遷到北方。",
+        "是世界上最大的鈾生產國。",
+        "國旗是天藍色底，中央有金色太陽與展翅的草原鷹。",
+        "東北部的塞米巴拉金斯克在蘇聯時代是主要的核子試驗場，1949～1989 年間進行了數百次核試。",
+        "東南部的巴爾喀什湖西半部是淡水、東半部是鹹水。"
       ],
       "dia": null,
       "wiki": "哈薩克"
@@ -995,7 +1128,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1961 Yuri Gagarin lifted off from the Baikonur Cosmodrome here to become the first human in space.",
         "The Tian Shan mountains in its southeast are the native home of Malus sieversii, the wild ancestor of the cultivated apple.",
-        "In 1997 it moved its capital from Almaty in the south to the north."
+        "In 1997 it moved its capital from Almaty in the south to the north.",
+        "It is the world's largest producer of uranium.",
+        "Its flag is sky blue with a golden sun and a soaring steppe eagle in the centre.",
+        "Semipalatinsk in the northeast was the Soviet Union's main nuclear test site, with hundreds of tests from 1949 to 1989.",
+        "Lake Balkhash in the southeast is fresh water in its western half and salty in its eastern half."
       ],
       "dia": null,
       "wiki": "Kazakhstan"
@@ -1021,7 +1158,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1961年、ガガーリンが国内のバイコヌール宇宙基地から飛び立ち、人類初の宇宙飛行を果たした。",
         "南東部の天山山脈は、栽培リンゴの祖先とされる野生リンゴ（マルス・シーベルシー）の原産地。",
-        "1997年に首都を南部のアルマトイから北部へ移した。"
+        "1997年に首都を南部のアルマトイから北部へ移した。",
+        "ウランの生産量が世界一。",
+        "国旗は空色の地に、金色の太陽と翼を広げたイヌワシ（ステップイーグル）。",
+        "北東部のセミパラチンスクはソ連の主要な核実験場で、1949～1989年に数百回の核実験が行われた。",
+        "南東部のバルハシ湖は、西半分が淡水、東半分が塩水。"
       ],
       "dia": null,
       "wiki": "カザフスタン"
@@ -1057,7 +1198,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "民族史詩《瑪納斯》長達數十萬行，是世界上最長的史詩之一。",
         "南部的阿爾斯蘭博布有世界最大的天然胡桃林。",
-        "最高峰是與中國交界處的勝利峰，海拔約七千四百多公尺。"
+        "最高峰是與中國交界處的勝利峰，海拔約七千四百多公尺。",
+        "國旗上的太陽有 40 道光芒，象徵英雄瑪納斯統合的 40 個部族。",
+        "男性傳統戴白色毛氈做的高帽「卡爾帕克」（Kalpak）。",
+        "2005 年的「鬱金香革命」推翻了當時的總統。",
+        "2014 年起連續舉辦了前三屆「世界遊牧運動會」。"
       ],
       "dia": null,
       "wiki": "吉爾吉斯"
@@ -1083,7 +1228,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The national epic Manas runs to hundreds of thousands of lines, one of the longest epics in the world.",
         "Arslanbob in the south has the world's largest natural walnut forest.",
-        "Its highest peak is Jengish Chokusu (Victory Peak) on the Chinese border, about 7,400 m high."
+        "Its highest peak is Jengish Chokusu (Victory Peak) on the Chinese border, about 7,400 m high.",
+        "The sun on its flag has 40 rays, standing for the 40 tribes united by the hero Manas.",
+        "Men traditionally wear the kalpak, a tall white felt hat.",
+        "The 2005 Tulip Revolution toppled the president of the time.",
+        "It hosted the first three World Nomad Games, starting in 2014."
       ],
       "dia": null,
       "wiki": "Kyrgyzstan"
@@ -1109,7 +1258,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "民族叙事詩「マナス」は数十万行におよび、世界で最も長い叙事詩の一つ。",
         "南部のアルスランボブには、世界最大のクルミの自然林がある。",
-        "最高峰は中国との国境にあるジェンギシュ・チョクス（ポベーダ峰）で、標高約7400m。"
+        "最高峰は中国との国境にあるジェンギシュ・チョクス（ポベーダ峰）で、標高約7400m。",
+        "国旗の太陽には40本の光線があり、英雄マナスがまとめた40の部族を表す。",
+        "男性は伝統的に白いフェルトの高い帽子「カルパック」をかぶる。",
+        "2005年の「チューリップ革命」で当時の大統領が退陣した。",
+        "2014年から第1回～第3回の「世界遊牧民競技大会」を開催した。"
       ],
       "dia": null,
       "wiki": "キルギス"
@@ -1144,7 +1297,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1990 年遭伊拉克入侵占領，翌年波斯灣戰爭後恢復主權。",
         "2016 年境內的米特里巴測得攝氏 53.9 度，經世界氣象組織確認為亞洲有紀錄以來的最高氣溫。",
-        "1961 年結束英國的保護，成為獨立國家。"
+        "1961 年結束英國的保護，成為獨立國家。",
+        "境內的布爾干油田是世界第二大的油田。",
+        "國旗由綠、白、紅三道橫條，加上旗桿側的黑色梯形組成。",
+        "1962 年制定憲法，是波斯灣阿拉伯國家中最早設立民選國會的國家。",
+        "國土位於波斯灣的西北角，夾在伊拉克與沙烏地阿拉伯之間。"
       ],
       "dia": null,
       "wiki": "科威特"
@@ -1169,7 +1326,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It was invaded and occupied by Iraq in 1990 and regained its sovereignty after the Gulf War the following year.",
         "In 2016 Mitribah recorded 53.9 °C, confirmed by the World Meteorological Organization as the highest temperature ever measured in Asia.",
-        "It became an independent country in 1961, when British protection ended."
+        "It became an independent country in 1961, when British protection ended.",
+        "The Burgan oil field here is the second-largest oil field in the world.",
+        "Its flag has green, white and red horizontal stripes with a black trapezoid at the hoist.",
+        "It adopted a constitution in 1962 and was the first Gulf Arab state to have an elected parliament.",
+        "It sits at the northwestern corner of the Persian Gulf, between Iraq and Saudi Arabia."
       ],
       "dia": null,
       "wiki": "Kuwait"
@@ -1194,7 +1355,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1990年にイラクに侵攻・占領され、翌年の湾岸戦争を経て主権を回復した。",
         "2016年に国内のミトリバで53.9℃を記録し、世界気象機関がアジアの観測史上最高気温と認めた。",
-        "1961年にイギリスの保護下を離れ、独立国となった。"
+        "1961年にイギリスの保護下を離れ、独立国となった。",
+        "国内のブルガン油田は世界第2位の油田。",
+        "国旗は緑・白・赤の横縞に、旗竿側の黒い台形を組み合わせたもの。",
+        "1962年に憲法を制定し、湾岸アラブ諸国で最も早く選挙で選ばれる議会を設けた。",
+        "ペルシャ湾の北西の隅、イラクとサウジアラビアの間に位置する。"
       ],
       "dia": null,
       "wiki": "クウェート"
@@ -1227,7 +1392,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國內正式承認 18 個宗教教派，政治職位也依教派分配。",
         "古城比布魯斯是世界上最古老的持續有人居住城市之一，英文「Bible」一詞也與它的名字有關。",
-        "1975 年爆發的內戰一直持續到 1990 年。"
+        "1975 年爆發的內戰一直持續到 1990 年。",
+        "東部的貝卡谷地是主要的農業區，也以釀造葡萄酒聞名。",
+        "2020 年 8 月首都港口的硝酸銨倉庫大爆炸，造成兩百多人死亡。",
+        "《先知》一書的作者、詩人紀伯倫出身這裡的山村。",
+        "國土雖小，冬天山區積雪可以滑雪，舊時有「中東的瑞士」之稱。"
       ],
       "dia": null,
       "wiki": "黎巴嫩"
@@ -1253,7 +1422,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It officially recognizes 18 religious sects, and political offices are shared out among them.",
         "The ancient city of Byblos is one of the oldest continuously inhabited cities in the world, and the word \"Bible\" is linked to its name.",
-        "A civil war that broke out in 1975 lasted until 1990."
+        "A civil war that broke out in 1975 lasted until 1990.",
+        "The Bekaa Valley in the east is the main farming region and is known for its wine.",
+        "In August 2020 an ammonium nitrate store at the capital's port exploded, killing more than 200 people.",
+        "Kahlil Gibran, poet and author of 'The Prophet', was born in a mountain village here.",
+        "Though small, its mountains get enough snow for skiing, and it was once called 'the Switzerland of the Middle East'."
       ],
       "dia": null,
       "wiki": "Lebanon"
@@ -1279,7 +1452,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国内では18の宗派が公式に認められており、政治の要職も宗派ごとに配分されている。",
         "古都ビブロスは世界最古級の、人が住み続けてきた町の一つで、英語の「Bible（聖書）」もその名に由来する。",
-        "1975年に始まった内戦は1990年まで続いた。"
+        "1975年に始まった内戦は1990年まで続いた。",
+        "東部のベカー高原は主要な農業地帯で、ワイン造りでも知られる。",
+        "2020年8月、首都の港の硝酸アンモニウム倉庫が大爆発し、200人以上が死亡した。",
+        "『預言者』の作者である詩人ハリール・ジブラーンは、ここの山村の生まれ。",
+        "国土は小さいが山ではスキーができるほど雪が積もり、かつて「中東のスイス」と呼ばれた。"
       ],
       "dia": null,
       "wiki": "レバノン"
@@ -1316,7 +1493,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北端的穆桑達姆半島是被阿聯隔開的飛地，扼守荷莫茲海峽。",
         "傳統彎刀「漢賈爾」（khanjar）是國家象徵，出現在國徽與國旗上。",
-        "1970 年卡布斯蘇丹即位，統治國家長達近五十年，帶領國家走向現代化。"
+        "1970 年卡布斯蘇丹即位，統治國家長達近五十年，帶領國家走向現代化。",
+        "十七世紀驅逐了葡萄牙人，之後的海上帝國一度擁有東非的尚吉巴。",
+        "北部的哈杰爾山脈有「太陽山」與深谷「古爾峽谷」，後者被稱為「阿拉伯大峽谷」。",
+        "古老的「法拉吉」灌溉水道系統在 2006 年列入世界遺產。",
+        "東端的哈德角一帶是綠蠵龜的重要產卵海灘。"
       ],
       "dia": null,
       "wiki": "阿曼"
@@ -1342,7 +1523,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "The Musandam Peninsula at its northern tip is an exclave separated by the UAE, overlooking the Strait of Hormuz.",
         "The curved khanjar dagger is a national symbol and appears on its emblem and flag.",
-        "Sultan Qaboos came to power in 1970 and ruled for nearly 50 years, leading the country's modernization."
+        "Sultan Qaboos came to power in 1970 and ruled for nearly 50 years, leading the country's modernization.",
+        "It drove out the Portuguese in the 17th century, and its later maritime empire once included Zanzibar in East Africa.",
+        "The Hajar Mountains in the north hold Jebel Shams and Wadi Ghul, a gorge known as the 'Grand Canyon of Arabia'.",
+        "Its ancient aflaj irrigation channels became a World Heritage Site in 2006.",
+        "Beaches around Ras al Hadd at its eastern tip are an important nesting ground for green sea turtles."
       ],
       "dia": null,
       "wiki": "Oman"
@@ -1368,7 +1553,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北端のムサンダム半島はUAEによって隔てられた飛び地で、ホルムズ海峡に面している。",
         "伝統的な曲刀「ハンジャル」は国の象徴で、国章や国旗にも描かれている。",
-        "1970年に即位したカブース国王は約50年にわたって統治し、国の近代化を進めた。"
+        "1970年に即位したカブース国王は約50年にわたって統治し、国の近代化を進めた。",
+        "17世紀にポルトガル人を追い出し、その後の海洋帝国は東アフリカのザンジバルまで治めた。",
+        "北部のハジャル山地にはジェベル・シャムスと、「アラビアのグランドキャニオン」と呼ばれる峡谷ワディ・ガルがある。",
+        "古代からの灌漑水路「アフラージ」は、2006年に世界遺産に登録された。",
+        "東端のラス・アル・ハッド周辺の浜は、アオウミガメの重要な産卵地。"
       ],
       "dia": null,
       "wiki": "オマーン"
@@ -1404,7 +1593,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗由黑、白、綠三色橫條和旗桿側的紅色三角形組成。",
         "納布盧斯以橄欖油製成的傳統肥皂，已有數百年的歷史。",
-        "希伯崙以傳統的手工吹製玻璃與彩繪陶器聞名。"
+        "希伯崙以傳統的手工吹製玻璃與彩繪陶器聞名。",
+        "由約旦河西岸與加薩走廊兩塊互不相連的區域組成。",
+        "黑白格紋的傳統頭巾「庫菲耶」（Keffiyeh）被視為民族的象徵。",
+        "2012 年聯合國大會給予「非會員觀察員國」的地位。",
+        "詩人馬哈茂德・達爾維什被視為民族詩人。"
       ],
       "dia": null,
       "wiki": "巴勒斯坦國"
@@ -1430,7 +1623,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag has black, white and green horizontal stripes with a red triangle at the hoist.",
         "Nablus is known for its traditional olive-oil soap, made for centuries.",
-        "Hebron is known for its traditional hand-blown glass and painted ceramics."
+        "Hebron is known for its traditional hand-blown glass and painted ceramics.",
+        "It consists of two separate areas that do not touch: the West Bank and the Gaza Strip.",
+        "The black-and-white checkered keffiyeh headscarf is seen as a national symbol.",
+        "In 2012 the UN General Assembly granted it non-member observer state status.",
+        "The poet Mahmoud Darwish is regarded as its national poet."
       ],
       "dia": null,
       "wiki": "State of Palestine"
@@ -1456,7 +1653,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "旗は黒・白・緑の横縞と、旗竿側の赤い三角形からなる。",
         "ナーブルスはオリーブ油で作る伝統的な石けんで知られ、数百年の歴史がある。",
-        "ヘブロンは伝統的な手吹きガラスと絵付け陶器で知られる。"
+        "ヘブロンは伝統的な手吹きガラスと絵付け陶器で知られる。",
+        "ヨルダン川西岸地区とガザ地区という、離れた二つの地域からなる。",
+        "白黒の格子模様の伝統的なスカーフ「クーフィーヤ」が民族の象徴とされる。",
+        "2012年、国連総会で「オブザーバー国家」（非加盟）の地位を認められた。",
+        "詩人マフムード・ダルウィーシュが民族詩人とされている。"
       ],
       "dia": null,
       "wiki": "パレスチナ国"
@@ -1491,7 +1692,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "是一個伸入波斯灣的半島國家，唯一的陸地鄰國是沙烏地阿拉伯。",
         "是世界最大的液化天然氣（LNG）出口國之一。",
-        "國際新聞台「半島電視台」（Al Jazeera）的總部設在本國首都。"
+        "國際新聞台「半島電視台」（Al Jazeera）的總部設在本國首都。",
+        "國旗由褐紅色與白色組成，交界的白色鋸齒有九個尖角。",
+        "2006 年在首都舉辦亞洲運動會，是第一個主辦亞運的波斯灣國家。",
+        "國土幾乎是平坦的沙漠，最高點只有約一百公尺。",
+        "國家博物館的外觀仿照「沙漠玫瑰」結晶，由法國建築師努維爾設計。"
       ],
       "dia": null,
       "wiki": "卡達"
@@ -1516,7 +1721,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It is a peninsula jutting into the Persian Gulf, and its only land neighbour is Saudi Arabia.",
         "It is one of the world's largest exporters of liquefied natural gas (LNG).",
-        "The international news network Al Jazeera has its headquarters in its capital."
+        "The international news network Al Jazeera has its headquarters in its capital.",
+        "Its maroon-and-white flag has a serrated edge with nine white points.",
+        "Its capital hosted the 2006 Asian Games, the first Gulf country to do so.",
+        "The land is almost entirely flat desert, with a highest point of only about 100 m.",
+        "Its National Museum, designed by French architect Jean Nouvel, is shaped like a 'desert rose' crystal."
       ],
       "dia": null,
       "wiki": "Qatar"
@@ -1541,7 +1750,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ペルシャ湾に突き出た半島の国で、陸で接する隣国はサウジアラビアだけ。",
         "世界最大級の液化天然ガス（LNG）輸出国。",
-        "国際ニュース局アルジャジーラの本社は、この国の首都にある。"
+        "国際ニュース局アルジャジーラの本社は、この国の首都にある。",
+        "国旗はえんじ色と白で、境目のギザギザは9つの白い山形。",
+        "2006年に首都でアジア競技大会を開き、湾岸諸国で初めての開催となった。",
+        "国土はほぼ平らな砂漠で、最高地点でも約100mしかない。",
+        "国立博物館は「砂漠のバラ」の結晶をかたどった外観で、フランスの建築家ジャン・ヌーヴェルの設計。"
       ],
       "dia": null,
       "wiki": "カタール"
@@ -1578,7 +1791,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1938 年在東部發現大量石油，從此成為世界主要產油國。",
         "國旗綠底上寫著伊斯蘭信仰告白與一把劍，因此按慣例從不降半旗。",
-        "1932 年由伊本・紹德統一建國，國名就冠上了王室家族的姓氏。"
+        "1932 年由伊本・紹德統一建國，國名就冠上了王室家族的姓氏。",
+        "國土約佔阿拉伯半島的八成。",
+        "伊斯蘭教第二聖地麥地那的先知清真寺也在國內。",
+        "2018 年解除了禁止女性開車的禁令。",
+        "已確定主辦 2034 年男子足球世界盃。"
       ],
       "dia": null,
       "wiki": "沙烏地阿拉伯"
@@ -1604,7 +1821,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Large oil reserves were discovered in the east in 1938, turning it into one of the world's leading oil producers.",
         "Its green flag bears the Islamic declaration of faith and a sword, so by custom it is never flown at half-mast.",
-        "Ibn Saud unified the country in 1932, and its name carries the royal family's name."
+        "Ibn Saud unified the country in 1932, and its name carries the royal family's name.",
+        "It covers about 80% of the Arabian Peninsula.",
+        "Islam's second-holiest city, Medina, with the Prophet's Mosque, is also here.",
+        "In 2018 it lifted its ban on women driving.",
+        "It has been confirmed as host of the 2034 men's FIFA World Cup."
       ],
       "dia": null,
       "wiki": "Saudi Arabia"
@@ -1630,7 +1851,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1938年に東部で大量の石油が見つかり、世界有数の産油国となった。",
         "国旗は緑地にイスラムの信仰告白と剣が描かれているため、慣例として半旗にしない。",
-        "1932年にイブン・サウードが統一して建国し、国名には王家の名が冠されている。"
+        "1932年にイブン・サウードが統一して建国し、国名には王家の名が冠されている。",
+        "国土はアラビア半島の約8割を占める。",
+        "イスラム教第二の聖地メディナの預言者のモスクも国内にある。",
+        "2018年に女性の車の運転禁止が解除された。",
+        "2034年の男子サッカーW杯の開催国に決まっている。"
       ],
       "dia": null,
       "wiki": "サウジアラビア"
@@ -1667,7 +1892,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "本國首都被認為是世界上持續有人居住最久的城市之一。",
         "北部大城阿勒坡以橄欖油與月桂油製成的傳統香皂聞名。",
-        "1946 年結束法國的委任統治而獨立。"
+        "1946 年結束法國的委任統治而獨立。",
+        "山村馬盧拉至今仍有人說耶穌時代通行的阿拉姆語。",
+        "北部大城阿勒坡的城堡是世界上最古老、規模最大的城堡之一。",
+        "南部的布斯拉保存著幾乎完整的古羅馬劇場。",
+        "1958～1961 年曾與埃及合組「阿拉伯聯合共和國」。"
       ],
       "dia": null,
       "wiki": "敘利亞"
@@ -1693,7 +1922,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its capital is considered one of the oldest continuously inhabited cities in the world.",
         "The northern city of Aleppo is famous for its traditional soap made from olive oil and laurel oil.",
-        "It became independent in 1946 when the French mandate ended."
+        "It became independent in 1946 when the French mandate ended.",
+        "In the mountain village of Maaloula, people still speak Aramaic, the language of Jesus's time.",
+        "The Citadel of Aleppo in the north is one of the oldest and largest castles in the world.",
+        "Bosra in the south preserves an almost intact Roman theatre.",
+        "From 1958 to 1961 it joined Egypt to form the United Arab Republic."
       ],
       "dia": null,
       "wiki": "Syria"
@@ -1719,7 +1952,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "この国の首都は、世界で最も古くから人が住み続けている都市の一つとされる。",
         "北部の大都市アレッポは、オリーブ油とローレル油で作る伝統的な石けんで有名。",
-        "1946年にフランスの委任統治が終わり、独立した。"
+        "1946年にフランスの委任統治が終わり、独立した。",
+        "山村マアルーラでは、今もイエスの時代に使われたアラム語が話されている。",
+        "北部の大都市アレッポの城塞は、世界最古・最大級の城の一つ。",
+        "南部のボスラには、ほぼ完全な形のローマ劇場が残っている。",
+        "1958～1961年にはエジプトと「アラブ連合共和国」を組んでいた。"
       ],
       "dia": null,
       "wiki": "シリア"
@@ -1753,7 +1990,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國語與伊朗的波斯語十分相近，但以西里爾字母書寫。",
         "境內的努雷克水壩高約三百公尺，曾是世界上最高的水壩。",
-        "帕米爾高原上的薩雷茲湖，是 1911 年地震引發山崩堵住河谷而形成的堰塞湖。"
+        "帕米爾高原上的薩雷茲湖，是 1911 年地震引發山崩堵住河谷而形成的堰塞湖。",
+        "首都名稱的意思是「星期一」，源自當地每週一舉行的市集。",
+        "國土東部大半是有「世界屋脊」之稱的帕米爾高原。",
+        "南部以阿姆河上游的噴赤河與阿富汗為界。",
+        "國旗由紅、白、綠三色橫條組成，中央是金色皇冠與七顆星。"
       ],
       "dia": null,
       "wiki": "塔吉克"
@@ -1777,7 +2018,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its national language is closely related to the Persian of Iran, but is written in the Cyrillic alphabet.",
         "Its Nurek Dam, about 300 m high, was once the tallest dam in the world.",
-        "Lake Sarez in the Pamirs formed when an earthquake in 1911 triggered a landslide that dammed the valley."
+        "Lake Sarez in the Pamirs formed when an earthquake in 1911 triggered a landslide that dammed the valley.",
+        "The capital's name means 'Monday', after the market once held there every Monday.",
+        "Much of its eastern half is the Pamir plateau, known as the 'Roof of the World'.",
+        "In the south, the Panj River, the upper Amu Darya, forms its border with Afghanistan.",
+        "Its flag has red, white and green stripes with a golden crown and seven stars in the centre."
       ],
       "dia": null,
       "wiki": "Tajikistan"
@@ -1801,7 +2046,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国語はイランのペルシア語とよく似ているが、キリル文字で書かれる。",
         "国内のヌレークダムは高さ約300メートルで、かつて世界一高いダムだった。",
-        "パミール高原のサレズ湖は、1911年の地震で起きた山崩れが谷をせき止めてできた堰止湖である。"
+        "パミール高原のサレズ湖は、1911年の地震で起きた山崩れが谷をせき止めてできた堰止湖である。",
+        "首都の名前は「月曜日」という意味で、毎週月曜日に開かれていた市場に由来する。",
+        "国土の東半分の大部分は「世界の屋根」と呼ばれるパミール高原。",
+        "南部はアムダリヤ川上流のパンジ川でアフガニスタンと接している。",
+        "国旗は赤・白・緑の横縞で、中央に金色の王冠と7つの星がある。"
       ],
       "dia": null,
       "wiki": "タジキスタン"
@@ -1834,7 +2083,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "國旗左側的直條上，排列著五種傳統地毯花紋，象徵五大部族。",
         "本國首都被金氏世界紀錄列為白色大理石建築密度最高的城市。",
         "以金屬光澤毛色聞名的阿哈爾捷金馬是國寶，也出現在國徽上。",
-        "宣布為永久中立國，1995 年獲得聯合國大會承認。"
+        "宣布為永久中立國，1995 年獲得聯合國大會承認。",
+        "天然氣蘊藏量居世界前列，是主要的天然氣出口國。",
+        "引阿姆河水的卡拉庫姆運河長達一千三百多公里，是世界上最長的灌溉運河之一。",
+        "首任總統尼亞佐夫曾用自己和母親的名字重新命名月份。"
       ],
       "dia": null,
       "wiki": "土庫曼"
@@ -1860,7 +2112,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "The vertical stripe on its flag shows five traditional carpet patterns representing the five major tribes.",
         "Its capital is listed by Guinness World Records as the city with the highest density of white marble buildings.",
         "The Akhal-Teke horse, famous for its metallic sheen, is a national treasure and appears on the national emblem.",
-        "It declared permanent neutrality, which the UN General Assembly recognized in 1995."
+        "It declared permanent neutrality, which the UN General Assembly recognized in 1995.",
+        "It has some of the largest natural gas reserves in the world and is a major gas exporter.",
+        "The Karakum Canal, drawing water from the Amu Darya, runs for more than 1,300 km and is one of the longest irrigation canals in the world.",
+        "Its first president, Niyazov, renamed months of the year after himself and his mother."
       ],
       "dia": null,
       "wiki": "Turkmenistan"
@@ -1886,7 +2141,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "国旗の左側の縦帯には、五大部族を表す5種類の伝統的な絨毯の文様が並んでいる。",
         "この国の首都は、白い大理石の建物が最も密集した都市としてギネス世界記録に認定されている。",
         "金属のような光沢の毛並みで知られるアハルテケ馬は国の宝で、国章にも描かれている。",
-        "永世中立を宣言し、1995年に国連総会で承認された。"
+        "永世中立を宣言し、1995年に国連総会で承認された。",
+        "天然ガスの埋蔵量は世界有数で、主要な輸出国。",
+        "アムダリヤ川の水を引くカラクム運河は全長1300km以上あり、世界最長級の灌漑運河。",
+        "初代大統領ニヤゾフは、月の名前を自分や母親の名前に改めたことがある。"
       ],
       "dia": null,
       "wiki": "トルクメニスタン"
@@ -1922,7 +2180,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1923 年由凱末爾建立共和國，取代鄂圖曼帝國。",
         "東南部的哥貝克力石陣建於一萬一千多年前，是已知最古老的巨石神殿遺址之一。",
-        "西北部的特洛伊古城遺址，就是荷馬史詩中特洛伊戰爭的舞台。"
+        "西北部的特洛伊古城遺址，就是荷馬史詩中特洛伊戰爭的舞台。",
+        "最大城市伊斯坦堡曾是拜占庭帝國與鄂圖曼帝國的首都。",
+        "1928 年廢除阿拉伯字母，改用拉丁字母書寫國語。",
+        "東部的亞拉拉特山海拔約五千一百多公尺，是國內最高峰，相傳是挪亞方舟停靠之處。",
+        "聖誕老人的原型聖尼古拉，曾是西南部古城米拉的主教。"
       ],
       "dia": null,
       "wiki": "土耳其"
@@ -1948,7 +2210,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Mustafa Kemal Atatürk founded the republic in 1923, replacing the Ottoman Empire.",
         "Göbekli Tepe in the southeast, built more than 11,000 years ago, is one of the oldest known megalithic temple sites.",
-        "The ruins of ancient Troy in the northwest are the setting of the Trojan War in Homer's epics."
+        "The ruins of ancient Troy in the northwest are the setting of the Trojan War in Homer's epics.",
+        "Its largest city, Istanbul, was once the capital of both the Byzantine and Ottoman empires.",
+        "In 1928 it dropped the Arabic script and began writing its language in the Latin alphabet.",
+        "Mount Ararat in the east, over 5,100 m high, is the country's highest peak and the traditional resting place of Noah's Ark.",
+        "Saint Nicholas, the inspiration for Santa Claus, was bishop of the ancient city of Myra in the southwest."
       ],
       "dia": null,
       "wiki": "Turkey"
@@ -1974,7 +2240,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1923年、ムスタファ・ケマル（アタテュルク）が共和国を建国し、オスマン帝国に代わった。",
         "南東部のギョベクリ・テペは1万1千年以上前に造られた、知られている中で最古級の巨石神殿遺跡。",
-        "北西部のトロイア遺跡は、ホメロスの叙事詩に描かれたトロイア戦争の舞台である。"
+        "北西部のトロイア遺跡は、ホメロスの叙事詩に描かれたトロイア戦争の舞台である。",
+        "最大の都市イスタンブールは、かつてビザンツ帝国とオスマン帝国の首都だった。",
+        "1928年にアラビア文字をやめ、ラテン文字で国語を書くようになった。",
+        "東部のアララト山は標高5100m余りで国内最高峰、ノアの方舟が流れ着いた場所と伝えられる。",
+        "サンタクロースのモデルとなった聖ニコラオスは、南西部の古代都市ミュラの司教だった。"
       ],
       "dia": null,
       "wiki": "トルコ"
@@ -2010,7 +2280,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "十五世紀帖木兒帝國的君主兀魯伯，在撒馬爾罕建造了當時世界上最重要的天文台之一。",
         "是世界主要的棉花生產國之一，棉花有「白金」之稱。",
-        "首都在 1966 年遭大地震嚴重破壞，之後以蘇聯式的街區大規模重建。"
+        "首都在 1966 年遭大地震嚴重破壞，之後以蘇聯式的街區大規模重建。",
+        "國旗由藍、白、綠三色橫條組成，左上角有白色新月與 12 顆星。",
+        "中世紀的醫學家與哲學家伊本・西那（阿維森納）出生於布哈拉附近。",
+        "「演算法」（algorithm）一詞源自出身花剌子模的數學家花拉子密的名字。",
+        "首都的地鐵在 1977 年通車，是中亞第一條地鐵，車站以華麗裝飾聞名。"
       ],
       "dia": null,
       "wiki": "烏茲別克"
@@ -2036,7 +2310,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In the 15th century the Timurid ruler Ulugh Beg built one of the most important observatories of his time in Samarkand.",
         "It is one of the world's major cotton producers, where cotton is called \"white gold\".",
-        "Its capital was badly damaged by a major earthquake in 1966 and then largely rebuilt in Soviet style."
+        "Its capital was badly damaged by a major earthquake in 1966 and then largely rebuilt in Soviet style.",
+        "Its flag has blue, white and green stripes with a white crescent and 12 stars in the upper left.",
+        "The medieval physician and philosopher Ibn Sina (Avicenna) was born near Bukhara.",
+        "The word 'algorithm' comes from the name of the mathematician al-Khwarizmi, who came from Khwarezm.",
+        "The capital's metro opened in 1977 as the first in Central Asia and is famous for its ornate stations."
       ],
       "dia": null,
       "wiki": "Uzbekistan"
@@ -2062,7 +2340,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "15世紀、ティムール朝の君主ウルグ・ベクがサマルカンドに当時世界屈指の天文台を建てた。",
         "世界有数の綿花生産国で、綿花は「白い金」と呼ばれる。",
-        "首都は1966年の大地震で大きな被害を受け、その後ソ連式の街並みで大規模に再建された。"
+        "首都は1966年の大地震で大きな被害を受け、その後ソ連式の街並みで大規模に再建された。",
+        "国旗は青・白・緑の横縞で、左上に白い三日月と12個の星がある。",
+        "中世の医学者・哲学者イブン・スィーナー（アヴィセンナ）はブハラ近郊で生まれた。",
+        "「アルゴリズム」という言葉は、ホラズム出身の数学者フワーリズミーの名に由来する。",
+        "首都の地下鉄は1977年に開通した中央アジア初の地下鉄で、豪華な装飾の駅で知られる。"
       ],
       "dia": null,
       "wiki": "ウズベキスタン"
@@ -2099,7 +2381,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "位於阿拉伯半島南端，隔著曼德海峽與非洲相望，扼守紅海的出入口。",
         "傳說中示巴女王的古代示巴王國，中心就在這片土地上的馬里卜一帶。",
-        "傳統上男性腰間佩戴彎刀「占比亞」（Jambiya），嚼食提神的卡特葉也很普遍。"
+        "傳統上男性腰間佩戴彎刀「占比亞」（Jambiya），嚼食提神的卡特葉也很普遍。",
+        "1990 年南北兩部分統一成為一個國家。",
+        "首都古城裡以泥磚與石塊砌成、窗框塗上白色石膏的多層塔樓，已列入世界遺產。",
+        "南部的港市亞丁位於重要航道上，1839 年起受英國統治長達一百多年。",
+        "國旗是紅、白、黑三色橫條，中間沒有任何圖案。"
       ],
       "dia": null,
       "wiki": "葉門"
@@ -2125,7 +2411,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "At the southern tip of the Arabian Peninsula, it faces Africa across the Bab-el-Mandeb strait, the gateway to the Red Sea.",
         "The ancient Kingdom of Saba, linked to the legendary Queen of Sheba, was centred around Ma'rib on this land.",
-        "Men traditionally wear a curved jambiya dagger at the waist, and chewing the stimulant leaf qat is widespread."
+        "Men traditionally wear a curved jambiya dagger at the waist, and chewing the stimulant leaf qat is widespread.",
+        "Its northern and southern parts were united into a single country in 1990.",
+        "The capital's old city, with its many-storeyed tower houses of mud brick and stone with white-painted window frames, is a World Heritage Site.",
+        "The southern port of Aden lies on a key shipping route and was under British rule from 1839 for more than a century.",
+        "Its flag has plain red, white and black horizontal stripes with no emblem."
       ],
       "dia": null,
       "wiki": "Yemen"
@@ -2151,7 +2441,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "アラビア半島の南端にあり、マンデブ海峡を挟んでアフリカと向かい合い、紅海の出入り口を押さえている。",
         "伝説のシバの女王で知られる古代サバ王国は、この地のマアリブ周辺を中心としていた。",
-        "男性は伝統的に腰に湾曲した短剣「ジャンビーヤ」を差し、覚醒作用のあるカートの葉をかむ習慣も広く見られる。"
+        "男性は伝統的に腰に湾曲した短剣「ジャンビーヤ」を差し、覚醒作用のあるカートの葉をかむ習慣も広く見られる。",
+        "1990年に南北二つの部分が統一されて一つの国になった。",
+        "首都の旧市街には、日干しれんがと石で造られ窓枠を白い漆喰で縁取った高層の塔状住宅が並び、世界遺産になっている。",
+        "南部の港町アデンは重要な航路上にあり、1839年から100年以上イギリスの支配下にあった。",
+        "国旗は赤・白・黒の横縞で、紋章などの図柄はない。"
       ],
       "dia": null,
       "wiki": "イエメン"

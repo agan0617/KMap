@@ -26,7 +26,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "每年 2 月 21 日的「國際母語日」，源自 1952 年這片土地上爭取以當地母語為國語的語言運動。",
         "1971 年脫離巴基斯坦獨立；國旗是綠色底上一個略偏向旗桿側的紅色圓盤。",
         "成衣產業是經濟支柱，是世界數一數二的成衣出口國。",
-        "諾貝爾和平獎得主尤努斯在這裡創辦「鄉村銀行」，開創了借錢給窮人創業的小額貸款。"
+        "諾貝爾和平獎得主尤努斯在這裡創辦「鄉村銀行」，開創了借錢給窮人創業的小額貸款。",
+        "東南部的科克斯巴扎爾海灘綿延約一百二十公里，常被稱為世界最長的天然沙灘。",
+        "在人口超過一億的國家中，人口密度最高，每平方公里超過一千人。",
+        "盛產有「金色纖維」之稱的黃麻，是世界最大的黃麻出口國。"
       ],
       "dia": null,
       "wiki": "孟加拉"
@@ -53,7 +56,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "International Mother Language Day on 21 February commemorates the 1952 Language Movement here, when people fought for the status of the Bengali language.",
         "It became independent from Pakistan in 1971; its flag is a red disc, set slightly toward the hoist, on a green field.",
         "Garment manufacturing is the backbone of its economy, making it one of the world's top exporters of ready-made clothing.",
-        "Nobel Peace laureate Muhammad Yunus founded the Grameen Bank here, pioneering microcredit loans for the poor."
+        "Nobel Peace laureate Muhammad Yunus founded the Grameen Bank here, pioneering microcredit loans for the poor.",
+        "Cox's Bazar beach in the southeast stretches for about 120 km and is often called the world's longest natural sea beach.",
+        "Among countries with more than 100 million people, it has the highest population density, at over 1,000 people per square kilometre.",
+        "It grows jute, known as the 'golden fibre', and is the world's largest exporter of it."
       ],
       "dia": null,
       "wiki": "Bangladesh"
@@ -80,7 +86,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "2月21日の「国際母語デー」は、1952年にこの地でベンガル語の地位を求めて起きた言語運動に由来する。",
         "1971年にパキスタンから独立した。国旗は緑地に、やや旗竿寄りに置かれた赤い円。",
         "縫製業が経済の柱で、世界有数の衣料品輸出国。",
-        "ノーベル平和賞を受けたムハマド・ユヌスがここでグラミン銀行を創設し、貧しい人々に少額を貸すマイクロクレジットを広めた。"
+        "ノーベル平和賞を受けたムハマド・ユヌスがここでグラミン銀行を創設し、貧しい人々に少額を貸すマイクロクレジットを広めた。",
+        "南東部のコックスバザールの砂浜は約120kmも続き、世界最長の天然ビーチと呼ばれることが多い。",
+        "人口1億人を超える国の中で人口密度が最も高く、1平方キロあたり1000人を超える。",
+        "「黄金の繊維」と呼ばれるジュート（黄麻）の産地で、輸出量は世界一。"
       ],
       "dia": null,
       "wiki": "バングラデシュ"
@@ -118,7 +127,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "國家元首蘇丹同時兼任首相，是世界上少數由君主親自掌握行政大權的國家。",
         "1984 年才脫離英國的保護，成為完全獨立的國家。",
         "國內禁止公開販售酒類。",
-        "國旗是黃色底，上面有白、黑兩道斜帶，中央是紅色的國徽。"
+        "國旗是黃色底，上面有白、黑兩道斜帶，中央是紅色的國徽。",
+        "現任蘇丹自 1967 年在位至今，是世界上在位最久的君主之一。",
+        "蘇丹的居所「努洛伊曼皇宮」被金氏世界紀錄列為世界最大的住宅宮殿。",
+        "本國貨幣與新加坡元以 1:1 掛鉤，兩種貨幣可在兩國之間互相流通。"
       ],
       "dia": null,
       "wiki": "汶萊"
@@ -144,7 +156,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "The sultan, its head of state, also serves as prime minister, making it one of the few countries where the monarch personally runs the government.",
         "It only became fully independent from British protection in 1984.",
         "The sale of alcohol is banned in the country.",
-        "Its flag is yellow with white and black diagonal bands and a red national emblem in the centre."
+        "Its flag is yellow with white and black diagonal bands and a red national emblem in the centre.",
+        "The current sultan has reigned since 1967, making him one of the world's longest-reigning monarchs.",
+        "The sultan's residence, Istana Nurul Iman, is listed by Guinness World Records as the world's largest residential palace.",
+        "Its currency is pegged 1:1 to the Singapore dollar, and the two currencies circulate interchangeably in both countries."
       ],
       "dia": null,
       "wiki": "Brunei"
@@ -170,7 +185,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "国家元首のスルタンが首相も兼ねており、君主自らが行政の実権を握る数少ない国の一つ。",
         "イギリスの保護国から完全に独立したのは1984年のこと。",
         "国内では酒類の販売が禁止されている。",
-        "国旗は黄色地に白と黒の斜めの帯が走り、中央に赤い国章がある。"
+        "国旗は黄色地に白と黒の斜めの帯が走り、中央に赤い国章がある。",
+        "現在のスルタンは1967年から在位しており、世界でも在位期間が最も長い君主の一人。",
+        "スルタンの住まい「イスタナ・ヌルル・イマン」は、ギネス世界記録で世界最大の住居用宮殿とされている。",
+        "自国通貨はシンガポール・ドルと1対1で固定されており、両国の通貨は互いの国でそのまま使える。"
       ],
       "dia": null,
       "wiki": "ブルネイ"
@@ -206,7 +224,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "2004 年成為世界上第一個全面禁止販售菸草的國家（2021 年修法後才重新開放）。",
         "憲法規定國土至少六成要保持森林覆蓋，是世界上少數吸收的碳比排放還多的「負碳」國家。",
         "國旗沿對角線分成黃、橘兩色，中央是一條爪握寶珠的白色龍。",
-        "國民在正式場合要穿傳統服裝：男性穿「幗」（Gho），女性穿「旗拉」（Kira）。"
+        "國民在正式場合要穿傳統服裝：男性穿「幗」（Gho），女性穿「旗拉」（Kira）。",
+        "國家運動是射箭，節慶時常舉行村落之間的射箭比賽。",
+        "國獸是長相奇特、像牛又像羊的「羚牛」（Takin）。",
+        "境內的崗卡彭森峰海拔約七千五百七十公尺，是世界上最高的未登頂山峰，因為本國禁止攀登高山。"
       ],
       "dia": null,
       "wiki": "不丹"
@@ -232,7 +253,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "In 2004 it became the first country in the world to ban the sale of tobacco nationwide (sales were legalized again in 2021).",
         "Its constitution requires at least 60% of the land to stay forested, and it is one of the few carbon-negative countries, absorbing more carbon than it emits.",
         "Its flag is split diagonally into yellow and orange, with a white dragon clutching jewels in its claws across the middle.",
-        "Citizens wear national dress on formal occasions: the gho for men and the kira for women."
+        "Citizens wear national dress on formal occasions: the gho for men and the kira for women.",
+        "Its national sport is archery, and inter-village archery contests are a highlight of festivals.",
+        "Its national animal is the takin, an odd-looking animal that seems part cow and part goat.",
+        "Gangkhar Puensum, about 7,570 m high, is the world's highest unclimbed mountain, because the country bans mountaineering on its high peaks."
       ],
       "dia": null,
       "wiki": "Bhutan"
@@ -258,7 +282,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "2004年、世界で初めてたばこの販売を全面的に禁止した国となった（2021年の法改正で再び解禁）。",
         "憲法で国土の6割以上を森林として保つと定めており、排出より吸収する炭素の方が多い数少ない「カーボンネガティブ」の国。",
         "国旗は対角線で黄色とオレンジに分かれ、中央に宝珠をつかんだ白い竜が描かれている。",
-        "公の場では民族衣装を着る決まりがあり、男性は「ゴ」、女性は「キラ」を着る。"
+        "公の場では民族衣装を着る決まりがあり、男性は「ゴ」、女性は「キラ」を着る。",
+        "国技はアーチェリー（弓術）で、祭りの際には村対抗の弓の試合がよく行われる。",
+        "国獣は牛とも羊ともつかない姿の「ターキン」。",
+        "国内のガンカー・プンスム（標高約7570m）は世界最高の未踏峰で、これは国が高峰への登山を禁じているため。"
       ],
       "dia": null,
       "wiki": "ブータン"
@@ -292,7 +319,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "國土東西橫跨約五千公里，全國卻只使用一個時區（UTC+8）。",
         "境內的長江是亞洲最長、世界第三長的河流。",
         "大貓熊（大熊貓）在野外只分布於這個國家中西部的山區。",
-        "隋朝開鑿的大運河全長約一千八百公里，是世界上最長的古代人工運河。"
+        "隋朝開鑿的大運河全長約一千八百公里，是世界上最長的古代人工運河。",
+        "黃河因挾帶大量黃土高原的泥沙而河水混濁，被視為古代文明的搖籃。",
+        "長江上的三峽大壩是世界上裝置容量最大的水力發電廠。",
+        "首都在 2008 年舉辦夏季奧運、2022 年又舉辦冬季奧運，是第一個夏冬奧運都辦過的城市。"
       ],
       "dia": null,
       "wiki": "中華人民共和國"
@@ -319,7 +349,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "Although it stretches about 5,000 km from east to west, the whole country uses a single time zone (UTC+8).",
         "Its Yangtze River is the longest river in Asia and the third longest in the world.",
         "In the wild, giant pandas live only in the mountains of this country's west-central region.",
-        "The Grand Canal, built from the Sui dynasty onward, runs about 1,800 km and is the longest ancient man-made canal in the world."
+        "The Grand Canal, built from the Sui dynasty onward, runs about 1,800 km and is the longest ancient man-made canal in the world.",
+        "The Yellow River carries huge amounts of silt from the Loess Plateau, giving it its muddy colour; it is regarded as a cradle of ancient civilisation.",
+        "The Three Gorges Dam on the Yangtze is the world's largest power station by installed capacity.",
+        "Its capital hosted the Summer Olympics in 2008 and the Winter Olympics in 2022, becoming the first city to host both."
       ],
       "dia": null,
       "wiki": "China"
@@ -346,7 +379,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "国土は東西に約5,000キロもあるが、全国で一つの時間帯（UTC+8）しか使っていない。",
         "国内を流れる長江は、アジアで最も長く、世界で3番目に長い川。",
         "ジャイアントパンダは野生ではこの国の中西部の山地にしか生息していない。",
-        "隋の時代に開かれた大運河は全長約1800kmで、世界最長の古代の人工運河である。"
+        "隋の時代に開かれた大運河は全長約1800kmで、世界最長の古代の人工運河である。",
+        "黄河は黄土高原の大量の土砂を含んで濁っており、古代文明の揺りかごとされる。",
+        "長江の三峡ダムは、設備容量で世界最大の水力発電所。",
+        "首都は2008年に夏季五輪、2022年に冬季五輪を開催し、夏冬両方の五輪を開いた最初の都市になった。"
       ],
       "dia": null,
       "wiki": "中華人民共和国"
@@ -380,7 +416,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "人口約兩億七千多萬，是世界人口第四多的國家。",
         "國家格言是古爪哇語的「Bhinneka Tunggal Ika」，意思是「殊途同歸、存異求同」。",
         "境內的爪哇島是世界上人口最多的島嶼。",
-        "1883 年喀拉喀托火山大爆發，巨響傳到數千公里外，被認為是有紀錄以來最響亮的聲音之一。"
+        "1883 年喀拉喀托火山大爆發，巨響傳到數千公里外，被認為是有紀錄以來最響亮的聲音之一。",
+        "蘇門答臘島北部的多巴湖，是超級火山爆發後形成的火山口湖，也是世界最大的火山湖。",
+        "1955 年在萬隆舉行亞非會議，是亞非新興國家首次大規模的國際會議。",
+        "因原首都地層下陷與人口過度集中，政府決定把首都遷往婆羅洲東部新建的「努山達拉」。"
       ],
       "dia": null,
       "wiki": "印度尼西亞"
@@ -407,7 +446,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "With over 270 million people, it is the fourth most populous country in the world.",
         "Its national motto is the Old Javanese phrase \"Bhinneka Tunggal Ika\", meaning \"Unity in Diversity\".",
         "Its island of Java is the most populous island in the world.",
-        "The 1883 eruption of Krakatoa was heard thousands of kilometres away and is thought to be one of the loudest sounds ever recorded."
+        "The 1883 eruption of Krakatoa was heard thousands of kilometres away and is thought to be one of the loudest sounds ever recorded.",
+        "Lake Toba in northern Sumatra fills the caldera of a supervolcano and is the world's largest volcanic lake.",
+        "The Asian-African Conference held in Bandung in 1955 was the first large gathering of newly independent Asian and African nations.",
+        "Because the old capital is sinking and overcrowded, the government decided to move the capital to Nusantara, a new city in eastern Borneo."
       ],
       "dia": null,
       "wiki": "Indonesia"
@@ -434,7 +476,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "人口は2億7千万人を超え、世界で4番目に人口が多い国。",
         "国是は古ジャワ語の「ビネカ・トゥンガル・イカ」で、「多様性の中の統一」という意味。",
         "国内のジャワ島は、世界で最も人口の多い島。",
-        "1883年のクラカタウ火山の大噴火の爆音は数千km先まで届き、記録上もっとも大きな音の一つとされる。"
+        "1883年のクラカタウ火山の大噴火の爆音は数千km先まで届き、記録上もっとも大きな音の一つとされる。",
+        "スマトラ島北部のトバ湖は超巨大噴火でできたカルデラ湖で、世界最大の火山湖。",
+        "1955年にバンドンでアジア・アフリカ会議が開かれ、新興独立国が初めて大規模に集まった。",
+        "旧首都の地盤沈下と過密を理由に、ボルネオ島東部に新たに建設する「ヌサンタラ」へ首都を移すことを決めた。"
       ],
       "dia": null,
       "wiki": "インドネシア"
@@ -472,7 +517,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "2023 年超越中國，成為世界人口最多的國家。",
         "2023 年，探測器「月船三號」成為第一個在月球南極附近軟著陸的探測器。",
         "國旗中央的藍色法輪（阿育王法輪）有 24 根輪輻。",
-        "語言眾多，紙鈔上用十幾種語言標示面額。"
+        "語言眾多，紙鈔上用十幾種語言標示面額。",
+        "以孟買為中心的電影產業「寶萊塢」，讓本國成為每年出產電影數量最多的國家。",
+        "東北部的茂辛拉姆（Mawsynram）年雨量超過一萬一千毫米，常被列為世界上最潮濕的地方。",
+        "甘地以「非暴力不合作」領導獨立運動，他的生日 10 月 2 日被聯合國定為國際非暴力日。"
       ],
       "dia": null,
       "wiki": "印度"
@@ -499,7 +547,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "In 2023 it overtook China to become the most populous country in the world.",
         "In 2023 its Chandrayaan-3 mission became the first to make a soft landing near the Moon's south pole.",
         "The blue wheel (Ashoka Chakra) in the middle of its flag has 24 spokes.",
-        "It has so many languages that its banknotes show the denomination in more than a dozen of them."
+        "It has so many languages that its banknotes show the denomination in more than a dozen of them.",
+        "Its film industry centred on Mumbai, 'Bollywood', helps make it the country that produces the most films each year.",
+        "Mawsynram in the northeast gets more than 11,000 mm of rain a year and is often listed as the wettest place on Earth.",
+        "Gandhi led its independence movement through non-violent resistance; his birthday, 2 October, is the UN's International Day of Non-Violence."
       ],
       "dia": null,
       "wiki": "India"
@@ -526,7 +577,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "2023年に中国を抜き、世界で最も人口の多い国になった。",
         "2023年、探査機「チャンドラヤーン3号」が月の南極付近への軟着陸に世界で初めて成功した。",
         "国旗の中央にある青い法輪（アショーカ・チャクラ）には24本の輻（スポーク）がある。",
-        "言語が非常に多く、紙幣には十数種類の言語で額面が書かれている。"
+        "言語が非常に多く、紙幣には十数種類の言語で額面が書かれている。",
+        "ムンバイを中心とする映画産業「ボリウッド」などにより、年間の映画製作本数は世界一。",
+        "北東部のマウシンラムは年間雨量が1万1000mmを超え、世界で最も雨の多い場所とされることが多い。",
+        "ガンディーは「非暴力・不服従」で独立運動を率い、その誕生日の10月2日は国連の国際非暴力デーになっている。"
       ],
       "dia": null,
       "wiki": "インド"
@@ -563,7 +617,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "1964 年開通的新幹線，是世界上第一條高速鐵路。",
         "國民平均壽命長年名列世界前茅。",
         "國旗「日之丸」是白底中央一個紅色圓形。",
-        "1945 年廣島與長崎遭原子彈轟炸，是世界上唯一在戰爭中遭受核武攻擊的國家。"
+        "1945 年廣島與長崎遭原子彈轟炸，是世界上唯一在戰爭中遭受核武攻擊的國家。",
+        "連接本州與北海道的青函隧道全長約五十四公里，曾是世界最長的鐵路隧道。",
+        "國歌〈君之代〉的歌詞只有短短一句，是世界上最短的國歌歌詞之一。",
+        "1868 年起的明治維新推動西化改革，使國家迅速工業化。"
       ],
       "dia": null,
       "wiki": "日本"
@@ -590,7 +647,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "The Shinkansen, opened in 1964, was the world's first high-speed railway.",
         "Its people have long had one of the highest life expectancies in the world.",
         "Its flag, the Hinomaru, is a red disc in the centre of a white field.",
-        "Hiroshima and Nagasaki were struck by atomic bombs in 1945, making it the only country ever attacked with nuclear weapons in war."
+        "Hiroshima and Nagasaki were struck by atomic bombs in 1945, making it the only country ever attacked with nuclear weapons in war.",
+        "The Seikan Tunnel linking Honshu and Hokkaido is about 54 km long and was once the world's longest railway tunnel.",
+        "The lyrics of its national anthem, 'Kimigayo', are a single short verse, among the shortest of any national anthem.",
+        "The Meiji Restoration, beginning in 1868, drove sweeping Westernising reforms and rapid industrialisation."
       ],
       "dia": null,
       "wiki": "Japan"
@@ -617,7 +677,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "1964年に開業した新幹線は、世界初の高速鉄道。",
         "平均寿命は長年にわたり世界トップクラス。",
         "国旗「日の丸」は白地の中央に赤い円を置いたもの。",
-        "1945年に広島と長崎へ原子爆弾が投下され、戦争で核兵器の攻撃を受けた世界で唯一の国となった。"
+        "1945年に広島と長崎へ原子爆弾が投下され、戦争で核兵器の攻撃を受けた世界で唯一の国となった。",
+        "本州と北海道を結ぶ青函トンネルは全長約54kmで、かつて世界最長の鉄道トンネルだった。",
+        "国歌「君が代」の歌詞はわずか一首の短歌で、世界で最も短い国歌の歌詞の一つ。",
+        "1868年に始まった明治維新で西洋化の改革が進み、急速に工業化した。"
       ],
       "dia": null,
       "wiki": "日本"
@@ -649,7 +712,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國旗中央畫著吳哥窟，是世界上少數把建築物放上國旗的國家。",
         "本國貨幣是瑞爾，但美元在日常生活中也廣泛流通。",
-        "1975～1979 年赤柬（紅色高棉）統治期間，估計有一百多萬到兩百萬人喪生。"
+        "1975～1979 年赤柬（紅色高棉）統治期間，估計有一百多萬到兩百萬人喪生。",
+        "國語使用的高棉字母共有 74 個字母，被金氏世界紀錄列為字母數最多的字母系統。",
+        "國獸是野生的「高棉牛」（Kouprey），但數十年來已沒有可靠的目擊紀錄，可能已經滅絕。",
+        "1953 年在施亞努國王的奔走下，脫離法國獨立。",
+        "2023 年首度主辦東南亞運動會。"
       ],
       "dia": null,
       "wiki": "柬埔寨"
@@ -674,7 +741,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its flag shows Angkor Wat in the middle, one of the few national flags to feature a building.",
         "Its currency is the riel, but US dollars are also widely used in everyday life.",
-        "Under Khmer Rouge rule from 1975 to 1979, an estimated 1.5 to 2 million people died."
+        "Under Khmer Rouge rule from 1975 to 1979, an estimated 1.5 to 2 million people died.",
+        "Its Khmer script has 74 letters, listed by Guinness World Records as the alphabet with the most letters.",
+        "Its national animal is the kouprey, a wild ox that has not been reliably sighted for decades and may be extinct.",
+        "It won independence from France in 1953 after a campaign led by King Norodom Sihanouk.",
+        "In 2023 it hosted the Southeast Asian Games for the first time."
       ],
       "dia": null,
       "wiki": "Cambodia"
@@ -699,7 +770,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国旗の中央にアンコール・ワットが描かれており、建物を国旗に描く数少ない国の一つ。",
         "通貨はリエルだが、日常生活では米ドルも広く使われている。",
-        "1975～1979年のクメール・ルージュ（ポル・ポト政権）の支配下で、推定150万～200万人が命を落とした。"
+        "1975～1979年のクメール・ルージュ（ポル・ポト政権）の支配下で、推定150万～200万人が命を落とした。",
+        "使われるクメール文字は74字あり、ギネス世界記録で文字数が最も多いアルファベットとされている。",
+        "国獣は野生の牛「コープレイ」だが、数十年も確かな目撃がなく、絶滅したとも考えられている。",
+        "1953年、シハヌーク国王の働きかけによってフランスから独立した。",
+        "2023年に初めて東南アジア競技大会を開催した。"
       ],
       "dia": null,
       "wiki": "カンボジア"
@@ -733,7 +808,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "傳統上一出生就算一歲，2023 年起法律與行政上統一改用「滿歲」計算年齡。",
         "國旗「太極旗」以白底中央的紅藍太極圖，搭配四角的四個卦象組成。",
         "2018 年在平昌舉辦冬季奧運。",
-        "首都與周邊組成的首都圈，集中了全國約一半的人口。"
+        "首都與周邊組成的首都圈，集中了全國約一半的人口。",
+        "跆拳道發源於此，2000 年起成為奧運正式比賽項目。",
+        "2002 年與日本合辦世界盃足球賽，本國代表隊首度打進四強。",
+        "國花是木槿花，在當地稱為「無窮花」。"
       ],
       "dia": null,
       "wiki": "大韓民國"
@@ -760,7 +838,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "Traditionally people counted themselves one year old at birth, but since 2023 the law has standardized on international age.",
         "Its flag, the Taegukgi, has a red-and-blue taeguk symbol in the centre of a white field, with four trigrams in the corners.",
         "It hosted the 2018 Winter Olympics in Pyeongchang.",
-        "About half of the country's population lives in the capital and its surrounding metropolitan area."
+        "About half of the country's population lives in the capital and its surrounding metropolitan area.",
+        "Taekwondo originated here and has been an official Olympic sport since 2000.",
+        "It co-hosted the 2002 FIFA World Cup with Japan, and its national team reached the semi-finals for the first time.",
+        "Its national flower is the rose of Sharon (a hibiscus), known locally as 'mugunghwa'."
       ],
       "dia": null,
       "wiki": "South Korea"
@@ -787,7 +868,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "伝統的には生まれた時点で1歳と数えたが、2023年から法律や行政では満年齢に統一された。",
         "国旗「太極旗」は、白地の中央に赤と青の太極模様、四隅に四つの卦を配している。",
         "2018年に平昌で冬季オリンピックを開催した。",
-        "首都とその周辺の首都圏に、全人口のおよそ半分が集中している。"
+        "首都とその周辺の首都圏に、全人口のおよそ半分が集中している。",
+        "テコンドーの発祥地で、2000年からオリンピックの正式競技になっている。",
+        "2002年に日本とサッカーW杯を共催し、自国の代表チームが初めてベスト4に進出した。",
+        "国花はムクゲで、現地では「ムグンファ（無窮花）」と呼ばれる。"
       ],
       "dia": null,
       "wiki": "大韓民国"
@@ -819,7 +903,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "越戰期間遭受大量轟炸，按人口平均計算，被認為是史上遭轟炸最嚴重的國家，至今仍有許多未爆彈。",
         "國旗中央的白色圓形，象徵湄公河上空的滿月。",
-        "首都的金色佛塔「塔鑾」（Pha That Luang）是國家的象徵，也出現在國徽上。"
+        "首都的金色佛塔「塔鑾」（Pha That Luang）是國家的象徵，也出現在國徽上。",
+        "2021 年通車的鐵路北接中國雲南的昆明，讓本國首度有了長距離鐵路。",
+        "國花是芳香的雞蛋花（占巴花，Dok Champa）。",
+        "1975 年廢除君主制，改為人民民主共和國。",
+        "十四世紀建立的瀾滄王國，意為「百萬大象之國」，被視為本國的前身。"
       ],
       "dia": null,
       "wiki": "寮國"
@@ -844,7 +932,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Heavily bombed during the Vietnam War, it is considered the most bombed country per capita in history, and unexploded ordnance remains a problem today.",
         "The white disc in the middle of its flag represents the full moon over the Mekong.",
-        "The golden stupa of Pha That Luang in the capital is a national symbol and appears on the national emblem."
+        "The golden stupa of Pha That Luang in the capital is a national symbol and appears on the national emblem.",
+        "A railway opened in 2021 links it northward to Kunming in China's Yunnan province, giving the country its first long-distance rail line.",
+        "Its national flower is the fragrant frangipani, called 'dok champa'.",
+        "The monarchy was abolished in 1975 and the country became a people's democratic republic.",
+        "The Kingdom of Lan Xang, the 'Land of a Million Elephants' founded in the 14th century, is regarded as its forerunner."
       ],
       "dia": null,
       "wiki": "Laos"
@@ -869,7 +961,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "ベトナム戦争中に激しい爆撃を受け、人口あたりでは史上最も爆撃された国とされる。今も多くの不発弾が残っている。",
         "国旗の中央の白い円は、メコン川の上に昇る満月を表している。",
-        "首都にある黄金の仏塔「タート・ルアン」は国の象徴で、国章にも描かれている。"
+        "首都にある黄金の仏塔「タート・ルアン」は国の象徴で、国章にも描かれている。",
+        "2021年に開通した鉄道が北の中国雲南省・昆明と結び、国内に初めて長距離鉄道ができた。",
+        "国花は香りのよいプルメリア（ドークチャンパー）。",
+        "1975年に王制が廃止され、人民民主共和国になった。",
+        "14世紀に建てられた「百万頭の象の国」ラーンサーン王国が、この国の前身とされる。"
       ],
       "dia": null,
       "wiki": "ラオス"
@@ -905,7 +1001,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1960 年選出班達拉奈克夫人，她是世界上第一位女性總理。",
         "國旗上畫著一頭手持寶劍的金色獅子。",
-        "官方語言是僧伽羅語與泰米爾語，多數國民信仰上座部佛教。"
+        "官方語言是僧伽羅語與泰米爾語，多數國民信仰上座部佛教。",
+        "聖山亞當峰山頂有一塊「聖足印」，佛教、印度教、伊斯蘭教與基督教信徒都視為聖跡。",
+        "1996 年奪得板球世界盃冠軍。",
+        "西南部的拉特納普勒以出產藍寶石等寶石聞名，城名意思就是「寶石之城」。",
+        "1975 年成立的平納維拉大象孤兒院，收容與照顧失去母親的小象。"
       ],
       "dia": null,
       "wiki": "斯里蘭卡"
@@ -931,7 +1031,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 1960 Sirimavo Bandaranaike took office here as the world's first female prime minister.",
         "Its flag features a golden lion holding a sword.",
-        "Its official languages are Sinhala and Tamil, and most of its people follow Theravada Buddhism."
+        "Its official languages are Sinhala and Tamil, and most of its people follow Theravada Buddhism.",
+        "The footprint-shaped mark atop Adam's Peak is revered by Buddhists, Hindus, Muslims and Christians alike.",
+        "It won the Cricket World Cup in 1996.",
+        "Ratnapura in the southwest is famous for sapphires and other gems; its name means 'City of Gems'.",
+        "The Pinnawala Elephant Orphanage, founded in 1975, cares for orphaned baby elephants."
       ],
       "dia": null,
       "wiki": "Sri Lanka"
@@ -957,7 +1061,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1960年、シリマヴォ・バンダラナイケがこの国で世界初の女性首相に就任した。",
         "国旗には剣を持った金色のライオンが描かれている。",
-        "公用語はシンハラ語とタミル語で、国民の多くは上座部仏教を信仰している。"
+        "公用語はシンハラ語とタミル語で、国民の多くは上座部仏教を信仰している。",
+        "聖山アダムスピークの頂上の「聖なる足跡」は、仏教・ヒンドゥー教・イスラム教・キリスト教の信者がそろって聖跡とあがめる。",
+        "1996年にクリケット・ワールドカップで優勝した。",
+        "南西部のラトナプラはサファイアなどの宝石の産地で、町の名前は「宝石の都」という意味。",
+        "1975年に設立されたピンナワラの象の孤児院では、母親を失った子象を保護している。"
       ],
       "dia": null,
       "wiki": "スリランカ"
@@ -992,7 +1100,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2009 年內閣穿著潛水裝備在海底召開會議，呼籲世界重視氣候變遷。",
         "陸地面積只有約三百平方公里，是亞洲面積最小的國家。",
-        "國民幾乎全是穆斯林，法律規定公民必須信仰伊斯蘭教。"
+        "國民幾乎全是穆斯林，法律規定公民必須信仰伊斯蘭教。",
+        "國土由 26 個環礁組成，散布在印度洋上南北長約八百多公里的範圍內。",
+        "國語迪維希語使用由右向左書寫的「塔納字母」。",
+        "漁民傳統上用竿釣一條一條地捕鰹魚，被視為對海洋較友善的漁法。",
+        "許多度假村採「一島一村」形式，一座小島上只有一間度假飯店。"
       ],
       "dia": null,
       "wiki": "馬爾地夫"
@@ -1017,7 +1129,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "In 2009 its cabinet held an underwater meeting in scuba gear to call attention to climate change.",
         "With only about 300 square kilometres of land, it is the smallest country in Asia.",
-        "Almost all of its people are Muslim, and the law requires citizens to be followers of Islam."
+        "Almost all of its people are Muslim, and the law requires citizens to be followers of Islam.",
+        "The country is made up of 26 atolls spread over more than 800 km of the Indian Ocean from north to south.",
+        "Its language, Dhivehi, is written in the Thaana script, which runs from right to left.",
+        "Fishermen traditionally catch skipjack tuna one by one with pole and line, a method considered kinder to the ocean.",
+        "Many resorts follow the 'one island, one resort' model, with a single hotel occupying a whole small island."
       ],
       "dia": null,
       "wiki": "Maldives"
@@ -1042,7 +1158,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "2009年、閣僚たちがダイビング装備をつけて海中で閣議を開き、気候変動への対策を世界に訴えた。",
         "陸地面積は約300平方キロメートルしかなく、アジアで最も小さい国。",
-        "国民のほぼ全員がイスラム教徒で、法律で国民はイスラム教徒であることが定められている。"
+        "国民のほぼ全員がイスラム教徒で、法律で国民はイスラム教徒であることが定められている。",
+        "国土は26の環礁からなり、インド洋上に南北800km以上にわたって散らばっている。",
+        "国語のディベヒ語は、右から左へ書く「ターナ文字」で書かれる。",
+        "漁師は伝統的に一本釣りでカツオを一匹ずつ釣り、海にやさしい漁法とされる。",
+        "多くのリゾートは「一島一リゾート」の形で、小さな島一つにホテルが一軒だけある。"
       ],
       "dia": null,
       "wiki": "モルディブ"
@@ -1075,7 +1195,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "男女都穿名為「籠基」（Longyi）的傳統筒裙。",
         "伊洛瓦底江由北向南縱貫全國，是最重要的河流與交通命脈。",
-        "2005～2006 年把首都從仰光遷到內陸新建的城市。"
+        "2005～2006 年把首都從仰光遷到內陸新建的城市。",
+        "政府官方認定的民族多達 135 個。",
+        "中部的烏本橋（U Bein Bridge）長約一點二公里，是世界上最長的柚木橋。",
+        "茵萊湖的漁夫以單腳纏槳划船，空出雙手撒網捕魚。",
+        "第三任聯合國秘書長吳丹出身此地，是第一位出任此職的亞洲人。"
       ],
       "dia": null,
       "wiki": "緬甸"
@@ -1101,7 +1225,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Both men and women traditionally wear the longyi, a sarong-like tube skirt.",
         "The Irrawaddy River runs from north to south through the whole country and is its most important river and transport artery.",
-        "In 2005–2006 it moved its capital from Yangon to a newly built city inland."
+        "In 2005–2006 it moved its capital from Yangon to a newly built city inland.",
+        "The government officially recognises as many as 135 ethnic groups.",
+        "U Bein Bridge in the centre of the country is about 1.2 km long and is the world's longest teak bridge.",
+        "Fishermen on Inle Lake row by wrapping one leg around the oar, leaving their hands free for the net.",
+        "U Thant, the third UN Secretary-General and the first Asian to hold the post, came from here."
       ],
       "dia": null,
       "wiki": "Myanmar"
@@ -1127,7 +1255,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "男女ともに「ロンジー」と呼ばれる筒状の巻きスカートを伝統的に着る。",
         "エーヤワディー川が国土を北から南へ貫いて流れ、最も重要な川であり交通の大動脈でもある。",
-        "2005～2006年に、首都をヤンゴンから内陸に新しく建設した都市へ移した。"
+        "2005～2006年に、首都をヤンゴンから内陸に新しく建設した都市へ移した。",
+        "政府が公式に認める民族は135にのぼる。",
+        "中部のウーベイン橋は全長約1.2kmで、世界最長のチーク材の橋。",
+        "インレー湖の漁師は片足でオールを操って舟をこぎ、両手で網を打つ。",
+        "第3代国連事務総長で、アジア人として初めてその職に就いたウ・タントはここの出身。"
       ],
       "dia": null,
       "wiki": "ミャンマー"
@@ -1161,7 +1293,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "13 世紀成吉思汗建立的帝國，是史上疆域最大的陸上連續帝國。",
         "本國首都是世界上年平均氣溫最低的首都。",
         "國旗左側畫著稱為「索永布」的傳統符號。",
-        "南部戈壁沙漠的「火焰崖」，在 1920 年代出土了最早被科學界確認的恐龍蛋化石。"
+        "南部戈壁沙漠的「火焰崖」，在 1920 年代出土了最早被科學界確認的恐龍蛋化石。",
+        "國內飼養的馬約有四百萬匹，比全國人口還多。",
+        "現今主要以西里爾字母書寫本國語言，傳統的直書文字也在推動恢復使用。",
+        "1924 年成立人民共和國，是繼蘇聯之後世界上第二個共產主義國家。"
       ],
       "dia": null,
       "wiki": "蒙古國"
@@ -1188,7 +1323,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "The empire founded by Genghis Khan in the 13th century was the largest contiguous land empire in history.",
         "Its capital is the coldest national capital in the world by average annual temperature.",
         "The left side of its flag bears the Soyombo, a traditional national symbol.",
-        "The Flaming Cliffs in the Gobi Desert in the south yielded the first dinosaur eggs recognized by science, in the 1920s."
+        "The Flaming Cliffs in the Gobi Desert in the south yielded the first dinosaur eggs recognized by science, in the 1920s.",
+        "There are around four million horses here, more than the country's human population.",
+        "Its language is now mainly written in the Cyrillic alphabet, though the traditional vertical script is being revived.",
+        "The People's Republic proclaimed in 1924 was the world's second communist state, after the Soviet Union."
       ],
       "dia": null,
       "wiki": "Mongolia"
@@ -1215,7 +1353,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "13世紀にチンギス・ハーンが築いた帝国は、陸続きの帝国として史上最大の領土を持った。",
         "この国の首都は、年平均気温が世界で最も低い首都。",
         "国旗の左側には「ソヨンボ」と呼ばれる伝統的な紋章が描かれている。",
-        "南部のゴビ砂漠にある「炎の崖」では、1920年代に科学的に確認された最初の恐竜の卵の化石が見つかった。"
+        "南部のゴビ砂漠にある「炎の崖」では、1920年代に科学的に確認された最初の恐竜の卵の化石が見つかった。",
+        "国内で飼われている馬は約400万頭で、国の人口より多い。",
+        "現在は主にキリル文字で書かれるが、伝統的な縦書き文字の復活も進められている。",
+        "1924年に人民共和国となり、ソ連に次ぐ世界で二番目の社会主義国になった。"
       ],
       "dia": null,
       "wiki": "モンゴル国"
@@ -1251,7 +1392,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國家元首由九位世襲州統治者（蘇丹等）每五年輪流選出，是世界上少見的輪任君主制。",
         "國旗「輝煌條紋」有 14 道紅白相間的橫條。",
-        "全國由十三個州與三個聯邦直轄區組成。"
+        "全國由十三個州與三個聯邦直轄區組成。",
+        "2023 年完工的摩天大樓「默迪卡 118」高約六百七十九公尺，是世界第二高的建築。",
+        "1957 年以馬來亞聯合邦之名脫離英國獨立，1963 年再與沙巴、砂拉越等地組成現今的國家。",
+        "婆羅洲上的姆魯山國家公園有「砂拉越洞廳」，是世界上面積最大的洞穴廳室之一。",
+        "麻六甲曾是十五世紀繁榮的蘇丹國，1511 年被葡萄牙攻占。"
       ],
       "dia": null,
       "wiki": "馬來西亞"
@@ -1277,7 +1422,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its king is chosen every five years from among nine hereditary state rulers, a rare rotating monarchy.",
         "Its flag, the Jalur Gemilang (\"Stripes of Glory\"), has 14 red and white stripes.",
-        "The country is made up of 13 states and 3 federal territories."
+        "The country is made up of 13 states and 3 federal territories.",
+        "Merdeka 118, completed in 2023, is about 679 m tall and is the world's second-tallest building.",
+        "It gained independence from Britain in 1957 as the Federation of Malaya, then joined with Sabah, Sarawak and others in 1963 to form the present country.",
+        "Gunung Mulu National Park on Borneo contains the Sarawak Chamber, one of the largest cave chambers in the world.",
+        "Malacca was a prosperous sultanate in the 15th century until it was captured by Portugal in 1511."
       ],
       "dia": null,
       "wiki": "Malaysia"
@@ -1303,7 +1452,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国王は9人の世襲の州統治者（スルタンなど）の中から5年ごとに選ばれる、世界でも珍しい輪番制の君主制。",
         "国旗「ジャルール・ゲミラン（栄光のストライプ）」には赤と白の横縞が14本ある。",
-        "国は13の州と3つの連邦直轄領から成る。"
+        "国は13の州と3つの連邦直轄領から成る。",
+        "2023年に完成した超高層ビル「ムルデカ118」は高さ約679mで、世界で2番目に高い建物。",
+        "1957年にマラヤ連邦としてイギリスから独立し、1963年にサバ・サラワクなどと合わさって今の国になった。",
+        "ボルネオ島のグヌン・ムル国立公園には、世界最大級の洞窟空間「サラワク・チャンバー」がある。",
+        "マラッカは15世紀に栄えたスルタン国だったが、1511年にポルトガルに占領された。"
       ],
       "dia": null,
       "wiki": "マレーシア"
@@ -1341,7 +1494,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "時區是 UTC+5:45，是世界上極少數以 45 分鐘為單位偏移的時區。",
         "官方曆法「維克拉姆曆」比西元多約 56～57 年。",
         "從少女中選出、被當作女神崇拜的「庫瑪麗」（活女神）傳統延續至今。",
-        "以驍勇善戰的「廓爾喀」士兵聞名，至今仍有許多人在英國陸軍與印度陸軍服役。"
+        "以驍勇善戰的「廓爾喀」士兵聞名，至今仍有許多人在英國陸軍與印度陸軍服役。",
+        "2015 年 4 月發生規模 7.8 的大地震，首都谷地許多古老寺廟倒塌。",
+        "2008 年廢除延續兩百多年的君主制，改為聯邦民主共和國。",
+        "國花是杜鵑花，春天時山坡開滿紅色花朵。"
       ],
       "dia": null,
       "wiki": "尼泊爾"
@@ -1368,7 +1524,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "Its time zone is UTC+5:45, one of very few in the world offset by 45 minutes.",
         "Its official calendar, Bikram Sambat, runs about 56 to 57 years ahead of the Gregorian calendar.",
         "The tradition of the Kumari, a young girl chosen and worshipped as a living goddess, continues to this day.",
-        "It is famous for its Gurkha soldiers, many of whom still serve in the British and Indian armies."
+        "It is famous for its Gurkha soldiers, many of whom still serve in the British and Indian armies.",
+        "A magnitude-7.8 earthquake in April 2015 toppled many ancient temples in the capital's valley.",
+        "In 2008 it abolished a monarchy that had lasted more than 200 years and became a federal democratic republic.",
+        "Its national flower is the rhododendron, whose red blooms cover the hillsides in spring."
       ],
       "dia": null,
       "wiki": "Nepal"
@@ -1395,7 +1554,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "時間帯はUTC+5:45で、45分単位でずれている世界でもごく珍しい時間帯。",
         "公式の暦「ビクラム暦」は西暦より約56～57年進んでいる。",
         "少女の中から選ばれ、生き神として崇められる「クマリ」の伝統が今も続いている。",
-        "勇猛な「グルカ兵」で知られ、今も多くがイギリス陸軍やインド陸軍に所属している。"
+        "勇猛な「グルカ兵」で知られ、今も多くがイギリス陸軍やインド陸軍に所属している。",
+        "2015年4月にマグニチュード7.8の大地震が起き、首都の盆地の古い寺院が数多く倒壊した。",
+        "2008年に200年以上続いた王制を廃止し、連邦民主共和国になった。",
+        "国花はシャクナゲで、春には山の斜面が赤い花で埋め尽くされる。"
       ],
       "dia": null,
       "wiki": "ネパール"
@@ -1433,7 +1595,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國名來自十六世紀的西班牙國王腓力二世。",
         "國旗平時藍色在上，戰時則倒過來改成紅色在上。",
-        "民族英雄何塞・黎剎以小說揭露殖民統治，1896 年遭西班牙殖民政府處決。"
+        "民族英雄何塞・黎剎以小說揭露殖民統治，1896 年遭西班牙殖民政府處決。",
+        "1986 年的「人民力量革命」以大規模和平示威推翻了馬可仕政權。",
+        "國鳥是世界上體型最大的鵰類之一「食猿鵰」。",
+        "以美軍二戰剩下的吉普車改裝而成、裝飾華麗的「吉普尼」是常見的大眾交通工具。",
+        "拳王帕奎奧是拳擊史上唯一在八個量級奪得世界冠軍的選手。"
       ],
       "dia": null,
       "wiki": "菲律賓"
@@ -1459,7 +1625,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its name comes from King Philip II of Spain in the 16th century.",
         "Its flag is flown with blue on top in peacetime and turned upside down, red on top, in a state of war.",
-        "National hero José Rizal exposed colonial abuses in his novels and was executed by the Spanish colonial government in 1896."
+        "National hero José Rizal exposed colonial abuses in his novels and was executed by the Spanish colonial government in 1896.",
+        "The 1986 People Power Revolution toppled the Marcos regime through massive peaceful protests.",
+        "Its national bird is the monkey-eating eagle, one of the largest eagles in the world.",
+        "Brightly decorated 'jeepneys', first built from leftover US military jeeps after World War II, are a common form of public transport.",
+        "Boxer Manny Pacquiao is the only fighter in history to win world titles in eight weight divisions."
       ],
       "dia": null,
       "wiki": "Philippines"
@@ -1485,7 +1655,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国名は16世紀のスペイン国王フェリペ2世にちなむ。",
         "国旗は平時は青を上にして掲げ、戦時には上下を逆にして赤を上にする。",
-        "国民的英雄ホセ・リサールは小説で植民地支配を告発し、1896年にスペイン植民地政府に処刑された。"
+        "国民的英雄ホセ・リサールは小説で植民地支配を告発し、1896年にスペイン植民地政府に処刑された。",
+        "1986年の「ピープルパワー革命」では、大規模な平和的デモでマルコス政権が倒された。",
+        "国鳥は世界最大級のワシ「サルクイワシ」。",
+        "第二次大戦後に米軍の残したジープを改造した、派手な装飾の「ジプニー」が身近な公共交通機関。",
+        "ボクサーのマニー・パッキャオは、史上唯一8階級で世界王者になった選手。"
       ],
       "dia": null,
       "wiki": "フィリピン"
@@ -1517,7 +1691,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北邊與中國大致以鴨綠江和圖們江為界。",
         "國旗由上下的藍色條紋、中間的紅色寬帶，以及白色圓形裡的紅色五角星組成。",
-        "2006 年首次進行核子試爆。"
+        "2006 年首次進行核子試爆。",
+        "數萬人一起演出的大型團體操表演，曾被金氏世界紀錄列為規模最大的團體操。",
+        "2004 年起與南方鄰國在開城合作設立工業園區，2016 年關閉。",
+        "國花是木蘭（天女木蘭）。",
+        "國徽上畫著白頭山與水力發電廠。"
       ],
       "dia": null,
       "wiki": "朝鮮民主主義人民共和國"
@@ -1542,7 +1720,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its northern border with China largely follows the Yalu and Tumen rivers.",
         "Its flag has blue stripes at the top and bottom, a broad red band in the middle, and a red star in a white circle.",
-        "It carried out its first nuclear test in 2006."
+        "It carried out its first nuclear test in 2006.",
+        "Its mass games, performed by tens of thousands of people at once, were listed by Guinness World Records as the largest gymnastic display.",
+        "From 2004 it ran an industrial park at Kaesong jointly with its southern neighbour, until it was closed in 2016.",
+        "Its national flower is the magnolia (Magnolia sieboldii).",
+        "Its national emblem shows Mount Paektu and a hydroelectric power station."
       ],
       "dia": null,
       "wiki": "North Korea"
@@ -1567,7 +1749,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "北側の中国との国境は、おおむね鴨緑江と豆満江に沿っている。",
         "国旗は上下の青い帯と中央の赤い帯、白い円の中の赤い星で構成されている。",
-        "2006年に初の核実験を行った。"
+        "2006年に初の核実験を行った。",
+        "数万人が一斉に演じるマスゲームは、ギネス世界記録で最大規模の集団体操とされた。",
+        "2004年から南の隣国と共同で開城（ケソン）工業団地を運営したが、2016年に閉鎖された。",
+        "国花はモクレン（オオヤマレンゲ）。",
+        "国章には白頭山と水力発電所が描かれている。"
       ],
       "dia": null,
       "wiki": "朝鮮民主主義人民共和国"
@@ -1603,7 +1789,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "1965 年脫離馬來西亞，成為獨立國家。",
         "1992 年起禁止進口與販售口香糖，以維護環境整潔聞名。",
         "國名源自梵語，意思是「獅子之城」。",
-        "樟宜機場長年被評為世界最佳機場之一。"
+        "樟宜機場長年被評為世界最佳機場之一。",
+        "1819 年英國人萊佛士在此設立貿易港，奠定了日後轉口貿易中心的基礎。",
+        "2008 年舉辦了一級方程式賽車史上第一場夜間賽。",
+        "國花是一種名為「卓錦・萬代蘭」的雜交胡姬花（蘭花）。"
       ],
       "dia": null,
       "wiki": "新加坡"
@@ -1629,7 +1818,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "It separated from Malaysia and became an independent country in 1965.",
         "Since 1992 it has banned the import and sale of chewing gum, part of its famously strict rules on cleanliness.",
         "Its name comes from Sanskrit and means \"Lion City\".",
-        "Changi Airport has for years been rated one of the best airports in the world."
+        "Changi Airport has for years been rated one of the best airports in the world.",
+        "In 1819 Stamford Raffles set up a British trading post here, laying the foundation for its role as an entrepôt.",
+        "In 2008 it hosted the first night race in Formula One history.",
+        "Its national flower is a hybrid orchid named Vanda Miss Joaquim."
       ],
       "dia": null,
       "wiki": "Singapore"
@@ -1655,7 +1847,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "1965年にマレーシアから分離して独立国となった。",
         "1992年からチューインガムの輸入と販売を禁止しており、清潔さへの厳しい規則で知られる。",
         "国名はサンスクリット語に由来し、「ライオンの町」という意味。",
-        "チャンギ国際空港は長年、世界最高の空港の一つに選ばれている。"
+        "チャンギ国際空港は長年、世界最高の空港の一つに選ばれている。",
+        "1819年にイギリスのラッフルズがここに交易港を開き、のちの中継貿易拠点の土台を築いた。",
+        "2008年、F1史上初のナイトレースが開催された。",
+        "国花は「ヴァンダ・ミス・ジョアキム」という交配種のラン。"
       ],
       "dia": null,
       "wiki": "シンガポール"
@@ -1692,7 +1887,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "1939 年以前國名叫「暹羅」。",
         "本國首都的正式全名非常長，被金氏世界紀錄列為世界最長的地名。",
         "通用佛曆紀年，比西元多 543 年。",
-        "昭披耶河（湄南河）由北向南縱貫中部平原，是本國的母親河。"
+        "昭披耶河（湄南河）由北向南縱貫中部平原，是本國的母親河。",
+        "1932 年的立憲革命結束了絕對君主制，改為君主立憲制。",
+        "拉瑪九世蒲美蓬國王在位約七十年（1946～2016），是本國史上在位最久的君主。",
+        "1917 年以前的國旗是紅底上畫著一頭白象。"
       ],
       "dia": null,
       "wiki": "泰國"
@@ -1719,7 +1917,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "Until 1939 the country was called Siam.",
         "The full ceremonial name of its capital is listed by Guinness World Records as the longest place name in the world.",
         "It uses the Buddhist Era calendar, which is 543 years ahead of the Western calendar.",
-        "The Chao Phraya River flows south through the central plains and is regarded as the country's mother river."
+        "The Chao Phraya River flows south through the central plains and is regarded as the country's mother river.",
+        "The revolution of 1932 ended absolute monarchy and established a constitutional monarchy.",
+        "King Bhumibol (Rama IX) reigned for about 70 years (1946–2016), the longest reign in the country's history.",
+        "Until 1917 its national flag showed a white elephant on a red field."
       ],
       "dia": null,
       "wiki": "Thailand"
@@ -1746,7 +1947,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "1939年までは「シャム」という国名だった。",
         "この国の首都の正式名称は非常に長く、ギネス世界記録で世界一長い地名とされている。",
         "仏暦が使われており、西暦より543年多い。",
-        "チャオプラヤー川は中部の平野を北から南へ流れ、この国の母なる川とされる。"
+        "チャオプラヤー川は中部の平野を北から南へ流れ、この国の母なる川とされる。",
+        "1932年の立憲革命で絶対王制が終わり、立憲君主制になった。",
+        "ラーマ9世プミポン国王は約70年（1946～2016年）在位し、この国の歴史で最も長い治世となった。",
+        "1917年までの国旗は、赤地に白い象を描いたものだった。"
       ],
       "dia": null,
       "wiki": "タイ王国"
@@ -1782,7 +1986,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "以美元作為官方貨幣。",
         "國土除了島的東半部，還包括一塊被印尼領土包圍的飛地「歐庫西」。",
-        "1975 年葡萄牙撤出後遭印尼併吞，1999 年經公民投票選擇獨立。"
+        "1975 年葡萄牙撤出後遭印尼併吞，1999 年經公民投票選擇獨立。",
+        "1996 年諾貝爾和平獎頒給為本國和平奔走的貝洛主教與荷塔。",
+        "約九成七的國民信仰天主教，是亞洲天主教徒比例最高的國家之一。",
+        "2025 年加入東協，成為第十一個會員國。",
+        "國旗紅底上疊著黃、黑兩個三角形，黑色三角形中有一顆白色五角星。"
       ],
       "dia": null,
       "wiki": "東帝汶"
@@ -1808,7 +2016,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It uses the US dollar as its official currency.",
         "Besides the eastern half of its island, its territory includes Oecusse, an exclave surrounded by Indonesian territory.",
-        "After Portugal withdrew in 1975 it was annexed by Indonesia, and in 1999 it voted for independence in a referendum."
+        "After Portugal withdrew in 1975 it was annexed by Indonesia, and in 1999 it voted for independence in a referendum.",
+        "The 1996 Nobel Peace Prize went to Bishop Carlos Belo and José Ramos-Horta for their work toward peace here.",
+        "About 97% of the people are Catholic, one of the highest proportions in Asia.",
+        "It joined ASEAN in 2025, becoming the bloc's eleventh member.",
+        "Its flag has yellow and black triangles on a red field, with a white star in the black triangle."
       ],
       "dia": null,
       "wiki": "East Timor"
@@ -1834,7 +2046,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "米ドルを公式の通貨として使っている。",
         "島の東半分のほか、インドネシア領に囲まれた飛び地「オエクシ」も国土に含まれる。",
-        "1975年にポルトガルが撤退した後インドネシアに併合され、1999年の住民投票で独立を選んだ。"
+        "1975年にポルトガルが撤退した後インドネシアに併合され、1999年の住民投票で独立を選んだ。",
+        "1996年のノーベル平和賞は、この地の平和に尽くしたベロ司教とラモス＝ホルタに贈られた。",
+        "国民の約97%がカトリックで、アジアで最もカトリックの割合が高い国の一つ。",
+        "2025年にASEANに加盟し、11番目の加盟国になった。",
+        "国旗は赤地に黄と黒の三角形が重なり、黒い三角形の中に白い星がある。"
       ],
       "dia": null,
       "wiki": "東ティモール"
@@ -1868,7 +2084,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "北回歸線穿過島嶼的中南部，熱帶與亞熱帶氣候在此交界。",
         "半導體產業發達，晶圓代工的產值居世界第一。",
         "冰河時期遺留下來的陸封型鮭魚「櫻花鉤吻鮭」，只分布在島上中部高山的溪流。",
-        "島上海拔三千公尺以上的高山超過兩百座。"
+        "島上海拔三千公尺以上的高山超過兩百座。",
+        "特有種鳥類帝雉（黑長尾雉）的圖案出現在千元鈔票上。",
+        "1999 年 9 月 21 日中部發生規模 7.3 的大地震，造成兩千多人罹難。",
+        "官方認定的原住民族有 16 族，語言都屬於南島語系。"
       ],
       "dia": null,
       "wiki": "臺灣"
@@ -1895,7 +2114,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "The Tropic of Cancer crosses the south-central part of the island, where tropical and subtropical climates meet.",
         "It has a major semiconductor industry and leads the world in contract chip manufacturing (foundry output).",
         "The Formosan landlocked salmon, a relic of the Ice Age, lives only in mountain streams in the centre of the island.",
-        "The island has more than 200 peaks over 3,000 metres high."
+        "The island has more than 200 peaks over 3,000 metres high.",
+        "The Mikado pheasant, an endemic bird, appears on the 1,000-dollar banknote.",
+        "On 21 September 1999 a magnitude-7.3 earthquake struck the centre of the island, killing more than 2,000 people.",
+        "There are 16 officially recognised Indigenous peoples, all speaking Austronesian languages."
       ],
       "dia": null,
       "wiki": "Taiwan"
@@ -1922,7 +2144,10 @@ Object.assign(window.KMAP_INFO.world.units, {
         "北回帰線が島の中南部を通っており、熱帯と亜熱帯の気候の境目になっている。",
         "半導体産業が盛んで、ファウンドリ（受託製造）の生産額は世界一。",
         "氷河期の生き残りとされる陸封型のサケ「タイワンマス（サラマオマス）」は、島の中部の山地の渓流にだけ生息している。",
-        "島には標高3000mを超える山が200座以上ある。"
+        "島には標高3000mを超える山が200座以上ある。",
+        "固有種の鳥ミカドキジが、1000元札に描かれている。",
+        "1999年9月21日、島の中部でマグニチュード7.3の大地震が起き、2000人以上が亡くなった。",
+        "公式に認められた先住民族は16族あり、言語はいずれもオーストロネシア語族に属する。"
       ],
       "dia": null,
       "wiki": "台湾"
@@ -1955,7 +2180,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "國語使用以拉丁字母加聲調符號拼寫的「國語字」，在東亞相當少見。",
         "世界上已知最大的洞穴「韓松洞」就在本國中部。",
-        "1975 年越戰結束後，南部大城西貢改名為胡志明市。"
+        "1975 年越戰結束後，南部大城西貢改名為胡志明市。",
+        "1954 年在奠邊府戰役擊敗法軍，結束了法國在印度支那的殖民統治。",
+        "在水面上表演的「水上木偶戲」源自北部的紅河三角洲。",
+        "國土最窄處在中部，東西寬只有約五十公里。",
+        "北部的紅河三角洲與南部的湄公河三角洲是兩大稻米產區。"
       ],
       "dia": null,
       "wiki": "越南"
@@ -1981,7 +2210,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "Its language is written in Chữ Quốc ngữ, a Latin alphabet with tone marks, which is unusual in East Asia.",
         "Hang Sơn Đoòng, the largest known cave in the world, is in the central part of this country.",
-        "After the war ended in 1975, the big southern city of Saigon was renamed Ho Chi Minh City."
+        "After the war ended in 1975, the big southern city of Saigon was renamed Ho Chi Minh City.",
+        "Victory over the French at the Battle of Dien Bien Phu in 1954 ended French colonial rule in Indochina.",
+        "Water puppetry, performed on the surface of a pool, originated in the Red River Delta in the north.",
+        "At its narrowest point, in the centre, the country is only about 50 km wide.",
+        "The Red River Delta in the north and the Mekong Delta in the south are its two great rice-growing regions."
       ],
       "dia": null,
       "wiki": "Vietnam"
@@ -2007,7 +2240,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "国語は声調記号付きのラテン文字「クオック・グー」で書かれ、東アジアでは珍しい。",
         "世界最大の洞窟とされる「ソンドン洞窟」がこの国の中部にある。",
-        "1975年に戦争が終わった後、南部の大都市サイゴンはホーチミン市と改名された。"
+        "1975年に戦争が終わった後、南部の大都市サイゴンはホーチミン市と改名された。",
+        "1954年のディエンビエンフーの戦いでフランス軍を破り、インドシナでのフランスの植民地支配が終わった。",
+        "水面を舞台に演じる「水上人形劇」は、北部の紅河デルタで生まれた。",
+        "国土が最も狭いのは中部で、東西の幅はわずか約50km。",
+        "北部の紅河デルタと南部のメコンデルタが二大米どころ。"
       ],
       "dia": null,
       "wiki": "ベトナム"
@@ -2040,7 +2277,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1947 年英屬印度分治時與印度同時獨立。",
         "喀喇崑崙公路經紅其拉甫山口通往中國，是世界海拔最高的鋪面國際公路之一。",
-        "國父穆罕默德・阿里・真納被尊稱為「偉大領袖」（Quaid-e-Azam）。"
+        "國父穆罕默德・阿里・真納被尊稱為「偉大領袖」（Quaid-e-Azam）。",
+        "爭取女童受教權的馬拉拉在 2014 年以 17 歲獲得諾貝爾和平獎，是史上最年輕的諾貝爾獎得主。",
+        "1992 年奪得板球世界盃冠軍。",
+        "印度河上的塔貝拉水壩是世界上最大的土石壩之一。",
+        "東北部的錫亞爾科特生產大量手工縫製的足球，供應全世界。"
       ],
       "dia": null,
       "wiki": "巴基斯坦"
@@ -2066,7 +2307,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "It became independent in 1947 when British India was partitioned, at the same time as India.",
         "The Karakoram Highway crosses the Khunjerab Pass into China and is one of the highest paved international roads in the world.",
-        "Its founder, Muhammad Ali Jinnah, is honoured as Quaid-e-Azam, \"the Great Leader\"."
+        "Its founder, Muhammad Ali Jinnah, is honoured as Quaid-e-Azam, \"the Great Leader\".",
+        "Malala Yousafzai, who campaigned for girls' education, won the Nobel Peace Prize in 2014 at 17, the youngest Nobel laureate ever.",
+        "It won the Cricket World Cup in 1992.",
+        "Tarbela Dam on the Indus is one of the largest earth-filled dams in the world.",
+        "Sialkot in the northeast makes a large share of the world's hand-stitched footballs."
       ],
       "dia": null,
       "wiki": "Pakistan"
@@ -2092,7 +2337,11 @@ Object.assign(window.KMAP_INFO.world.units, {
       "facts": [
         "1947年、イギリス領インドの分離独立に伴い、インドと同時に独立した。",
         "カラコルム・ハイウェイはクンジュラブ峠を越えて中国へ通じ、世界で最も標高の高い舗装国際道路の一つ。",
-        "建国の父ムハンマド・アリー・ジンナーは「偉大な指導者」（カーイデ・アーザム）と敬われている。"
+        "建国の父ムハンマド・アリー・ジンナーは「偉大な指導者」（カーイデ・アーザム）と敬われている。",
+        "女子教育を訴えたマララ・ユスフザイは2014年に17歳でノーベル平和賞を受け、史上最年少のノーベル賞受賞者になった。",
+        "1992年にクリケット・ワールドカップで優勝した。",
+        "インダス川のタルベラ・ダムは、世界最大級のアースダム（土石ダム）。",
+        "北東部のシアルコートは手縫いのサッカーボールを大量に生産し、世界中に送り出している。"
       ],
       "dia": null,
       "wiki": "パキスタン"
