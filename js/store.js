@@ -1,6 +1,7 @@
 // 進度存檔（瀏覽器 localStorage）。
 // 每一塊的熟練度：0 未踏 → 1 到訪（答對一次）→ 2 熟悉（隔 2 天以上又答對）→ 3 制霸（熟悉＋找位置與知識題都答對過）。
 // 另外用 Leitner 盒子排複習：答對往後排、答錯回到今天。
+// 進度（regions）會由 js/sync.js 同步到 CloudSave；settings（語言、音樂…）只留在這台裝置。
 const Store = (() => {
   const KEY = 'kmap.v1';
   const GAP_DAYS = 2;
@@ -15,7 +16,11 @@ const Store = (() => {
     v.regions = v.regions || {};
     return v;
   }
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* 存不了就算了 */ } }
+  let onProgress = null;   // 進度有變時呼叫（雲端同步排程推上去）
+  function save(progress = true) {
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* 存不了就算了 */ }
+    if (progress) onProgress?.();
+  }
 
   const today = () => { const d = new Date(); return Math.floor((d - d.getTimezoneOffset() * 60000) / 86400000); };
   const dayKey = (n = today()) => new Date(n * 86400000).toISOString().slice(0, 10);
@@ -32,6 +37,7 @@ const Store = (() => {
   // 記一次作答，回傳 { from, to } 熟練度變化
   function record(key, id, type, correct) {
     const u = unit(key, id), t = today(), from = u.lvl;
+    u.at = Date.now();
     if (correct) {
       u.ok++;
       if (u.first == null) u.first = t;
@@ -102,9 +108,46 @@ const Store = (() => {
     return false;
   }
 
+  // ── 合併兩份進度（雲端同步用）：熟練度、次數取高的，複習排程用最近玩的那一份 ──
+  const minN = (a, b) => (a == null ? b : b == null ? a : Math.min(a, b));
+  function mergeUnit(a, b) {
+    if (!a) return b;
+    if (!b) return a;
+    const r = Object.assign({}, (a.at || 0) >= (b.at || 0) ? a : b);
+    r.lvl = Math.max(a.lvl || 0, b.lvl || 0);
+    r.ok = Math.max(a.ok || 0, b.ok || 0); r.ng = Math.max(a.ng || 0, b.ng || 0);
+    r.first = minN(a.first, b.first);
+    r.last = Math.max(a.last ?? -1, b.last ?? -1); if (r.last < 0) r.last = null;
+    r.types = {};
+    for (const k of new Set([...Object.keys(a.types || {}), ...Object.keys(b.types || {})])) r.types[k] = Math.max(a.types?.[k] || 0, b.types?.[k] || 0);
+    if (r.lvl === 3) r.stamped = [a.stamped, b.stamped].filter(Boolean).sort()[0] || r.stamped;
+    return r;
+  }
+  function mergeRegion(a = {}, b = {}) {
+    const r = { units: {}, best: {}, daily: {} };
+    for (const id of new Set([...Object.keys(a.units || {}), ...Object.keys(b.units || {})])) r.units[id] = mergeUnit(a.units?.[id], b.units?.[id]);
+    for (const k of new Set([...Object.keys(a.best || {}), ...Object.keys(b.best || {})])) r.best[k] = Math.max(a.best?.[k] || 0, b.best?.[k] || 0);
+    Object.assign(r.daily, b.daily, a.daily);   // 同一天兩邊都有就留本機的（每天只記第一次）
+    return r;
+  }
+  function mergeProgress(a = {}, b = {}) {
+    const r = {};
+    for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) r[k] = mergeRegion(a[k], b[k]);
+    return r;
+  }
+  // 雲端的進度併進來；回傳本機有沒有被改到
+  function mergeIn(remote) {
+    const merged = mergeProgress(s.regions, remote || {});
+    const changed = JSON.stringify(merged) !== JSON.stringify(s.regions);
+    if (changed) { s.regions = merged; save(false); }
+    return changed;
+  }
+
   return {
     settings: () => s.settings,
-    setSetting(k, v) { s.settings[k] = v; save(); },
+    setSetting(k, v) { s.settings[k] = v; save(false); },
+    progress: () => s.regions, mergeProgress, mergeIn,
+    onProgress(fn) { onProgress = fn; },
     today, dayKey, level, unit: (k, id) => region(k).units[id], record, nextHint, weight, counts,
     daily, setDaily, streak, best, setBest,
   };

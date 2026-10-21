@@ -55,6 +55,33 @@ function applyLang() {
   for (const e of document.querySelectorAll('[data-ta]')) e.setAttribute('aria-label', t(e.dataset.ta));
   $('#langSwitch').innerHTML = LANGS.map(x => `<button type="button" data-lang="${x.key}" class="${x.key === L.key ? 'on' : ''}">${x.label}</button>`).join('');
 }
+// ── 地區與範圍 ──
+// 範圍＝首頁選的分區（日本的地方、中國的華北…、世界的各洲），出題與旅行只用範圍內的區塊
+function scopeKey() { return (Store.settings().scope || {})[R.key] || 'all'; }
+function pool() {
+  const k = scopeKey();
+  return k === 'all' ? R.ids : R.ids.filter(id => R.units[id].area === k);
+}
+function setScope(k) {
+  Store.setSetting('scope', Object.assign({}, Store.settings().scope, { [R.key]: k }));
+  renderHome();
+}
+function switchRegion(key) {
+  const next = regionData(key);
+  if (!next) return;
+  Store.setSetting('region', key);
+  R = next;
+  homeMap?.destroy(); playMap?.destroy();
+  homeMap = playMap = null;
+  renderTabs();
+  renderHome();
+  music('calm');
+}
+function renderScope() {
+  const k = scopeKey(), keys = ['all', ...Object.keys(R.areas)];
+  $('#scopeTabs').innerHTML = keys.map(a => `<button type="button" class="${a === k ? 'on' : ''}" data-scope="${a}">${esc(a === 'all' ? t('scopeAll') : R.areaName(a))}</button>`).join('');
+}
+
 function setLang(l) {
   Store.setSetting('lang', l);
   applyLang();
@@ -77,6 +104,11 @@ function renderHome() {
     homeMap.onTap(id => { Sound.play('tap'); showCard(id); });
   }
   homeMap.paint(masteryColor);
+  const inScope = scopeKey() === 'all' ? null : pool();
+  homeMap.dim(inScope);
+  homeMap.setHome(inScope, R.map.views?.[scopeKey()]);
+  renderScope();
+  $('#mBook b').textContent = R.label('book');
   const c = Store.counts(R.key, R.ids), n = R.ids.length;
   const seg = (k, cls) => c[k] ? `<i class="${cls}" style="flex:${c[k]}"></i>` : '';
   $('#homeProgress').innerHTML = `
@@ -89,8 +121,10 @@ function renderHome() {
 }
 
 // ── 知識卡 ──
+// 印章樣式依地區：日本圓形御朱印、中國方形印章、世界護照入境章
 function stampHtml(id, date) {
-  return `<div class="stamp"><span>${esc(R.stamp(id))}</span>${date ? `<small>${esc(date.slice(5).replace('-', '.'))}</small>` : ''}</div>`;
+  const color = R.stampStyle === 'passport' ? R.areas[R.units[id].area].color : '';
+  return `<div class="stamp ${R.stampStyle}"${color ? ` style="--stamp:${color}"` : ''}><span>${esc(R.stamp(id))}</span>${date ? `<small>${esc(date.slice(5).replace('-', '.'))}</small>` : ''}</div>`;
 }
 function hintText(h) {
   if (h.k === 'wait') return t('hint.wait', h.n);
@@ -105,17 +139,17 @@ function cardHtml(id) {
   return `
   <div class="card" style="--area:${a.color}">
     <div class="card-head">
-      <div><div class="card-area">${esc(R.areaName(u.area))}</div><h2>${esc(R.name(id))}</h2><div class="kana">${esc(R.sub(id))}</div></div>
+      <div><div class="card-area">${esc(R.areaName(u.area))}</div><h2>${c.flag ? `<span class="flag">${c.flag}</span>` : ''}${esc(R.name(id))}</h2><div class="kana">${esc(R.sub(id))}</div></div>
       ${n === 3 ? stampHtml(id, rec?.stamped) : ''}
     </div>
     <div class="mastery"><span class="dots">${dots}</span><b>${lv(n)}</b><small>${esc(hintText(Store.nextHint(R.key, id)))}</small></div>
     <dl>
-      <dt>${esc(c.capLabel)}</dt><dd>${esc(c.cap)}<small>${esc(c.capSub)}</small></dd>
-      <dt>${esc(t('old'))}</dt><dd>${c.old.map(o => `${esc(o.n)}<small>${esc(o.sub)}</small>`).join(lang() === 'en' ? ', ' : '、')}</dd>
-      <dt>${esc(t('foods'))}</dt><dd>${chips(c.foods)}</dd>
-      <dt>${esc(t('sights'))}</dt><dd>${chips(c.sights)}</dd>
-      <dt>${esc(t('fact'))}</dt><dd>${esc(c.fact.replace(/○○/g, R.short(id)))}</dd>
-      <dt>${esc(t('dia'))}</dt><dd><b class="dia">${esc(c.dia.w)}</b> ${esc(c.dia.m)}</dd>
+      ${c.cap ? `<dt>${esc(c.capLabel)}</dt><dd>${esc(c.cap)}<small>${esc(c.capSub || '')}</small></dd>` : ''}
+      ${c.old.length ? `<dt>${esc(R.label('old'))}</dt><dd>${c.old.map(o => `${esc(o.n)}<small>${esc(o.sub)}</small>`).join(lang() === 'en' ? ', ' : '、')}</dd>` : ''}
+      ${c.foods.length ? `<dt>${esc(t('foods'))}</dt><dd>${chips(c.foods)}</dd>` : ''}
+      ${c.sights.length ? `<dt>${esc(t('sights'))}</dt><dd>${chips(c.sights)}</dd>` : ''}
+      ${c.fact ? `<dt>${esc(t('fact'))}</dt><dd>${esc(c.fact.replace(/○○/g, R.short(id)))}</dd>` : ''}
+      ${c.dia ? `<dt>${esc(R.label('dia'))}</dt><dd><b class="dia">${esc(c.dia.w)}</b> ${esc(c.dia.m)}</dd>` : ''}
     </dl>
     <a class="src" href="${esc(c.wiki)}" target="_blank" rel="noopener">${esc(t('source', c.wikiTitle))}</a>
   </div>`;
@@ -128,7 +162,9 @@ function ensurePlayMap() {
   playMap.clearMarks('ok', 'ng', 'target', 'visited', 'goal', 'here');
   playMap.clearLabels(); playMap.clearMarkers(); playMap.showLinks(false); playMap.path(null);
   playMap.paint(masteryColor);
-  playMap.reset();
+  const inScope = scopeKey() === 'all' ? null : pool();
+  playMap.dim(inScope);
+  playMap.setHome(inScope, R.map.views?.[scopeKey()]);
 }
 function setPanel(prompt, feedback = '', actions = '') {
   $('#pPrompt').innerHTML = prompt;
@@ -140,7 +176,7 @@ function setStat(html) { $('#pStat').innerHTML = html; }
 function startMode(mode) {
   show('play');
   ensurePlayMap();
-  $('#pTitle').textContent = t('mode.' + mode);
+  $('#pTitle').textContent = mode === 'book' ? R.label('book') : t('mode.' + mode);
   $('#pTimer').hidden = mode !== 'timed';
   clearInterval(P?.timer);
   P = { mode, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false };
@@ -149,14 +185,14 @@ function startMode(mode) {
   music(mode === 'timed' ? 'fast' : 'calm');
   if (mode === 'daily') P.qs = Quiz.daily(R);
   else if (mode === 'timed') { P.qs = []; P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
-  else P.qs = Quiz.session(R, mode, ROUND);
+  else P.qs = Quiz.session(R, mode, ROUND, pool());
   playMap.onTap(answer);
   nextQuestion();
 }
 
 // ── 答題流程 ──
 function nextQuestion() {
-  if (P.mode === 'timed') P.qs[P.i] = Quiz.session(R, 'mix', 1)[0];
+  if (P.mode === 'timed') P.qs[P.i] = Quiz.session(R, 'mix', 1, pool())[0];
   const q = P.qs[P.i];
   if (!q) return finishQuiz();
   P.answered = false;
@@ -249,7 +285,7 @@ function finishQuiz() {
 // ── 鄰接旅行 ──
 function startTravel() {
   music('calm');
-  const trip = Quiz.trip(R);
+  const trip = Quiz.trip(R, pool());
   Object.assign(P, { from: trip.from, to: trip.to, best: trip.best, cur: trip.from, steps: 0, trail: [trip.from], peek: false, done: false });
   playMap.showLinks(true);
   playMap.mark(trip.from, 'here'); playMap.label(trip.from, R.short(trip.from), 'here');
@@ -315,6 +351,7 @@ function startExplore() {
 // ── 御朱印帳 ──
 function renderBook() {
   const c = Store.counts(R.key, R.ids);
+  $('#book .hud-title').textContent = R.label('book');
   $('#bStat').textContent = `${c[3]} / ${R.ids.length}`;
   let html = '';
   for (const [ak, a] of Object.entries(R.areas)) {
@@ -335,7 +372,49 @@ function showSettings() {
   const s = Store.settings();
   const row = (k, name) => `<label class="set"><span>${esc(name)}</span><input type="checkbox" data-set="${k}" ${s[k] ? 'checked' : ''}></label>`;
   openModal(`<div class="settings"><h2>${esc(t('settings'))}</h2>${row('bgm', t('bgm'))}${row('sfx', t('sfx'))}${row('labels', t('labels'))}
+    <div class="cloud" id="cloudBox">${cloudHtml()}</div>
     <p class="muted">${esc(t('about'))}</p></div>`);
+}
+
+// ── 雲端存檔（設定裡的一區）──
+function cloudStatus() {
+  const st = Sync.status;
+  if (st === 'ok') return t('cloud.ok', new Date(Sync.lastSync).toLocaleTimeString(L_HTML(), { hour: '2-digit', minute: '2-digit' }));
+  if (st === 'err') return t('cloud.err', Sync.error);
+  return t('cloud.' + (st === 'sync' ? 'sync' : st === 'offline' ? 'offline' : 'off'));
+}
+const L_HTML = () => LANGS.find(x => x.key === lang()).html;
+function cloudHtml() {
+  const c = Sync.conf(), app = t('cloud.apps')[c.from];
+  const head = `<h3>${esc(t('cloud.title'))}</h3><div class="cloud-st st-${Sync.connected() ? Sync.status : 'off'}">${esc(Sync.connected() ? cloudStatus() : t('cloud.off'))}</div>`;
+  if (Sync.connected()) {
+    return head + `<div class="muted">${esc(app ? t('cloud.reuse', app) : t('cloud.own'))}</div>
+      <div class="actions"><button type="button" class="btn" data-cloud="off">${esc(t('cloud.disconnect'))}</button><button type="button" class="btn primary" data-cloud="now">${esc(t('cloud.now'))}</button></div>`;
+  }
+  const shared = Sync.sharedAvailable() ? `<button type="button" class="btn" data-cloud="shared">${esc(t('cloud.useShared', t('cloud.apps')['shuxia:gh'] + '／' + t('cloud.apps')['mt.gh']))}</button>` : '';
+  return head + `<p class="muted">${esc(t('cloud.help'))}</p>
+    <div class="token-row"><input id="tokenInput" type="password" autocomplete="off" placeholder="${esc(t('cloud.tokenPh'))}"><button type="button" class="btn primary" data-cloud="connect">${esc(t('cloud.connect'))}</button></div>
+    ${shared ? `<div class="actions">${shared}</div>` : ''}`;
+}
+function refreshCloud() { const b = $('#cloudBox'); if (b) b.innerHTML = cloudHtml(); $('#hSettings').classList.toggle('warn', Sync.status === 'err'); }
+// 雲端拉下來有新進度：重畫目前的畫面（答題中就不打斷，下一題自然用新的）
+async function cloudPull() {
+  const changed = await Sync.pull();
+  if (!changed) return;
+  if (!$('#home').hidden) renderHome();
+  else if (!$('#book').hidden) renderBook();
+  else if (playMap && P && !P.qs) playMap.paint(masteryColor);
+}
+async function cloudAction(a) {
+  if (a === 'connect') {
+    const tok = $('#tokenInput').value.trim();
+    if (!tok) return;
+    try { await Sync.connect(tok); } catch (e) { /* 狀態列會顯示錯誤 */ }
+    if (!$('#home').hidden) renderHome();
+  } else if (a === 'off') Sync.disconnect();
+  else if (a === 'shared') { await Sync.reuseShared(); if (!$('#home').hidden) renderHome(); }
+  else if (a === 'now') await cloudPull();
+  refreshCloud();
 }
 
 // ── 事件 ──
@@ -353,12 +432,15 @@ document.addEventListener('click', e => {
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
   else if (b.id === 'mDaily') { Sound.play('tap'); startMode('daily'); }
   else if (b.id === 'mBook') { Sound.play('tap'); renderBook(); show('book'); }
+  else if (b.dataset.scope) { Sound.play('tap'); setScope(b.dataset.scope); }
   else if (b.id === 'pBack' || b.id === 'bBack') goHome();
   else if (b.id === 'hSettings') showSettings();
+  else if (b.dataset.cloud) cloudAction(b.dataset.cloud);
   else if (b.id === 'modalClose') closeModal();
   else if (b.dataset.r) {
     const g = REGIONS.find(x => x.key === b.dataset.r);
     if (!g.ready) toast(esc(t('soonToast', t('region.' + g.key), t('regionUnit.' + g.key))));
+    else if (g.key !== R.key) { Sound.play('tap'); switchRegion(g.key); }
   }
   else if (b.dataset.card) { Sound.play('tap'); showCard(b.dataset.card); }
   else if (b.hasAttribute('data-next')) advance();
@@ -379,7 +461,16 @@ document.addEventListener('pointerdown', function unlock() {
   Sound.init(); music(bgmStyle);
   document.removeEventListener('pointerdown', unlock);
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) Sound.stopBgm(); else music(bgmStyle); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    Sound.stopBgm();
+    // 切走前把還沒推的進度推上去（keepalive：頁面關掉也送得出去）
+    if (Sync.timer) Sync.push(true);
+  } else {
+    music(bgmStyle);
+    cloudPull();
+  }
+});
 
 // Android App 的返回鍵：先關彈窗、再回首頁，都沒有才讓 App 退到背景
 window.KMAP = {
@@ -392,10 +483,13 @@ window.KMAP = {
 
 // ── 啟動 ──
 if (!Store.settings().lang) Store.setSetting('lang', defaultLang());
-R = regionData('japan');
+R = regionData(Store.settings().region || 'japan') || regionData('japan');
 $('#logoDog').innerHTML = komugiImg(44);
 $('#appVer').textContent = 'v' + APP_VERSION;
 applyLang();
 renderTabs();
 renderHome();
+Store.onProgress(() => Sync.schedule());
+Sync.onStatus = refreshCloud;
+cloudPull();
 if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js');
