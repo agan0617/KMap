@@ -74,7 +74,7 @@ powershell -File tools\build-icons.ps1 [-AndroidRes <KMapApp\app\src\main\res>]
 - **地圖**：第一次會下載 Natural Earth 的 1:10m 行政區界（約 40MB）到 `tools/.cache/`。用 mapshaper 簡化並保留拓撲，再用 topojson 算相鄰關係。資料不準的相鄰關係、跨海連結、插圖框寫在 `build-map.mjs` 的 `REGIONS` 設定裡
 - **圖示**：用 Edge headless 截 `tools/icon.html`
 
-改了網頁要記得改 `sw.js` 的 `VERSION`，舊快取才會被換掉。
+版號只寫在 `js/version.js`：首頁標題旁顯示它，`sw.js` 也拿它當快取名稱。改了網頁就要加版號，舊快取才會被換掉。
 
 ## 資料來源
 
