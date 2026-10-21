@@ -89,7 +89,7 @@ const Rewards = (() => {
     const c = { correct: 0, visited: 0, stamps: 0, areasMastered: 0, regionsVisited: 0, regionsMastered: 0, regionsPlayed: 0, rs: {},
       trips: st.trips || 0, trips3: st.trips3 || 0, maxCombo: st.maxCombo || 0, dailyPerfect: st.dailyPerfect || 0,
       streakBest: st.streakBest || 0, langs: Object.keys(st.langs || {}).length, timedBest: 0 };
-    for (const g of REGIONS) {
+    for (const g of REWARD_REGIONS.map(key => ({ key }))) {
       const R = reg(g.key);
       if (!R) continue;
       const lv = id => Store.level(g.key, id);

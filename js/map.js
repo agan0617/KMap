@@ -41,7 +41,8 @@ function createMap(container, R, opts = {}) {
   let tapCb = null;
 
   // ── 視角 ──
-  const full = { x: 0, y: 0, w: M.width, h: M.height };
+  // box：只看地圖的一部分（各洲分頁用世界地圖的一塊），「全圖」與拖曳範圍都以它為準
+  const full = M.box ? { x: M.box[0], y: M.box[1], w: M.box[2], h: M.box[3] } : { x: 0, y: 0, w: M.width, h: M.height };
   let vb = { ...full };
   // 地圖座標每單位等於幾個螢幕像素的倒數；標籤與 Komugi 用它換算，縮放時保持固定的螢幕大小
   let unitPx = 1;
@@ -71,10 +72,10 @@ function createMap(container, R, opts = {}) {
   const maxZoom = M.width >= 2000 ? 40 : 10;
   function clamp() {
     const r = svg.getBoundingClientRect(), aspect = r.width && r.height ? r.width / r.height : full.w / full.h;
-    vb.w = Math.max(full.w / maxZoom, Math.min(Math.max(full.w, full.h * aspect) * 1.2, vb.w));
+    vb.w = Math.max(M.width / maxZoom, Math.min(Math.max(full.w, full.h * aspect) * 1.2, vb.w));
     vb.h = vb.w / aspect;
-    vb.x = Math.max(-vb.w * 0.5, Math.min(full.w - vb.w * 0.5, vb.x));
-    vb.y = Math.max(-vb.h * 0.5, Math.min(full.h - vb.h * 0.5, vb.y));
+    vb.x = Math.max(full.x - vb.w * 0.5, Math.min(full.x + full.w - vb.w * 0.5, vb.x));
+    vb.y = Math.max(full.y - vb.h * 0.5, Math.min(full.y + full.h - vb.h * 0.5, vb.y));
   }
   const toSvg = (cx, cy) => {
     const p = svg.createSVGPoint(); p.x = cx; p.y = cy;
@@ -93,6 +94,7 @@ function createMap(container, R, opts = {}) {
   function reset() {
     if (home?.view) focusRect(...home.view);
     else if (home) focus(home.ids, home.pad, true);
+    else if (M.box) focusRect(...M.box);
     else { vb = { ...full }; apply(); }
   }
   function setHome(ids, view, pad = 1.15) { home = view ? { view } : ids && ids.length < R.ids.length ? { ids, pad } : null; reset(); }
@@ -196,6 +198,7 @@ function createMap(container, R, opts = {}) {
     gLinks.innerHTML = '';
     if (!on) return;
     for (const l of M.links || []) {
+      if (!R.units[l.a] || !R.units[l.b]) continue;   // 各洲分頁不畫跨洲的連結
       const a = M.shapes[l.a], b = M.shapes[l.b];
       const ln = el('line', { x1: a.cx, y1: a.cy, x2: b.cx, y2: b.cy, class: 'link' }, gLinks);
       el('title', {}, ln).textContent = l.name;

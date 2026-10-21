@@ -3,12 +3,16 @@
 // - 日本（schema 預設）：data/japan-info.js 是中文底稿，data/japan-info.<en|ja>.js 是逐項對應的翻譯
 // - 中國、世界（schema: 'multi'）：data/<區>-info.js 放分區與欄位名稱，data/<區>-units-*.js 每一區直接寫中英日三份
 // 順序就是首頁分頁的順序，第一個是預設地區（Ken 是臺灣人，臺灣放第一個）
+// 世界拆成六大洲各一頁（2026-10-21）；world 本身不再是分頁，但熟練度仍記在 world，成就也照世界整體算
+const CONTINENT_KEYS = ['asia', 'europe', 'africa', 'namerica', 'samerica', 'oceania'];
 const REGIONS = [
   { key: 'taiwan', ready: true },
   { key: 'japan', ready: true },
   { key: 'china', ready: true },
-  { key: 'world', ready: true },
+  ...CONTINENT_KEYS.map(key => ({ key, ready: true })),
 ];
+// 成就、統計用的地區（各洲合起來算世界，門檻才跟以前一樣）
+const REWARD_REGIONS = ['taiwan', 'japan', 'china', 'world'];
 
 // 日文新字體 → 台灣慣用的繁體字（中文介面顯示日本地名用）
 const TRAD = { 静: '靜', 広: '廣', 徳: '德', 縄: '繩', 児: '兒', 戸: '戶', 浜: '濱', 沢: '澤', 関: '關', 黒: '黑', 県: '縣', 横: '橫', 区: '區', 奥: '奧' };
@@ -37,7 +41,7 @@ function japanProfile(key, info) {
       cap: capName, capSub: l === 'en' ? u.cap[0] : u.cap[1],
       capClue: capStem(u.cap[0]) !== jaShort(id),
       old: u.old.map((o, i) => ({ n: l !== 'zh' ? (x.old?.[i] || o[0]) : o[0], sub: l === 'en' ? o[0] : o[1], q: o[2] })),
-      foods: pick('foods', u.foods), sights: pick('sights', u.sights), fact: pick('fact', u.fact),
+      foods: pick('foods', u.foods), sights: pick('sights', u.sights), fact: pick('fact', u.fact), facts: pick('facts', u.facts || []),
       dia: { w: u.dia[0], m: pick('dia', u.dia[1]), q: u.dia[2] !== 0 },
       wiki: l === 'en' ? `https://en.wikipedia.org/wiki/${encodeURIComponent((x.wiki || x.name || u.ja).replace(/ /g, '_'))}` : `https://ja.wikipedia.org/wiki/${encodeURIComponent(u.ja)}`,
       wikiTitle: l === 'en' ? (x.wiki || x.name || u.ja) : u.ja,
@@ -64,7 +68,7 @@ function multiProfile(key, info, map) {
       // 首都名裡就有國名（新加坡、科威特市…）不拿來出題
       capClue: !!x.cap && !has(x.cap, x.short) && !has(info.units[id].en?.cap, info.units[id].en?.short),
       old: (x.old || []).map((o, i) => ({ n: o[0], sub: o[1], q: q.old?.[i] })),
-      foods: x.foods || [], sights: x.sights || [], fact: x.fact || '',
+      foods: x.foods || [], sights: x.sights || [], fact: x.fact || '', facts: x.facts || [],
       dia: x.dia ? { w: x.dia[0], m: x.dia[1], q: !!q.dia } : null,
       // 好幾個地方共有的名產名勝（查證時標的）：卡片照樣顯示，不拿來出題
       skip: new Set(q.skip || []),
@@ -92,8 +96,26 @@ function flagOf(iso2) {
   return String.fromCodePoint(...[...iso2.toUpperCase()].map(c => 0x1F1E6 + c.charCodeAt(0) - 65));
 }
 
+// 一洲＝世界地圖＋世界知識卡只取那一洲；分區換成洲底下的地理分區，其他洲的國家畫成不能點的底圖
+const continentCache = {};
+function continentSource(key) {
+  if (continentCache[key]) return continentCache[key];
+  const wm = window.KMAP_MAPS?.world, wi = window.KMAP_INFO?.world, subs = window.KMAP_CONTINENTS?.[key];
+  if (!wm || !wi || !subs) return null;
+  const units = {}, areas = {};
+  for (const [ak, a] of Object.entries(subs)) {
+    areas[ak] = { color: a.color, zh: a.zh, en: a.en, ja: a.ja };
+    for (const id of a.ids) if (wi.units[id]) units[id] = Object.assign({}, wi.units[id], { area: ak });
+  }
+  const others = Object.keys(wm.shapes).filter(id => !units[id]).map(id => wm.shapes[id].d).join('');
+  const map = Object.assign({}, wm, { region: key, bg: (wm.bg || '') + others, box: wm.views?.[key], views: {} });
+  const info = Object.assign({}, wi, { units, areas });
+  return (continentCache[key] = { map, info });
+}
+
 function regionData(key) {
-  const map = window.KMAP_MAPS?.[key], info = window.KMAP_INFO?.[key];
+  const src = CONTINENT_KEYS.includes(key) ? continentSource(key) : null;
+  const map = src ? src.map : window.KMAP_MAPS?.[key], info = src ? src.info : window.KMAP_INFO?.[key];
   if (!map || !info) return null;
   const ids = Object.keys(info.units).filter(id => map.shapes[id]).sort();
   const P = info.schema === 'multi' ? multiProfile(key, info, map) : japanProfile(key, info);
@@ -104,6 +126,9 @@ function regionData(key) {
   // 隔海連結也算相鄰，鄰接旅行用
   const graph = {};
   for (const id of ids) graph[id] = new Set((map.adj[id] || []).filter(x => info.units[x]));
-  for (const l of map.links || []) { graph[l.a]?.add(l.b); graph[l.b]?.add(l.a); }
-  return { key, map, info, ids, units: info.units, areas, stampStyle: info.stamp || 'goshuin', ...P, maskWords, graph };
+  // 各洲只取洲內的連結（白令海峽那種跨洲的不算）
+  for (const l of map.links || []) if (info.units[l.a] && info.units[l.b]) { graph[l.a]?.add(l.b); graph[l.b]?.add(l.a); }
+  // sk＝熟練度存在哪個地區（各洲都記在 world）；music＝背景音樂的音階
+  const sk = src ? 'world' : key;
+  return { key, sk, music: src ? 'world' : key, map, info, ids, units: info.units, areas, stampStyle: info.stamp || 'goshuin', ...P, maskWords, graph };
 }

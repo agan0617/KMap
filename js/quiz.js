@@ -39,21 +39,71 @@ const Quiz = (() => {
     c.foods.forEach((s, i) => { if (ok('foods', s, i)) L.push({ k: 'food', tag: t('foods'), t: m(s) }); });
     c.sights.forEach((s, i) => { if (ok('sights', s, i)) L.push({ k: 'sight', tag: t('sights'), t: m(s) }); });
     if (c.fact) L.push({ k: 'fact', tag: t('factClue'), t: m(c.fact) });
+    for (const f of c.facts || []) L.push({ k: 'fact', tag: t('factClue'), t: m(f) });
     if (c.dia?.q) L.push({ k: 'dia', tag: R.label('dia'), t: `「${c.dia.w}」＝${m(c.dia.m)}` });
     return L;
+  }
+
+  // ── 不靠知識卡、用地圖本身出的題（2026-10-21 Ken 要求題目多元化）：答案都要唯一 ──
+  const nbOf = (R, id) => [...(R.graph[id] || [])];
+  // 地圖座標 y 向下：0＝北，順時針每 45° 一格
+  function dir8(R, from, to) {
+    const a = R.map.shapes[from], b = R.map.shapes[to];
+    return Math.round(((Math.atan2(b.cx - a.cx, a.cy - b.cy) * 180 / Math.PI + 360) % 360) / 45) % 8;
+  }
+  // 鄰居題：給答案的 2～3 個鄰居，沒有別的地方也同時和它們都相鄰才出
+  function nbClue(R, id, r) {
+    const nb = nbOf(R, id);
+    if (nb.length < 2) return null;
+    const given = [...nb].sort(() => r() - 0.5).slice(0, Math.min(3, nb.length));
+    const others = R.ids.filter(x => x !== id && given.every(g => R.graph[x]?.has(g)));
+    if (others.length) return null;
+    return { k: 'nb', tag: t('qt.nb'), t: t('qnb', given.map(g => R.short(g)).join(t('ex.listSep'))) };
+  }
+  // 方位題：「X 的東邊鄰居」，X 在那個方向只有答案一個鄰居才出
+  function dirClue(R, id, r) {
+    const cands = nbOf(R, id).filter(x => {
+      const d = dir8(R, x, id);
+      return nbOf(R, x).filter(y => dir8(R, x, y) === d).length === 1;
+    });
+    if (!cands.length) return null;
+    const x = pick(cands, r), d = dir8(R, x, id);
+    return { k: 'dir', tag: t('qt.dir'), t: t('qdir', R.short(x), t('ex.dir')[d]), from: x };
+  }
+  // 剪影題：只給形狀（太小的地方看不出形狀，不出）
+  function shapeClue(R, id) {
+    const s = R.map.shapes[id];
+    if (!s || s.area < 150) return null;
+    const n = s.d.match(/-?[\d.]+/g).map(Number);
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (let i = 0; i < n.length; i += 2) { x0 = Math.min(x0, n[i]); x1 = Math.max(x1, n[i]); y0 = Math.min(y0, n[i + 1]); y1 = Math.max(y1, n[i + 1]); }
+    const pad = Math.max(x1 - x0, y1 - y0) * 0.06;
+    const html = `<svg class="silhouette" viewBox="${x0 - pad} ${y0 - pad} ${x1 - x0 + pad * 2} ${y1 - y0 + pad * 2}"><path d="${s.d}"/></svg>`;
+    return { k: 'shape', tag: t('qt.shape'), t: '', html };
+  }
+  // 國旗題：只有各洲（世界的國家）有
+  function flagClue(R, id) {
+    const f = R.card(id).flag;
+    return f ? { k: 'flag', tag: t('qt.flag'), t: f, flag: true } : null;
   }
 
   function question(R, type, id, r = Math.random) {
     if (type === 'mix') type = r() < 0.5 ? 'loc' : 'know';
     if (type === 'know') {
+      // 先抽題型再抽提示：知識卡提示一半、其餘題型平分另一半，才不會被知識卡的條數淹沒
       const L = clues(R, id);
-      if (L.length) { const c = pick(L, r); return { type, id, tag: c.tag, main: c.t, sub: t('where'), clue: c.k }; }
+      const special = [nbClue(R, id, r), dirClue(R, id, r), shapeClue(R, id), flagClue(R, id)].filter(Boolean);
+      const c = special.length && (!L.length || r() < 0.5) ? pick(special, r) : L.length ? pick(L, r) : null;
+      if (c) {
+        const sub = c.k === 'shape' ? t('qshape') : c.k === 'flag' ? t('qflag') : t('where');
+        return { type, id, tag: c.tag, main: c.t, html: c.html, sub, clue: c.k, from: c.from };
+      }
     }
     return { type: 'loc', id, tag: t('mode.loc'), main: R.name(id), sub: R.sub(id) };
   }
 
   // 一輪練習：依複習權重抽，不重複
-  function session(R, type, n, pool = R.ids, r = Math.random, weightFn = id => Store.weight(R.key, id)) {
+  function session(R, type, n, pool = R.ids, r = Math.random, weightFn = id => Store.weight(R.sk, id)) {
     const left = [...pool], out = [];
     while (out.length < n && left.length) {
       const id = weighted(left, weightFn, r);

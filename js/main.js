@@ -33,7 +33,7 @@ function applyTheme() {
 }
 darkMq.addEventListener('change', applyTheme);
 function masteryColor(id) {
-  const n = Store.level(R.key, id);
+  const n = Store.level(R.sk, id);
   if (!n) return '';
   return mixColor(R.areas[R.units[id].area].color, [0, 0.32, 0.62, 1][n]);
 }
@@ -48,7 +48,7 @@ function show(id) {
 }
 function music(style) {
   bgmStyle = style;
-  Sound.bgm(R.key, Store.settings().bgm ? style : null);
+  Sound.bgm(R.music, Store.settings().bgm ? style : null);
 }
 function openModal(html, onClose, fixed = false) {
   $('#modalBody').innerHTML = html;
@@ -126,6 +126,7 @@ function setLang(l) {
 function renderTabs() {
   $('#regionTabs').innerHTML = REGIONS.map(g =>
     `<button type="button" class="tab ${g.key === R.key ? 'on' : ''} ${g.ready ? '' : 'soon'}" data-r="${g.key}">${esc(t('region.' + g.key))}${g.ready ? '' : `<small>${esc(t('soon'))}</small>`}</button>`).join('');
+  $('#regionTabs .on')?.scrollIntoView({ inline: 'center', block: 'nearest' });
 }
 function renderHome() {
   if (!homeMap) {
@@ -135,11 +136,11 @@ function renderHome() {
   homeMap.paint(masteryColor);
   // 已解開（到訪以上）的地方標地名，跟圖鑑一樣塞得下才顯示（Ken 2026-10-21 要求）
   homeMap.clearLabels();
-  for (const id of R.ids) if (Store.level(R.key, id) >= 1) homeMap.label(id, R.short(id), 'auto');
+  for (const id of R.ids) if (Store.level(R.sk, id) >= 1) homeMap.label(id, R.short(id), 'auto');
   applyScope(homeMap);
   renderScope();
   $('#mBook b').textContent = R.label('book');
-  const c = Store.counts(R.key, R.ids), n = R.ids.length;
+  const c = Store.counts(R.sk, R.ids), n = R.ids.length;
   const seg = (k, cls) => c[k] ? `<i class="${cls}" style="flex:${c[k]}"></i>` : '';
   $('#homeProgress').innerHTML = `
     <div class="bar">${seg(3, 'l3')}${seg(2, 'l2')}${seg(1, 'l1')}${seg(0, 'l0')}</div>
@@ -167,7 +168,7 @@ function hintText(h) {
   return t('hint.' + h.k);
 }
 function cardHtml(id) {
-  const u = R.units[id], n = Store.level(R.key, id), a = R.areas[u.area], rec = Store.unit(R.key, id), c = R.card(id);
+  const u = R.units[id], n = Store.level(R.sk, id), a = R.areas[u.area], rec = Store.unit(R.sk, id), c = R.card(id);
   const chips = arr => arr.map(x => `<span class="chip">${esc(x)}</span>`).join('');
   const dots = [1, 2, 3].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('');
   return `
@@ -176,13 +177,13 @@ function cardHtml(id) {
       <div><div class="card-area">${esc(R.areaName(u.area))}</div><h2>${c.flag ? `<span class="flag">${c.flag}</span>` : ''}${esc(R.name(id))}</h2><div class="kana">${esc(R.sub(id))}</div></div>
       ${n === 3 ? stampHtml(id, rec?.stamped) : ''}
     </div>
-    <div class="mastery"><span class="dots">${dots}</span><b>${lv(n)}</b><small>${esc(hintText(Store.nextHint(R.key, id)))}</small></div>
+    <div class="mastery"><span class="dots">${dots}</span><b>${lv(n)}</b><small>${esc(hintText(Store.nextHint(R.sk, id)))}</small></div>
     <dl>
       ${c.cap ? `<dt>${esc(c.capLabel)}</dt><dd>${esc(c.cap)}<small>${esc(c.capSub || '')}</small></dd>` : ''}
       ${c.old.length ? `<dt>${esc(R.label('old'))}</dt><dd>${c.old.map(o => `${esc(o.n)}<small>${esc(o.sub)}</small>`).join(lang() === 'en' ? ', ' : '、')}</dd>` : ''}
       ${c.foods.length ? `<dt>${esc(t('foods'))}</dt><dd>${chips(c.foods)}</dd>` : ''}
       ${c.sights.length ? `<dt>${esc(t('sights'))}</dt><dd>${chips(c.sights)}</dd>` : ''}
-      ${c.fact ? `<dt>${esc(t('fact'))}</dt><dd>${esc(c.fact.replace(/○○/g, R.short(id)))}</dd>` : ''}
+      ${c.fact ? `<dt>${esc(t('fact'))}</dt><dd>${[c.fact, ...(c.facts || [])].map(f => esc(f.replace(/○○/g, R.short(id)))).join('<br>')}</dd>` : ''}
       ${c.dia ? `<dt>${esc(R.label('dia'))}</dt><dd><b class="dia">${esc(c.dia.w)}</b> ${esc(c.dia.m)}</dd>` : ''}
     </dl>
     <a class="src" href="${esc(c.wiki)}" target="_blank" rel="noopener">${esc(t('source', c.wikiTitle))}</a>
@@ -235,8 +236,9 @@ function nextQuestion() {
   if (!q) return finishQuiz();
   P.answered = false;
   playMap.clearMarks('ok', 'ng', 'target'); playMap.clearLabels();
-  const big = q.type === 'loc' || q.clue !== 'fact';
-  setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${big ? 'big' : ''}">${esc(q.main)}</div><div class="q-sub">${esc(q.sub)}</div>`);
+  const big = q.type === 'loc' || !['fact', 'nb', 'dir'].includes(q.clue);
+  const main = q.html || esc(q.main);
+  setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${big ? 'big' : ''} ${q.clue === 'flag' ? 'flag-q' : ''}">${main}</div><div class="q-sub">${esc(q.sub)}</div>`);
   updateStat();
 }
 function updateStat() {
@@ -250,7 +252,7 @@ function answer(id) {
   if (!id || P.answered || !P.qs?.[P.i]) return;
   const q = P.qs[P.i], ok = id === q.id;
   P.answered = true;
-  const ch = Store.record(R.key, q.id, q.type, ok);
+  const ch = Store.record(R.sk, q.id, q.type, ok);
   P.marks.push(ok ? '🟩' : '🟥');
   if (ok) { Store.stat('langs', lang()); Store.stat('maxCombo', P.combo + 1); gain(Rewards.EARN.ok + (P.combo + 1 >= 5 ? Rewards.EARN.combo : 0)); }
   if (ch.to > ch.from) gain(LEVEL_COINS[ch.to]);
@@ -305,7 +307,10 @@ function explain(q, picked) {
     const n = hops(picked, id);
     lines.push(t('ex.picked', R.name(picked), name, dirOf(id, picked)) + (n === 1 ? t('ex.adj') : n > 1 ? t('ex.hops', n - 1) : t('ex.far')));
   }
-  if (q.type === 'know') lines.push(t('ex.clue', q.tag, q.main.split('○○').join(R.short(id)), name));
+  if (q.clue === 'dir') lines.push(t('ex.at', name, R.short(q.from), dirOf(q.from, id)));
+  else if (q.clue === 'shape' || q.clue === 'flag') lines.push(t('ex.is', q.tag, name));
+  else if (q.clue === 'nb') { /* 第一行已列出鄰居 */ }
+  else if (q.type === 'know') lines.push(t('ex.clue', q.tag, q.main.split('○○').join(R.short(id)), name));
   else {
     if (c.cap) lines.push(t('ex.cap', c.capLabel, c.cap));
     if (c.fact) lines.push(c.fact.replace(/○○/g, R.short(id)));
@@ -411,7 +416,7 @@ function travelGoal() {
   let stars = P.steps === P.best ? 3 : P.steps <= P.best + 2 ? 2 : 1;
   if (P.peek) stars = Math.max(1, stars - 1);
   if (!P.peek) {
-    const ch = Store.record(R.key, P.to, 'loc', true);
+    const ch = Store.record(R.sk, P.to, 'loc', true);
     if (ch.to === 3) Sound.play('stamp'); else if (ch.to > ch.from) Sound.play('level');
     if (ch.to > ch.from) gain(LEVEL_COINS[ch.to]);
   }
@@ -444,7 +449,7 @@ function startExplore() {
 
 // ── 御朱印帳 ──
 function renderBook() {
-  const c = Store.counts(R.key, R.ids);
+  const c = Store.counts(R.sk, R.ids);
   $('#book .hud-title').textContent = R.label('book');
   $('#bStat').textContent = `${c[3]} / ${R.ids.length}`;
   let html = '';
@@ -453,7 +458,7 @@ function renderBook() {
     if (!ids.length) continue;
     html += `<h3 style="--area:${a.color}">${esc(R.areaName(ak))}</h3><div class="book-grid">`;
     for (const id of ids) {
-      const n = Store.level(R.key, id), rec = Store.unit(R.key, id);
+      const n = Store.level(R.sk, id), rec = Store.unit(R.sk, id);
       html += `<button type="button" class="slot lv${n}" data-card="${id}">${n === 3 ? stampHtml(id, rec.stamped) : `<span class="slot-name">${esc(R.short(id))}</span><span class="dots">${[1, 2, 3].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span>`}</button>`;
     }
     html += '</div>';
@@ -474,7 +479,7 @@ function renderHero() {
   $('#heroDog').innerHTML = komugiFullImg(104);
   const title = Store.title();
   $('#heroTitle').textContent = t('closet.titles')[title && Rewards.SETS.some(x => x.id === title && Rewards.setDone(x)) ? title : 'none'];
-  const g = Rewards.nextGoal(R?.key);
+  const g = Rewards.nextGoal(R?.sk);
   $('#heroBubble').textContent = g ? t('hero.goal', achText(g.a), g.left, itemName(g.a.item)) : t('hero.allDone');
   $('#heroCoins').textContent = '🐾 ' + Store.coins();
   const n = Math.floor(Store.coins() / Rewards.PULL_COST);
@@ -733,7 +738,9 @@ window.KMAP = {
 
 // ── 啟動 ──
 if (!Store.settings().lang) Store.setSetting('lang', defaultLang());
-R = regionData(Store.settings().region || REGIONS[0].key) || regionData(REGIONS[0].key);
+// 1.10.0 以前存的是 world（拆成各洲前），改開亞洲
+const savedRegion = Store.settings().region === 'world' ? 'asia' : Store.settings().region;
+R = regionData(savedRegion || REGIONS[0].key) || regionData(REGIONS[0].key);
 refreshDog();
 $('#appVer').textContent = 'v' + APP_VERSION;
 applyLang();
