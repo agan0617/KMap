@@ -145,7 +145,7 @@ function renderHome() {
     <div class="bar">${seg(3, 'l3')}${seg(2, 'l2')}${seg(1, 'l1')}${seg(0, 'l0')}</div>
     <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span><b>${c[3]} / ${n}</b></div>`;
   const d = Store.daily(R.key), st = Store.streak(R.key);
-  $('#dailyInfo').textContent = (d == null ? t('dailyNone') : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '') + (d == null ? '' : t('dailyAgainHint', Rewards.EARN.dailyAgain));
+  $('#dailyInfo').textContent = (d == null ? t('dailyNone', Rewards.EARN.daily) : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '') + (d == null ? '' : t('dailyAgainHint', Rewards.EARN.dailyAgain));
   // 地圖左上角的解鎖百分比：到訪以上的地方佔比（Ken 2026-10-21 要求）
   const unlocked = n - c[0];
   $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
@@ -302,10 +302,15 @@ function finishQuiz() {
     let extra = '';
     if (P.mode === 'daily') {
       const perfect = P.score === P.qs.length, E = Rewards.EARN;
-      const bonus = P.again ? E.dailyAgain + (perfect ? E.dailyAgainPerfect : 0) : E.daily + (perfect ? E.dailyPerfect : 0);
+      if (!P.again) Store.setDaily(R.key, P.score, P.marks.join(''));   // 成績與方格只記每天第一次；先記才算得到今天的連續天數
+      const streak = Store.streak(R.key);
+      // 每天第一次：基本 +30、全對 +30、連續天數每天 +5（最多 +50）；再挑戰只有 +5（全對 +5），差距要大才會每天來
+      const parts = P.again
+        ? [[t('dailyAgainBonus'), E.dailyAgain], perfect && [t('perfectBonus'), E.dailyAgainPerfect]]
+        : [[t('dailyBonus'), E.daily], perfect && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]];
+      const got = parts.filter(Boolean), bonus = got.reduce((s, [, n]) => s + n, 0);
       gain(bonus);
-      if (!P.again) Store.setDaily(R.key, P.score, P.marks.join(''));   // 成績與方格只記每天第一次
-      extra = `<div class="daily-bonus">🎁 ${esc(t(P.again ? 'dailyAgainBonus' : 'dailyBonus', bonus))}${perfect ? ' ' + esc(t('perfectBonus')) : ''}</div><div class="muted">${esc(t('streakDays', Store.streak(R.key)))}</div>`;
+      extra = `<div class="daily-bonus"><b>🎁 +${bonus} 🐾</b><small>${got.map(([k, n]) => `${esc(k)} +${n}`).join('・')}</small></div><div class="muted">${esc(t('streakDays', streak))}</div>`;
     }
     head = `<div class="big-score">${P.score}<small> / ${total}</small></div>${extra}`;
   }
