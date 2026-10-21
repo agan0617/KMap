@@ -13,9 +13,8 @@ const KOMUGI_SVG = `
   <circle cx="35" cy="52.6" r="2.3" fill="#fff"/><circle cx="61" cy="52.6" r="2.3" fill="#fff"/>
   <circle cx="39.3" cy="58" r="1.1" fill="#fff" opacity=".9"/><circle cx="65.3" cy="58" r="1.1" fill="#fff" opacity=".9"/>
   <ellipse cx="27" cy="67" rx="6.5" ry="3.8" fill="#f6a3a0" opacity=".75"/><ellipse cx="73" cy="67" rx="6.5" ry="3.8" fill="#f6a3a0" opacity=".75"/>
-  <path d="M47.5 74 Q50 80.5 52.5 74 Z" fill="#f39aa6"/>
   <ellipse cx="50" cy="66.5" rx="5.2" ry="4" fill="#2b2118"/><ellipse cx="48.5" cy="65" rx="1.6" ry="1" fill="#fff" opacity=".5"/>
-  <path d="M50 70 Q50 75.5 44 74.5 M50 70 Q50 75.5 56 74.5" stroke="#2b2118" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M41 71 Q43 76.5 50 72.5 Q57 76.5 59 71" stroke="#2b2118" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M47.6 74.4 Q50 80 52.4 74.4 Z" fill="#f39aa6"/>
   <path d="M13 52 Q13 13 50 11 Q87 13 87 52" stroke="#3a3f58" stroke-width="6" fill="none" stroke-linecap="round"/>
   <rect x="4" y="43" width="16" height="25" rx="8" fill="#3a3f58"/><rect x="80" y="43" width="16" height="25" rx="8" fill="#3a3f58"/>
   <rect x="8" y="48" width="7" height="15" rx="3.5" fill="#e05d5d"/><rect x="85" y="48" width="7" height="15" rx="3.5" fill="#e05d5d"/>

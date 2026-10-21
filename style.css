@@ -318,3 +318,7 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 /* 全部扭的結果：小格子一次列出 */
 .gacha-multi { width: 100%; max-height: 46dvh; overflow-y: auto; }
 .gacha-multi .item-tile { position: relative; }
+/* 知識卡底下的上一個／下一個 */
+.card-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); }
+.card-nav .btn { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-nav small { color: var(--muted); flex-shrink: 0; }

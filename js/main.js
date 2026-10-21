@@ -193,7 +193,16 @@ function cardHtml(id) {
     <a class="src" href="${esc(c.wiki)}" target="_blank" rel="noopener">${esc(t('source', c.wikiTitle))}</a>
   </div>`;
 }
-function showCard(id) { openModal(cardHtml(id)); }
+// 知識卡的上一個／下一個（Ken 2026-10-21 要求，不用關掉卡片就能看下一個）：順序跟紀念章冊一樣，分區依序、區內照 id
+function cardOrder() { return Object.keys(R.areas).flatMap(ak => R.ids.filter(id => R.units[id].area === ak)); }
+function cardNav(id) {
+  const ids = cardOrder(), i = ids.indexOf(id);
+  if (i < 0 || ids.length < 2) return '';
+  const prev = ids[(i - 1 + ids.length) % ids.length], next = ids[(i + 1) % ids.length];
+  return `<div class="card-nav"><button type="button" class="btn" data-card="${prev}" data-nav="prev">‹ ${esc(R.short(prev))}</button>
+    <small>${i + 1} / ${ids.length}</small><button type="button" class="btn" data-card="${next}" data-nav="next">${esc(R.short(next))} ›</button></div>`;
+}
+function showCard(id) { openModal(cardHtml(id) + cardNav(id)); $('#modal .sheet').scrollTop = 0; }
 
 // ── 遊玩畫面 ──
 function ensurePlayMap() {
@@ -738,6 +747,11 @@ document.addEventListener('change', e => {
 });
 // 按下和放開都在遮罩上才關：地圖在 pointerup 就開卡片，瀏覽器隨後補送的 click 會落在剛蓋上來的遮罩上
 let downOnScrim = false;
+// 電腦上看知識卡：左右方向鍵切上一個／下一個
+document.addEventListener('keydown', e => {
+  if ($('#modal').hidden || (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight')) return;
+  $(`#modal [data-nav="${e.key === 'ArrowLeft' ? 'prev' : 'next'}"]`)?.click();
+});
 $('#modal').addEventListener('pointerdown', e => { downOnScrim = e.target.id === 'modal'; });
 $('#modal').addEventListener('click', e => { if (e.target.id === 'modal' && downOnScrim) closeModal(); downOnScrim = false; });
 // 瀏覽器規定要使用者先互動才能出聲
