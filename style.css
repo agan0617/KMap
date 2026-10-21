@@ -188,6 +188,17 @@ details.small { font-size: 12px; max-width: 360px; }
 .fb { font-weight: 700; font-size: 15px; }
 .fb small { margin-left: 4px; }
 .fb.ok { color: var(--ok); } .fb.ng { color: var(--ng); }
+/* 答案解析：答完後面板分兩欄，左邊題目與對錯、右邊（題目旁）解析，內容多就在右欄裡捲 */
+.panel.answered { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); grid-template-rows: auto 1fr auto; column-gap: 10px; row-gap: 4px; }
+.panel.answered #pPrompt { grid-column: 1; grid-row: 1; }
+.panel.answered #pFeedback { grid-column: 1; grid-row: 2; }
+.panel.answered #pEx { grid-column: 2; grid-row: 1 / 3; min-height: 0; overflow-y: auto; }
+.panel.answered #pActions { grid-column: 1 / 3; grid-row: 3; }
+.panel.answered .q-main.big { font-size: 22px; }
+.panel.answered .q-main { font-size: 15px; }
+.panel.answered .fb { font-size: 14px; }
+.ex { font-size: 13px; line-height: 1.45; color: var(--ink); background: var(--paper); border-left: 3px solid var(--line); border-radius: 6px; padding: 4px 8px; }
+.ex p { margin: 2px 0; }
 .up { margin-left: 8px; background: var(--l2); color: #fff; border-radius: 8px; padding: 1px 8px; font-size: 12px; }
 .actions { display: flex; gap: 8px; margin-top: auto; justify-content: flex-end; flex-wrap: wrap; }
 .btn { border: 1.5px solid var(--line); background: var(--paper2); border-radius: 12px; padding: 9px 16px; font-weight: 700; }

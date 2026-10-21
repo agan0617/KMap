@@ -198,10 +198,13 @@ function ensurePlayMap() {
   playMap.paint(masteryColor);
   applyScope(playMap);
 }
-function setPanel(prompt, feedback = '', actions = '') {
+// ex＝答案解析：有的話面板分左右兩欄，題目與對錯在左、解析在題目旁邊
+function setPanel(prompt, feedback = '', actions = '', ex = '') {
   $('#pPrompt').innerHTML = prompt;
   $('#pFeedback').innerHTML = feedback;
   $('#pActions').innerHTML = actions;
+  $('#pEx').innerHTML = ex; $('#pEx').hidden = !ex;
+  $('#pPanel').classList.toggle('answered', !!ex);
 }
 function setStat(html) { $('#pStat').innerHTML = html; }
 
@@ -266,18 +269,48 @@ function answer(id) {
     playMap.mark(id, 'ok'); playMap.label(id, R.short(id), 'ok');
     const up = ch.to > ch.from && ch.to < 3 ? `<span class="up">${esc(t('up', lv(ch.to)))}</span>` : '';
     setPanel($('#pPrompt').innerHTML, `<div class="fb ok">${esc(t('ok'))}${q.type === 'know' ? '　' + nameHtml(q.id) : ''}${up}</div>`,
-      P.mode === 'timed' ? '' : `${q.type === 'know' ? cardBtn : ''}${nextBtn}`);
-    P.auto = setTimeout(advance, P.mode === 'timed' ? 450 : 1300);
+      P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`, P.mode === 'timed' ? '' : explain(q));
+    // 有解析要留時間讀，不自動跳；點畫面任何地方就下一題。限時連擊照舊自動跳
+    if (P.mode === 'timed') P.auto = setTimeout(advance, 450);
   } else {
     P.combo = 0;
     Sound.play('ng');
     playMap.mark(id, 'ng'); playMap.label(id, R.short(id), 'ng');
     playMap.mark(q.id, 'target'); playMap.label(q.id, R.short(q.id), 'target');
     setPanel($('#pPrompt').innerHTML, `<div class="fb ng">${t('wrong', esc(R.name(id)), nameHtml(q.id))}</div>`,
-      P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`);
+      P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`, P.mode === 'timed' ? '' : explain(q, id));
     if (P.mode === 'timed') P.auto = setTimeout(advance, 1100);
   }
   updateStat();
+}
+// 答案解析（Ken 2026-10-21 要求）：答案在哪、和誰相鄰；答錯時點的地方在答案的哪個方向；知識題的提示原本屬於誰
+function hops(from, to) {
+  const dist = { [from]: 0 }, q = [from];
+  while (q.length) { const a = q.shift(); if (a === to) return dist[a]; for (const b of R.graph[a] || []) if (dist[b] == null) { dist[b] = dist[a] + 1; q.push(b); } }
+  return -1;
+}
+function dirOf(from, to) {
+  const a = R.map.shapes[from], b = R.map.shapes[to];
+  if (!a || !b) return '';
+  // 地圖座標 y 向下：角度 0 = 北，順時針每 45° 一格
+  const deg = (Math.atan2(b.cx - a.cx, a.cy - b.cy) * 180 / Math.PI + 360) % 360;
+  return t('ex.dir')[Math.round(deg / 45) % 8];
+}
+function explain(q, picked) {
+  const id = q.id, c = R.card(id), name = R.name(id), sep = t('ex.listSep');
+  const nb = [...(R.graph[id] || [])].map(x => R.short(x));
+  let where = t('ex.where', name, R.areaName(R.units[id].area)) + (nb.length ? t('ex.nb', nb.slice(0, 5).join(sep) + (nb.length > 5 ? sep + '…' : '')) : t('ex.island'));
+  const lines = [where];
+  if (picked && picked !== id) {
+    const n = hops(picked, id);
+    lines.push(t('ex.picked', R.name(picked), name, dirOf(id, picked)) + (n === 1 ? t('ex.adj') : n > 1 ? t('ex.hops', n - 1) : t('ex.far')));
+  }
+  if (q.type === 'know') lines.push(t('ex.clue', q.tag, q.main.split('○○').join(R.short(id)), name));
+  else {
+    if (c.cap) lines.push(t('ex.cap', c.capLabel, c.cap));
+    if (c.fact) lines.push(c.fact.replace(/○○/g, R.short(id)));
+  }
+  return lines.map(s => `<p>${esc(s)}</p>`).join('');
 }
 function advance() {
   clearTimeout(P.auto);
