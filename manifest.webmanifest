@@ -1,0 +1,16 @@
+{
+  "name": "K地圖",
+  "short_name": "K地圖",
+  "description": "邊玩邊熟悉地圖：點亮每一個都道府縣，集滿御朱印。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f3ead7",
+  "theme_color": "#f3ead7",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "kmap",
+  "private": true,
+  "type": "module",
+  "description": "K地圖：邊玩邊熟悉地圖的網頁遊戲",
+  "scripts": {
+    "build:map": "node tools/build-map.mjs"
+  },
+  "devDependencies": {
+    "mapshaper": "^0.6.102",
+    "topojson-client": "^3.1.0"
+  }
+}
