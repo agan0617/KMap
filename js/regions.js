@@ -4,6 +4,7 @@
 // - 中國、世界（schema: 'multi'）：data/<區>-info.js 放分區與欄位名稱，data/<區>-units-*.js 每一區直接寫中英日三份
 const REGIONS = [
   { key: 'japan', ready: true },
+  { key: 'taiwan', ready: true },
   { key: 'china', ready: true },
   { key: 'world', ready: true },
 ];
@@ -73,9 +74,10 @@ function multiProfile(key, info, map) {
   }
   function maskWords(id) {
     const u = info.units[id];
-    return ['zh', 'en', 'ja'].flatMap(l => [u[l]?.name, u[l]?.short, u[l]?.cap && capStem(u[l].cap)]);
+    const w = ['zh', 'en', 'ja'].flatMap(l => [u[l]?.name, u[l]?.short, u[l]?.cap && capStem(u[l].cap)]).filter(Boolean);
+    return w.concat(w.map(s => s.replace(/臺/g, '台')), w.map(s => s.replace(/台/g, '臺')));
   }
-  // 御朱印上的字：中國用省名簡稱；世界用 ISO 三碼（護照章）
+  // 印章上的字：中國、台灣用短名；世界用 ISO 三碼（護照章）
   const stamp = id => (info.stamp === 'passport' ? id : (info.units[id].zh?.short || id));
   return {
     name: id => L(id).name, short: id => L(id).short || L(id).name, sub: id => L(id).sub || '',

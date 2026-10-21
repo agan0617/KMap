@@ -62,14 +62,22 @@ function pool() {
   const k = scopeKey();
   return k === 'all' ? R.ids : R.ids.filter(id => R.units[id].area === k);
 }
+// 首頁和圖鑑共用同一個範圍設定：在圖鑑切換也會記住，回首頁就是那個範圍
 function setScope(k) {
   Store.setSetting('scope', Object.assign({}, Store.settings().scope, { [R.key]: k }));
-  renderHome();
+  if (P?.mode === 'explore' && playMap && !$('#play').hidden) { applyScope(playMap); startExplore(); }
+  else renderHome();
+}
+function applyScope(m) {
+  const inScope = scopeKey() === 'all' ? null : pool();
+  m.dim(inScope);
+  m.setHome(inScope, R.map.views?.[scopeKey()]);
 }
 function switchRegion(key) {
   const next = regionData(key);
   if (!next) return;
   Store.setSetting('region', key);
+  clearInterval(P?.timer); clearTimeout(P?.auto); P = null;
   R = next;
   homeMap?.destroy(); playMap?.destroy();
   homeMap = playMap = null;
@@ -77,10 +85,13 @@ function switchRegion(key) {
   renderHome();
   music('calm');
 }
-function renderScope() {
+const scopeChips = () => {
   const k = scopeKey(), keys = ['all', ...Object.keys(R.areas)];
-  $('#scopeTabs').innerHTML = keys.map(a => `<button type="button" class="${a === k ? 'on' : ''}" data-scope="${a}">${esc(a === 'all' ? t('scopeAll') : R.areaName(a))}</button>`).join('');
-}
+  return keys.map(a => `<button type="button" class="${a === k ? 'on' : ''}" data-scope="${a}">${esc(a === 'all' ? t('scopeAll') : R.areaName(a))}</button>`).join('');
+};
+function renderScope() { $('#scopeTabs').innerHTML = scopeChips(); showOnChip(); }
+// 分區很多（世界六洲、日本八地方）時，選中的那顆捲進畫面
+const showOnChip = () => document.querySelectorAll('.scopes .on').forEach(b => b.scrollIntoView({ inline: 'center', block: 'nearest' }));
 
 function setLang(l) {
   Store.setSetting('lang', l);
@@ -104,9 +115,7 @@ function renderHome() {
     homeMap.onTap(id => { Sound.play('tap'); showCard(id); });
   }
   homeMap.paint(masteryColor);
-  const inScope = scopeKey() === 'all' ? null : pool();
-  homeMap.dim(inScope);
-  homeMap.setHome(inScope, R.map.views?.[scopeKey()]);
+  applyScope(homeMap);
   renderScope();
   $('#mBook b').textContent = R.label('book');
   const c = Store.counts(R.key, R.ids), n = R.ids.length;
@@ -162,9 +171,7 @@ function ensurePlayMap() {
   playMap.clearMarks('ok', 'ng', 'target', 'visited', 'goal', 'here');
   playMap.clearLabels(); playMap.clearMarkers(); playMap.showLinks(false); playMap.path(null);
   playMap.paint(masteryColor);
-  const inScope = scopeKey() === 'all' ? null : pool();
-  playMap.dim(inScope);
-  playMap.setHome(inScope, R.map.views?.[scopeKey()]);
+  applyScope(playMap);
 }
 function setPanel(prompt, feedback = '', actions = '') {
   $('#pPrompt').innerHTML = prompt;
@@ -343,8 +350,9 @@ function startExplore() {
   playMap.clearLabels();
   if (labels) for (const id of R.ids) playMap.label(id, R.short(id), 'auto');
   playMap.onTap(id => { Sound.play('tap'); playMap.clearMarks('here'); playMap.mark(id, 'here'); showCard(id); });
-  setPanel(`<div class="q-sub">${esc(t('exploreHint'))}</div>`, '',
+  setPanel(`<nav class="scopes">${scopeChips()}</nav><div class="q-sub">${esc(t('exploreHint'))}</div>`, '',
     `<button type="button" class="btn" data-labels>${esc(t(labels ? 'hideNames' : 'showNames'))}</button>`);
+  showOnChip();
   setStat('');
 }
 

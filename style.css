@@ -155,6 +155,10 @@ dd small { margin-left: 3px; }
 .stamp.passport span { writing-mode: horizontal-tb; font-size: 18px; letter-spacing: 2px; }
 .stamp.passport small { color: var(--stamp); }
 .flag { margin-right: 8px; }
+/* 台灣：車站紀念章，圓角方框、紫色印泥 */
+.stamp.station { --stamp: #6b4fa0; border-radius: 14px; border: 3px solid var(--stamp); color: var(--stamp); transform: rotate(-4deg); box-shadow: inset 0 0 0 3px var(--paper2), inset 0 0 0 4.5px var(--stamp); }
+.stamp.station span { writing-mode: horizontal-tb; font-size: 16px; line-height: 1.1; max-width: 3.2em; }
+.stamp.station small { color: var(--stamp); }
 
 .result { text-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center; }
 .result h3 { font-size: 14px; color: var(--muted); margin-top: 6px; }

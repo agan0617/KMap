@@ -13,7 +13,11 @@ const NE = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/maste
 const SOURCES = {
   admin1: ['admin1.geojson', NE + 'ne_10m_admin_1_states_provinces.geojson'],   // 1:10m 省縣級，約 40MB
   admin0: ['admin0-50m.geojson', NE + 'ne_50m_admin_0_countries.geojson'],      // 1:50m 國家，約 3MB
+  // 台灣：Natural Earth 漏了連江縣（馬祖），改用 taiwan-atlas（內政部縣市界的 TopoJSON，政府資料開放授權）
+  twatlas: ['tw-counties-10t.json', 'https://cdn.jsdelivr.net/npm/taiwan-atlas@2021.9.20/counties-10t.json', 'counties'],
 };
+const TW_ID = { A: 'TPE', F: 'NWT', B: 'TXG', D: 'TNN', H: 'TAO', E: 'KHH', C: 'KEE', O: 'HSZ', I: 'CYI', J: 'HSQ', K: 'MIA',
+  N: 'CHA', M: 'NAN', P: 'YUN', Q: 'CYQ', T: 'PIF', G: 'ILA', U: 'HUA', V: 'TTT', X: 'PEN', W: 'KIN', Z: 'LIE' };
 
 // 世界區：哪些算「國家」、哪些併進別國、哪些只畫成底圖
 const WORLD_MERGE = { SOL: 'SOM', CYN: 'CYP', HKG: 'CHN', MAC: 'CHN', ALD: 'FIN', GGY: 'GBR', JEY: 'GBR', IMN: 'GBR' };
@@ -47,6 +51,22 @@ const REGIONS = {
       ['JP-34', 'JP-38', '島波海道'],
       ['JP-35', 'JP-40', '關門海峽'],
       ['JP-46', 'JP-47', '渡輪航線'],
+    ],
+  },
+  taiwan: {
+    src: 'twatlas',
+    filter: 'true',
+    id: `'TW-' + ${js(TW_ID)}[COUNTYID]`,
+    simplify: '35%',
+    minIsland: '3km2',       // 留下綠島、蘭嶼、小琉球與馬祖的主要島
+    proj: { type: 'eqc', lat0: 23.7 },
+    width: 1000,
+    // 金門、馬祖照一般台灣地圖的做法放進左上的插圖框（不然地圖要往西撐兩度經度的空海）
+    insets: { 'TW-LIE': { dLon: -0.55, dLat: -1.0, scale: 1.6 }, 'TW-KIN': { dLon: 1.3, dLat: 0.05, scale: 1.4 } },
+    links: [
+      ['TW-PEN', 'TW-KHH', '臺華輪'],
+      ['TW-PEN', 'TW-CYQ', '布袋—馬公航線'],
+      ['TW-LIE', 'TW-KEE', '臺馬輪'],
     ],
   },
   china: {
@@ -108,7 +128,7 @@ const REGIONS = {
 };
 
 async function source(key) {
-  const [name, url] = SOURCES[key];
+  const [name, url, topoObj] = SOURCES[key];
   const file = path.join(CACHE, name);
   if (!fs.existsSync(file)) {
     fs.mkdirSync(CACHE, { recursive: true });
@@ -117,7 +137,14 @@ async function source(key) {
     if (!r.ok) throw new Error('下載失敗 ' + r.status);
     fs.writeFileSync(file, Buffer.from(await r.arrayBuffer()));
   }
-  return file;
+  if (!topoObj) return file;
+  // TopoJSON 來源先轉成 GeoJSON，後面的流程才一樣
+  const geo = file.replace(/\.json$/, '.geojson');
+  if (!fs.existsSync(geo)) {
+    const t = JSON.parse(fs.readFileSync(file, 'utf8'));
+    fs.writeFileSync(geo, JSON.stringify(topojson.feature(t, t.objects[topoObj])));
+  }
+  return geo;
 }
 
 // ── 投影 ──
