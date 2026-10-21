@@ -84,7 +84,8 @@ small { font-size: .78em; color: var(--muted); }
 .combo { background: var(--gold); color: #fff; font-weight: 800; border-radius: 10px; padding: 1px 8px; font-size: 13px; animation: pop .3s; }
 .map-wrap { flex: 1; min-height: 0; position: relative; background: var(--sea); margin: 0 8px; border-radius: 16px; overflow: hidden; }
 .zoom { position: absolute; right: 8px; top: 8px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
-.zoom button { width: 36px; height: 36px; border-radius: 10px; border: 0; background: rgba(255,255,255,.88); font-size: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+.zoom button { width: 36px; height: 36px; border-radius: 10px; border: 0; background: rgba(255,255,255,.88); font-size: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.15); display: grid; place-items: center; }
+.zoom svg { pointer-events: none; }
 .timer { position: absolute; left: 10px; right: 54px; top: 10px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.7); overflow: hidden; z-index: 2; }
 .timer i { display: block; height: 100%; width: 100%; background: var(--ok); transition: width .1s linear; }
 .timer.hurry i { background: var(--ng); }

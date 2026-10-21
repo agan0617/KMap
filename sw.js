@@ -1,5 +1,5 @@
 ﻿/* 離線快取：先用快取、背景更新。改了網頁要記得改 VERSION，舊快取才會被換掉 */
-const VERSION = 'kmap-1.0.1';
+const VERSION = 'kmap-1.0.2';
 const FILES = [
   './', 'index.html', 'style.css', 'manifest.webmanifest',
   'data/japan-map.js', 'data/japan-info.js',
