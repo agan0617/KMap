@@ -10,7 +10,7 @@ const el = (tag, attrs = {}, parent) => {
 
 function createMap(container, R, opts = {}) {
   const M = R.map;
-  const svg = el('svg', { class: 'map', viewBox: `0 0 ${M.width} ${M.height}`, preserveAspectRatio: 'xMidYMid meet' });
+  const svg = el('svg', { class: 'map' + (opts.static ? ' static' : ''), viewBox: `0 0 ${M.width} ${M.height}`, preserveAspectRatio: 'xMidYMid meet' });
   container.prepend(svg);
   const gFrames = el('g', { class: 'frames' }, svg);
   const gUnits = el('g', { class: 'units' }, svg);
@@ -145,11 +145,11 @@ function createMap(container, R, opts = {}) {
     p.x = e.clientX; p.y = e.clientY;
     if (pts.size === 1) {
       moved += Math.abs(dx) + Math.abs(dy);
-      if (moved > 8) {
+      if (moved > 8 && !opts.static) {
         const r = svg.getBoundingClientRect(), k = Math.max(vb.w / r.width, vb.h / r.height);
         vb.x -= dx * k; vb.y -= dy * k; clamp(); apply();
       }
-    } else if (pts.size === 2 && pinch0) {
+    } else if (pts.size === 2 && pinch0 && !opts.static) {
       moved = 99;
       const [a, b] = [...pts.values()];
       const d = Math.hypot(a.x - b.x, a.y - b.y);
@@ -163,13 +163,14 @@ function createMap(container, R, opts = {}) {
     if (pts.size < 2) pinch0 = null;
     if (pts.size === 0 && moved <= 8 && e.type === 'pointerup') {
       const hit = document.elementFromPoint(e.clientX, e.clientY);
-      const id = hit?.getAttribute?.('data-id');
-      if (id && tapCb) tapCb(id);
+      // 點到海或底圖也回報（id 為 null），答完題點畫面任何地方都能進下一題
+      const id = hit?.getAttribute?.('data-id') || null;
+      if (tapCb) tapCb(id);
     }
   };
   svg.addEventListener('pointerup', end);
   svg.addEventListener('pointercancel', end);
-  svg.addEventListener('wheel', e => { e.preventDefault(); zoomAt(e.deltaY < 0 ? 1.25 : 0.8, e.clientX, e.clientY); }, { passive: false });
+  if (!opts.static) svg.addEventListener('wheel', e => { e.preventDefault(); zoomAt(e.deltaY < 0 ? 1.25 : 0.8, e.clientX, e.clientY); }, { passive: false });
   container.querySelector('.zoom')?.addEventListener('click', e => {
     const z = e.target.closest('button')?.dataset.z;
     if (z === 'in') zoomAt(1.5); else if (z === 'out') zoomAt(1 / 1.5); else if (z === 'reset') reset();

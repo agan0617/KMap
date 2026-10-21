@@ -32,6 +32,7 @@
           <span class="coins" id="heroCoins"></span>
           <button type="button" class="btn small" id="hCloset" data-t="closet.btn"></button>
           <button type="button" class="btn small primary" id="hGacha"><span data-t="gacha.btn"></span><i class="badge" id="gachaBadge" hidden></i></button>
+          <button type="button" class="btn small" id="mBook"><b></b><small id="bookInfo"></small></button>
         </div>
       </div>
     </section>
@@ -39,11 +40,7 @@
     <nav class="regions" id="regionTabs"></nav>
     <nav class="scopes" id="scopeTabs"></nav>
     <div class="home-map" id="homeMap">
-      <div class="zoom">
-        <button type="button" data-z="in" data-ta="zoomIn">＋</button>
-        <button type="button" data-z="out" data-ta="zoomOut">－</button>
-        <button type="button" data-z="reset" data-ta="zoomReset"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
-      </div>
+      <button type="button" class="btn small map-corner" data-mode="explore" data-t="mode.explore"></button>
     </div>
     <div class="progress" id="homeProgress"></div>
     <div class="modes">
@@ -51,8 +48,6 @@
       <button class="mode" data-mode="know" type="button"><b data-t="mode.know"></b><small data-t="modeDesc.know"></small></button>
       <button class="mode" data-mode="travel" type="button"><b data-t="mode.travel"></b><small data-t="modeDesc.travel"></small></button>
       <button class="mode" data-mode="timed" type="button"><b data-t="mode.timed"></b><small id="timedBest"></small></button>
-      <button class="mode" data-mode="explore" type="button"><b data-t="mode.explore"></b><small data-t="modeDesc.explore"></small></button>
-      <button class="mode" id="mBook" type="button"><b data-t="mode.book"></b><small id="bookInfo"></small></button>
     </div>
   </section>
 

@@ -280,3 +280,9 @@ dd small { margin-left: 3px; }
 .sw i { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,.18); display: block; }
 .sw[aria-pressed="true"] i { box-shadow: 0 0 0 2px var(--paper2), 0 0 0 4px var(--red); }
 .sw[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+
+/* 首頁地圖：不能平移縮放（頁面下滑才不會誤觸），圖鑑按鈕放角落 */
+.map.static { touch-action: pan-y; }
+.map-corner { position: absolute; right: 10px; bottom: 10px; z-index: 2; background: var(--glass); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+#mBook b { font-weight: 700; }
+#mBook small { margin-left: 4px; font-size: 11px; }

@@ -128,8 +128,8 @@ function renderTabs() {
 }
 function renderHome() {
   if (!homeMap) {
-    homeMap = createMap($('#homeMap'), R);
-    homeMap.onTap(id => { Sound.play('tap'); showCard(id); });
+    homeMap = createMap($('#homeMap'), R, { static: true });
+    homeMap.onTap(id => { if (!id) return; Sound.play('tap'); showCard(id); });
   }
   homeMap.paint(masteryColor);
   // 已解開（到訪以上）的地方標地名，跟圖鑑一樣塞得下才顯示（Ken 2026-10-21 要求）
@@ -237,7 +237,9 @@ function updateStat() {
   else setStat(`${Math.min(P.i + 1, P.qs.length)} / ${P.qs.length}${combo}`);
 }
 function answer(id) {
-  if (P.answered || !P.qs?.[P.i]) return;
+  // 答完後再點畫面任何地方＝下一題（Ken 2026-10-21 要求）；限時連擊會自己跳
+  if (P.answered && P.qs && P.mode !== 'timed') return advance();
+  if (!id || P.answered || !P.qs?.[P.i]) return;
   const q = P.qs[P.i], ok = id === q.id;
   P.answered = true;
   const ch = Store.record(R.key, q.id, q.type, ok);
@@ -343,7 +345,7 @@ function travelPanel(fb = '') {
   setStat(esc(t('steps', P.steps)));
 }
 function travelTap(id) {
-  if (P.done || id === P.cur) return;
+  if (!id || P.done || id === P.cur) return;
   if (!R.graph[P.cur].has(id)) {
     Sound.play('ng');
     playMap.flash(id, 'ng', 600);
@@ -388,7 +390,7 @@ function startExplore() {
   const labels = Store.settings().labels;
   playMap.clearLabels();
   if (labels) for (const id of R.ids) playMap.label(id, R.short(id), 'auto');
-  playMap.onTap(id => { Sound.play('tap'); playMap.clearMarks('here'); playMap.mark(id, 'here'); showCard(id); });
+  playMap.onTap(id => { if (!id) return; Sound.play('tap'); playMap.clearMarks('here'); playMap.mark(id, 'here'); showCard(id); });
   setPanel(`<nav class="scopes">${scopeChips()}</nav><div class="q-sub">${esc(t('exploreHint'))}</div>`, '',
     `<button type="button" class="btn" data-labels>${esc(t(labels ? 'hideNames' : 'showNames'))}</button>`);
   showOnChip();
@@ -643,6 +645,11 @@ document.addEventListener('click', e => {
   else if (b.hasAttribute('data-peek')) { P.peek = true; playMap.mark(P.to, 'goal'); playMap.label(P.to, R.short(P.to), 'goal'); travelPanel(); }
   else if (b.hasAttribute('data-labels')) { Store.setSetting('labels', !Store.settings().labels); startExplore(); }
   else if (b.dataset.theme) { Store.setSetting('theme', b.dataset.theme); applyTheme(); document.querySelectorAll('.sw').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.theme === b.dataset.theme))); }
+});
+// 答完題點題目區（地圖以外、按鈕以外）也進下一題；地圖那邊由 answer() 處理
+$('#pPanel').addEventListener('click', e => {
+  if (!P?.answered || !P.qs || P.mode === 'timed' || e.target.closest('button, a')) return;
+  advance();
 });
 document.addEventListener('change', e => {
   const k = e.target.dataset.set;
