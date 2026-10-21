@@ -137,7 +137,7 @@ details.small { font-size: 12px; max-width: 360px; }
 .mode { text-align: left; border: 0; border-radius: 14px; padding: 12px 14px; background: var(--paper2); box-shadow: 0 2px 0 var(--line), 0 0 0 1.5px var(--line) inset; display: flex; flex-direction: column; gap: 2px; }
 .mode b { font-size: 16px; }
 .mode:active { transform: translateY(2px); box-shadow: 0 0 0 var(--line), 0 0 0 1.5px var(--line) inset; }
-.mode.daily { grid-column: 1 / -1; background: linear-gradient(120deg, #c8402c, #e2733d); color: #fff; box-shadow: 0 3px 0 #8f2a1c; }
+.mode.daily { width: 100%; background: linear-gradient(120deg, #c8402c, #e2733d); color: #fff; box-shadow: 0 3px 0 #8f2a1c; }
 .mode.daily small { color: #ffe9d6; }
 
 /* ── 地圖 ── */
