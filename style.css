@@ -322,3 +322,8 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .card-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); }
 .card-nav .btn { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card-nav small { color: var(--muted); flex-shrink: 0; }
+/* 知識卡視窗：固定大小，內容在中間捲，上一個／下一個固定在底部 */
+.sheet.cardsheet { height: min(80dvh, 720px); display: flex; flex-direction: column; overflow: hidden; }
+.sheet.cardsheet #modalBody { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.sheet.cardsheet .card-scroll { flex: 1; min-height: 0; overflow-y: auto; }
+.sheet.cardsheet .card-nav { flex-shrink: 0; }

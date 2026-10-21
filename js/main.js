@@ -52,7 +52,8 @@ function music(style) {
 }
 function openModal(html, onClose, fixed = false) {
   $('#modalBody').innerHTML = html;
-  $('#modal .sheet').classList.toggle('fixed', fixed);
+  // fixed：true＝固定高度（衣櫃）；字串＝另外指定的版型 class（知識卡）
+  $('#modal .sheet').className = 'sheet' + (fixed ? ' ' + (fixed === true ? 'fixed' : fixed) : '');
   $('#modal').hidden = false;
   $('#modal')._onClose = onClose;
 }
@@ -202,7 +203,12 @@ function cardNav(id) {
   return `<div class="card-nav"><button type="button" class="btn" data-card="${prev}" data-nav="prev">‹ ${esc(R.short(prev))}</button>
     <small>${i + 1} / ${ids.length}</small><button type="button" class="btn" data-card="${next}" data-nav="next">${esc(R.short(next))} ›</button></div>`;
 }
-function showCard(id) { openModal(cardHtml(id) + cardNav(id)); $('#modal .sheet').scrollTop = 0; }
+// 知識卡視窗大小固定、上一個／下一個釘在底部，切換時按鈕不會跟著內容長短跳（Ken 2026-10-21 要求）
+function showCard(id) {
+  const nav = cardNav(id);
+  openModal(`<div class="card-scroll">${cardHtml(id)}</div>${nav}`, null, nav ? 'cardsheet' : false);
+  $('#modal .card-scroll')?.scrollTo(0, 0);
+}
 
 // ── 遊玩畫面 ──
 function ensurePlayMap() {
