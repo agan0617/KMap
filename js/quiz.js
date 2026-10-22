@@ -19,6 +19,15 @@ const Quiz = (() => {
     const words = R.maskWords(id);
     return s => words.reduce((acc, w) => acc.split(w).join('○○'), s);
   }
+  // 遮掉地名後剩下的字太少（「宜蘭餅」→「○○餅」，太陽餅、牛舌餅也符合），答案就不唯一，不出這種名產名勝題（Ken 2026-10-22 指出）
+  // 中日文剩不到 3 個字、英文剩不到 8 個字母就算太少
+  function tooThin(masked) {
+    if (!masked.includes('○○')) return false;
+    const rest = masked.replace(/○○/g, '').replace(/[^\p{L}\p{N}]/gu, '');
+    return rest.length < (lang() === 'en' ? 8 : 3);
+  }
+  // 選擇題、是非題、連連看的選項：名字裡就有地名的名產名勝（宜蘭餅、臺北 101）一看就知道答案，不拿來用
+  const named = (R, id, s) => masker(R, id)(s) !== s;
   // 名產、名勝若有兩個地方寫成一樣就不出題（答案不唯一）
   const dupCache = {};
   function dups(R) {
@@ -35,7 +44,7 @@ const Quiz = (() => {
     const both = (a, b) => (b && b !== a ? `${a}（${b}）` : a);
     if (c.capClue) L.push({ k: 'cap', tag: c.capLabel, t: both(c.cap, c.capSub) });
     for (const o of c.old) if (o.q) L.push({ k: 'old', tag: R.label('old'), t: both(o.n, o.sub) });
-    const ok = (f, s, i) => !dup.has(s) && !c.skip?.has(`${f}:${i}`);
+    const ok = (f, s, i) => !dup.has(s) && !c.skip?.has(`${f}:${i}`) && !tooThin(m(s));
     c.foods.forEach((s, i) => { if (ok('foods', s, i)) L.push({ k: 'food', tag: t('foods'), t: m(s) }); });
     c.sights.forEach((s, i) => { if (ok('sights', s, i)) L.push({ k: 'sight', tag: t('sights'), t: m(s) }); });
     if (c.fact) L.push({ k: 'fact', tag: t('factClue'), t: m(c.fact) });
@@ -168,6 +177,8 @@ const Quiz = (() => {
   const shuffle = (a, r) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   function choice(R, id, r) {
     const c = R.card(id), dup = dups(R), kinds = [];
+    // 能拿來當選項的名產名勝：不重複、沒標不出題、名字裡沒有自己的地名
+    const usable = (x, f) => { const k = R.card(x); return k[f].filter((s, i) => !dup.has(s) && !k.skip?.has(`${f}:${i}`) && !named(R, x, s)); };
     const names = (others, label) => shuffle([{ label: label(id), ok: true, id }, ...others.map(x => ({ label: label(x), ok: false, id: x }))], r);
     const nameOpts = () => { const o = distract(R, id, 3, () => true, r); return o.length === 3 ? names(o, x => R.name(x)) : null; };
     // 這塊是哪裡：地圖上亮一塊
@@ -179,11 +190,11 @@ const Quiz = (() => {
     });
     // 哪一個是 X 的名產／名勝？（別的地方也有同名的不出）
     for (const [f, lab] of [['foods', 'foods'], ['sights', 'sights']]) {
-      const mine = c[f].filter((s, i) => !dup.has(s) && !c.skip?.has(`${f}:${i}`));
+      const mine = usable(id, f);
       if (mine.length) kinds.push(() => {
-        const o = distract(R, id, 3, x => R.card(x)[f].some(s => !dup.has(s)), r);
+        const o = distract(R, id, 3, x => usable(x, f).length > 0, r);
         if (o.length < 3) return null;
-        const pickOf = x => { const a = R.card(x)[f].filter(s => !dup.has(s)); return a[Math.floor(r() * a.length)]; };
+        const pickOf = x => pick(usable(x, f), r);
         const opts = shuffle([{ label: pick(mine, r), ok: true, id }, ...o.map(x => ({ label: pickOf(x), ok: false, id: x }))], r);
         return { kind: f, tag: t(lab), main: t(f === 'foods' ? 'cq.food' : 'cq.sight', R.name(id)), options: opts };
       });
@@ -231,26 +242,26 @@ const Quiz = (() => {
       });
     }
     // 是非題（2026-10-22）：「〇〇是 X 的名產？」一半是真的、一半換成同一分區別的地方的
-    const own = f => R.card(id)[f].filter((s, i) => !dup.has(s) && !c.skip?.has(`${f}:${i}`));
+    const own = f => usable(id, f);
     // 是非題、連連看各佔一個題型（名產或名勝隨機挑一種），才不會出得比其他題型多
     const fs = ['foods', 'sights'].filter(f => own(f).length);
     if (fs.length) kinds.push(() => {
       const f = pick(fs, r), truth = r() < 0.5;
       let item = pick(own(f), r), owner = id;
       if (!truth) {
-        const o = distract(R, id, 1, x => R.card(x)[f].some(s => !dup.has(s)), r)[0];
+        const o = distract(R, id, 1, x => usable(x, f).length > 0, r)[0];
         if (!o) return null;
-        owner = o; item = pick(R.card(o)[f].filter(s => !dup.has(s)), r);
+        owner = o; item = pick(usable(o, f), r);
       }
       return { kind: 'tf', tag: t('ct.tf'), main: t(f === 'foods' ? 'cq.tfFood' : 'cq.tfSight', item, R.name(id)), owner, item,
         options: [{ label: t('tf.yes'), ok: truth, id }, { label: t('tf.no'), ok: !truth, id }] };
     });
     // 連連看（2026-10-22）：四個地方配四個名產或名勝，全部配對、中間沒配錯才算答對
     if (fs.length) kinds.push(() => {
-      const f = pick(fs, r), o = distract(R, id, 3, x => R.card(x)[f].some(s => !dup.has(s)), r);
+      const f = pick(fs, r), o = distract(R, id, 3, x => usable(x, f).length > 0, r);
       if (o.length < 3) return null;
       const four = shuffle([id, ...o], r);
-      const items = four.map(x => x === id ? pick(own(f), r) : pick(R.card(x)[f].filter(s => !dup.has(s)), r));
+      const items = four.map(x => pick(usable(x, f), r));
       return { kind: 'match', tag: t('ct.match'), main: t(f === 'foods' ? 'cq.matchFood' : 'cq.matchSight'), places: four, items,
         right: shuffle(four.map((_, i) => i), r), options: [{ label: '', ok: true, id }, { label: '', ok: false, id }] };
     });
