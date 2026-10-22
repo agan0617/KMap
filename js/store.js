@@ -14,7 +14,7 @@ const Store = (() => {
     v = v || {};
     v.settings = Object.assign({ bgm: true, sfx: true, labels: true, lang: null, theme: 'paper' }, v.settings);
     v.regions = v.regions || {};
-    v.meta = Object.assign({ stats: {}, ach: {}, outfit: {}, outfitAt: 0, owned: {}, earn: {}, spend: {}, pulls: {}, pity: {}, title: null, titleAt: 0 }, v.meta);
+    v.meta = Object.assign({ stats: {}, ach: {}, outfit: {}, outfitAt: 0, owned: {}, earn: {}, spend: {}, pulls: {}, pity: {}, title: null, titleAt: 0, days: {} }, v.meta);
     return v;
   }
   // 裝置 id：肉球幣、扭蛋次數按裝置分開記，合併時各裝置取大的再加總，兩台同時玩不會吃掉對方的幣
@@ -132,6 +132,25 @@ const Store = (() => {
   }
   const dailyTotal = key => region(key).dx?.[dayKey()] || null;
 
+  // 每天第一次過關（1.15.0 起今日挑戰併進關卡，Ken 2026-10-22 要求）：不分分頁，記在 meta.days
+  // 連續天數也把以前各地區今日挑戰的紀錄算進來，改版前的連續天數不會斷
+  const playedOn = k => !!s.meta.days?.[k] || Object.values(s.regions).some(r => r.daily?.[k] != null);
+  const clearedToday = () => !!s.meta.days?.[dayKey()];
+  function dayStreak() {
+    let n = 0, d = today();
+    if (!playedOn(dayKey(d))) d--;
+    while (playedOn(dayKey(d))) { n++; d--; }
+    return n;
+  }
+  // 記下今天過關了；回傳是不是今天第一次
+  function dayClear() {
+    if (clearedToday()) return false;
+    s.meta.days = Object.assign({}, s.meta.days, { [dayKey()]: 1 });
+    s.meta.stats.streakBest = Math.max(s.meta.stats.streakBest || 0, dayStreak());
+    save();
+    return true;
+  }
+
   // 關卡（Ken 2026-10-22 要求）：每個分頁一條無限往下的關卡，記每關拿到的最高星數；前一關有星才開下一關
   const lvStars = (key, n) => region(key).lv?.[n] || 0;
   // 回傳這次多拿了幾顆星（重打沒進步就是 0）
@@ -206,6 +225,7 @@ const Store = (() => {
       r[f] = {};
       for (const d of new Set([...Object.keys(a[f] || {}), ...Object.keys(b[f] || {})])) r[f][d] = Math.max(a[f]?.[d] || 0, b[f]?.[d] || 0);
     }
+    r.days = Object.assign({}, b.days, a.days);
     const nt = (a.titleAt || 0) >= (b.titleAt || 0) ? a : b;
     r.title = nt.title || null; r.titleAt = nt.titleAt || 0;
     return r;
@@ -264,6 +284,6 @@ const Store = (() => {
     onProgress(fn) { onProgress = fn; },
     today, dayKey, level, unit: (k, id) => region(k).units[id], record, nextHint, weight, counts,
     daily, setDaily, streak, best, setBest, addDailyRun, dailyTotal,
-    lvStars, setLvStars, lvNext, lvCount, lvStarSum, lvTotal,
+    lvStars, setLvStars, lvNext, lvCount, lvStarSum, lvTotal, clearedToday, dayStreak, dayClear,
   };
 })();

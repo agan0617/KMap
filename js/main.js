@@ -1,4 +1,4 @@
-// 畫面與玩法流程：首頁、今日挑戰、關卡（每 5 關一個限時關）、圖鑑、御朱印帳。
+// 畫面與玩法流程：首頁、關卡（每 5 關一個限時關；每天第一次過關＝完成今日挑戰）、圖鑑、御朱印帳。
 // 2026-10-22 Ken 要求：找位置／知識／選擇題三種題目只混在今日挑戰與關卡裡出，拿掉各自的入口、鄰接旅行與限時連擊。
 // 畫面上的文字一律走 t()（js/i18n.js），地名與知識卡走 R.name()／R.card()（js/regions.js）。
 const $ = s => document.querySelector(s);
@@ -147,18 +147,15 @@ function renderHome() {
   $('#homeProgress').innerHTML = `
     <div class="bar">${seg(3, 'l3')}${seg(2, 'l2')}${seg(1, 'l1')}${seg(0, 'l0')}</div>
     <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span><b>${c[3]} / ${n}</b></div>`;
-  const d = Store.daily(R.key), st = Store.streak(R.key);
-  const tot = Store.dailyTotal(R.key);
-  // 做完以後多一行今天的總進度：玩了幾組、答對幾題、賺了多少肉球幣、升級與蓋章
-  const totLine = d != null && tot ? t('dailyTotal', tot.runs, tot.ok, tot.n, tot.coins) + (tot.ups ? t('dailyUps', tot.ups) : '') + (tot.stamps ? t('dailyStamps', tot.stamps) : '') : '';
-  $('#dailyInfo').innerHTML = esc((d == null ? t('dailyNone', Rewards.EARN.daily) : t('dailyDone', d, ROUND)) + (st ? t('streak', st) : '') + (d == null ? '' : t('dailyAgainHint', Rewards.EARN.dailyAgain)))
-    + (totLine ? `<br><span class="daily-total">${esc(totLine)}</span>` : '');
   // 地圖左上角的解鎖百分比：到訪以上的地方佔比（Ken 2026-10-21 要求）
   const unlocked = n - c[0];
   $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
   const next = Store.lvNext(R.key);
   $('#levelGo').textContent = t('level.go', next) + (Quiz.isTimedLevel(next) ? `・${t('level.timed')}` : '');
   $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key), Store.lvStarSum(R.key));
+  // 每日獎勵（原本的今日挑戰）：今天還沒過關就提示第一關的獎勵，過了就顯示連續天數
+  const st = Store.dayStreak();
+  $('#levelDay').textContent = Store.clearedToday() ? t('level.dayDone', st) : t('level.dayNone', Rewards.EARN.daily) + (st ? t('level.dayKeep', st) : '');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
   renderHero();
 }
@@ -193,6 +190,8 @@ function cardHtml(id) {
       ${c.sights.length ? `<dt>${esc(t('sights'))}</dt><dd>${chips(c.sights)}</dd>` : ''}
       ${c.fact ? `<dt>${esc(t('fact'))}</dt><dd>${[c.fact, ...(c.facts || [])].map(f => esc(f.replace(/○○/g, R.short(id)))).join('<br>')}</dd>` : ''}
       ${c.dia ? `<dt>${esc(R.label('dia'))}</dt><dd><b class="dia">${esc(c.dia.w)}</b> ${esc(c.dia.m)}</dd>` : ''}
+      ${R.stats[id] ? `<dt>${esc(t('qs.name.area'))}・${esc(t('qs.name.pop'))}</dt><dd>${esc(Quiz.fmtStat('area', R.stats[id].area))}・${esc(Quiz.fmtStat('pop', R.stats[id].pop))}</dd>` : ''}
+      ${c.extra.length ? `<dt>${esc(t('xtra'))}</dt><dd class="xtra">${c.extra.map(e => `<small>${esc(t('xk.' + e.k))}</small>${esc(e.t.replace(/○○/g, R.short(id)))}`).join('<br>')}</dd>` : ''}
     </dl>
     <a class="src" href="${esc(c.wiki)}" target="_blank" rel="noopener">${esc(t('source', c.wikiTitle))}</a>
   </div>`;
@@ -232,7 +231,7 @@ function setPanel(prompt, feedback = '', actions = '', ex = '') {
 }
 function setStat(html) { $('#pStat').innerHTML = html; }
 
-// mode：daily／level／explore；level 要帶關號 n
+// mode：level／explore；level 要帶關號 n
 function startMode(mode, n) {
   // 關卡照順序開：前一關沒有星就不能打
   if (mode === 'level' && n > 1 && !Store.lvStars(R.key, n - 1)) { toast(esc(t('level.locked', n - 1))); return; }
@@ -247,9 +246,7 @@ function startMode(mode, n) {
   music(timed ? 'fast' : 'calm');
   // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
   playMap.paint(() => '');
-  // 今日挑戰：每天第一次是固定題組（分享用）；做完再玩就換一組新題（照複習優先度出），另給再挑戰獎勵（Ken 2026-10-21 要求）
-  if (mode === 'daily') { P.again = Store.daily(R.key) != null; P.qs = P.again ? Quiz.session(R, 'mix', ROUND, R.ids) : Quiz.daily(R); }
-  else P.qs = Quiz.level(R, n);
+  P.qs = Quiz.level(R, n);
   if (timed) { P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
   if (mode === 'level') toast(esc(timed ? t('level.timedGoal', ...starGoals(n), TIMED_SEC) : t('level.goal')), 2200, 'ach');
   playMap.onTap(answer);
@@ -275,7 +272,8 @@ function nextQuestion() {
 }
 function renderQuestion() {
   const q = P.qs[P.i];
-  const big = q.type === 'loc' || !['fact', 'nb', 'dir', 'link', 'guess'].includes(q.clue);
+  // 短的提示（名產、名勝、首府、國旗…）放大字，句子型的照一般字級
+  const big = q.type === 'loc' || ['food', 'sight', 'cap', 'old', 'dia', 'flag', 'foreign'].includes(q.clue);
   const main = q.clue === 'guess' ? guessHtml(q) : q.html || esc(q.main);
   // 選擇題：四個選項放在題目下面（答完也留著，標出對錯）；「這塊是哪裡」「和誰相鄰」先在地圖上亮出題目那塊
   const choices = q.kind === 'match' ? matchHtml(q) : q.type === 'choice' ? `<div class="choices ${q.kind === 'tf' ? 'tf' : ''}">${q.options.map((o, i) => `<button type="button" class="btn choice" data-choice="${i}">${esc(o.label)}</button>`).join('')}</div>` : '';
@@ -349,7 +347,7 @@ function answer(id, choiceIdx) {
     P.combo++; P.maxCombo = Math.max(P.maxCombo, P.combo);
     P.score++;
     Sound.play('ok', P.combo - 1);
-    if (q.kind === 'most') for (const x of q.marks) playMap.label(x, R.short(x), x === q.id ? 'ok' : 'auto');
+    if (q.marks) for (const x of q.marks) playMap.label(x, R.short(x), x === q.id ? 'ok' : 'auto');
     playMap.mark(q.id, 'ok'); playMap.label(q.id, R.short(q.id), 'ok');
     const up = ch.to > ch.from && ch.to < 3 ? `<span class="up">${esc(t('up', lv(ch.to)))}</span>` : '';
     setPanel($('#pPrompt').innerHTML, `<div class="fb ok">${esc(t('ok'))}${q.type !== 'loc' ? '　' + nameHtml(q.id) : ''}${up}</div>`,
@@ -360,7 +358,7 @@ function answer(id, choiceIdx) {
     P.combo = 0;
     Sound.play('ng');
     if (id) { playMap.mark(id, 'ng'); playMap.label(id, R.short(id), 'ng'); }
-    if (q.kind === 'most') for (const x of q.marks) if (x !== id) playMap.label(x, R.short(x), 'auto');
+    if (q.marks) for (const x of q.marks) if (x !== id) playMap.label(x, R.short(x), 'auto');
     playMap.mark(q.id, 'target'); playMap.label(q.id, R.short(q.id), 'target');
     const wrongTxt = q.kind === 'match' ? esc(t('match.wrong', P.match.err)) : q.type === 'choice' ? t('wrongChoice', esc(q.options[choiceIdx].label), esc(q.options.find(o => o.ok).label)) : t('wrong', esc(R.name(id)), nameHtml(q.id));
     setPanel($('#pPrompt').innerHTML, `<div class="fb ng">${wrongTxt}</div>`,
@@ -398,6 +396,8 @@ function explain(q, picked, chosen) {
   else if (q.kind === 'nb') lines.push(t('ex.nbOf', R.name(q.mark), name));
   else if (q.kind === 'foods' || q.kind === 'sights') lines.push(t('ex.is', q.options.find(o => o.ok).label, R.name(q.mark || q.id)));
   else if (q.kind === 'tf') lines.push(t('ex.is', q.item, R.name(q.owner)));
+  // 排行、之最題：出題時就算好的解說（名次與數字、極點的地名）
+  if (q.ex) lines.push(...q.ex);
   else if (q.kind === 'match') q.places.forEach((x, i) => lines.push(t('ex.is', q.items[i], R.name(x))));
   if (q.type === 'choice' && q.kind !== 'which' && q.kind !== 'cap') { /* 上面已寫 */ }
   else if (q.clue === 'dir') lines.push(t('ex.at', name, R.short(q.from), dirOf(q.from, id)));
@@ -405,7 +405,7 @@ function explain(q, picked, chosen) {
   else if (q.clue === 'foreign') lines.push(t('ex.is', q.main, name));
   else if (q.clue === 'link') lines.push(q.main.replace(/？|\?$/, '') + ' → ' + name);
   else if (q.clue === 'nb') { /* 第一行已列出鄰居 */ }
-  else if (q.clue === 'guess') { /* 三條提示已經全部亮在題目區 */ }
+  else if (q.clue === 'guess' || q.clue === 'stat' || q.clue === 'rec') { /* 提示已在題目區，名次與解說在 q.ex */ }
   else if (q.type === 'know') lines.push(t('ex.clue', q.tag, q.main.split('○○').join(R.short(id)), name));
   else {
     if (c.cap) lines.push(t('ex.cap', c.capLabel, c.cap));
@@ -427,36 +427,30 @@ function timedTick() {
 }
 function finishQuiz() {
   clearInterval(P.timer);
+  $('#pMapActs').innerHTML = '';
   const total = P.timed ? null : P.qs.length;
-  let head = '', actions = '';
-  if (P.mode === 'level') {
-    // 關卡：照答對題數給星，只有比以前多的星才給幣；沒過關也留著已經拿過的星
-    const n = P.level, goals = starGoals(n), stars = starsOf(n, P.score), more = Store.setLvStars(R.key, n, stars);
-    if (more) gain(more * Rewards.EARN.levelStar);
-    const best = Store.lvStars(R.key, n);
-    head = `<div class="stars">${'★'.repeat(stars)}${'☆'.repeat(3 - stars)}</div>
-      <div class="big-score">${P.score}<small>${total ? ` / ${total}` : ` / ${goals[2]}`}</small></div>
-      <div class="${stars ? 'new-rec' : 'muted'}">${esc(stars ? t('level.clear') : t('level.fail', goals[0]))}</div>
-      ${more ? `<div class="daily-bonus"><b>🎁 +${more * Rewards.EARN.levelStar} 🐾</b><small>${esc(t('level.newStars', more))}</small></div>` : ''}
-      <div class="muted">${esc(P.timed ? t('level.timedGoal', ...goals, TIMED_SEC) : t('level.goal'))}</div>`;
-    actions = `<button type="button" class="btn" data-level="${n}">${esc(t('level.retry'))}</button>`
-      + (best ? `<button type="button" class="btn primary" data-level="${n + 1}">${esc(t('level.next'))}</button>` : '');
-  } else {
-    let extra = '';
-    const perfect = P.score === P.qs.length, E = Rewards.EARN;
-    if (!P.again) Store.setDaily(R.key, P.score, P.marks.join(''));   // 成績與方格只記每天第一次；先記才算得到今天的連續天數
-    const streak = Store.streak(R.key);
-    // 每天第一次：基本 +30、全對 +30、連續天數每天 +5（最多 +50）；再挑戰只有 +5（全對 +5），差距要大才會每天來
-    const parts = P.again
-      ? [[t('dailyAgainBonus'), E.dailyAgain], perfect && [t('perfectBonus'), E.dailyAgainPerfect]]
-      : [[t('dailyBonus'), E.daily], perfect && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]];
-    const got = parts.filter(Boolean), bonus = got.reduce((s, [, n]) => s + n, 0);
+  // 關卡：照答對題數給星，只有比以前多的星才給幣；沒過關也留著已經拿過的星
+  const n = P.level, goals = starGoals(n), stars = starsOf(n, P.score), more = Store.setLvStars(R.key, n, stars), E = Rewards.EARN;
+  if (more) gain(more * E.levelStar);
+  const best = Store.lvStars(R.key, n);
+  // 今日挑戰（Ken 2026-10-22 要求併進關卡）：每天第一次過關（任何分頁）就算完成，基本 +30、三顆星再 +30、連續天數每天 +5（最多 +50）
+  let day = '';
+  if (stars && Store.dayClear()) {
+    const streak = Store.dayStreak();
+    if (stars === 3) Store.stat('dailyPerfect', (Store.stats().dailyPerfect || 0) + 1);
+    const got = [[t('dailyBonus'), E.daily], stars === 3 && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]].filter(Boolean);
+    const bonus = got.reduce((s, [, v]) => s + v, 0);
     gain(bonus);
-    Store.addDailyRun(R.key, { ok: P.score, n: P.qs.length, coins: P.coins || 0, ups: P.ups.length, stamps: P.stamps.length });
-    extra = `<div class="daily-bonus"><b>🎁 +${bonus} 🐾</b><small>${got.map(([k, n]) => `${esc(k)} +${n}`).join('・')}</small></div><div class="muted">${esc(t('streakDays', streak))}</div>`;
-    head = `<div class="big-score">${P.score}<small> / ${total}</small></div>${extra}`;
-    actions = `<button type="button" class="btn" data-share>${esc(t('share.btn'))}</button><button type="button" class="btn primary" data-again="daily">${esc(t('dailyAgain'))}</button>`;
+    day = `<div class="daily-bonus day"><b>🎁 ${esc(t('level.dayGot', streak))} +${bonus} 🐾</b><small>${got.map(([k, v]) => `${esc(k)} +${v}`).join('・')}</small></div>`;
   }
+  const head = `<div class="stars">${'★'.repeat(stars)}${'☆'.repeat(3 - stars)}</div>
+    <div class="big-score">${P.score}<small>${total ? ` / ${total}` : ` / ${goals[2]}`}</small></div>
+    <div class="${stars ? 'new-rec' : 'muted'}">${esc(stars ? t('level.clear') : t('level.fail', goals[0]))}</div>
+    ${day}
+    ${more ? `<div class="daily-bonus"><b>🎁 +${more * E.levelStar} 🐾</b><small>${esc(t('level.newStars', more))}</small></div>` : ''}
+    <div class="muted">${esc(P.timed ? t('level.timedGoal', ...goals, TIMED_SEC) : t('level.goal'))}</div>`;
+  const actions = `<button type="button" class="btn" data-level="${n}">${esc(t('level.retry'))}</button>`
+    + (best ? `<button type="button" class="btn primary" data-level="${n + 1}">${esc(t('level.next'))}</button>` : '');
   const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
   const stamps = P.stamps.map(id => stampHtml(id)).join('');
   celebrate(Rewards.check());   // 關卡星數、今日挑戰全對／連續天數在結算時才算得出來
@@ -540,10 +534,9 @@ function refreshDog() {
 function renderHero() {
   if (!$('#heroDog')) return;
   $('#heroDog').innerHTML = komugiFullImg(104);
-  const title = Store.title();
-  $('#heroTitle').textContent = t('closet.titles')[title && Rewards.titleOk(title) ? title : 'none'];
-  const g = Rewards.nextJourney();
-  $('#heroBubble').textContent = g ? t('hero.goal', g.left, t('closet.titles')[g.j.id]) : t('hero.allDone');
+  $('#heroTitle').textContent = titleName(curTitle());
+  const g = Rewards.nextTitle();
+  $('#heroBubble').textContent = g ? t('hero.goal', g.left, titleName('u' + g.k), g.pct.toFixed(1)) : t('hero.allDone');
   $('#heroCoins').textContent = '🐾 ' + Store.coins();
   const n = Math.floor(Store.coins() / Rewards.PULL_COST);
   $('#gachaBadge').hidden = !n; $('#gachaBadge').textContent = n;
@@ -562,8 +555,30 @@ function gain(n) {
   }
 }
 const LEVEL_COINS = [0, Rewards.EARN.visit, Rewards.EARN.familiar, Rewards.EARN.stamp];
+// 稱號名稱：旅程稱號 u1～u1000＝形容＋階級（每 50 個換一個階級），u0／沒選＝見習旅人；其餘是套裝稱號
+function titleName(id) {
+  const m = /^u(\d+)$/.exec(id || '');
+  if (!m) return t('closet.titles')[id] || t('closet.titles').none;
+  const k = +m[1];
+  if (!k) return t('closet.titles').none;
+  const d = t('closet.descs')[(k - 1) % 50], r = t('closet.ranks')[Math.floor((k - 1) / 50)];
+  return lang() === 'en' ? `${d} ${r}` : d + r;
+}
+// 首頁顯示的稱號：自己選過且還能用就用那個，否則用最新拿到的旅程稱號
+function curTitle() {
+  const sel = Store.title();
+  return sel && Rewards.titleOk(sel) ? sel : 'u' + Rewards.titleCount();
+}
+// 拿到新的旅程稱號就跳通知（記在 stats.titleN，換裝置不會重複跳）
+function checkTitles() {
+  const n = Rewards.titleCount(), was = Store.stats().titleN || 0;
+  if (n <= was) return;
+  Store.stat('titleN', n);
+  if (was) toast(`<b>🎖 ${esc(t('closet.newTitle', titleName('u' + n)))}</b>${n - was > 1 ? `<small>${esc(t('closet.newTitles', n - was))}</small>` : ''}`, 2200, 'ach');
+}
 // 新解鎖的成就：跳通知、記到這一局的結算裡（成就的幣在 Rewards.check 裡已經發了）
 function celebrate(fresh) {
+  checkTitles();
   if (!fresh.length) return;
   fresh.forEach((a, i) => setTimeout(() => {
     toast(`<b>🏅 ${esc(t('closet.achGot', achText(a)))}</b><small>+${Rewards.EARN.ach} 🐾</small>`, 2200, 'ach');
@@ -575,8 +590,20 @@ function celebrate(fresh) {
 // 稱號列（旅程稱號、套裝稱號共用）：拿到了才有「設為稱號」
 function titleRow(id, ok, sub, extra = '') {
   const on = Store.title() === id;
-  return `<div class="set-row ${ok ? 'done' : ''}"><div class="set-head"><b>「${esc(t('closet.titles')[id])}」</b><small>${esc(sub)}</small></div>${extra}
-    ${ok ? `<div class="set-actions">${id.startsWith('j') ? '' : `<button type="button" class="btn small" data-wearset="${id}">${esc(t('closet.wearSet'))}</button>`}<button type="button" class="btn small ${on ? 'primary' : ''}" data-title="${id}">${esc(on ? t('closet.titleOn') : t('closet.useTitle'))}</button></div>` : ''}</div>`;
+  return `<div class="set-row ${ok ? 'done' : ''}"><div class="set-head"><b>「${esc(titleName(id))}」</b><small>${esc(sub)}</small></div>${extra}
+    ${ok ? `<div class="set-actions"><button type="button" class="btn small" data-wearset="${id}">${esc(t('closet.wearSet'))}</button><button type="button" class="btn small ${on ? 'primary' : ''}" data-title="${id}">${esc(on ? t('closet.titleOn') : t('closet.useTitle'))}</button></div>` : ''}</div>`;
+}
+// 旅程稱號：拿到的排成小標籤（最新的在前面，點了就設成稱號），後面接著三個還沒拿到的
+function journeyHtml() {
+  const n = Rewards.titleCount(), g = Rewards.nextTitle(), cur = curTitle();
+  const chip = k => `<button type="button" class="tchip ${'u' + k === cur ? 'on' : ''}" data-title="u${k}">${esc(titleName('u' + k))}</button>`;
+  const locked = [];
+  for (let k = n + 1; k <= Math.min(Rewards.TITLE_N, n + 3); k++) locked.push(`<span class="tchip locked">${esc(titleName('u' + k))}</span>`);
+  const got = [];
+  for (let k = n; k >= 1; k--) got.push(chip(k));
+  return `<h3>${esc(t('closet.journey'))} ${n} / ${Rewards.TITLE_N}</h3>
+    <p class="muted small">${esc(t('closet.journeyHow', g ? g.pct.toFixed(1) : 100))}</p>
+    <div class="tchips">${locked.reverse().join('')}${got.join('') || `<span class="tchip on">${esc(titleName('u0'))}</span>`}</div>`;
 }
 
 // 衣櫃：上面是全身預覽，下面依部位分頁，最後兩頁是稱號（旅程＋套裝）與成就
@@ -593,9 +620,7 @@ function closetHtml() {
       body += `<div class="set-row ${done ? 'done' : ''}"><div class="set-head"><b>${done ? '🏅' : '・'} ${esc(achText(a))}</b><small>${esc(done ? t('closet.achDone', got[a.id]) : `${v} / ${a.target}`)}</small></div></div>`;
     }
   } else if (closetTab === 'sets') {
-    const n = Store.lvTotal();
-    body += `<h3>${esc(t('closet.journey'))}</h3>`;
-    for (const j of Rewards.JOURNEY) body += titleRow(j.id, Rewards.journeyDone(j), `${t('closet.journeyReq', j.levels)}・${Math.min(n, j.levels)} / ${j.levels}`);
+    body += journeyHtml();
     body += `<h3>${esc(t('closet.setTitles'))}</h3>`;
     for (const st of Rewards.SETS) body += titleRow(st.id, Rewards.setDone(st), `${t('closet.setNames')[st.id]}・${Rewards.setProgress(st)} / ${st.items.length}`,
       `<div class="set-items">${st.items.map(i => `<span class="mini ${Store.owns(i) ? '' : 'locked'}" title="${esc(itemName(i))}">${itemImg(i, 40)}</span>`).join('')}</div>`);
@@ -678,23 +703,6 @@ function doPull() {
     refreshDog();
   }, 1100);
 }
-// ── 今日挑戰分享：方格＋連續天數，手機叫出分享選單，不行就複製 ──
-async function shareDaily() {
-  const grid = Store.dailyGrid(R.key) || P?.marks?.join('') || '';
-  const score = Store.daily(R.key) ?? 0, st = Store.streak(R.key);
-  const text = `${t('appName')} ${t('mode.daily')} ${Store.dayKey()}・${t('region.' + R.key)}\n${grid} ${score}/10${st ? '\n' + t('share.streak', st) : ''}\nhttps://agan0617.github.io/KMap/`;
-  try {
-    if (navigator.share) { await navigator.share({ text }); return; }
-  } catch (e) { if (e.name === 'AbortError') return; }
-  try { await navigator.clipboard.writeText(text); }
-  catch (e) {
-    const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); } catch (e2) { /* 真的複製不了 */ }
-    ta.remove();
-  }
-  toast(esc(t('share.copied')));
-}
-
 // ── 設定 ──
 function showSettings() {
   const s = Store.settings();
@@ -764,7 +772,6 @@ document.addEventListener('click', e => {
   if (!b) return;
   if (b.dataset.lang) { Sound.play('tap'); setLang(b.dataset.lang); }
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
-  else if (b.id === 'mDaily') { Sound.play('tap'); startMode('daily'); }
   else if (b.id === 'mLevel') { Sound.play('tap'); startMode('level', Store.lvNext(R.key)); }
   else if (b.id === 'mLevels') { Sound.play('tap'); show('levels'); renderLevels(); }
   else if (b.dataset.level) { Sound.play('tap'); closeModal(); startMode('level', +b.dataset.level); }
@@ -778,7 +785,6 @@ document.addEventListener('click', e => {
   else if (b.hasAttribute('data-pull')) doPull();
   else if (b.hasAttribute('data-pull-all')) doPullAll();
   else if (b.dataset.wearNow) { const it = b.dataset.wearNow; Store.wear(KOMUGI_ITEMS[it].slot, it); Sound.play('level'); refreshDog(); toast(`${itemImg(it, 56)}<b>${esc(itemName(it))}</b>`); }
-  else if (b.hasAttribute('data-share')) shareDaily();
   else if (b.dataset.scope) { Sound.play('tap'); setScope(b.dataset.scope); }
   else if (b.id === 'pBack' || b.id === 'bBack' || b.id === 'lBack') goHome();
   else if (b.id === 'hSettings') showSettings();
@@ -796,7 +802,6 @@ document.addEventListener('click', e => {
   else if (b.hasAttribute('data-hint')) { if (P && !P.answered) { P.hint++; Sound.play('tap'); renderQuestion(); } }
   else if (b.hasAttribute('data-next')) advance();
   else if (b.hasAttribute('data-home')) { closeModal(); goHome(); }
-  else if (b.dataset.again) { closeModal(); startMode(b.dataset.again); }
   else if (b.hasAttribute('data-labels')) { Store.setSetting('labels', !Store.settings().labels); startExplore(); }
   else if (b.dataset.theme) { Store.setSetting('theme', b.dataset.theme); applyTheme(); document.querySelectorAll('.sw').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.theme === b.dataset.theme))); }
 });

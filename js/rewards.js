@@ -4,7 +4,7 @@
 //   純隨機會「越齊越難抽到新的」，模擬下來前 50 關拿 30 件、第 351～400 關只剩 5 件；固定出新率則每 50 關穩定約 17 件、約 400 關集滿
 //   新配件照稀有度挑，已經湊了幾件的套裝優先補（套裝稱號才不會全擠在後期）
 // - 成就：只送肉球幣（1.14.0 以前會送指定配件，已經拿到的照樣留著）
-// - 旅程稱號：所有分頁合計每過 20 關一個；套裝稱號：集滿一套
+// - 旅程稱號：1000 個，跟著全地圖的解鎖進度拿；套裝稱號：集滿一套
 const Rewards = (() => {
   const PULL_COST = 30, DUP_REFUND = 10, NEW_RATE = 0.4, SET_BOOST = 3;
   const RATE = { N: 55, R: 30, SR: 12, SSR: 3 };
@@ -54,9 +54,10 @@ const Rewards = (() => {
   const POOL = Object.keys(KOMUGI_ITEMS);
   const RAR_N = {};
   for (const k of POOL) RAR_N[KOMUGI_ITEMS[k].rar] = (RAR_N[KOMUGI_ITEMS[k].rar] || 0) + 1;
-  // 旅程稱號：所有分頁合計過了幾關
-  const JOURNEY_EVERY = 20;
-  const JOURNEY = Array.from({ length: 20 }, (_, i) => ({ id: 'j' + (i + 1) * JOURNEY_EVERY, levels: (i + 1) * JOURNEY_EVERY }));
+  // 旅程稱號 1000 個，綁全地圖的解鎖（Ken 2026-10-22 要求）：
+  // 解鎖點數＝四個地區所有地方的熟練度加總（到訪 1、熟悉 2、制霸 3，全部制霸 299×3＝897 點），
+  // 第 k 個稱號在點數達到 k/1000 時拿到，所以每升級一個地方大約就多一個稱號。名字＝50 個形容 × 20 個階級（i18n 的 closet.descs、closet.ranks）
+  const TITLE_N = 1000;
 
   // 套裝：集滿就有稱號
   const SETS = [
@@ -162,19 +163,32 @@ const Rewards = (() => {
   }
   const allOwned = () => POOL.every(k => Store.owns(k));
 
-  // 旅程稱號：拿到了幾個、下一個還差幾關
-  const journeyDone = j => Store.lvTotal() >= j.levels;
-  function nextJourney() {
-    const n = Store.lvTotal(), j = JOURNEY.find(x => n < x.levels);
-    return j ? { j, left: j.levels - n } : null;
+  // 旅程稱號：解鎖點數、拿到第幾個、下一個還差幾點
+  function unlockPoints() {
+    let pts = 0, max = 0;
+    for (const k of REWARD_REGIONS) {
+      const R = reg(k);
+      if (!R) continue;
+      max += R.ids.length * 3;
+      for (const id of R.ids) pts += Store.level(k, id);
+    }
+    return { pts, max };
   }
-  // 稱號能不能用：套裝集滿或旅程過關數夠
+  const needFor = (k, max) => Math.ceil(k * max / TITLE_N);
+  function titleCount() {
+    const { pts, max } = unlockPoints();
+    return max ? Math.min(TITLE_N, Math.floor(pts * TITLE_N / max)) : 0;
+  }
+  function nextTitle() {
+    const { pts, max } = unlockPoints(), n = titleCount();
+    return n >= TITLE_N ? null : { k: n + 1, left: Math.max(1, needFor(n + 1, max) - pts), n, pct: max ? pts / max * 100 : 0 };
+  }
+  // 稱號 id：旅程稱號是 u1～u1000，其餘是套裝
   function titleOk(id) {
+    if (/^u\d+$/.test(id)) return +id.slice(1) <= titleCount();
     const s = SETS.find(x => x.id === id);
-    if (s) return setDone(s);
-    const j = JOURNEY.find(x => x.id === id);
-    return !!j && journeyDone(j);
+    return !!s && setDone(s);
   }
 
-  return { ACH, POOL, SETS, JOURNEY, RATE, EARN, PULL_COST, DUP_REFUND, NEW_RATE, context, check, pull, allOwned, setProgress, setDone, journeyDone, nextJourney, titleOk };
+  return { ACH, POOL, SETS, TITLE_N, RATE, EARN, PULL_COST, DUP_REFUND, NEW_RATE, context, check, pull, allOwned, setProgress, setDone, unlockPoints, titleCount, nextTitle, titleOk };
 })();

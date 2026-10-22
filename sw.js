@@ -7,7 +7,7 @@ const FILES = [
   'data/taiwan-map.js', 'data/taiwan-info.js', 'data/taiwan-units-1.js', 'data/taiwan-units-2.js',
   'data/china-map.js', 'data/china-info.js', 'data/china-units-1.js', 'data/china-units-2.js',
   'data/world-map.js', 'data/world-info.js', 'data/world-units-asia1.js', 'data/world-units-asia2.js',
-  'data/world-units-europe.js', 'data/world-units-africa.js', 'data/world-units-americas.js', 'data/world-units-oceania.js', 'data/world-continents.js',
+  'data/world-units-europe.js', 'data/world-units-africa.js', 'data/world-units-americas.js', 'data/world-units-oceania.js', 'data/world-continents.js', 'data/stats.js',
   'js/store.js', 'js/i18n.js', 'js/i18n-rewards.js', 'js/sync.js', 'js/regions.js', 'js/audio.js', 'js/komugi.js', 'js/rewards.js', 'js/map.js', 'js/quiz.js', 'js/main.js',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
 ];

@@ -81,6 +81,11 @@ small { font-size: .78em; color: var(--muted); }
 .closet-dog .komugi.full { animation: hop 2s ease-in-out infinite; }
 .set-row { border: 1.5px solid var(--line); border-radius: 14px; padding: 8px 10px; margin-bottom: 8px; background: var(--paper2); }
 .set-row.done { border-color: var(--gold); background: var(--done); }
+/* 旅程稱號：拿到的排成小標籤，點了就設成稱號 */
+.tchips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; max-height: 40dvh; overflow-y: auto; }
+.tchip { border: 1.5px solid var(--gold); background: var(--done); color: var(--ink); border-radius: 999px; padding: 3px 10px; font: inherit; font-size: 13px; }
+.tchip.on { background: var(--gold); color: #fff; }
+.tchip.locked { border-style: dashed; border-color: var(--line); background: transparent; opacity: .5; }
 .set-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; flex-wrap: wrap; }
 .set-items { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
 .mini { line-height: 0; border-radius: 8px; background: var(--card); }
@@ -144,6 +149,7 @@ details.small { font-size: 12px; max-width: 360px; }
 .level-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
 .mode.level { background: linear-gradient(120deg, #2f6fa8, #4a90d9); color: #fff; box-shadow: 0 3px 0 #1f4c75; }
 .mode.level small { color: #dcecfb; }
+.mode.level small.day { font-weight: 700; color: #fff; }
 .mode.level-all { justify-content: center; align-items: center; text-align: center; }
 .levels-body { flex: 1; overflow-y: auto; padding: 8px 16px calc(20px + env(safe-area-inset-bottom)); }
 .level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
