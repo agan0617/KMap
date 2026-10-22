@@ -37,6 +37,10 @@
       </div>
     </section>
     <button class="mode daily" id="mDaily" type="button"><b data-t="mode.daily"></b><small id="dailyInfo"></small></button>
+    <div class="level-row">
+      <button class="mode level" id="mLevel" type="button"><b id="levelGo"></b><small id="levelInfo"></small></button>
+      <button class="mode level-all" id="mLevels" type="button"><b data-t="level.select"></b></button>
+    </div>
     <nav class="regions" id="regionTabs"></nav>
     <nav class="scopes" id="scopeTabs"></nav>
     <div class="home-map" id="homeMap">
@@ -44,13 +48,16 @@
       <button type="button" class="btn small map-corner" data-mode="explore" data-t="mode.explore"></button>
     </div>
     <div class="progress" id="homeProgress"></div>
-    <div class="modes">
-      <button class="mode" data-mode="loc" type="button"><b data-t="mode.loc"></b><small data-t="modeDesc.loc"></small></button>
-      <button class="mode" data-mode="know" type="button"><b data-t="mode.know"></b><small data-t="modeDesc.know"></small></button>
-      <button class="mode" data-mode="travel" type="button"><b data-t="mode.travel"></b><small data-t="modeDesc.travel"></small></button>
-      <button class="mode" data-mode="timed" type="button"><b data-t="mode.timed"></b><small id="timedBest"></small></button>
-      <button class="mode wide" data-mode="choice" type="button"><b data-t="mode.choice"></b><small data-t="modeDesc.choice"></small></button>
-    </div>
+  </section>
+
+  <!-- 選關 -->
+  <section id="levels" class="screen" hidden>
+    <header class="hud">
+      <button class="icon-btn" id="lBack" type="button" data-ta="back">‹</button>
+      <div class="hud-title"></div>
+      <div class="hud-stat" id="lStat"></div>
+    </header>
+    <div class="levels-body" id="levelsBody"></div>
   </section>
 
   <!-- 遊玩畫面 -->

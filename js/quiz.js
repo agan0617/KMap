@@ -1,5 +1,5 @@
-// 出題：找位置（loc）與知識找地點（know），以及鄰接旅行的起訖點。
-// pool 是這一輪能出題的區塊（首頁選的範圍）；沒給就是整個地區。
+// 出題：找位置（loc）、知識找地點（know）、選擇題（choice），混在今日挑戰與關卡裡出。
+// pool 是這一輪能出題的區塊；沒給就是整個地區。
 const Quiz = (() => {
   // 可重現的亂數（今日挑戰用日期當種子，大家同一天同一組題）
   function rng(seed) {
@@ -73,17 +73,7 @@ const Quiz = (() => {
     const x = pick(cands, r), d = dir8(R, x, id);
     return { k: 'dir', tag: t('qt.dir'), t: t('qdir', R.short(x), t('ex.dir')[d]), from: x };
   }
-  // 剪影題：只給形狀（太小的地方看不出形狀，不出）
-  function shapeClue(R, id) {
-    const s = R.map.shapes[id];
-    if (!s || s.area < 150) return null;
-    const n = s.d.match(/-?[\d.]+/g).map(Number);
-    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-    for (let i = 0; i < n.length; i += 2) { x0 = Math.min(x0, n[i]); x1 = Math.max(x1, n[i]); y0 = Math.min(y0, n[i + 1]); y1 = Math.max(y1, n[i + 1]); }
-    const pad = Math.max(x1 - x0, y1 - y0) * 0.06;
-    const html = `<svg class="silhouette" viewBox="${x0 - pad} ${y0 - pad} ${x1 - x0 + pad * 2} ${y1 - y0 + pad * 2}"><path d="${s.d}"/></svg>`;
-    return { k: 'shape', tag: t('qt.shape'), t: '', html };
-  }
+  // 剪影題 2026-10-22 拿掉了（Ken 說很無聊）
   // 國旗題：只有各洲（世界的國家）有
   function flagClue(R, id) {
     const f = R.card(id).flag;
@@ -164,9 +154,7 @@ const Quiz = (() => {
       return { kind: 'most', dir: d, tag: t('ct.most'), main: t('cq.most', t('cdir.' + d)), answerId: sorted[0], marks: four,
         options: shuffle(four.map(x => ({ label: R.name(x), ok: x === sorted[0], id: x })), r) };
     });
-    // 看剪影、國旗選名字
-    const sh = shapeClue(R, id);
-    if (sh) kinds.push(() => { const o = nameOpts(); return o && { kind: 'shape', tag: t('qt.shape'), main: '', html: sh.html, options: o }; });
+    // 看國旗選名字
     if (c.flag) kinds.push(() => { const o = nameOpts(); return o && { kind: 'flag', tag: t('qt.flag'), main: c.flag, options: o }; });
     for (const k of shuffle(kinds, r)) { const q = k(); if (q) return Object.assign({ type: 'choice', id: q.answerId || id, sub: '' }, q); }
     return null;
@@ -178,11 +166,11 @@ const Quiz = (() => {
     if (type === 'know') {
       // 先抽題型再抽提示：知識卡提示一半、其餘題型平分另一半，才不會被知識卡的條數淹沒
       const L = clues(R, id);
-      const special = [nbClue(R, id, r), dirClue(R, id, r), shapeClue(R, id), flagClue(R, id), foreignClue(R, id, r), linkClue(R, id, r)].filter(Boolean);
+      const special = [nbClue(R, id, r), dirClue(R, id, r), flagClue(R, id), foreignClue(R, id, r), linkClue(R, id, r)].filter(Boolean);
       const c = special.length && (!L.length || r() < 0.5) ? pick(special, r) : L.length ? pick(L, r) : null;
       if (c) {
-        const sub = c.sub ?? (c.k === 'shape' ? t('qshape') : c.k === 'flag' ? t('qflag') : t('where'));
-        return { type, id, tag: c.tag, main: c.t, html: c.html, sub, clue: c.k, from: c.from };
+        const sub = c.sub ?? (c.k === 'flag' ? t('qflag') : t('where'));
+        return { type, id, tag: c.tag, main: c.t, sub, clue: c.k, from: c.from };
       }
     }
     return { type: 'loc', id, tag: t('mode.loc'), main: R.name(id), sub: R.sub(id) };
@@ -203,31 +191,22 @@ const Quiz = (() => {
     return session(R, 'mix', 10, R.ids, r, () => 1);
   }
 
-  // ── 鄰接旅行 ──
-  function bfs(R, from) {
-    const dist = { [from]: 0 }, prev = {}, q = [from];
-    while (q.length) {
-      const a = q.shift();
-      for (const b of R.graph[a]) if (dist[b] == null) { dist[b] = dist[a] + 1; prev[b] = a; q.push(b); }
-    }
-    return { dist, prev };
+  // ── 關卡（Ken 2026-10-22 要求）：無限往下、題目從整區題庫隨機抽 ──
+  // 用分頁＋關號當種子，同一關重打是同一組題（回來刷星）；每 5 關一個限時關
+  const TIMED_EVERY = 5;
+  const isTimedLevel = n => n % TIMED_EVERY === 0;
+  function seedOf(R, n) {
+    let h = 2166136261;
+    for (const ch of R.key + ':' + n) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
+    return h >>> 0;
   }
-  function route(R, from, to) {
-    const { prev } = bfs(R, from), out = [to];
-    while (out[0] !== from) { const p = prev[out[0]]; if (!p) return null; out.unshift(p); }
+  // 普通關 10 題；限時關先備 60 題（60 秒答不完）
+  function level(R, n) {
+    const r = rng(seedOf(R, n)), want = isTimedLevel(n) ? 60 : 10, out = [];
+    // 地方抽完一輪才重來，題數比地方多的區（南美 12 國）也不會同一個地方連出
+    while (out.length < want) out.push(...session(R, 'mix', Math.min(want - out.length, R.ids.length), R.ids, r, () => 1));
     return out;
   }
-  // 起訖點都在範圍內；範圍太小找不到 4 步以上的就放寬到 2 步
-  function trip(R, pool = R.ids) {
-    for (const min of [4, 3, 2]) {
-      for (let i = 0; i < 200; i++) {
-        const a = pick(pool), { dist } = bfs(R, a);
-        const far = pool.filter(b => dist[b] >= min && dist[b] <= 9);
-        if (far.length) { const b = pick(far); return { from: a, to: b, best: dist[b] }; }
-      }
-    }
-    return null;
-  }
 
-  return { session, daily, question, clues, trip, route, bfs };
+  return { session, daily, question, clues, level, isTimedLevel };
 })();

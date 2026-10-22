@@ -1,4 +1,5 @@
-// 畫面與玩法流程：首頁、找位置／知識找地點／今日挑戰／限時連擊、鄰接旅行、圖鑑、御朱印帳。
+// 畫面與玩法流程：首頁、今日挑戰、關卡（每 5 關一個限時關）、圖鑑、御朱印帳。
+// 2026-10-22 Ken 要求：找位置／知識／選擇題三種題目只混在今日挑戰與關卡裡出，拿掉各自的入口、鄰接旅行與限時連擊。
 // 畫面上的文字一律走 t()（js/i18n.js），地名與知識卡走 R.name()／R.card()（js/regions.js）。
 const $ = s => document.querySelector(s);
 const ROUND = 10, TIMED_SEC = 60;
@@ -38,9 +39,9 @@ function masteryColor(id) {
   return mixColor(R.areas[R.units[id].area].color, [0, 0.32, 0.62, 1][n]);
 }
 let toastTimer = null;
-function toast(html, ms = 1600) {
+function toast(html, ms = 1600, cls = '') {
   const el = $('#toast');
-  el.innerHTML = html; el.hidden = false; el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
+  el.innerHTML = html; el.hidden = false; el.className = cls; void el.offsetWidth; el.classList.add('show');
   clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, ms);
 }
 function show(id) {
@@ -118,8 +119,8 @@ function setLang(l) {
   renderTabs();
   if (!$('#home').hidden) renderHome();
   else if (!$('#book').hidden) renderBook();
+  else if (!$('#levels').hidden) renderLevels();
   else if (P?.mode === 'explore') startExplore();
-  else if (P?.mode === 'travel' && !P.done) travelPanel();
   // 答題中途切換：題目是出題當下的語言，從下一題起換新語言
 }
 
@@ -155,7 +156,9 @@ function renderHome() {
   // 地圖左上角的解鎖百分比：到訪以上的地方佔比（Ken 2026-10-21 要求）
   const unlocked = n - c[0];
   $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
-  $('#timedBest').textContent = Store.best(R.key, 'timed') ? t('timedBest', Store.best(R.key, 'timed')) : t('modeDesc.timed');
+  const next = Store.lvNext(R.key);
+  $('#levelGo').textContent = t('level.go', next) + (Quiz.isTimedLevel(next) ? `・${t('level.timed')}` : '');
+  $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key), Store.lvStarSum(R.key));
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
   renderHero();
 }
@@ -228,29 +231,39 @@ function setPanel(prompt, feedback = '', actions = '', ex = '') {
 }
 function setStat(html) { $('#pStat').innerHTML = html; }
 
-function startMode(mode) {
+// mode：daily／level／explore；level 要帶關號 n
+function startMode(mode, n) {
+  // 關卡照順序開：前一關沒有星就不能打
+  if (mode === 'level' && n > 1 && !Store.lvStars(R.key, n - 1)) { toast(esc(t('level.locked', n - 1))); return; }
   show('play');
   ensurePlayMap();
-  $('#pTitle').textContent = mode === 'book' ? R.label('book') : t('mode.' + mode);
-  $('#pTimer').hidden = mode !== 'timed';
+  const timed = mode === 'level' && Quiz.isTimedLevel(n);
+  $('#pTitle').textContent = mode === 'book' ? R.label('book') : mode === 'level' ? t('level.n', n) + (timed ? `・${t('level.timed')}` : '') : t('mode.' + mode);
+  $('#pTimer').hidden = !timed;
   clearInterval(P?.timer);
-  P = { mode, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], items: [] };
+  P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [] };
   if (mode === 'explore') return startExplore();
-  if (mode === 'travel') return startTravel();
-  music(mode === 'timed' ? 'fast' : 'calm');
+  music(timed ? 'fast' : 'calm');
   // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
   playMap.paint(() => '');
   // 今日挑戰：每天第一次是固定題組（分享用）；做完再玩就換一組新題（照複習優先度出），另給再挑戰獎勵（Ken 2026-10-21 要求）
   if (mode === 'daily') { P.again = Store.daily(R.key) != null; P.qs = P.again ? Quiz.session(R, 'mix', ROUND, R.ids) : Quiz.daily(R); }
-  else if (mode === 'timed') { P.qs = []; P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
-  else P.qs = Quiz.session(R, mode, ROUND, pool());
+  else P.qs = Quiz.level(R, n);
+  if (timed) { P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
+  if (mode === 'level') toast(esc(timed ? t('level.timedGoal', ...starGoals(n), TIMED_SEC) : t('level.goal')), 2200, 'ach');
   playMap.onTap(answer);
   nextQuestion();
 }
+// 星數門檻：普通關 10 題答對 6／8／10；限時關 60 秒答對 8／10／12，每 50 關多要 1 題
+function starGoals(n) {
+  if (!Quiz.isTimedLevel(n)) return [6, 8, 10];
+  const k = Math.floor(n / 50);
+  return [8 + k, 10 + k, 12 + k];
+}
+const starsOf = (n, ok) => starGoals(n).filter(g => ok >= g).length;
 
 // ── 答題流程 ──
 function nextQuestion() {
-  if (P.mode === 'timed') P.qs[P.i] = Quiz.session(R, 'mix', 1, pool())[0];
   const q = P.qs[P.i];
   if (!q) return finishQuiz();
   P.answered = false;
@@ -260,18 +273,18 @@ function nextQuestion() {
   // 選擇題：四個選項放在題目下面（答完也留著，標出對錯）；「這塊是哪裡」「和誰相鄰」先在地圖上亮出題目那塊
   const choices = q.type === 'choice' ? `<div class="choices">${q.options.map((o, i) => `<button type="button" class="btn choice" data-choice="${i}">${esc(o.label)}</button>`).join('')}</div>` : '';
   if (q.mark) playMap.mark(q.mark, 'target');
-  const flagQ = q.clue === 'flag' || q.kind === 'flag', bigQ = q.type === 'choice' ? ['flag', 'which', 'shape'].includes(q.kind) && q.kind !== 'which' : big;
+  const flagQ = q.clue === 'flag' || q.kind === 'flag', bigQ = q.type === 'choice' ? q.kind === 'flag' : big;
   setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${bigQ ? 'big' : ''} ${flagQ ? 'flag-q' : ''}">${main}</div>${q.sub ? `<div class="q-sub">${esc(q.sub)}</div>` : ''}${choices}`);
   updateStat();
 }
 function updateStat() {
   const combo = P.combo > 1 ? `<span class="combo">${t('combo', P.combo)}</span>` : '';
-  if (P.mode === 'timed') setStat(t('score', P.score) + combo);
+  if (P.timed) setStat(`${esc(t('level.okN', P.score))} / ${starGoals(P.level)[2]}${combo}`);
   else setStat(`${Math.min(P.i + 1, P.qs.length)} / ${P.qs.length}${combo}`);
 }
 function answer(id, choiceIdx) {
   // 答完後再點畫面任何地方＝下一題（Ken 2026-10-21 要求）；限時連擊會自己跳
-  if (P.answered && P.qs && P.mode !== 'timed') return advance();
+  if (P.answered && P.qs && !P.timed) return advance();
   const q = P.qs?.[P.i];
   if (q?.type === 'choice') {
     // 選擇題只認按鈕；點地圖不算作答
@@ -300,15 +313,15 @@ function answer(id, choiceIdx) {
   const nextBtn = `<button type="button" class="btn primary" data-next>${esc(t('next'))}</button>`;
   if (ok) {
     P.combo++; P.maxCombo = Math.max(P.maxCombo, P.combo);
-    P.score += P.mode === 'timed' ? 1 + Math.floor(P.combo / 5) : 1;
+    P.score++;
     Sound.play('ok', P.combo - 1);
     if (q.kind === 'most') for (const x of q.marks) playMap.label(x, R.short(x), x === q.id ? 'ok' : 'auto');
     playMap.mark(q.id, 'ok'); playMap.label(q.id, R.short(q.id), 'ok');
     const up = ch.to > ch.from && ch.to < 3 ? `<span class="up">${esc(t('up', lv(ch.to)))}</span>` : '';
     setPanel($('#pPrompt').innerHTML, `<div class="fb ok">${esc(t('ok'))}${q.type !== 'loc' ? '　' + nameHtml(q.id) : ''}${up}</div>`,
-      P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`, P.mode === 'timed' ? '' : explain(q));
+      P.timed ? '' : `${cardBtn}${nextBtn}`, P.timed ? '' : explain(q));
     // 有解析要留時間讀，不自動跳；點畫面任何地方就下一題。限時連擊照舊自動跳
-    if (P.mode === 'timed') P.auto = setTimeout(advance, 450);
+    if (P.timed) P.auto = setTimeout(advance, 450);
   } else {
     P.combo = 0;
     Sound.play('ng');
@@ -317,8 +330,8 @@ function answer(id, choiceIdx) {
     playMap.mark(q.id, 'target'); playMap.label(q.id, R.short(q.id), 'target');
     const wrongTxt = q.type === 'choice' ? t('wrongChoice', esc(q.options[choiceIdx].label), esc(q.options.find(o => o.ok).label)) : t('wrong', esc(R.name(id)), nameHtml(q.id));
     setPanel($('#pPrompt').innerHTML, `<div class="fb ng">${wrongTxt}</div>`,
-      P.mode === 'timed' ? '' : `${cardBtn}${nextBtn}`, P.mode === 'timed' ? '' : explain(q, id, q.type === 'choice' ? q.options[choiceIdx].label : null));
-    if (P.mode === 'timed') P.auto = setTimeout(advance, 1100);
+      P.timed ? '' : `${cardBtn}${nextBtn}`, P.timed ? '' : explain(q, id, q.type === 'choice' ? q.options[choiceIdx].label : null));
+    if (P.timed) P.auto = setTimeout(advance, 1100);
   }
   updateStat();
 }
@@ -352,7 +365,7 @@ function explain(q, picked, chosen) {
   else if (q.kind === 'foods' || q.kind === 'sights') lines.push(t('ex.is', q.options.find(o => o.ok).label, R.name(q.mark || q.id)));
   if (q.type === 'choice' && q.kind !== 'which' && q.kind !== 'cap') { /* 上面已寫 */ }
   else if (q.clue === 'dir') lines.push(t('ex.at', name, R.short(q.from), dirOf(q.from, id)));
-  else if (q.clue === 'shape' || q.clue === 'flag') lines.push(t('ex.is', q.tag, name));
+  else if (q.clue === 'flag') lines.push(t('ex.is', q.tag, name));
   else if (q.clue === 'foreign') lines.push(t('ex.is', q.main, name));
   else if (q.clue === 'link') lines.push(q.main.replace(/？|\?$/, '') + ' → ' + name);
   else if (q.clue === 'nb') { /* 第一行已列出鄰居 */ }
@@ -377,108 +390,58 @@ function timedTick() {
 }
 function finishQuiz() {
   clearInterval(P.timer);
-  const total = P.mode === 'timed' ? null : P.qs.length;
-  let head = '';
-  if (P.mode === 'timed') {
-    const rec = Store.setBest(R.key, 'timed', P.score);
-    head = `<div class="big-score">${P.score}<small>${esc(t('pts'))}</small></div>${rec ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('best', Store.best(R.key, 'timed')))}</div>`}`;
+  const total = P.timed ? null : P.qs.length;
+  let head = '', actions = '';
+  if (P.mode === 'level') {
+    // 關卡：照答對題數給星，只有比以前多的星才給幣；沒過關也留著已經拿過的星
+    const n = P.level, goals = starGoals(n), stars = starsOf(n, P.score), more = Store.setLvStars(R.key, n, stars);
+    if (more) gain(more * Rewards.EARN.levelStar);
+    const best = Store.lvStars(R.key, n);
+    head = `<div class="stars">${'★'.repeat(stars)}${'☆'.repeat(3 - stars)}</div>
+      <div class="big-score">${P.score}<small>${total ? ` / ${total}` : ` / ${goals[2]}`}</small></div>
+      <div class="${stars ? 'new-rec' : 'muted'}">${esc(stars ? t('level.clear') : t('level.fail', goals[0]))}</div>
+      ${more ? `<div class="daily-bonus"><b>🎁 +${more * Rewards.EARN.levelStar} 🐾</b><small>${esc(t('level.newStars', more))}</small></div>` : ''}
+      <div class="muted">${esc(P.timed ? t('level.timedGoal', ...goals, TIMED_SEC) : t('level.goal'))}</div>`;
+    actions = `<button type="button" class="btn" data-level="${n}">${esc(t('level.retry'))}</button>`
+      + (best ? `<button type="button" class="btn primary" data-level="${n + 1}">${esc(t('level.next'))}</button>` : '');
   } else {
     let extra = '';
-    if (P.mode === 'daily') {
-      const perfect = P.score === P.qs.length, E = Rewards.EARN;
-      if (!P.again) Store.setDaily(R.key, P.score, P.marks.join(''));   // 成績與方格只記每天第一次；先記才算得到今天的連續天數
-      const streak = Store.streak(R.key);
-      // 每天第一次：基本 +30、全對 +30、連續天數每天 +5（最多 +50）；再挑戰只有 +5（全對 +5），差距要大才會每天來
-      const parts = P.again
-        ? [[t('dailyAgainBonus'), E.dailyAgain], perfect && [t('perfectBonus'), E.dailyAgainPerfect]]
-        : [[t('dailyBonus'), E.daily], perfect && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]];
-      const got = parts.filter(Boolean), bonus = got.reduce((s, [, n]) => s + n, 0);
-      gain(bonus);
-      Store.addDailyRun(R.key, { ok: P.score, n: P.qs.length, coins: P.coins || 0, ups: P.ups.length, stamps: P.stamps.length });
-      extra = `<div class="daily-bonus"><b>🎁 +${bonus} 🐾</b><small>${got.map(([k, n]) => `${esc(k)} +${n}`).join('・')}</small></div><div class="muted">${esc(t('streakDays', streak))}</div>`;
-    }
+    const perfect = P.score === P.qs.length, E = Rewards.EARN;
+    if (!P.again) Store.setDaily(R.key, P.score, P.marks.join(''));   // 成績與方格只記每天第一次；先記才算得到今天的連續天數
+    const streak = Store.streak(R.key);
+    // 每天第一次：基本 +30、全對 +30、連續天數每天 +5（最多 +50）；再挑戰只有 +5（全對 +5），差距要大才會每天來
+    const parts = P.again
+      ? [[t('dailyAgainBonus'), E.dailyAgain], perfect && [t('perfectBonus'), E.dailyAgainPerfect]]
+      : [[t('dailyBonus'), E.daily], perfect && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]];
+    const got = parts.filter(Boolean), bonus = got.reduce((s, [, n]) => s + n, 0);
+    gain(bonus);
+    Store.addDailyRun(R.key, { ok: P.score, n: P.qs.length, coins: P.coins || 0, ups: P.ups.length, stamps: P.stamps.length });
+    extra = `<div class="daily-bonus"><b>🎁 +${bonus} 🐾</b><small>${got.map(([k, n]) => `${esc(k)} +${n}`).join('・')}</small></div><div class="muted">${esc(t('streakDays', streak))}</div>`;
     head = `<div class="big-score">${P.score}<small> / ${total}</small></div>${extra}`;
+    actions = `<button type="button" class="btn" data-share>${esc(t('share.btn'))}</button><button type="button" class="btn primary" data-again="daily">${esc(t('dailyAgain'))}</button>`;
   }
   const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
   const stamps = P.stamps.map(id => stampHtml(id)).join('');
-  celebrate(Rewards.check());   // 限時最佳分數、今日挑戰全對／連續天數在結算時才算得出來
-  const items = P.items.map(it => `<div class="item-tile got rar-${KOMUGI_ITEMS[it].rar}">${itemImg(it, 56)}<small>${esc(itemName(it))}</small></div>`).join('');
+  celebrate(Rewards.check());   // 關卡星數、今日挑戰全對／連續天數在結算時才算得出來
+  const achs = P.achs.map(a => `<span class="chip">🏅 ${esc(achText(a))}</span>`).join('');
   Sound.play(P.score >= (total || 10) * 0.8 ? 'goal' : 'level');
+  const title = P.mode === 'level' ? t('level.n', P.level) + (P.timed ? `・${t('level.timed')}` : '') : t('mode.' + P.mode);
   openModal(`
     <div class="result">
       <div class="result-dog">${komugiImg(72)}</div>
-      <h2>${esc(t('finished', t('mode.' + P.mode)))}</h2>
+      <h2>${esc(t('finished', title))}</h2>
       ${head}
       <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
       ${P.coins ? `<div class="coins">${esc(t('coinsGot', '+' + P.coins))}</div>` : ''}
       ${stamps ? `<h3>${esc(t('newStamps'))}</h3><div class="stamps">${stamps}</div>` : ''}
       ${ups ? `<h3>${esc(t('ups'))}</h3><div class="chips">${ups}</div>` : ''}
-      ${items ? `<h3>${esc(t('closet.newItems'))}</h3><div class="items">${items}</div>` : ''}
+      ${achs ? `<h3>${esc(t('closet.achTab'))}</h3><div class="chips">${achs}</div>` : ''}
       <div class="actions">
         <button type="button" class="btn" data-home>${esc(t('home'))}</button>
-        ${P.mode === 'daily' ? `<button type="button" class="btn" data-share>${esc(t('share.btn'))}</button><button type="button" class="btn primary" data-again="daily">${esc(t('dailyAgain'))}</button>` : `<button type="button" class="btn primary" data-again="${P.mode}">${esc(t('again'))}</button>`}
+        ${actions}
       </div>
     </div>`, null);
   P.qs = null;
-}
-
-// ── 鄰接旅行 ──
-function startTravel() {
-  music('calm');
-  const trip = Quiz.trip(R, pool());
-  Object.assign(P, { from: trip.from, to: trip.to, best: trip.best, cur: trip.from, steps: 0, trail: [trip.from], peek: false, done: false });
-  playMap.showLinks(true);
-  playMap.mark(trip.from, 'here'); playMap.label(trip.from, R.short(trip.from), 'here');
-  P.dog = playMap.marker(komugiArt(), trip.from);
-  // 放大到起點附近（三步內）小縣才點得到；不照終點的方向放大，免得洩題
-  const { dist } = Quiz.bfs(R, trip.from);
-  playMap.focus(R.ids.filter(id => dist[id] <= 3 && !(R.map.frames || []).some(f => f.id === id)), 1.2);
-  playMap.onTap(travelTap);
-  travelPanel();
-}
-function travelPanel(fb = '') {
-  setPanel(`<span class="tag travel">${esc(t('mode.travel'))}</span><div class="q-main">${esc(R.name(P.from))} → <b>${esc(R.name(P.to))}</b></div><div class="q-sub">${esc(R.sub(P.to))}・${esc(t('travelSub'))}</div>`,
-    fb, P.peek ? '' : `<button type="button" class="btn" data-peek>${esc(t('peek'))}</button>`);
-  setStat(esc(t('steps', P.steps)));
-}
-function travelTap(id) {
-  if (!id || P.done || id === P.cur) return;
-  if (!R.graph[P.cur].has(id)) {
-    Sound.play('ng');
-    playMap.flash(id, 'ng', 600);
-    travelPanel(`<div class="fb ng">${esc(t('notAdj', R.short(id), R.short(P.cur)))}</div>`);
-    return;
-  }
-  const link = (R.map.links || []).find(l => (l.a === P.cur && l.b === id) || (l.b === P.cur && l.a === id));
-  playMap.mark(P.cur, 'here', false); playMap.mark(P.cur, 'visited');
-  P.cur = id; P.steps++; P.trail.push(id);
-  playMap.mark(id, 'here'); playMap.label(id, R.short(id), 'here');
-  P.dog.moveTo(id);
-  Sound.play('step');
-  if (id === P.to) return travelGoal();
-  travelPanel(link ? `<div class="fb">${t('viaLink', esc(t('links')[link.name] || link.name), nameHtml(id))}</div>` : `<div class="fb">${t('arrived', nameHtml(id))}</div>`);
-}
-function travelGoal() {
-  P.done = true;
-  let stars = P.steps === P.best ? 3 : P.steps <= P.best + 2 ? 2 : 1;
-  if (P.peek) stars = Math.max(1, stars - 1);
-  if (!P.peek) {
-    const ch = Store.record(R.sk, P.to, 'loc', true);
-    if (ch.to === 3) Sound.play('stamp'); else if (ch.to > ch.from) Sound.play('level');
-    if (ch.to > ch.from) gain(LEVEL_COINS[ch.to]);
-  }
-  gain(stars * Rewards.EARN.star);
-  Store.stat('trips');
-  if (stars === 3) Store.stat('trips3');
-  celebrate(Rewards.check());
-  playMap.paint(masteryColor);
-  playMap.mark(P.to, 'goal');
-  playMap.path(Quiz.route(R, P.from, P.to));
-  Sound.play('goal');
-  setStat(esc(t('steps', P.steps)));
-  setPanel(`<div class="stars">${'★'.repeat(stars)}${'☆'.repeat(3 - stars)}</div><div class="q-main">${esc(t('goal', R.name(P.to)))}</div>
-    <div class="q-sub">${esc(t('goalSub', P.steps, P.best))}</div>`, '',
-    `<button type="button" class="btn" data-card="${P.to}">${esc(t('card'))}</button><button type="button" class="btn primary" data-again="travel">${esc(t('travelAgain'))}</button>`);
 }
 
 // ── 圖鑑 ──
@@ -492,6 +455,22 @@ function startExplore() {
     `<button type="button" class="btn" data-labels>${esc(t(labels ? 'hideNames' : 'showNames'))}</button>`);
   showOnChip();
   setStat('');
+}
+
+// ── 選關：已過的關＋下一關＋後面 9 關（鎖著），每 20 關標一次旅程稱號 ──
+function renderLevels() {
+  const next = Store.lvNext(R.key), last = next + 9;
+  $('#levels .hud-title').textContent = `${t('region.' + R.key)}・${t('level.title')}`;
+  $('#lStat').textContent = `★ ${Store.lvStarSum(R.key)}`;
+  let html = '<div class="level-grid">';
+  for (let n = 1; n <= last; n++) {
+    const s = Store.lvStars(R.key, n), open = n <= next, timed = Quiz.isTimedLevel(n);
+    html += `<button type="button" class="lvl ${s ? 'done' : open ? 'open' : 'locked'} ${timed ? 'timed' : ''} ${n === next ? 'cur' : ''}" data-level="${n}">
+      <b>${n}</b><small>${s ? '★'.repeat(s) + '☆'.repeat(3 - s) : open ? (timed ? '⏱' : '▶') : '🔒'}</small></button>`;
+  }
+  html += '</div>';
+  $('#levelsBody').innerHTML = html;
+  $('#levelsBody .cur')?.scrollIntoView({ block: 'center' });
 }
 
 // ── 御朱印帳 ──
@@ -520,14 +499,14 @@ function refreshDog() {
   $('#logoDog').innerHTML = komugiImg(44);
   renderHero();
 }
-// 首頁小屋：全身 Komugi、稱號、下一個獎勵、肉球幣、扭蛋還能抽幾次
+// 首頁小屋：全身 Komugi、稱號、下一個旅程稱號、肉球幣、扭蛋還能抽幾次
 function renderHero() {
   if (!$('#heroDog')) return;
   $('#heroDog').innerHTML = komugiFullImg(104);
   const title = Store.title();
-  $('#heroTitle').textContent = t('closet.titles')[title && Rewards.SETS.some(x => x.id === title && Rewards.setDone(x)) ? title : 'none'];
-  const g = Rewards.nextGoal(R?.sk);
-  $('#heroBubble').textContent = g ? t('hero.goal', achText(g.a), g.left, itemName(g.a.item)) : t('hero.allDone');
+  $('#heroTitle').textContent = t('closet.titles')[title && Rewards.titleOk(title) ? title : 'none'];
+  const g = Rewards.nextJourney();
+  $('#heroBubble').textContent = g ? t('hero.goal', g.left, t('closet.titles')[g.j.id]) : t('hero.allDone');
   $('#heroCoins').textContent = '🐾 ' + Store.coins();
   const n = Math.floor(Store.coins() / Rewards.PULL_COST);
   $('#gachaBadge').hidden = !n; $('#gachaBadge').textContent = n;
@@ -550,35 +529,46 @@ const LEVEL_COINS = [0, Rewards.EARN.visit, Rewards.EARN.familiar, Rewards.EARN.
 function celebrate(fresh) {
   if (!fresh.length) return;
   fresh.forEach((a, i) => setTimeout(() => {
-    toast(`${itemImg(a.item, 64)}<b>${esc(t('closet.got', itemName(a.item)))}</b>`, 2200);
+    toast(`<b>🏅 ${esc(t('closet.achGot', achText(a)))}</b><small>+${Rewards.EARN.ach} 🐾</small>`, 2200, 'ach');
     Sound.play('level');
   }, 400 + i * 2300));
-  if (P) { P.items.push(...fresh.map(a => a.item)); P.coins = (P.coins || 0) + fresh.length * Rewards.EARN.ach; }
+  if (P) { P.achs.push(...fresh); P.coins = (P.coins || 0) + fresh.length * Rewards.EARN.ach; }
   refreshDog();
 }
+// 稱號列（旅程稱號、套裝稱號共用）：拿到了才有「設為稱號」
+function titleRow(id, ok, sub, extra = '') {
+  const on = Store.title() === id;
+  return `<div class="set-row ${ok ? 'done' : ''}"><div class="set-head"><b>「${esc(t('closet.titles')[id])}」</b><small>${esc(sub)}</small></div>${extra}
+    ${ok ? `<div class="set-actions">${id.startsWith('j') ? '' : `<button type="button" class="btn small" data-wearset="${id}">${esc(t('closet.wearSet'))}</button>`}<button type="button" class="btn small ${on ? 'primary' : ''}" data-title="${id}">${esc(on ? t('closet.titleOn') : t('closet.useTitle'))}</button></div>` : ''}</div>`;
+}
 
-// 衣櫃：上面是全身預覽，下面依部位分頁，最後一頁是套裝
+// 衣櫃：上面是全身預覽，下面依部位分頁，最後兩頁是稱號（旅程＋套裝）與成就
 let closetTab = 'head';
 function closetHtml() {
   const outfit = Store.outfit(), ctx = Rewards.context(), got = Store.achievements();
   const total = Object.keys(KOMUGI_ITEMS).length, have = Object.keys(KOMUGI_ITEMS).filter(Store.owns).length;
-  const tabs = [...KOMUGI_SLOTS, 'sets'].map(k => `<button type="button" class="${k === closetTab ? 'on' : ''}" data-ctab="${k}">${esc(k === 'sets' ? t('closet.sets') : t('closet.slots')[k])}</button>`).join('');
+  const tabName = k => k === 'sets' ? t('closet.sets') : k === 'ach' ? t('closet.achTab') : t('closet.slots')[k];
+  const tabs = [...KOMUGI_SLOTS, 'sets', 'ach'].map(k => `<button type="button" class="${k === closetTab ? 'on' : ''}" data-ctab="${k}">${esc(tabName(k))}</button>`).join('');
   let body = '';
-  if (closetTab === 'sets') {
-    for (const st of Rewards.SETS) {
-      const done = Rewards.setDone(st), on = Store.title() === st.id;
-      body += `<div class="set-row ${done ? 'done' : ''}"><div class="set-head"><b>${esc(t('closet.setNames')[st.id])}</b><small>「${esc(t('closet.titles')[st.id])}」 ${Rewards.setProgress(st)} / ${st.items.length}</small></div>
-        <div class="set-items">${st.items.map(i => `<span class="mini ${Store.owns(i) ? '' : 'locked'}" title="${esc(itemName(i))}">${itemImg(i, 40)}</span>`).join('')}</div>
-        ${done ? `<div class="set-actions"><button type="button" class="btn small" data-wearset="${st.id}">${esc(t('closet.wearSet'))}</button><button type="button" class="btn small ${on ? 'primary' : ''}" data-title="${st.id}">${esc(on ? t('closet.titleOn') : t('closet.useTitle'))}</button></div>` : ''}</div>`;
+  if (closetTab === 'ach') {
+    for (const a of Rewards.ACH) {
+      const v = Math.min(a.value(ctx), a.target), done = !!got[a.id];
+      body += `<div class="set-row ${done ? 'done' : ''}"><div class="set-head"><b>${done ? '🏅' : '・'} ${esc(achText(a))}</b><small>${esc(done ? t('closet.achDone', got[a.id]) : `${v} / ${a.target}`)}</small></div></div>`;
     }
+  } else if (closetTab === 'sets') {
+    const n = Store.lvTotal();
+    body += `<h3>${esc(t('closet.journey'))}</h3>`;
+    for (const j of Rewards.JOURNEY) body += titleRow(j.id, Rewards.journeyDone(j), `${t('closet.journeyReq', j.levels)}・${Math.min(n, j.levels)} / ${j.levels}`);
+    body += `<h3>${esc(t('closet.setTitles'))}</h3>`;
+    for (const st of Rewards.SETS) body += titleRow(st.id, Rewards.setDone(st), `${t('closet.setNames')[st.id]}・${Rewards.setProgress(st)} / ${st.items.length}`,
+      `<div class="set-items">${st.items.map(i => `<span class="mini ${Store.owns(i) ? '' : 'locked'}" title="${esc(itemName(i))}">${itemImg(i, 40)}</span>`).join('')}</div>`);
   } else {
     body = '<div class="items">';
     for (const it of Object.keys(KOMUGI_ITEMS).filter(k => KOMUGI_ITEMS[k].slot === closetTab)) {
       const own = Store.owns(it), on = outfit[closetTab] === it, rar = KOMUGI_ITEMS[it].rar;
-      const a = Rewards.ACH.find(x => x.item === it);
-      const how = own ? (on ? t('closet.wearing') : '') : a ? `${achText(a)}・${Math.min(a.value(ctx), a.target)} / ${a.target}` : t('closet.locked');
+      const how = own ? (on ? t('closet.wearing') : '') : t('closet.locked');
       body += `<button type="button" class="item-tile rar-${rar} ${own ? 'got' : 'locked'} ${on ? 'on' : ''}" ${own ? `data-wear="${it}"` : 'disabled'}>
-        <i class="rar">${rar}</i>${itemImg(it, 56)}<b>${esc(own || a ? itemName(it) : '？？？')}</b><small>${esc(how)}</small></button>`;
+        <i class="rar">${rar}</i>${itemImg(it, 56)}<b>${esc(own ? itemName(it) : '？？？')}</b><small>${esc(how)}</small></button>`;
     }
     body += '</div>';
   }
@@ -612,17 +602,17 @@ function gachaHtml(res) {
     out = `<div class="gacha-res rar-${r.rar}"><i class="rar">${r.rar}</i>${itemImg(r.item, 96)}<b>${esc(itemName(r.item))}</b>
       <small>${r.dup ? esc(t('gacha.dup', Rewards.DUP_REFUND)) : `<em class="new">${esc(t('gacha.isNew'))}</em>`}</small></div>`;
   }
-  const left = Rewards.PITY - Store.pity();
   const n = Math.floor(coins / Rewards.PULL_COST);
   return `<div class="gacha"><h2>${esc(t('gacha.title'))}</h2>${res && res !== 'spin' ? out : machine}
-    <div class="coins big">🐾 ${coins}</div><div class="muted">${esc(t('gacha.cost', Rewards.PULL_COST))}・${esc(t('gacha.pity', left))}</div>
+    <div class="coins big">🐾 ${coins}</div><div class="muted">${esc(t('gacha.cost', Rewards.PULL_COST))}</div>
+    ${Rewards.allOwned() ? `<p class="muted">${esc(t('gacha.allOwned'))}</p>` : ''}
     ${can ? '' : `<p class="muted">${esc(t('gacha.notEnough'))}</p>`}
     <div class="actions">
       ${res && res !== 'spin' && !Array.isArray(res) && !res.dup ? `<button type="button" class="btn" data-wear-now="${res.item}">${esc(t('gacha.wear'))}</button>` : ''}
       <button type="button" class="btn primary" data-pull ${can ? '' : 'disabled'}>${esc(res && res !== 'spin' ? t('gacha.again') : t('gacha.pull'))}</button>
       ${n >= 2 ? `<button type="button" class="btn primary" data-pull-all>${esc(t('gacha.pullAll', n))}</button>` : ''}
     </div>
-    <details class="muted small"><summary>${esc(t('gacha.rates'))}</summary>${esc(t('gacha.earnTip'))}</details></div>`;
+    <p class="muted small">${esc(t('gacha.rates'))}</p><details class="muted small"><summary>${esc(t('gacha.earnTitle'))}</summary>${esc(t('gacha.earnTip'))}</details></div>`;
 }
 function showGacha() { openModal(gachaHtml()); }
 // 全部扭：肉球幣夠幾次就扭幾次（重複退回的幣夠的話也接著扭），最後一次列出全部結果
@@ -738,6 +728,9 @@ document.addEventListener('click', e => {
   if (b.dataset.lang) { Sound.play('tap'); setLang(b.dataset.lang); }
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
   else if (b.id === 'mDaily') { Sound.play('tap'); startMode('daily'); }
+  else if (b.id === 'mLevel') { Sound.play('tap'); startMode('level', Store.lvNext(R.key)); }
+  else if (b.id === 'mLevels') { Sound.play('tap'); show('levels'); renderLevels(); }
+  else if (b.dataset.level) { Sound.play('tap'); closeModal(); startMode('level', +b.dataset.level); }
   else if (b.id === 'mBook') { Sound.play('tap'); renderBook(); show('book'); }
   else if (b.id === 'hCloset' || b.id === 'heroDog' || b.id === 'logoDog') { Sound.play('tap'); closetTab = 'head'; showCloset(); }
   else if (b.id === 'hGacha') { Sound.play('tap'); showGacha(); }
@@ -750,7 +743,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.wearNow) { const it = b.dataset.wearNow; Store.wear(KOMUGI_ITEMS[it].slot, it); Sound.play('level'); refreshDog(); toast(`${itemImg(it, 56)}<b>${esc(itemName(it))}</b>`); }
   else if (b.hasAttribute('data-share')) shareDaily();
   else if (b.dataset.scope) { Sound.play('tap'); setScope(b.dataset.scope); }
-  else if (b.id === 'pBack' || b.id === 'bBack') goHome();
+  else if (b.id === 'pBack' || b.id === 'bBack' || b.id === 'lBack') goHome();
   else if (b.id === 'hSettings') showSettings();
   else if (b.dataset.cloud) cloudAction(b.dataset.cloud);
   else if (b.id === 'modalClose') closeModal();
@@ -764,13 +757,12 @@ document.addEventListener('click', e => {
   else if (b.hasAttribute('data-next')) advance();
   else if (b.hasAttribute('data-home')) { closeModal(); goHome(); }
   else if (b.dataset.again) { closeModal(); startMode(b.dataset.again); }
-  else if (b.hasAttribute('data-peek')) { P.peek = true; playMap.mark(P.to, 'goal'); playMap.label(P.to, R.short(P.to), 'goal'); travelPanel(); }
   else if (b.hasAttribute('data-labels')) { Store.setSetting('labels', !Store.settings().labels); startExplore(); }
   else if (b.dataset.theme) { Store.setSetting('theme', b.dataset.theme); applyTheme(); document.querySelectorAll('.sw').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.theme === b.dataset.theme))); }
 });
 // 答完題點題目區（地圖以外、按鈕以外）也進下一題；地圖那邊由 answer() 處理
 $('#pPanel').addEventListener('click', e => {
-  if (!P?.answered || !P.qs || P.mode === 'timed' || e.target.closest('button, a')) return;
+  if (!P?.answered || !P.qs || P.timed || e.target.closest('button, a')) return;
   advance();
 });
 document.addEventListener('change', e => {

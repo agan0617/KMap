@@ -135,12 +135,26 @@ details.small { font-size: 12px; max-width: 360px; }
 .legend { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: 13px; color: var(--muted); align-items: center; }
 .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--c); margin-right: 4px; vertical-align: -1px; }
 .legend b { margin-left: auto; color: var(--red); font-size: 15px; }
-.modes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .mode { text-align: left; border: 0; border-radius: 14px; padding: 12px 14px; background: var(--paper2); box-shadow: 0 2px 0 var(--line), 0 0 0 1.5px var(--line) inset; display: flex; flex-direction: column; gap: 2px; }
 .mode b { font-size: 16px; }
 .mode:active { transform: translateY(2px); box-shadow: 0 0 0 var(--line), 0 0 0 1.5px var(--line) inset; }
 .mode.daily { width: 100%; background: linear-gradient(120deg, #c8402c, #e2733d); color: #fff; box-shadow: 0 3px 0 #8f2a1c; }
 .mode.daily small { color: #ffe9d6; }
+/* 關卡（1.14.0）：今日挑戰下面一排，左邊直接打下一關、右邊選關 */
+.level-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+.mode.level { background: linear-gradient(120deg, #2f6fa8, #4a90d9); color: #fff; box-shadow: 0 3px 0 #1f4c75; }
+.mode.level small { color: #dcecfb; }
+.mode.level-all { justify-content: center; align-items: center; text-align: center; }
+.levels-body { flex: 1; overflow-y: auto; padding: 8px 16px calc(20px + env(safe-area-inset-bottom)); }
+.level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
+.lvl { aspect-ratio: 1; border-radius: 14px; border: 1.5px solid var(--line); background: var(--paper2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font: inherit; color: var(--ink); padding: 2px; }
+.lvl b { font-size: 18px; }
+.lvl small { font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+.lvl.done { background: var(--card); border-color: var(--gold); }
+.lvl.open { background: var(--card); }
+.lvl.cur { border-color: #2f6fa8; box-shadow: 0 0 0 2px #2f6fa8 inset; }
+.lvl.locked { opacity: .45; }
+.lvl.timed b::after { content: '⏱'; font-size: 11px; margin-left: 1px; vertical-align: super; }
 
 /* ── 地圖 ── */
 .map { width: 100%; height: 100%; display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
@@ -183,7 +197,7 @@ details.small { font-size: 12px; max-width: 360px; }
 /* 面板固定高度：答題後多出回饋與按鈕時，地圖不會跟著縮放跳動 */
 .panel { padding: 10px 16px calc(12px + env(safe-area-inset-bottom)); height: calc(212px + env(safe-area-inset-bottom)); overflow-y: auto; display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
 .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 8px; background: var(--ink); color: #fff; }
-.tag.know { background: #6b5bb5; } .tag.travel { background: #3c7fa3; }
+.tag.know { background: #6b5bb5; }
 .q-main { font-size: 17px; font-weight: 700; line-height: 1.45; margin-top: 4px; }
 .q-main.big { font-size: 26px; }
 .q-sub { color: var(--muted); font-size: 14px; }
@@ -274,6 +288,8 @@ dd small { margin-left: 3px; }
 
 #toast { position: fixed; left: 50%; top: 18%; transform: translateX(-50%); background: var(--toast); border-radius: 16px; padding: 12px 18px; box-shadow: 0 6px 24px rgba(0,0,0,.18); z-index: 20; display: flex; align-items: center; gap: 12px; font-size: 18px; pointer-events: none; }
 #toast.show { animation: toastIn .3s; }
+#toast.ach { flex-direction: column; gap: 2px; width: max-content; max-width: 88vw; text-align: center; }
+#toast.ach small { font-size: 14px; color: var(--muted); }
 @keyframes toastIn { from { transform: translate(-50%, -12px); opacity: 0; } }
 
 /* ── 御朱印帳 ── */
@@ -307,11 +323,8 @@ dd small { margin-left: 3px; }
 body[data-theme="night"] .daily-bonus { color: var(--gold); }
 /* 衣櫃開著時視窗固定高度，切分頁內容再少也不跳（Ken 2026-10-21 要求）；內容在視窗裡捲 */
 .sheet.fixed { height: 88dvh; }
-/* 剪影題、國旗題 */
-.silhouette { display: block; height: 80px; width: auto; max-width: 100%; margin: 2px 0; }
-.silhouette path { fill: var(--ink); stroke: none; }
+/* 國旗題 */
 .q-main.flag-q { font-size: 48px; line-height: 1.1; }
-.panel.answered .silhouette { height: 44px; }
 .panel.answered .q-main.flag-q { font-size: 36px; }
 /* 今日挑戰做完後的今天總進度 */
 .daily-total { display: inline-block; margin-top: 3px; font-weight: 700; opacity: .95; }
@@ -328,7 +341,6 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .sheet.cardsheet .card-scroll { flex: 1; min-height: 0; overflow-y: auto; }
 .sheet.cardsheet .card-nav { flex-shrink: 0; }
 /* 選擇題：四個選項兩欄排，答完標出對錯 */
-.mode.wide { grid-column: 1 / -1; }
 .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
 .btn.choice { padding: 8px 10px; font-size: 14px; line-height: 1.3; min-height: 40px; text-align: center; }
 .btn.choice.right { background: var(--ok); border-color: var(--ok); color: #fff; }

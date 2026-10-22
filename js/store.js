@@ -1,7 +1,7 @@
 // 進度存檔（瀏覽器 localStorage）。
 // 每一塊的熟練度：0 未踏 → 1 到訪（答對一次）→ 2 熟悉（隔 2 天以上又答對）→ 3 制霸（熟悉＋找位置與知識題都答對過）。
 // 另外用 Leitner 盒子排複習：答對往後排、答錯回到今天。
-// 進度（regions）與 meta（統計、成就、Komugi 裝扮）會由 js/sync.js 同步到 CloudSave；settings（語言、音樂…）只留在這台裝置。
+// 進度（regions，含關卡星數）與 meta（統計、成就、Komugi 裝扮）會由 js/sync.js 同步到 CloudSave；settings（語言、音樂…）只留在這台裝置。
 const Store = (() => {
   const KEY = 'kmap.v1';
   const GAP_DAYS = 2;
@@ -132,6 +132,23 @@ const Store = (() => {
   }
   const dailyTotal = key => region(key).dx?.[dayKey()] || null;
 
+  // 關卡（Ken 2026-10-22 要求）：每個分頁一條無限往下的關卡，記每關拿到的最高星數；前一關有星才開下一關
+  const lvStars = (key, n) => region(key).lv?.[n] || 0;
+  // 回傳這次多拿了幾顆星（重打沒進步就是 0）
+  function setLvStars(key, n, stars) {
+    const r = region(key), old = r.lv?.[n] || 0;
+    if (stars <= old) return 0;
+    r.lv = Object.assign({}, r.lv, { [n]: stars });
+    save();
+    return stars - old;
+  }
+  // 下一個還沒過的關（關卡照順序開，所以就是第一個沒有星的）
+  function lvNext(key) { let n = 1; while (lvStars(key, n) > 0) n++; return n; }
+  const lvCount = key => Object.values(region(key).lv || {}).filter(v => v > 0).length;
+  const lvStarSum = key => sum(region(key).lv);
+  // 所有分頁合計過了幾關（旅程稱號用）
+  const lvTotal = () => Object.values(s.regions).reduce((a, r) => a + Object.values(r.lv || {}).filter(v => v > 0).length, 0);
+
   function best(key, mode) { return region(key).best[mode] || 0; }
   function setBest(key, mode, v) {
     const r = region(key);
@@ -166,6 +183,10 @@ const Store = (() => {
       for (const f of DX) dx[k][f] = Math.max(a.dx?.[k]?.[f] || 0, b.dx?.[k]?.[f] || 0);
     }
     if (Object.keys(dx).length) r.dx = dx;
+    // 關卡星數：每關取大的
+    const lv = {};
+    for (const k of new Set([...Object.keys(a.lv || {}), ...Object.keys(b.lv || {})])) lv[k] = Math.max(a.lv?.[k] || 0, b.lv?.[k] || 0);
+    if (Object.keys(lv).length) r.lv = lv;
     return r;
   }
   // 統計取大的（語言是集合）、成就聯集取最早的日期、裝扮用最近改的那一份
@@ -243,5 +264,6 @@ const Store = (() => {
     onProgress(fn) { onProgress = fn; },
     today, dayKey, level, unit: (k, id) => region(k).units[id], record, nextHint, weight, counts,
     daily, setDaily, streak, best, setBest, addDailyRun, dailyTotal,
+    lvStars, setLvStars, lvNext, lvCount, lvStarSum, lvTotal,
   };
 })();
