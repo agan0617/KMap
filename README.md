@@ -150,3 +150,16 @@ powershell -File tools\build-icons.ps1 [-AndroidRes <KMapApp\app\src\main\res>]
 
 - 地圖：[Natural Earth](https://www.naturalearthdata.com/)，公有領域；臺灣縣市界：內政部國土測繪中心（政府資料開放授權），經 [taiwan-atlas](https://github.com/dkaoster/taiwan-atlas) 轉成 TopoJSON
 - 知識卡：依維基百科整理，每張卡附連結（日本依日文維基；中文、英文介面分別連到該語言的維基）
+
+## 版權
+
+Copyright © 2026 agan0617. All rights reserved. 保留所有權利，詳見 [LICENSE](LICENSE)。
+
+使用的第三方素材（依各自授權）：
+
+- **Natural Earth**：日本、中國、美國的省縣界（1:10m）與世界國界（1:50m），轉成 data/*-map.js，public domain（https://www.naturalearthdata.com/）
+- **taiwan-atlas（2021.9.20）**：臺灣縣市界 TopoJSON，轉成 data/taiwan-map.js，MIT（套件）；底層資料為內政部國土測繪中心，政府資料開放授權條款第1版（https://github.com/dkaoster/taiwan-atlas）
+- **維基百科（中、英、日文）**：知識卡、更多知識的內容依維基整理，每張卡附連結；面積也部分依維基列表，CC BY-SA 4.0（https://www.wikipedia.org/）
+- **各國官方人口統計與聯合國 WPP 2024**：data/stats.js 排行題的人口：內政部戶政司、日本 2020 國勢調查、中國第七次普查、美國 2020 普查、UN World Population Prospects 2024，各來源不同（UN WPP 為 CC BY 3.0 IGO、美國普查局資料為公有領域、內政部為政府資料開放授權）（https://population.un.org/wpp/）
+- **mapshaper**：建置地圖時簡化與保留拓撲（devDependency，不隨網頁發佈），MPL-2.0（https://github.com/mbloch/mapshaper）
+- **topojson-client**：建置地圖時算相鄰關係（devDependency），ISC（https://github.com/topojson/topojson-client）
