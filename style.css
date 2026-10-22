@@ -157,6 +157,7 @@ details.small { font-size: 12px; max-width: 360px; }
 .mode.chal { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
 .lv-day .streak.rec { color: #1f4a2a; background: #fff4c2; box-shadow: 0 1px 0 #c9b25a; }
 .lv-day .streak.rec b { color: #d0402c; font-size: 18px; margin: 0 1px; }
+.mode .hl { font-style: normal; font-size: 19px; color: #ffe066; text-shadow: 0 1px 0 rgba(0,0,0,.25); }
 .hud-title .cond { display: block; font-size: 12px; font-weight: 600; color: var(--muted); line-height: 1.2; }
 .mode.chal { width: 100%; background: linear-gradient(120deg, #3d8a52, #62ad6e); color: #fff; box-shadow: 0 3px 0 #2a6038; }
 .mode.chal small { color: #e2f4e4; }

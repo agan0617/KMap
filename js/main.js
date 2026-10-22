@@ -150,12 +150,14 @@ function renderHome() {
   const unlocked = n - c[0];
   $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
   const next = Store.lvNext(R.key);
-  $('#levelGo').textContent = t('level.go', next) + (Quiz.isTimedLevel(next) ? `・${t('level.timed')}` : '');
+  // 卡片標題：模式名稱照常，「第 N 關」「臺灣」這種會變的部分放大上色（Ken 2026-10-22 要求）
+  const dot = lang() === 'en' ? ' · ' : '・';
+  $('#levelGo').innerHTML = `${esc(t('level.mode'))}${dot}<em class="hl">${esc(t('level.n', next) + (Quiz.isTimedLevel(next) ? dot + t('level.timed') : ''))}</em>`;
   $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key));
   // 每日獎勵（原本的今日挑戰）：今天還沒過關就提示第一關的獎勵，過了就顯示連續天數
   const st = Store.dayStreak();
   const cb = Store.best(R.key, chalKey());
-  $('#chalTitle').textContent = `${t('chal.title')}・${scopeName()}`;
+  $('#chalTitle').innerHTML = `${esc(t('chal.title'))}${dot}<em class="hl">${esc(scopeName())}</em>`;
   $('#chalInfo').textContent = t('chal.infoNew', CHAL_LIVES);
   // 卡片右半邊：最佳紀錄做成標籤，題數另外上色（Ken 2026-10-22 要求）
   $('#chalBest').innerHTML = cb ? `<em class="streak rec">${esc(t('chal.recLabel'))}<b>${esc(t('chal.recN', cb))}</b>${esc(t('chal.recEnd'))}</em>` : '';
@@ -487,10 +489,30 @@ function finishQuiz() {
       ${achs ? `<h3>${esc(t('closet.achTab'))}</h3><div class="chips">${achs}</div>` : ''}
       <div class="actions">
         <button type="button" class="btn" data-home>${esc(t('home'))}</button>
+        <button type="button" class="btn" data-share>${esc(t('share.btn'))}</button>
         ${actions}
       </div>
     </div>`, null);
+  // 分享成績（Ken 2026-10-22 要求關卡結算也要有）：關數、過關與否、對錯方格、連續完成今日挑戰的天數
+  const st = Store.dayStreak();
+  shareText = [`${t('appName')}・${t('region.' + R.key)} ${title}`,
+    `${pass ? '✅' : '❌'} ${P.score}${total ? ' / ' + total : ''}　${P.marks.join('')}`,
+    st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
   P.qs = null;
+}
+// 手機叫出系統分享選單（可貼 LINE），沒有就複製到剪貼簿
+let shareText = '';
+async function share() {
+  if (!shareText) return;
+  try { if (navigator.share) { await navigator.share({ text: shareText }); return; } }
+  catch (e) { if (e.name === 'AbortError') return; }
+  try { await navigator.clipboard.writeText(shareText); }
+  catch (e) {
+    const ta = document.createElement('textarea'); ta.value = shareText; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e2) { /* 真的複製不了 */ }
+    ta.remove();
+  }
+  toast(esc(t('share.copied')));
 }
 
 // 找位置挑戰的結算：答對幾題、這個分區的最佳紀錄
@@ -823,6 +845,7 @@ document.addEventListener('click', e => {
     else if (g.key !== R.key) { Sound.play('tap'); switchRegion(g.key); }
   }
   else if (b.dataset.card) { Sound.play('tap'); showCard(b.dataset.card); }
+  else if (b.hasAttribute('data-share')) share();
   else if (b.dataset.choice != null) answer(null, +b.dataset.choice);
   else if (b.dataset.ml != null) matchTap('l', +b.dataset.ml);
   else if (b.dataset.mr != null) matchTap('r', +b.dataset.mr);
