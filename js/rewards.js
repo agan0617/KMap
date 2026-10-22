@@ -1,15 +1,19 @@
 // 獎勵：肉球幣、扭蛋、成就、套裝稱號、旅程稱號。配件圖案在 js/komugi.js。
 // 2026-10-22 Ken 要求獎勵平均分配到整個進程、只靠代幣與扭蛋機率控制，所以：
-// - 扭蛋：全部配件都在池子裡。每扭固定 40% 出新配件、60% 出已經有的（退 10 幣）——
+// - 扭蛋：100 幣一次，全部配件都在池子裡。每扭固定 40% 出新配件、60% 出已經有的（退 20 幣）——
 //   純隨機會「越齊越難抽到新的」，模擬下來前 50 關拿 30 件、第 351～400 關只剩 5 件；固定出新率則每 50 關穩定約 17 件、約 400 關集滿
 //   新配件照稀有度挑，已經湊了幾件的套裝優先補（套裝稱號才不會全擠在後期）
 // - 成就：只送肉球幣（1.14.0 以前會送指定配件，已經拿到的照樣留著）
 // - 旅程稱號：1000 個，跟著全地圖的解鎖進度拿；套裝稱號：集滿一套
 const Rewards = (() => {
-  const PULL_COST = 30, DUP_REFUND = 10, NEW_RATE = 0.4, SET_BOOST = 3;
+  // 價格與獎勵 2026-10-22 重新平衡（Ken：扭蛋幣太容易拿，沒有稀缺感）。模擬每天 8 關、答對率 8 成：
+  // 舊規則每關平均 42 幣、約第 150 關就集滿 134 件；新規則每關約 27 幣，第 50 關 11 件、第 100 關 23 件、第 200 關 45 件、第 400 關 64 件、第 800 關 105 件
+  // 熟練度升級是一次性的大筆收入（舊規則合計約 6,900 幣），所以調得比每題獎勵多
+  const PULL_COST = 100, DUP_REFUND = 20, NEW_RATE = 0.4, SET_BOOST = 3;
   const RATE = { N: 55, R: 30, SR: 12, SSR: 3 };
   // 賺幣規則（main.js 在對應的時機呼叫 earn）；關卡第一次過關 +12
-  const EARN = { ok: 2, combo: 1, visit: 3, familiar: 5, stamp: 15, daily: 30, dailyPerfect: 30, dailyStreak: 5, dailyStreakMax: 50, dailyAgain: 5, dailyAgainPerfect: 5, levelClear: 12, guess: 2, ach: 30 };   // guess：猜猜我是誰每少看一條提示 +2   // 每天第一次要明顯比再挑戰好（Ken 2026-10-21）
+  // 賺幣規則（main.js 在對應的時機呼叫 earn）；guess：猜猜我是誰每少看一條提示；每天第一次過關（今日挑戰）要明顯比平常多（Ken 2026-10-21）
+  const EARN = { ok: 1, combo: 0, visit: 2, familiar: 3, stamp: 10, daily: 30, dailyPerfect: 20, dailyStreak: 5, dailyStreakMax: 30, levelClear: 10, guess: 1, ach: 50 };
 
   // stamps(region)：那個地區蓋了幾個章；全制霸用該地區的總數
   // 鄰接旅行（trip1、trip3x5）與限時連擊（timed20）的成就隨玩法一起拿掉了；舊存檔記的達成日期留著不影響

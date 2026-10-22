@@ -44,7 +44,7 @@
           pirate: '船長', ninja: '忍者', school: '優等生', cat: '貓奴', nightmarket: '夜市達人', samurai: '武士', panda: '熊貓飼育員', ocean: '海洋之子', party: '派對動物', future: '未來人', dragon: '龍騎士', ice: '滑冰選手' },
       },
       hero: { goal: '再讓地方升級 {0} 次，就能拿到稱號「{1}」！（全地圖解鎖 {2}%）', allDone: '1000 個稱號全部拿到了，太厲害了！' },
-      gacha: { btn: '扭蛋', title: '扭蛋機', cost: '{0} 🐾 扭一次', pull: '扭一次', earnTitle: '怎麼賺肉球幣', again: '再扭一次', wear: '穿上', notEnough: '肉球幣不夠：過關、答題、蓋章、今日挑戰都能賺', allOwned: '配件全部收集完成！再扭都是重複的', dup: '已經有了，退回 {0} 🐾', isNew: 'NEW!', pullAll: '全部扭（{0} 次）', multiSum: '扭了 {0} 次：新配件 {1} 件・重複 {2} 件（退回 {3} 🐾）', dupShort: '重複', rates: '每扭 40% 出新配件、60% 是已經有的；新配件照稀有度 N 55%・R 30%・SR 12%・SSR 3%，湊了幾件的套裝優先補', earnTip: '答對 +2、連擊 +1、到訪 +3、熟悉 +5、蓋章 +15、關卡第一次過關 +12、今日挑戰 +30（全對再 +30、連續每天 +5 最多 +50）、再挑戰 +5（全對再 +5）、成就 +30' },
+      gacha: { btn: '扭蛋', title: '扭蛋機', cost: '{0} 🐾 扭一次', pull: '扭一次', earnTitle: '怎麼賺肉球幣', again: '再扭一次', wear: '穿上', notEnough: '肉球幣不夠：過關、答題、蓋章、今日挑戰都能賺', allOwned: '配件全部收集完成！再扭都是重複的', dup: '已經有了，退回 {0} 🐾', isNew: 'NEW!', pullAll: '全部扭（{0} 次）', multiSum: '扭了 {0} 次：新配件 {1} 件・重複 {2} 件（退回 {3} 🐾）', dupShort: '重複', rates: '每扭 40% 出新配件、60% 是已經有的；新配件照稀有度 N 55%・R 30%・SR 12%・SSR 3%，湊了幾件的套裝優先補', earnTip: '答對 +1、到訪 +2、熟悉 +3、蓋章 +10、猜猜我是誰每少看一條提示 +1、關卡第一次過關 +10、今日挑戰（每天第一次過關）+30（全對再 +20，連續天數每天再 +5、最多 +30）、成就 +50' },
       coinsGot: '獲得 🐾 {0}',
     },
     en: {
@@ -90,7 +90,7 @@
           pirate: 'Captain', ninja: 'Ninja', school: 'Honor Student', cat: 'Cat Person', nightmarket: 'Night Market Pro', samurai: 'Samurai', panda: 'Panda Keeper', ocean: 'Child of the Sea', party: 'Party Animal', future: 'Time Traveler', dragon: 'Dragon Knight', ice: 'Figure Skater' },
       },
       hero: { goal: '{0} more place level-ups for the title “{1}”! (map {2}% unlocked)', allDone: 'All 1000 titles unlocked — amazing!' },
-      gacha: { btn: 'Capsules', title: 'Capsule Machine', cost: '{0} 🐾 per spin', pull: 'Spin', earnTitle: 'How to earn paw coins', again: 'Spin again', wear: 'Wear it', notEnough: 'Not enough paw coins — earn them from levels, answers, stamps and the Daily Challenge', allOwned: 'Every item collected! Spins will only give duplicates', dup: 'Already owned — {0} 🐾 refunded', isNew: 'NEW!', pullAll: 'Spin all ({0})', multiSum: '{0} spins: {1} new · {2} duplicates ({3} 🐾 refunded)', dupShort: 'Owned', rates: 'Each spin: 40% a new item, 60% one you own; new items follow rarity N 55% · R 30% · SR 12% · SSR 3%, and sets you have started come first', earnTip: 'Correct +2, combo +1, visited +3, familiar +5, stamp +15, +12 for clearing a new level, Daily Challenge +30 (+30 if perfect, +5 per streak day up to +50), replay +5 (+5 if perfect), achievement +30' },
+      gacha: { btn: 'Capsules', title: 'Capsule Machine', cost: '{0} 🐾 per spin', pull: 'Spin', earnTitle: 'How to earn paw coins', again: 'Spin again', wear: 'Wear it', notEnough: 'Not enough paw coins — earn them from levels, answers, stamps and the Daily Challenge', allOwned: 'Every item collected! Spins will only give duplicates', dup: 'Already owned — {0} 🐾 refunded', isNew: 'NEW!', pullAll: 'Spin all ({0})', multiSum: '{0} spins: {1} new · {2} duplicates ({3} 🐾 refunded)', dupShort: 'Owned', rates: 'Each spin: 40% a new item, 60% one you own; new items follow rarity N 55% · R 30% · SR 12% · SSR 3%, and sets you have started come first', earnTip: 'Correct +1, visited +2, familiar +3, stamp +10, Who am I? +1 per unused clue, new level cleared +10, Daily Challenge (first clear each day) +30 (+20 if perfect, +5 per streak day up to +30), achievement +50' },
       coinsGot: 'Earned 🐾 {0}',
     },
     ja: {
@@ -136,7 +136,7 @@
           pirate: '船長', ninja: '忍者', school: '優等生', cat: '猫好き', nightmarket: '夜市の達人', samurai: '侍', panda: 'パンダ飼育員', ocean: '海の子', party: 'パーティーアニマル', future: '未来人', dragon: 'ドラゴンナイト', ice: 'フィギュアスケーター' },
       },
       hero: { goal: 'あと {0} 回レベルアップで称号「{1}」！（地図の解放 {2}%）', allDone: '称号 1000 個をすべて獲得！すごい！' },
-      gacha: { btn: 'ガチャ', title: 'ガチャマシン', cost: '1 回 {0} 🐾', pull: '回す', earnTitle: '肉球コインの貯め方', again: 'もう一回', wear: '着てみる', notEnough: '肉球コインが足りません。ステージ・解答・制覇・今日のチャレンジで貯まります', allOwned: '小物をすべて集めました！これ以降は重複だけです', dup: '持っている小物。{0} 🐾 返却', isNew: 'NEW!', pullAll: '全部回す（{0} 回）', multiSum: '{0} 回：新しい小物 {1} 個・重複 {2} 個（{3} 🐾 返却）', dupShort: '重複', rates: '1 回ごとに 40% で新しい小物、60% は持っている小物。新しい小物はレア度 N 55%・R 30%・SR 12%・SSR 3% で、集めかけのセットを優先', earnTip: '正解 +2、コンボ +1、訪問 +3、習熟 +5、制覇 +15、ステージ初クリア +12、今日のチャレンジ +30（全問正解で +30、連続 1 日ごと +5 最大 +50）、再挑戦 +5（全問正解で +5）、実績 +30' },
+      gacha: { btn: 'ガチャ', title: 'ガチャマシン', cost: '1 回 {0} 🐾', pull: '回す', earnTitle: '肉球コインの貯め方', again: 'もう一回', wear: '着てみる', notEnough: '肉球コインが足りません。ステージ・解答・制覇・今日のチャレンジで貯まります', allOwned: '小物をすべて集めました！これ以降は重複だけです', dup: '持っている小物。{0} 🐾 返却', isNew: 'NEW!', pullAll: '全部回す（{0} 回）', multiSum: '{0} 回：新しい小物 {1} 個・重複 {2} 個（{3} 🐾 返却）', dupShort: '重複', rates: '1 回ごとに 40% で新しい小物、60% は持っている小物。新しい小物はレア度 N 55%・R 30%・SR 12%・SSR 3% で、集めかけのセットを優先', earnTip: '正解 +1、訪問 +2、習熟 +3、制覇 +10、わたしはだれ？で使わなかったヒント 1 つ +1、ステージ初クリア +10、今日のチャレンジ（毎日の初クリア）+30（全問正解で +20、連続 1 日ごと +5 最大 +30）、実績 +50' },
       coinsGot: '🐾 {0} 獲得',
     },
   };
