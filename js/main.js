@@ -76,22 +76,20 @@ function applyLang() {
   $('#langSwitch').innerHTML = LANGS.map(x => `<button type="button" data-lang="${x.key}" class="${x.key === L.key ? 'on' : ''}">${x.label}</button>`).join('');
 }
 // ── 地區與範圍 ──
-// 範圍＝首頁選的分區（日本的地方、中國的華北…、世界的各洲），出題與旅行只用範圍內的區塊
+// 範圍＝圖鑑選的分區（日本的地方、中國的華北…、世界的各洲），只用來看圖鑑；
+// 關卡與挑戰一律出整區的題，首頁也不再有分區按鈕（Ken 2026-10-22 要求）
 function scopeKey() { return (Store.settings().scope || {})[R.key] || 'all'; }
-function pool() {
-  const k = scopeKey();
+function pool(k = scopeKey()) {
   return k === 'all' ? R.ids : R.ids.filter(id => R.units[id].area === k);
 }
-// 首頁和圖鑑共用同一個範圍設定：在圖鑑切換也會記住，回首頁就是那個範圍
 function setScope(k) {
   Store.setSetting('scope', Object.assign({}, Store.settings().scope, { [R.key]: k }));
   if (P?.mode === 'explore' && playMap && !$('#play').hidden) { applyScope(playMap); startExplore(); }
-  else renderHome();
 }
-function applyScope(m) {
-  const inScope = scopeKey() === 'all' ? null : pool();
+function applyScope(m, k = scopeKey()) {
+  const inScope = k === 'all' ? null : pool(k);
   m.dim(inScope);
-  m.setHome(inScope, R.map.views?.[scopeKey()]);
+  m.setHome(inScope, R.map.views?.[k]);
 }
 function switchRegion(key) {
   const next = regionData(key);
@@ -117,7 +115,6 @@ const scopeChips = () => {
   const k = scopeKey(), keys = ['all', ...Object.keys(R.areas)];
   return keys.map(a => `<button type="button" class="${a === k ? 'on' : ''}" data-scope="${a}">${esc(a === 'all' ? t('scopeAll') : R.areaName(a))}</button>`).join('');
 };
-function renderScope() { $('#scopeTabs').innerHTML = scopeChips(); showOnChip(); }
 // 分區很多（世界六洲、日本八地方）時，選中的那顆捲進畫面
 const showOnChip = () => document.querySelectorAll('.scopes .on').forEach(b => b.scrollIntoView({ inline: 'center', block: 'nearest' }));
 
@@ -152,8 +149,7 @@ function renderHome() {
   // 已解開（到訪以上）的地方標地名，跟圖鑑一樣塞得下才顯示（Ken 2026-10-21 要求）
   homeMap.clearLabels();
   for (const id of R.ids) if (Store.level(R.sk, id) >= 1) homeMap.label(id, R.short(id), 'auto');
-  applyScope(homeMap);
-  renderScope();
+  applyScope(homeMap, 'all');
   $('#mBook b').textContent = R.label('book');
   const c = Store.counts(R.sk, R.ids), n = R.ids.length;
   const seg = (k, cls) => c[k] ? `<i class="${cls}" style="flex:${c[k]}"></i>` : '';
@@ -171,7 +167,7 @@ function renderHome() {
   // 每日獎勵（原本的今日挑戰）：今天還沒過關就提示第一關的獎勵，過了就顯示連續天數
   const st = Store.dayStreak();
   const cb = Store.best(R.key, chalKey());
-  $('#chalTitle').innerHTML = `${esc(t('chal.title'))}${dot}<em class="hl">${esc(scopeName())}</em>`;
+  $('#chalTitle').innerHTML = `${esc(t('chal.title'))}${dot}<em class="hl">${esc(t('region.' + R.key))}</em>`;
   $('#chalInfo').textContent = t('chal.infoNew', CHAL_LIVES);
   // 卡片右半邊：最佳紀錄做成標籤，題數另外上色（Ken 2026-10-22 要求）
   $('#chalBest').innerHTML = cb ? `<em class="streak rec">${esc(t('chal.recLabel'))}<b>${esc(t('chal.recN', cb))}</b>${esc(t('chal.recEnd'))}</em>` : '';
@@ -235,12 +231,12 @@ function showCard(id) {
 }
 
 // ── 遊玩畫面 ──
-function ensurePlayMap() {
+function ensurePlayMap(mode) {
   if (!playMap) playMap = createMap($('#playMap'), R);
   playMap.clearMarks('ok', 'ng', 'target', 'visited', 'goal', 'here');
   playMap.clearLabels(); playMap.clearMarkers(); playMap.showLinks(false); playMap.path(null);
   playMap.paint(masteryColor);
-  applyScope(playMap);
+  applyScope(playMap, mode === 'explore' ? scopeKey() : 'all');
 }
 // ex＝答案解析：有的話面板分左右兩欄，題目與對錯在左、解析在題目旁邊；這時按鈕移到地圖右下角（Ken 2026-10-22 要求）
 function setPanel(prompt, feedback = '', actions = '', ex = '') {
@@ -258,11 +254,11 @@ function startMode(mode, n) {
   // 關卡照順序開：前一關沒有星就不能打
   if (mode === 'level' && n > 1 && !Store.lvStars(R.key, n - 1)) { toast(esc(t('level.locked', n - 1))); return; }
   show('play');
-  ensurePlayMap();
+  ensurePlayMap(mode);
   const timed = mode === 'level' && Quiz.isTimedLevel(n);
   // 關卡的標題後面寫過關條件（Ken 2026-10-22 要求從首頁卡片移過來）
   $('#pTitle').innerHTML = mode === 'level' ? `${esc(t('level.n', n) + (timed ? `・${t('level.timed')}` : ''))}<small class="cond">${esc(timed ? t('level.condTimed', needOf(n), TIMED_SEC) : t('level.cond', needOf(n)))}</small>`
-    : esc(mode === 'chal' ? `${t('chal.title')}・${scopeName()}` : t('mode.' + mode));
+    : esc(mode === 'chal' ? `${t('chal.title')}・${t('region.' + R.key)}` : t('mode.' + mode));
   $('#pTimer').hidden = !timed;
   clearInterval(P?.timer);
   P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [], lives: CHAL_LIVES };
@@ -270,7 +266,7 @@ function startMode(mode, n) {
   music(timed ? 'fast' : 'calm');
   // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
   playMap.paint(() => '');
-  // 找位置挑戰：題目答一題出一題（照複習優先度），只用首頁選的分區
+  // 找位置挑戰：題目答一題出一題（照複習優先度），出整區
   P.qs = mode === 'chal' ? [] : Quiz.level(R, n);
   if (timed) { P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
   playMap.onTap(answer);
@@ -282,13 +278,12 @@ function startMode(mode, n) {
 // 限時關 60 秒內要答對的題數＝同一關的普通門檻 + 2（第 5 關照舊 7 題）
 const needOf = n => n <= 2 ? 3 : n <= 4 ? 5 : Math.min(9, 5 + Math.floor(n / 10)) + (Quiz.isTimedLevel(n) ? 2 : 0);
 
-// ── 找位置挑戰（Ken 2026-10-22 要求：只想練找位置的入口）：照首頁選的分區出，錯 3 次結束，各分區記最佳 ──
+// ── 找位置挑戰（Ken 2026-10-22 要求：只想練找位置的入口）：出整區（同日改：不再照分區），錯 3 次結束，記最佳 ──
 const CHAL_LIVES = 3;
-const scopeName = () => scopeKey() === 'all' ? t('region.' + R.key) : R.areaName(scopeKey());
-const chalKey = () => 'chal:' + scopeKey();
+const chalKey = () => 'chal:all';
 function chalNext() {
   // 不跟上一題同一個地方
-  const prev = P.qs[P.i - 1]?.id, ids = pool(), pick = ids.length > 1 ? ids.filter(x => x !== prev) : ids;
+  const prev = P.qs[P.i - 1]?.id, ids = R.ids, pick = ids.length > 1 ? ids.filter(x => x !== prev) : ids;
   return Quiz.session(R, 'loc', 1, pick)[0];
 }
 
@@ -546,7 +541,7 @@ function finishChal() {
   openModal(`
     <div class="result">
       <div class="result-dog">${komugiImg(72)}</div>
-      <h2>${esc(t('finished', `${t('chal.title')}・${scopeName()}`))}</h2>
+      <h2>${esc(t('finished', `${t('chal.title')}・${t('region.' + R.key)}`))}</h2>
       <div class="big-score">${P.score}<small>${esc(t('chal.unit'))}</small></div>
       ${rec && P.score ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('chal.best', best))}</div>`}
       <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
@@ -559,9 +554,9 @@ function finishChal() {
         <button type="button" class="btn primary" id="mChalAgain">${esc(t('chal.again'))}</button>
       </div>
     </div>`, null);
-  // 分享成績（Ken 2026-10-22 要求挑戰結算也要有）：分區、答對幾題、新紀錄或最佳、對錯方格、連續天數
+  // 分享成績（Ken 2026-10-22 要求挑戰結算也要有）：地區、答對幾題、新紀錄或最佳、對錯方格、連續天數
   const st = Store.dayStreak();
-  shareText = [`${t('appName')}・${t('region.' + R.key)}${scopeKey() === 'all' ? '' : '・' + scopeName()} ${t('chal.title')}`,
+  shareText = [`${t('appName')}・${t('region.' + R.key)} ${t('chal.title')}`,
     `🎯 ${P.score}${t('chal.unit')}　${rec && P.score ? t('newRec') : t('chal.best', best)}　${P.marks.join('')}`,
     st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
   P.qs = null;
