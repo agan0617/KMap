@@ -145,24 +145,12 @@ details.small { font-size: 12px; max-width: 360px; }
 .mode:active { transform: translateY(2px); box-shadow: 0 0 0 var(--line), 0 0 0 1.5px var(--line) inset; }
 .mode.daily { width: 100%; background: linear-gradient(120deg, #c8402c, #e2733d); color: #fff; box-shadow: 0 3px 0 #8f2a1c; }
 .mode.daily small { color: #ffe9d6; }
-/* 關卡（1.14.0）：今日挑戰下面一排，左邊直接打下一關、右邊選關 */
-.level-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
-.mode.level { background: linear-gradient(120deg, #2f6fa8, #4a90d9); color: #fff; box-shadow: 0 3px 0 #1f4c75; }
+/* 關卡模式、挑戰模式兩張卡 */
+.mode.level { width: 100%; background: linear-gradient(120deg, #2f6fa8, #4a90d9); color: #fff; box-shadow: 0 3px 0 #1f4c75; }
 .mode.level small { color: #dcecfb; }
 .mode.level small.day { font-weight: 700; color: #fff; }
 .mode.chal { width: 100%; background: linear-gradient(120deg, #3d8a52, #62ad6e); color: #fff; box-shadow: 0 3px 0 #2a6038; }
 .mode.chal small { color: #e2f4e4; }
-.mode.level-all { justify-content: center; align-items: center; text-align: center; }
-.levels-body { flex: 1; overflow-y: auto; padding: 8px 16px calc(20px + env(safe-area-inset-bottom)); }
-.level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
-.lvl { aspect-ratio: 1; border-radius: 14px; border: 1.5px solid var(--line); background: var(--paper2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font: inherit; color: var(--ink); padding: 2px; }
-.lvl b { font-size: 18px; }
-.lvl small { font-size: 11px; color: var(--gold); letter-spacing: 1px; }
-.lvl.done { background: var(--card); border-color: var(--gold); }
-.lvl.open { background: var(--card); }
-.lvl.cur { border-color: #2f6fa8; box-shadow: 0 0 0 2px #2f6fa8 inset; }
-.lvl.locked { opacity: .45; }
-.lvl.timed b::after { content: '⏱'; font-size: 11px; margin-left: 1px; vertical-align: super; }
 
 /* ── 地圖 ── */
 .map { width: 100%; height: 100%; display: block; touch-action: none; user-select: none; -webkit-user-select: none; }

@@ -1,4 +1,4 @@
-// 畫面與玩法流程：首頁、關卡（每 5 關一個限時關；每天第一次過關＝完成今日挑戰）、圖鑑、御朱印帳。
+// 畫面與玩法流程：首頁、關卡模式（每 5 關一個限時關；每天第一次過關＝完成今日挑戰）、挑戰模式（只出找位置）、圖鑑、御朱印帳。
 // 2026-10-22 Ken 要求：找位置／知識／選擇題三種題目只混在今日挑戰與關卡裡出，拿掉各自的入口、鄰接旅行與限時連擊。
 // 畫面上的文字一律走 t()（js/i18n.js），地名與知識卡走 R.name()／R.card()（js/regions.js）。
 const $ = s => document.querySelector(s);
@@ -119,7 +119,6 @@ function setLang(l) {
   renderTabs();
   if (!$('#home').hidden) renderHome();
   else if (!$('#book').hidden) renderBook();
-  else if (!$('#levels').hidden) renderLevels();
   else if (P?.mode === 'explore') startExplore();
   // 答題中途切換：題目是出題當下的語言，從下一題起換新語言
 }
@@ -152,7 +151,7 @@ function renderHome() {
   $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
   const next = Store.lvNext(R.key);
   $('#levelGo').textContent = t('level.go', next) + (Quiz.isTimedLevel(next) ? `・${t('level.timed')}` : '');
-  $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key), Store.lvStarSum(R.key));
+  $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key), needOf(next), Quiz.isTimedLevel(next) ? TIMED_SEC : ROUND);
   // 每日獎勵（原本的今日挑戰）：今天還沒過關就提示第一關的獎勵，過了就顯示連續天數
   const st = Store.dayStreak();
   const cb = Store.best(R.key, chalKey());
@@ -252,17 +251,14 @@ function startMode(mode, n) {
   // 找位置挑戰：題目答一題出一題（照複習優先度），只用首頁選的分區
   P.qs = mode === 'chal' ? [] : Quiz.level(R, n);
   if (timed) { P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
-  if (mode === 'level') toast(esc(timed ? t('level.timedGoal', ...starGoals(n), TIMED_SEC) : t('level.goal')), 2200, 'ach');
+  if (mode === 'level') toast(esc(timed ? t('level.timedGoal', needOf(n), TIMED_SEC) : t('level.goal', needOf(n), ROUND)), 2200, 'ach');
   playMap.onTap(answer);
   nextQuestion();
 }
-// 星數門檻：普通關 10 題答對 6／8／10；限時關 60 秒答對 8／10／12，每 50 關多要 1 題
-function starGoals(n) {
-  if (!Quiz.isTimedLevel(n)) return [6, 8, 10];
-  const k = Math.floor(n / 50);
-  return [8 + k, 10 + k, 12 + k];
-}
-const starsOf = (n, ok) => starGoals(n).filter(g => ok >= g).length;
+// 過關門檻（Ken 2026-10-22 要求：沒有星星，只有過關與否，越後面越難）：
+// 普通關 10 題要答對 5 + 每 10 關 1 題（第 10 關 6 題、第 20 關 7 題…），第 40 關起封頂 9 題（不要求全對）；
+// 限時關 60 秒內要答對的題數＝同一關的普通門檻 + 2
+const needOf = n => Math.min(9, 5 + Math.floor(n / 10)) + (Quiz.isTimedLevel(n) ? 2 : 0);
 
 // ── 找位置挑戰（Ken 2026-10-22 要求：只想練找位置的入口）：照首頁選的分區出，錯 3 次結束，各分區記最佳 ──
 const CHAL_LIVES = 3;
@@ -322,7 +318,7 @@ function matchTap(side, i) {
 function updateStat() {
   const combo = P.combo > 1 ? `<span class="combo">${t('combo', P.combo)}</span>` : '';
   if (P.mode === 'chal') setStat(`${'❤️'.repeat(Math.max(0, P.lives))}${'🤍'.repeat(CHAL_LIVES - Math.max(0, P.lives))} ${esc(t('level.okN', P.score))}${combo}`);
-  else if (P.timed) setStat(`${esc(t('level.okN', P.score))} / ${starGoals(P.level)[2]}${combo}`);
+  else if (P.timed) setStat(`${esc(t('level.okN', P.score))} / ${needOf(P.level)}${combo}`);
   else setStat(`${Math.min(P.i + 1, P.qs.length)} / ${P.qs.length}${combo}`);
 }
 function answer(id, choiceIdx) {
@@ -447,28 +443,27 @@ function finishQuiz() {
   $('#pMapActs').innerHTML = '';
   if (P.mode === 'chal') return finishChal();
   const total = P.timed ? null : P.qs.length;
-  // 關卡：照答對題數給星，只有比以前多的星才給幣；沒過關也留著已經拿過的星
-  const n = P.level, goals = starGoals(n), stars = starsOf(n, P.score), more = Store.setLvStars(R.key, n, stars), E = Rewards.EARN;
-  if (more) gain(more * E.levelStar);
-  const best = Store.lvStars(R.key, n);
-  // 今日挑戰（Ken 2026-10-22 要求併進關卡）：每天第一次過關（任何分頁）就算完成，基本 +30、三顆星再 +30、連續天數每天 +5（最多 +50）
+  // 關卡：答對題數到門檻就過關；第一次過這一關給過關獎勵（關卡照順序開，所以就是「打到新的一關」）
+  const n = P.level, need = needOf(n), pass = P.score >= need, perfect = !P.timed && P.score === total, E = Rewards.EARN;
+  const fresh = pass && Store.setLvStars(R.key, n, 1) > 0;
+  if (fresh) gain(E.levelClear);
+  // 今日挑戰（Ken 2026-10-22 要求併進關卡）：每天第一次過關（任何分頁）就算完成，基本 +30、全對再 +30、連續天數每天 +5（最多 +50）
   let day = '';
-  if (stars && Store.dayClear()) {
+  if (pass && Store.dayClear()) {
     const streak = Store.dayStreak();
-    if (stars === 3) Store.stat('dailyPerfect', (Store.stats().dailyPerfect || 0) + 1);
-    const got = [[t('dailyBonus'), E.daily], stars === 3 && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]].filter(Boolean);
+    if (perfect) Store.stat('dailyPerfect', (Store.stats().dailyPerfect || 0) + 1);
+    const got = [[t('dailyBonus'), E.daily], perfect && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]].filter(Boolean);
     const bonus = got.reduce((s, [, v]) => s + v, 0);
     gain(bonus);
     day = `<div class="daily-bonus day"><b>🎁 ${esc(t('level.dayGot', streak))} +${bonus} 🐾</b><small>${got.map(([k, v]) => `${esc(k)} +${v}`).join('・')}</small></div>`;
   }
-  const head = `<div class="stars">${'★'.repeat(stars)}${'☆'.repeat(3 - stars)}</div>
-    <div class="big-score">${P.score}<small>${total ? ` / ${total}` : ` / ${goals[2]}`}</small></div>
-    <div class="${stars ? 'new-rec' : 'muted'}">${esc(stars ? t('level.clear') : t('level.fail', goals[0]))}</div>
+  const head = `<div class="big-score">${P.score}<small>${total ? ` / ${total}` : ''}</small></div>
+    <div class="${pass ? 'new-rec' : 'muted'}">${esc(pass ? t('level.clear') : t('level.fail', need))}</div>
     ${day}
-    ${more ? `<div class="daily-bonus"><b>🎁 +${more * E.levelStar} 🐾</b><small>${esc(t('level.newStars', more))}</small></div>` : ''}
-    <div class="muted">${esc(P.timed ? t('level.timedGoal', ...goals, TIMED_SEC) : t('level.goal'))}</div>`;
-  const actions = `<button type="button" class="btn" data-level="${n}">${esc(t('level.retry'))}</button>`
-    + (best ? `<button type="button" class="btn primary" data-level="${n + 1}">${esc(t('level.next'))}</button>` : '');
+    ${fresh ? `<div class="daily-bonus"><b>🎁 +${E.levelClear} 🐾</b><small>${esc(t('level.clearBonus'))}</small></div>` : ''}
+    <div class="muted">${esc(P.timed ? t('level.timedGoal', need, TIMED_SEC) : t('level.goal', need, total))}</div>`;
+  const actions = pass ? `<button type="button" class="btn primary" data-level="${n + 1}">${esc(t('level.next'))}</button>`
+    : `<button type="button" class="btn primary" data-level="${n}">${esc(t('level.retry'))}</button>`;
   const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
   const stamps = P.stamps.map(id => stampHtml(id)).join('');
   celebrate(Rewards.check());   // 關卡星數、今日挑戰全對／連續天數在結算時才算得出來
@@ -529,22 +524,6 @@ function startExplore() {
     `<button type="button" class="btn" data-labels>${esc(t(labels ? 'hideNames' : 'showNames'))}</button>`);
   showOnChip();
   setStat('');
-}
-
-// ── 選關：已過的關＋下一關＋後面 9 關（鎖著），每 20 關標一次旅程稱號 ──
-function renderLevels() {
-  const next = Store.lvNext(R.key), last = next + 9;
-  $('#levels .hud-title').textContent = `${t('region.' + R.key)}・${t('level.title')}`;
-  $('#lStat').textContent = `★ ${Store.lvStarSum(R.key)}`;
-  let html = '<div class="level-grid">';
-  for (let n = 1; n <= last; n++) {
-    const s = Store.lvStars(R.key, n), open = n <= next, timed = Quiz.isTimedLevel(n);
-    html += `<button type="button" class="lvl ${s ? 'done' : open ? 'open' : 'locked'} ${timed ? 'timed' : ''} ${n === next ? 'cur' : ''}" data-level="${n}">
-      <b>${n}</b><small>${s ? '★'.repeat(s) + '☆'.repeat(3 - s) : open ? (timed ? '⏱' : '▶') : '🔒'}</small></button>`;
-  }
-  html += '</div>';
-  $('#levelsBody').innerHTML = html;
-  $('#levelsBody .cur')?.scrollIntoView({ block: 'center' });
 }
 
 // ── 御朱印帳 ──
@@ -816,7 +795,6 @@ document.addEventListener('click', e => {
   if (b.dataset.lang) { Sound.play('tap'); setLang(b.dataset.lang); }
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
   else if (b.id === 'mLevel') { Sound.play('tap'); startMode('level', Store.lvNext(R.key)); }
-  else if (b.id === 'mLevels') { Sound.play('tap'); show('levels'); renderLevels(); }
   else if (b.id === 'mChal' || b.id === 'mChalAgain') { Sound.play('tap'); closeModal(); startMode('chal'); }
   else if (b.dataset.level) { Sound.play('tap'); closeModal(); startMode('level', +b.dataset.level); }
   else if (b.id === 'mBook') { Sound.play('tap'); renderBook(); show('book'); }
@@ -830,7 +808,7 @@ document.addEventListener('click', e => {
   else if (b.hasAttribute('data-pull-all')) doPullAll();
   else if (b.dataset.wearNow) { const it = b.dataset.wearNow; Store.wear(KOMUGI_ITEMS[it].slot, it); Sound.play('level'); refreshDog(); toast(`${itemImg(it, 56)}<b>${esc(itemName(it))}</b>`); }
   else if (b.dataset.scope) { Sound.play('tap'); setScope(b.dataset.scope); }
-  else if (b.id === 'pBack' || b.id === 'bBack' || b.id === 'lBack') goHome();
+  else if (b.id === 'pBack' || b.id === 'bBack') goHome();
   else if (b.id === 'hSettings') showSettings();
   else if (b.dataset.cloud) cloudAction(b.dataset.cloud);
   else if (b.id === 'modalClose') closeModal();
