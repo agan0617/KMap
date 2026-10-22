@@ -2,7 +2,7 @@
 
 邊玩邊熟悉地圖的網頁遊戲。把每一塊地方從灰色點亮成全彩，集滿印章。介面與知識卡有中文、英文、日文三種語言。
 
-網頁版：<https://agan0617.github.io/KMap/>　Android 版：[KMapApp](https://github.com/agan0617/KMapApp)（WebView 外殼，網頁更新 App 就跟著更新）
+網頁版：<https://agan0617.github.io/KMap/>
 
 ## 地區
 
