@@ -332,7 +332,6 @@ dd small { margin-left: 3px; }
 .btn.map-corner { position: absolute; right: 10px; top: 10px; z-index: 2; background: var(--glass); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
 #mBook b { font-weight: 700; }
 #mBook small { margin-left: 4px; font-size: 11px; }
-.map-unlock { position: absolute; left: 10px; top: 10px; z-index: 2; background: var(--glass); border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; box-shadow: 0 1px 3px rgba(0,0,0,.15); pointer-events: none; }
 .daily-bonus { font-weight: 800; color: #8a5a32; background: var(--hero1); border-radius: 12px; padding: 6px 14px; display: flex; flex-direction: column; gap: 2px; }
 .daily-bonus b { font-size: 20px; }
 .daily-bonus small { font-size: 12px; color: inherit; opacity: .85; }

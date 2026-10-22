@@ -129,6 +129,12 @@ function renderTabs() {
     `<button type="button" class="tab ${g.key === R.key ? 'on' : ''} ${g.ready ? '' : 'soon'}" data-r="${g.key}">${esc(t('region.' + g.key))}${g.ready ? '' : `<small>${esc(t('soon'))}</small>`}</button>`).join('');
   $('#regionTabs .on')?.scrollIntoView({ inline: 'center', block: 'nearest' });
 }
+// 這一區的熟練度 %：跟全地圖熟練度（稱號用）同一種算法——到訪 1、熟悉 2、制霸 3 點（Ken 2026-10-22 要求統一）
+// 0 到 1% 之間顯示一位小數，免得剛開始玩都是 0%
+function masteryPct(c, n) {
+  const p = (c[1] + c[2] * 2 + c[3] * 3) / (n * 3) * 100;
+  return p > 0 && p < 1 ? p.toFixed(1) : Math.round(p);
+}
 function renderHome() {
   if (!homeMap) {
     homeMap = createMap($('#homeMap'), R, { static: true });
@@ -145,10 +151,7 @@ function renderHome() {
   const seg = (k, cls) => c[k] ? `<i class="${cls}" style="flex:${c[k]}"></i>` : '';
   $('#homeProgress').innerHTML = `
     <div class="bar">${seg(3, 'l3')}${seg(2, 'l2')}${seg(1, 'l1')}${seg(0, 'l0')}</div>
-    <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span><b>${c[3]} / ${n}</b></div>`;
-  // 地圖左上角的解鎖百分比：到訪以上的地方佔比（Ken 2026-10-21 要求）
-  const unlocked = n - c[0];
-  $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
+    <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span><b>${esc(t('mastery', t('region.' + R.key), masteryPct(c, n)))}</b></div>`;
   const next = Store.lvNext(R.key);
   // 卡片標題：模式名稱照常，「第 N 關」「臺灣」這種會變的部分放大上色（Ken 2026-10-22 要求）
   const dot = lang() === 'en' ? ' · ' : '・';
@@ -500,7 +503,7 @@ function finishQuiz() {
     st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
   P.qs = null;
 }
-// 首頁右上角的分享（Ken 2026-10-22 要求）：稱號、全地圖解鎖、合計過幾關、連續完成今日挑戰的天數
+// 首頁右上角的分享（Ken 2026-10-22 要求）：稱號、全地圖熟練度、合計過幾關、連續完成今日挑戰的天數
 function homeShareText() {
   const g = Rewards.nextTitle(), pct = g ? g.pct.toFixed(1) : '100', st = Store.dayStreak();
   return [`${t('appName')}｜${titleName(curTitle())}`, t('share.home', pct, Store.lvTotal()), st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
