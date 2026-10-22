@@ -151,7 +151,10 @@ function renderHome() {
   const seg = (k, cls) => c[k] ? `<i class="${cls}" style="flex:${c[k]}"></i>` : '';
   $('#homeProgress').innerHTML = `
     <div class="bar">${seg(3, 'l3')}${seg(2, 'l2')}${seg(1, 'l1')}${seg(0, 'l0')}</div>
-    <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span><b>${esc(t('mastery', t('region.' + R.key), masteryPct(c, n)))}</b></div>`;
+    <div class="legend"><span class="l3">${lv(3)} ${c[3]}</span><span class="l2">${lv(2)} ${c[2]}</span><span class="l1">${lv(1)} ${c[1]}</span><span class="l0">${lv(0)} ${c[0]}</span></div>`;
+  // 熟練度放在紀念章冊旁邊：兩個都是「這張地圖完成多少」（Ken 2026-10-22 要求）；地圖下方只留顏色圖例
+  const pct = masteryPct(c, n);
+  $('#heroMastery').innerHTML = `<span>${esc(t('mastery', t('region.' + R.key), pct))}</span><i class="mini"><i style="width:${Math.min(100, pct)}%"></i></i>`;
   const next = Store.lvNext(R.key);
   // 卡片標題：模式名稱照常，「第 N 關」「臺灣」這種會變的部分放大上色（Ken 2026-10-22 要求）
   const dot = lang() === 'en' ? ' · ' : '・';

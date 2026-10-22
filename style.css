@@ -375,3 +375,12 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .btn.choice:disabled { opacity: 1; }
 .panel.answered .choices { grid-template-columns: 1fr; gap: 4px; }
 .panel.answered .btn.choice { padding: 4px 8px; min-height: 0; font-size: 13px; }
+/* 小屋裡的熟練度（跟紀念章冊並排）：一行字＋細進度條 */
+.mast-chip { display: inline-flex; flex-direction: column; justify-content: center; gap: 3px; border: 1.5px solid var(--line); background: var(--paper2); border-radius: 10px; padding: 4px 10px; font-size: 12px; font-weight: 700; color: var(--red); }
+.mast-chip .mini { display: block; height: 4px; border-radius: 2px; background: var(--land); overflow: hidden; }
+.mast-chip .mini i { display: block; height: 100%; background: var(--red); }
+/* 紀念章冊與熟練度並排一行（都是地圖完成度），各佔一半、字分兩行 */
+.hero-done { display: flex; gap: 6px; margin-top: 6px; }
+.hero-done > * { flex: 1 1 0; min-width: 0; }
+.hero-done #mBook { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 1px; }
+.hero-done #mBook small { margin-left: 0; }
