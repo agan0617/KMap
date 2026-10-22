@@ -546,9 +546,15 @@ function finishChal() {
       ${ups ? `<h3>${esc(t('ups'))}</h3><div class="chips">${ups}</div>` : ''}
       <div class="actions">
         <button type="button" class="btn" data-home>${esc(t('home'))}</button>
+        <button type="button" class="btn" data-share>${esc(t('share.btn'))}</button>
         <button type="button" class="btn primary" id="mChalAgain">${esc(t('chal.again'))}</button>
       </div>
     </div>`, null);
+  // 分享成績（Ken 2026-10-22 要求挑戰結算也要有）：分區、答對幾題、新紀錄或最佳、對錯方格、連續天數
+  const st = Store.dayStreak();
+  shareText = [`${t('appName')}・${t('region.' + R.key)}${scopeKey() === 'all' ? '' : '・' + scopeName()} ${t('chal.title')}`,
+    `🎯 ${P.score}${t('chal.unit')}　${rec && P.score ? t('newRec') : t('chal.best', best)}　${P.marks.join('')}`,
+    st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
   P.qs = null;
 }
 
