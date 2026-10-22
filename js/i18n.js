@@ -11,7 +11,7 @@ const STRINGS = {
     appName: 'K地圖',
     lv: ['未踏', '到訪', '熟悉', '制霸'],
     mode: { loc: '找位置', know: '知識題', daily: '今日挑戰', level: '關卡', explore: '圖鑑', book: '御朱印帳' },
-    chal: { title: '挑戰模式', recLabel: '最佳紀錄：', recN: '{0} 題', recEnd: '！', infoNew: '只出找位置・錯 {0} 次結束', best: '最佳 {0} 題', unit: ' 題', again: '再挑戰' },
+    chal: { title: '挑戰模式', recLabel: '最佳紀錄：', recN: '{0} 題', recEnd: '！', infoNew: '找出位置・錯 {0} 次結束', best: '最佳 {0} 題', unit: ' 題', again: '再挑戰' },
     level: { n: '第 {0} 關', timed: '限時', title: '關卡', mode: '關卡模式', info: '已過 {0} 關', next: '下一關', retry: '再打一次',
       goal: '{1} 題答對 {0} 題過關', timedGoal: '{1} 秒內答對 {0} 題過關', clear: '過關！', fail: '差一點！要答對 {0} 題才過關', okN: '答對 {0} 題', clearBonus: '過關獎勵', cond: '過關條件：答對 {0} 題', condTimed: '過關條件：{1} 秒答對 {0} 題', dayLabel: '今日挑戰', dayTodo: '今天第一次過關 +{0} 🐾 起', dayOk: '✅ 今天完成', dayStreak: '已連續 {0} 天',
       dayGot: '今日挑戰完成！已連續 {0} 天', locked: '先過第 {0} 關', journey: '再過 {0} 關：稱號「{1}」' },
