@@ -151,13 +151,15 @@ function renderHome() {
   $('#homeUnlock').textContent = t('unlocked', Math.round(unlocked / n * 100), unlocked, n);
   const next = Store.lvNext(R.key);
   $('#levelGo').textContent = t('level.go', next) + (Quiz.isTimedLevel(next) ? `・${t('level.timed')}` : '');
-  $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key), needOf(next), Quiz.isTimedLevel(next) ? TIMED_SEC : ROUND);
+  $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key));
   // 每日獎勵（原本的今日挑戰）：今天還沒過關就提示第一關的獎勵，過了就顯示連續天數
   const st = Store.dayStreak();
   const cb = Store.best(R.key, chalKey());
   $('#chalTitle').textContent = `${t('chal.title')}・${scopeName()}`;
   $('#chalInfo').textContent = cb ? t('chal.info', CHAL_LIVES, cb) : t('chal.infoNew', CHAL_LIVES);
-  $('#levelDay').textContent =Store.clearedToday() ? t('level.dayDone', st) : t('level.dayNone', Rewards.EARN.daily) + (st ? t('level.dayKeep', st) : '');
+  // 卡片右半邊（Ken 2026-10-22 要求）：上面是今天完成了沒，下面把連續天數做成醒目的標籤
+  $('#levelDay').innerHTML = `<small>${esc(t('level.dayLabel'))}</small><span>${esc(Store.clearedToday() ? t('level.dayOk') : t('level.dayTodo', Rewards.EARN.daily))}</span>`
+    + (st ? `<em class="streak">🔥 ${esc(t('level.dayStreak', st))}</em>` : '');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
   renderHero();
 }
@@ -240,7 +242,9 @@ function startMode(mode, n) {
   show('play');
   ensurePlayMap();
   const timed = mode === 'level' && Quiz.isTimedLevel(n);
-  $('#pTitle').textContent = mode === 'book' ? R.label('book') : mode === 'level' ? t('level.n', n) + (timed ? `・${t('level.timed')}` : '') : mode === 'chal' ? `${t('chal.title')}・${scopeName()}` : t('mode.' + mode);
+  // 關卡的標題後面寫過關條件（Ken 2026-10-22 要求從首頁卡片移過來）
+  $('#pTitle').innerHTML = mode === 'level' ? `${esc(t('level.n', n) + (timed ? `・${t('level.timed')}` : ''))}<small class="cond">${esc(timed ? t('level.condTimed', needOf(n), TIMED_SEC) : t('level.cond', needOf(n)))}</small>`
+    : esc(mode === 'chal' ? `${t('chal.title')}・${scopeName()}` : t('mode.' + mode));
   $('#pTimer').hidden = !timed;
   clearInterval(P?.timer);
   P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [], lives: CHAL_LIVES };
@@ -251,7 +255,6 @@ function startMode(mode, n) {
   // 找位置挑戰：題目答一題出一題（照複習優先度），只用首頁選的分區
   P.qs = mode === 'chal' ? [] : Quiz.level(R, n);
   if (timed) { P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
-  if (mode === 'level') toast(esc(timed ? t('level.timedGoal', needOf(n), TIMED_SEC) : t('level.goal', needOf(n), ROUND)), 2200, 'ach');
   playMap.onTap(answer);
   nextQuestion();
 }

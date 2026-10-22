@@ -148,7 +148,13 @@ details.small { font-size: 12px; max-width: 360px; }
 /* 關卡模式、挑戰模式兩張卡 */
 .mode.level { width: 100%; background: linear-gradient(120deg, #2f6fa8, #4a90d9); color: #fff; box-shadow: 0 3px 0 #1f4c75; }
 .mode.level small { color: #dcecfb; }
-.mode.level small.day { font-weight: 700; color: #fff; }
+.mode.level { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
+.lv-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lv-day { display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 2px; font-size: 12px; color: #dcecfb; flex-shrink: 0; max-width: 55%; }
+.lv-day small { font-size: 11px; opacity: .85; }
+.lv-day span { font-weight: 700; color: #fff; }
+.lv-day .streak { font-style: normal; font-weight: 900; font-size: 15px; color: #5a3a00; background: #ffd34d; border-radius: 999px; padding: 2px 10px; margin-top: 2px; box-shadow: 0 1px 0 #c79a1e; }
+.hud-title .cond { display: block; font-size: 12px; font-weight: 600; color: var(--muted); line-height: 1.2; }
 .mode.chal { width: 100%; background: linear-gradient(120deg, #3d8a52, #62ad6e); color: #fff; box-shadow: 0 3px 0 #2a6038; }
 .mode.chal small { color: #e2f4e4; }
 
