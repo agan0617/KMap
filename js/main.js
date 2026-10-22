@@ -156,7 +156,9 @@ function renderHome() {
   const st = Store.dayStreak();
   const cb = Store.best(R.key, chalKey());
   $('#chalTitle').textContent = `${t('chal.title')}・${scopeName()}`;
-  $('#chalInfo').textContent = cb ? t('chal.info', CHAL_LIVES, cb) : t('chal.infoNew', CHAL_LIVES);
+  $('#chalInfo').textContent = t('chal.infoNew', CHAL_LIVES);
+  // 卡片右半邊：最佳紀錄做成標籤，題數另外上色（Ken 2026-10-22 要求）
+  $('#chalBest').innerHTML = cb ? `<em class="streak rec">${esc(t('chal.recLabel'))}<b>${esc(t('chal.recN', cb))}</b>${esc(t('chal.recEnd'))}</em>` : '';
   // 卡片右半邊（Ken 2026-10-22 要求）：上面是今天完成了沒，下面把連續天數做成醒目的標籤
   $('#levelDay').innerHTML = `<small>${esc(t('level.dayLabel'))}</small><span>${esc(Store.clearedToday() ? t('level.dayOk') : t('level.dayTodo', Rewards.EARN.daily))}</span>`
     + (st ? `<em class="streak">🔥 ${esc(t('level.dayStreak', st))}</em>` : '');
