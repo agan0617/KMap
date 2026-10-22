@@ -20,10 +20,11 @@ const REGIONS = [
   { key: 'taiwan', ready: true },
   { key: 'japan', ready: true },
   { key: 'china', ready: true },
+  { key: 'usa', ready: true },   // 2026-10-22 Ken 要求加在中國後面
   ...CONTINENT_KEYS.map(key => ({ key, ready: true })),
 ];
 // 成就、統計用的地區（各洲合起來算世界，門檻才跟以前一樣）
-const REWARD_REGIONS = ['taiwan', 'japan', 'china', 'world'];
+const REWARD_REGIONS = ['taiwan', 'japan', 'china', 'usa', 'world'];
 
 // 日文新字體 → 台灣慣用的繁體字（中文介面顯示日本地名用）
 const TRAD = { 静: '靜', 広: '廣', 徳: '德', 縄: '繩', 児: '兒', 戸: '戶', 浜: '濱', 沢: '澤', 関: '關', 黒: '黑', 県: '縣', 横: '橫', 区: '區', 奥: '奧' };
@@ -96,7 +97,7 @@ function multiProfile(key, info, map) {
     return w.concat(w.map(s => s.replace(/臺/g, '台')), w.map(s => s.replace(/台/g, '臺')));
   }
   // 印章上的字：中國、台灣用短名；世界用 ISO 三碼（護照章）
-  const stamp = id => (info.stamp === 'passport' ? id : (info.units[id].zh?.short || id));
+  const stamp = id => (info.stamp === 'passport' ? id.split('-').pop() : (info.units[id].zh?.short || id));
   return {
     name: id => L(id).name, short: id => L(id).short || L(id).name, sub: id => L(id).sub || '',
     nameIn: (id, l) => (info.units[id][l] || info.units[id].zh).name,

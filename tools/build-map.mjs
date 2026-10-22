@@ -1,5 +1,5 @@
 // 從 Natural Earth 產生遊戲用的地圖資料：SVG 路徑＋相鄰關係。
-// 用法：node tools/build-map.mjs <japan|china|world>
+// 用法：node tools/build-map.mjs <japan|taiwan|china|usa|world>
 // 原始檔第一次會下載到 tools/.cache/，之後重用。
 import fs from 'node:fs';
 import path from 'node:path';
@@ -87,6 +87,21 @@ const REGIONS = {
       ['CN-HK', 'CN-MO', '港珠澳大橋'],
     ],
   },
+  // 美國 50 州（2026-10-22 Ken 要求）：華盛頓特區不是州、太小也點不到，畫進馬里蘭州
+  usa: {
+    src: 'admin1',
+    filter: "adm0_a3 === 'USA'",
+    id: "iso_3166_2 === 'US-DC' ? 'US-MD' : iso_3166_2",
+    simplify: '3%',
+    minIsland: '1000km2',    // 留夏威夷四個大島、科迪亞克島；阿留申群島的小島會把阿拉斯加的框撐寬
+    proj: { type: 'eqc', lat0: 39 },
+    lonWrap: true,           // 阿留申群島有幾個島在換日線另一邊（東經），接回西經才不會橫跨整張圖
+    width: 1000,
+    // 照一般美國地圖的做法：阿拉斯加縮小、夏威夷照原比例，都搬到左下角
+    insets: { 'US-AK': { dLon: 38, dLat: -34, scale: 0.33 }, 'US-HI': { dLon: 51, dLat: 4, scale: 1 } },
+    // 州界畫進五大湖裡：密西根和伊利諾、明尼蘇達只隔著湖面，算陸地相鄰才不會出「密西根和伊利諾相鄰」這種題
+    adjFix: { remove: [['US-MI', 'US-IL'], ['US-MI', 'US-MN']] },
+  },
   world: {
     src: 'admin0',
     filter: WORLD_UNIT,
@@ -165,7 +180,8 @@ function projector(p) {
   };
 }
 // 換日線附近：整個環的平均經度落在切線以西就整環搬到東邊，避免橫跨整張圖的長線
-function wrapRing(ring, p) {
+function wrapRing(ring, p, lonWrap) {
+  if (lonWrap) return ring.map(([x, y]) => [x > 0 ? x - 360 : x, y]);
   if (p.type !== 'equalEarth') return ring;
   const cut = p.lon0 - 180;
   const mean = ring.reduce((s, q) => s + q[0], 0) / ring.length;
@@ -207,10 +223,10 @@ async function build(name) {
     const id = f.properties.id;
     if (!cfg.insets?.[id]) continue;
     let a = Infinity, b = Infinity, c = -Infinity, d = -Infinity;
-    for (const p of polysOf(f)) for (const r of p) for (const [x, y] of r) { a = Math.min(a, x); b = Math.min(b, y); c = Math.max(c, x); d = Math.max(d, y); }
+    for (const p of polysOf(f)) for (const r of p) for (const [x, y] of wrapRing(r, cfg.proj, cfg.lonWrap)) { a = Math.min(a, x); b = Math.min(b, y); c = Math.max(c, x); d = Math.max(d, y); }
     centers[id] = [(a + c) / 2, (b + d) / 2];
   }
-  const project = (ring, id) => wrapRing(ring, cfg.proj).map(([lon, lat]) => {
+  const project = (ring, id) => wrapRing(ring, cfg.proj, cfg.lonWrap).map(([lon, lat]) => {
     const s = cfg.insets?.[id];
     if (s) {
       const [cx, cy] = centers[id], z = s.scale || 1;
