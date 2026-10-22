@@ -155,7 +155,10 @@ function renderHome() {
   $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key), Store.lvStarSum(R.key));
   // 每日獎勵（原本的今日挑戰）：今天還沒過關就提示第一關的獎勵，過了就顯示連續天數
   const st = Store.dayStreak();
-  $('#levelDay').textContent = Store.clearedToday() ? t('level.dayDone', st) : t('level.dayNone', Rewards.EARN.daily) + (st ? t('level.dayKeep', st) : '');
+  const cb = Store.best(R.key, chalKey());
+  $('#chalTitle').textContent = `${t('chal.title')}・${scopeName()}`;
+  $('#chalInfo').textContent = cb ? t('chal.info', CHAL_LIVES, cb) : t('chal.infoNew', CHAL_LIVES);
+  $('#levelDay').textContent =Store.clearedToday() ? t('level.dayDone', st) : t('level.dayNone', Rewards.EARN.daily) + (st ? t('level.dayKeep', st) : '');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
   renderHero();
 }
@@ -238,15 +241,16 @@ function startMode(mode, n) {
   show('play');
   ensurePlayMap();
   const timed = mode === 'level' && Quiz.isTimedLevel(n);
-  $('#pTitle').textContent = mode === 'book' ? R.label('book') : mode === 'level' ? t('level.n', n) + (timed ? `・${t('level.timed')}` : '') : t('mode.' + mode);
+  $('#pTitle').textContent = mode === 'book' ? R.label('book') : mode === 'level' ? t('level.n', n) + (timed ? `・${t('level.timed')}` : '') : mode === 'chal' ? `${t('chal.title')}・${scopeName()}` : t('mode.' + mode);
   $('#pTimer').hidden = !timed;
   clearInterval(P?.timer);
-  P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [] };
+  P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [], lives: CHAL_LIVES };
   if (mode === 'explore') return startExplore();
   music(timed ? 'fast' : 'calm');
   // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
   playMap.paint(() => '');
-  P.qs = Quiz.level(R, n);
+  // 找位置挑戰：題目答一題出一題（照複習優先度），只用首頁選的分區
+  P.qs = mode === 'chal' ? [] : Quiz.level(R, n);
   if (timed) { P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
   if (mode === 'level') toast(esc(timed ? t('level.timedGoal', ...starGoals(n), TIMED_SEC) : t('level.goal')), 2200, 'ach');
   playMap.onTap(answer);
@@ -260,8 +264,19 @@ function starGoals(n) {
 }
 const starsOf = (n, ok) => starGoals(n).filter(g => ok >= g).length;
 
+// ── 找位置挑戰（Ken 2026-10-22 要求：只想練找位置的入口）：照首頁選的分區出，錯 3 次結束，各分區記最佳 ──
+const CHAL_LIVES = 3;
+const scopeName = () => scopeKey() === 'all' ? t('region.' + R.key) : R.areaName(scopeKey());
+const chalKey = () => 'chal:' + scopeKey();
+function chalNext() {
+  // 不跟上一題同一個地方
+  const prev = P.qs[P.i - 1]?.id, ids = pool(), pick = ids.length > 1 ? ids.filter(x => x !== prev) : ids;
+  return Quiz.session(R, 'loc', 1, pick)[0];
+}
+
 // ── 答題流程 ──
 function nextQuestion() {
+  if (P.mode === 'chal') { if (P.lives <= 0) return finishQuiz(); P.qs[P.i] = chalNext(); }
   const q = P.qs[P.i];
   if (!q) return finishQuiz();
   P.answered = false;
@@ -306,7 +321,8 @@ function matchTap(side, i) {
 }
 function updateStat() {
   const combo = P.combo > 1 ? `<span class="combo">${t('combo', P.combo)}</span>` : '';
-  if (P.timed) setStat(`${esc(t('level.okN', P.score))} / ${starGoals(P.level)[2]}${combo}`);
+  if (P.mode === 'chal') setStat(`${'❤️'.repeat(Math.max(0, P.lives))}${'🤍'.repeat(CHAL_LIVES - Math.max(0, P.lives))} ${esc(t('level.okN', P.score))}${combo}`);
+  else if (P.timed) setStat(`${esc(t('level.okN', P.score))} / ${starGoals(P.level)[2]}${combo}`);
   else setStat(`${Math.min(P.i + 1, P.qs.length)} / ${P.qs.length}${combo}`);
 }
 function answer(id, choiceIdx) {
@@ -356,6 +372,7 @@ function answer(id, choiceIdx) {
     if (P.timed) P.auto = setTimeout(advance, 450);
   } else {
     P.combo = 0;
+    if (P.mode === 'chal') P.lives--;
     Sound.play('ng');
     if (id) { playMap.mark(id, 'ng'); playMap.label(id, R.short(id), 'ng'); }
     if (q.marks) for (const x of q.marks) if (x !== id) playMap.label(x, R.short(x), 'auto');
@@ -428,6 +445,7 @@ function timedTick() {
 function finishQuiz() {
   clearInterval(P.timer);
   $('#pMapActs').innerHTML = '';
+  if (P.mode === 'chal') return finishChal();
   const total = P.timed ? null : P.qs.length;
   // 關卡：照答對題數給星，只有比以前多的星才給幣；沒過關也留著已經拿過的星
   const n = P.level, goals = starGoals(n), stars = starsOf(n, P.score), more = Store.setLvStars(R.key, n, stars), E = Rewards.EARN;
@@ -470,6 +488,31 @@ function finishQuiz() {
       <div class="actions">
         <button type="button" class="btn" data-home>${esc(t('home'))}</button>
         ${actions}
+      </div>
+    </div>`, null);
+  P.qs = null;
+}
+
+// 找位置挑戰的結算：答對幾題、這個分區的最佳紀錄
+function finishChal() {
+  const rec = Store.setBest(R.key, chalKey(), P.score), best = Store.best(R.key, chalKey());
+  const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
+  const stamps = P.stamps.map(id => stampHtml(id)).join('');
+  celebrate(Rewards.check());
+  Sound.play(rec ? 'goal' : 'level');
+  openModal(`
+    <div class="result">
+      <div class="result-dog">${komugiImg(72)}</div>
+      <h2>${esc(t('finished', `${t('chal.title')}・${scopeName()}`))}</h2>
+      <div class="big-score">${P.score}<small>${esc(t('chal.unit'))}</small></div>
+      ${rec && P.score ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('chal.best', best))}</div>`}
+      <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
+      ${P.coins ? `<div class="coins">${esc(t('coinsGot', '+' + P.coins))}</div>` : ''}
+      ${stamps ? `<h3>${esc(t('newStamps'))}</h3><div class="stamps">${stamps}</div>` : ''}
+      ${ups ? `<h3>${esc(t('ups'))}</h3><div class="chips">${ups}</div>` : ''}
+      <div class="actions">
+        <button type="button" class="btn" data-home>${esc(t('home'))}</button>
+        <button type="button" class="btn primary" id="mChalAgain">${esc(t('chal.again'))}</button>
       </div>
     </div>`, null);
   P.qs = null;
@@ -774,6 +817,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
   else if (b.id === 'mLevel') { Sound.play('tap'); startMode('level', Store.lvNext(R.key)); }
   else if (b.id === 'mLevels') { Sound.play('tap'); show('levels'); renderLevels(); }
+  else if (b.id === 'mChal' || b.id === 'mChalAgain') { Sound.play('tap'); closeModal(); startMode('chal'); }
   else if (b.dataset.level) { Sound.play('tap'); closeModal(); startMode('level', +b.dataset.level); }
   else if (b.id === 'mBook') { Sound.play('tap'); renderBook(); show('book'); }
   else if (b.id === 'hCloset' || b.id === 'heroDog' || b.id === 'logoDog') { Sound.play('tap'); closetTab = 'head'; showCloset(); }

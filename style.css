@@ -150,6 +150,8 @@ details.small { font-size: 12px; max-width: 360px; }
 .mode.level { background: linear-gradient(120deg, #2f6fa8, #4a90d9); color: #fff; box-shadow: 0 3px 0 #1f4c75; }
 .mode.level small { color: #dcecfb; }
 .mode.level small.day { font-weight: 700; color: #fff; }
+.mode.chal { width: 100%; background: linear-gradient(120deg, #3d8a52, #62ad6e); color: #fff; box-shadow: 0 3px 0 #2a6038; }
+.mode.chal small { color: #e2f4e4; }
 .mode.level-all { justify-content: center; align-items: center; text-align: center; }
 .levels-body { flex: 1; overflow-y: auto; padding: 8px 16px calc(20px + env(safe-area-inset-bottom)); }
 .level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
