@@ -98,6 +98,17 @@ const Quiz = (() => {
     return { k: 'link', tag: t('qt.link'), t: t('qlink', R.short(from), t('links')[l.name] || l.name), from, sub: '' };
   }
 
+  // 猜猜我是誰（2026-10-22）：三條不同類的提示一條一條亮，越早點對越多幣；提示不夠三條的地方不出
+  function guessClue(R, id, r) {
+    const byKind = {};
+    for (const c of clues(R, id)) (byKind[c.k] = byKind[c.k] || []).push(c);
+    const kinds = shuffle(Object.keys(byKind), r);
+    if (kinds.length < 3) return null;
+    // 首府放最後一條（最好猜）
+    const order = kinds.sort((a, b) => (a === 'cap') - (b === 'cap')).slice(0, 3);
+    return { k: 'guess', tag: t('qt.guess'), t: '', list: order.map(k => pick(byKind[k], r)) };
+  }
+
   // ── 選擇題（Ken 2026-10-21 要求：不只點地圖，也要有四選一）──
   // 干擾選項優先挑同一分區、再挑鄰居，太好猜的（別的分區、遠方）最後才補
   function distract(R, id, n, ok, r) {
@@ -156,6 +167,28 @@ const Quiz = (() => {
     });
     // 看國旗選名字
     if (c.flag) kinds.push(() => { const o = nameOpts(); return o && { kind: 'flag', tag: t('qt.flag'), main: c.flag, options: o }; });
+    // 是非題（2026-10-22）：「〇〇是 X 的名產？」一半是真的、一半換成同一分區別的地方的
+    const own = f => R.card(id)[f].filter((s, i) => !dup.has(s) && !c.skip?.has(`${f}:${i}`));
+    for (const f of ['foods', 'sights']) if (own(f).length) kinds.push(() => {
+      const truth = r() < 0.5;
+      let item = pick(own(f), r), owner = id;
+      if (!truth) {
+        const o = distract(R, id, 1, x => R.card(x)[f].some(s => !dup.has(s)), r)[0];
+        if (!o) return null;
+        owner = o; item = pick(R.card(o)[f].filter(s => !dup.has(s)), r);
+      }
+      return { kind: 'tf', tag: t('ct.tf'), main: t(f === 'foods' ? 'cq.tfFood' : 'cq.tfSight', item, R.name(id)), owner, item,
+        options: [{ label: t('tf.yes'), ok: truth, id }, { label: t('tf.no'), ok: !truth, id }] };
+    });
+    // 連連看（2026-10-22）：四個地方配四個名產或名勝，全部配對、中間沒配錯才算答對
+    for (const f of ['foods', 'sights']) if (own(f).length) kinds.push(() => {
+      const o = distract(R, id, 3, x => R.card(x)[f].some(s => !dup.has(s)), r);
+      if (o.length < 3) return null;
+      const four = shuffle([id, ...o], r);
+      const items = four.map(x => x === id ? pick(own(f), r) : pick(R.card(x)[f].filter(s => !dup.has(s)), r));
+      return { kind: 'match', tag: t('ct.match'), main: t(f === 'foods' ? 'cq.matchFood' : 'cq.matchSight'), places: four, items,
+        right: shuffle(four.map((_, i) => i), r), options: [{ label: '', ok: true, id }, { label: '', ok: false, id }] };
+    });
     for (const k of shuffle(kinds, r)) { const q = k(); if (q) return Object.assign({ type: 'choice', id: q.answerId || id, sub: '' }, q); }
     return null;
   }
@@ -166,11 +199,11 @@ const Quiz = (() => {
     if (type === 'know') {
       // 先抽題型再抽提示：知識卡提示一半、其餘題型平分另一半，才不會被知識卡的條數淹沒
       const L = clues(R, id);
-      const special = [nbClue(R, id, r), dirClue(R, id, r), flagClue(R, id), foreignClue(R, id, r), linkClue(R, id, r)].filter(Boolean);
+      const special = [nbClue(R, id, r), dirClue(R, id, r), flagClue(R, id), foreignClue(R, id, r), linkClue(R, id, r), guessClue(R, id, r)].filter(Boolean);
       const c = special.length && (!L.length || r() < 0.5) ? pick(special, r) : L.length ? pick(L, r) : null;
       if (c) {
         const sub = c.sub ?? (c.k === 'flag' ? t('qflag') : t('where'));
-        return { type, id, tag: c.tag, main: c.t, sub, clue: c.k, from: c.from };
+        return { type, id, tag: c.tag, main: c.t, sub, clue: c.k, from: c.from, list: c.list };
       }
     }
     return { type: 'loc', id, tag: t('mode.loc'), main: R.name(id), sub: R.sub(id) };

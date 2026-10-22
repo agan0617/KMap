@@ -191,6 +191,10 @@ details.small { font-size: 12px; max-width: 360px; }
 .zoom { position: absolute; right: 8px; top: 8px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
 .zoom button { width: 36px; height: 36px; border-radius: 10px; border: 0; background: var(--glass); font-size: 18px; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.15); display: grid; place-items: center; }
 .zoom svg { pointer-events: none; }
+/* 答完題的「看知識卡」「下一題」放在地圖右下角（Ken 2026-10-22 要求），題目區留給解析 */
+.map-actions { position: absolute; right: 10px; bottom: 10px; display: flex; gap: 8px; z-index: 2; }
+.map-actions:empty { display: none; }
+.map-actions .btn { box-shadow: 0 2px 8px rgba(0,0,0,.25); }
 .timer { position: absolute; left: 10px; right: 54px; top: 10px; height: 8px; border-radius: 4px; background: var(--glass); overflow: hidden; z-index: 2; }
 .timer i { display: block; height: 100%; width: 100%; background: var(--ok); transition: width .1s linear; }
 .timer.hurry i { background: var(--ng); }
@@ -340,6 +344,17 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .sheet.cardsheet #modalBody { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .sheet.cardsheet .card-scroll { flex: 1; min-height: 0; overflow-y: auto; }
 .sheet.cardsheet .card-nav { flex-shrink: 0; }
+/* 猜猜我是誰：提示一條一行；是非題兩顆大按鈕；連連看左右兩欄 */
+.guess { margin: 2px 0 0; padding-left: 1.3em; font-size: 15px; line-height: 1.45; display: flex; flex-direction: column; gap: 3px; }
+.guess small { display: inline-block; font-size: 11px; color: var(--muted); margin-right: 6px; }
+.choices.tf .btn.choice { font-size: 17px; min-height: 48px; }
+.match { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.match > div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.match > div + div { grid-template-columns: 1fr 1fr; }
+.btn.mt { padding: 5px 6px; font-size: 13px; line-height: 1.25; min-height: 34px; text-align: center; }
+.panel.answered .match { display: none; }   /* 答完右邊的解析會列出四組正確配對 */
+.btn.mt.on { border-color: #2f6fa8; box-shadow: 0 0 0 2px #2f6fa8 inset; }
+.btn.mt.right { background: var(--ok); border-color: var(--ok); color: #fff; opacity: 1; }
 /* 選擇題：四個選項兩欄排，答完標出對錯 */
 .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
 .btn.choice { padding: 8px 10px; font-size: 14px; line-height: 1.3; min-height: 40px; text-align: center; }

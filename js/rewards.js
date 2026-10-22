@@ -9,7 +9,7 @@ const Rewards = (() => {
   const PULL_COST = 30, DUP_REFUND = 10, NEW_RATE = 0.4, SET_BOOST = 3;
   const RATE = { N: 55, R: 30, SR: 12, SSR: 3 };
   // 賺幣規則（main.js 在對應的時機呼叫 earn）；關卡每多拿一顆星 +4，重打沒進步就沒有
-  const EARN = { ok: 2, combo: 1, visit: 3, familiar: 5, stamp: 15, daily: 30, dailyPerfect: 30, dailyStreak: 5, dailyStreakMax: 50, dailyAgain: 5, dailyAgainPerfect: 5, levelStar: 4, ach: 30 };   // 每天第一次要明顯比再挑戰好（Ken 2026-10-21）
+  const EARN = { ok: 2, combo: 1, visit: 3, familiar: 5, stamp: 15, daily: 30, dailyPerfect: 30, dailyStreak: 5, dailyStreakMax: 50, dailyAgain: 5, dailyAgainPerfect: 5, levelStar: 4, guess: 2, ach: 30 };   // guess：猜猜我是誰每少看一條提示 +2   // 每天第一次要明顯比再挑戰好（Ken 2026-10-21）
 
   // stamps(region)：那個地區蓋了幾個章；全制霸用該地區的總數
   // 鄰接旅行（trip1、trip3x5）與限時連擊（timed20）的成就隨玩法一起拿掉了；舊存檔記的達成日期留著不影響

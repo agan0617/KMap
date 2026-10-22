@@ -133,5 +133,17 @@ function regionData(key) {
   for (const l of map.links || []) if (info.units[l.a] && info.units[l.b]) { graph[l.a]?.add(l.b); graph[l.b]?.add(l.a); }
   // sk＝熟練度存在哪個地區（各洲都記在 world）；music＝背景音樂的音階
   const sk = src ? 'world' : key;
-  return { key, sk, music: src ? 'world' : key, map, info, ids, units: info.units, areas, stampStyle: info.stamp || 'goshuin', ...P, maskWords, graph };
+  // 2026-10-22 擴充題庫：data/extra-*.js 的新知識（名人、作品舞台、祭典、地名由來…）併進卡片的 extra，data/stats.js 的面積人口放 stats
+  const extraOf = id => (window.KMAP_EXTRA?.[sk]?.[id] || []).map(e => ({ k: e.k, t: e[lang()] || e.zh })).filter(e => e.t);
+  const card0 = P.card;
+  P.card = id => Object.assign(card0(id), { extra: extraOf(id) });
+  const st = window.KMAP_STATS?.[sk];
+  const stats = {};
+  for (const id of ids) {
+    const u = st?.units?.[id];
+    if (u?.area > 0 && u?.pop > 0) stats[id] = { area: u.area, pop: u.pop, dens: u.pop / u.area };
+  }
+  // 「之最」題：只收這一頁的（世界區照洲分）
+  const records = (st?.records || []).filter(x => x.scope === key && info.units[x.answer]);
+  return { key, sk, music: src ? 'world' : key, map, info, ids, units: info.units, areas, stampStyle: info.stamp || 'goshuin', ...P, maskWords, graph, stats, records };
 }

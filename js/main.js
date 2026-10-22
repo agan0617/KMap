@@ -221,11 +221,12 @@ function ensurePlayMap() {
   playMap.paint(masteryColor);
   applyScope(playMap);
 }
-// ex＝答案解析：有的話面板分左右兩欄，題目與對錯在左、解析在題目旁邊
+// ex＝答案解析：有的話面板分左右兩欄，題目與對錯在左、解析在題目旁邊；這時按鈕移到地圖右下角（Ken 2026-10-22 要求）
 function setPanel(prompt, feedback = '', actions = '', ex = '') {
   $('#pPrompt').innerHTML = prompt;
   $('#pFeedback').innerHTML = feedback;
-  $('#pActions').innerHTML = actions;
+  $('#pActions').innerHTML = ex ? '' : actions;
+  $('#pMapActs').innerHTML = ex ? actions : '';
   $('#pEx').innerHTML = ex; $('#pEx').hidden = !ex;
   $('#pPanel').classList.toggle('answered', !!ex);
 }
@@ -268,14 +269,42 @@ function nextQuestion() {
   if (!q) return finishQuiz();
   P.answered = false;
   playMap.clearMarks('ok', 'ng', 'target'); playMap.clearLabels();
-  const big = q.type === 'loc' || !['fact', 'nb', 'dir', 'link'].includes(q.clue);
-  const main = q.html || esc(q.main);
+  P.hint = 1; P.match = { pick: null, done: [], err: 0 };
+  renderQuestion();
+  updateStat();
+}
+function renderQuestion() {
+  const q = P.qs[P.i];
+  const big = q.type === 'loc' || !['fact', 'nb', 'dir', 'link', 'guess'].includes(q.clue);
+  const main = q.clue === 'guess' ? guessHtml(q) : q.html || esc(q.main);
   // 選擇題：四個選項放在題目下面（答完也留著，標出對錯）；「這塊是哪裡」「和誰相鄰」先在地圖上亮出題目那塊
-  const choices = q.type === 'choice' ? `<div class="choices">${q.options.map((o, i) => `<button type="button" class="btn choice" data-choice="${i}">${esc(o.label)}</button>`).join('')}</div>` : '';
+  const choices = q.kind === 'match' ? matchHtml(q) : q.type === 'choice' ? `<div class="choices ${q.kind === 'tf' ? 'tf' : ''}">${q.options.map((o, i) => `<button type="button" class="btn choice" data-choice="${i}">${esc(o.label)}</button>`).join('')}</div>` : '';
   if (q.mark) playMap.mark(q.mark, 'target');
   const flagQ = q.clue === 'flag' || q.kind === 'flag', bigQ = q.type === 'choice' ? q.kind === 'flag' : big;
-  setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${bigQ ? 'big' : ''} ${flagQ ? 'flag-q' : ''}">${main}</div>${q.sub ? `<div class="q-sub">${esc(q.sub)}</div>` : ''}${choices}`);
-  updateStat();
+  // 猜猜我是誰：還有沒亮的提示就給「再一個提示」
+  const hintBtn = q.clue === 'guess' && P.hint < q.list.length ? `<button type="button" class="btn" data-hint>${esc(t('guess.more', Rewards.EARN.guess))}</button>` : '';
+  setPanel(`<span class="tag ${q.type}">${esc(q.tag)}</span><div class="q-main ${bigQ ? 'big' : ''} ${flagQ ? 'flag-q' : ''}">${main}</div>${q.sub ? `<div class="q-sub">${esc(q.sub)}</div>` : ''}${choices}`, '', hintBtn);
+}
+// 猜猜我是誰：已經亮的提示一條一行
+const guessHtml = (q, all) => `<ol class="guess">${q.list.slice(0, all ? q.list.length : P.hint).map(c => `<li><small>${esc(c.tag)}</small>${esc(c.t)}</li>`).join('')}</ol>`;
+// 連連看：左邊地方、右邊名產（順序打亂）；配對成功的兩邊一起變綠
+function matchHtml(q) {
+  const M = P.match;
+  const left = q.places.map((x, i) => `<button type="button" class="btn mt ${M.done.includes(i) ? 'right' : M.pick === i ? 'on' : ''}" data-ml="${i}" ${M.done.includes(i) || P.answered ? 'disabled' : ''}>${esc(R.short(x))}</button>`).join('');
+  const right = q.right.map(i => `<button type="button" class="btn mt ${M.done.includes(i) ? 'right' : ''}" data-mr="${i}" ${M.done.includes(i) || P.answered ? 'disabled' : ''}>${esc(q.items[i])}</button>`).join('');
+  return `<div class="match"><div>${left}</div><div>${right}</div></div>`;
+}
+function matchTap(side, i) {
+  const q = P.qs?.[P.i], M = P.match;
+  if (!q || q.kind !== 'match' || P.answered) return;
+  if (side === 'l') { M.pick = i; Sound.play('tap'); return renderQuestion(); }
+  if (M.pick == null) return;
+  if (M.pick === i) { M.done.push(i); Sound.play('ok', M.done.length - 1); }
+  else { M.err++; Sound.play('ng'); }
+  M.pick = null;
+  if (M.done.length < q.places.length) return renderQuestion();
+  renderQuestion();
+  answer(null, M.err ? 1 : 0);
 }
 function updateStat() {
   const combo = P.combo > 1 ? `<span class="combo">${t('combo', P.combo)}</span>` : '';
@@ -302,6 +331,11 @@ function answer(id, choiceIdx) {
   const ch = Store.record(R.sk, q.id, q.type === 'choice' ? 'know' : q.type, ok);
   P.marks.push(ok ? '🟩' : '🟥');
   if (ok) { Store.stat('langs', lang()); Store.stat('maxCombo', P.combo + 1); gain(Rewards.EARN.ok + (P.combo + 1 >= 5 ? Rewards.EARN.combo : 0)); }
+  // 猜猜我是誰：沒用到的提示每條 +2
+  if (ok && q.clue === 'guess') gain(Rewards.EARN.guess * (q.list.length - P.hint));
+  if (q.clue === 'guess') $('#pPrompt .q-main').innerHTML = guessHtml(q, true);
+  if (q.kind === 'match') for (const x of q.places) if (x !== q.id) playMap.label(x, R.short(x), 'auto');
+  if (q.kind === 'tf' && q.owner !== q.id) playMap.label(q.owner, R.short(q.owner), 'auto');
   if (ch.to > ch.from) gain(LEVEL_COINS[ch.to]);
   celebrate(Rewards.check());
   if (ch.to > ch.from) {
@@ -328,7 +362,7 @@ function answer(id, choiceIdx) {
     if (id) { playMap.mark(id, 'ng'); playMap.label(id, R.short(id), 'ng'); }
     if (q.kind === 'most') for (const x of q.marks) if (x !== id) playMap.label(x, R.short(x), 'auto');
     playMap.mark(q.id, 'target'); playMap.label(q.id, R.short(q.id), 'target');
-    const wrongTxt = q.type === 'choice' ? t('wrongChoice', esc(q.options[choiceIdx].label), esc(q.options.find(o => o.ok).label)) : t('wrong', esc(R.name(id)), nameHtml(q.id));
+    const wrongTxt = q.kind === 'match' ? esc(t('match.wrong', P.match.err)) : q.type === 'choice' ? t('wrongChoice', esc(q.options[choiceIdx].label), esc(q.options.find(o => o.ok).label)) : t('wrong', esc(R.name(id)), nameHtml(q.id));
     setPanel($('#pPrompt').innerHTML, `<div class="fb ng">${wrongTxt}</div>`,
       P.timed ? '' : `${cardBtn}${nextBtn}`, P.timed ? '' : explain(q, id, q.type === 'choice' ? q.options[choiceIdx].label : null));
     if (P.timed) P.auto = setTimeout(advance, 1100);
@@ -363,12 +397,15 @@ function explain(q, picked, chosen) {
   if (q.kind === 'most') lines.push(t('ex.most', t('cdir.' + q.dir), q.marks.map(x => R.short(x)).join(sep), name));
   else if (q.kind === 'nb') lines.push(t('ex.nbOf', R.name(q.mark), name));
   else if (q.kind === 'foods' || q.kind === 'sights') lines.push(t('ex.is', q.options.find(o => o.ok).label, R.name(q.mark || q.id)));
+  else if (q.kind === 'tf') lines.push(t('ex.is', q.item, R.name(q.owner)));
+  else if (q.kind === 'match') q.places.forEach((x, i) => lines.push(t('ex.is', q.items[i], R.name(x))));
   if (q.type === 'choice' && q.kind !== 'which' && q.kind !== 'cap') { /* 上面已寫 */ }
   else if (q.clue === 'dir') lines.push(t('ex.at', name, R.short(q.from), dirOf(q.from, id)));
   else if (q.clue === 'flag') lines.push(t('ex.is', q.tag, name));
   else if (q.clue === 'foreign') lines.push(t('ex.is', q.main, name));
   else if (q.clue === 'link') lines.push(q.main.replace(/？|\?$/, '') + ' → ' + name);
   else if (q.clue === 'nb') { /* 第一行已列出鄰居 */ }
+  else if (q.clue === 'guess') { /* 三條提示已經全部亮在題目區 */ }
   else if (q.type === 'know') lines.push(t('ex.clue', q.tag, q.main.split('○○').join(R.short(id)), name));
   else {
     if (c.cap) lines.push(t('ex.cap', c.capLabel, c.cap));
@@ -754,6 +791,9 @@ document.addEventListener('click', e => {
   }
   else if (b.dataset.card) { Sound.play('tap'); showCard(b.dataset.card); }
   else if (b.dataset.choice != null) answer(null, +b.dataset.choice);
+  else if (b.dataset.ml != null) matchTap('l', +b.dataset.ml);
+  else if (b.dataset.mr != null) matchTap('r', +b.dataset.mr);
+  else if (b.hasAttribute('data-hint')) { if (P && !P.answered) { P.hint++; Sound.play('tap'); renderQuestion(); } }
   else if (b.hasAttribute('data-next')) advance();
   else if (b.hasAttribute('data-home')) { closeModal(); goHome(); }
   else if (b.dataset.again) { closeModal(); startMode(b.dataset.again); }
