@@ -96,14 +96,22 @@ function applyScope(m) {
 function switchRegion(key) {
   const next = regionData(key);
   if (!next) return;
+  const explore = P?.mode === 'explore';
   Store.setSetting('region', key);
   clearInterval(P?.timer); clearTimeout(P?.auto); P = null;
   R = next;
   homeMap?.destroy(); playMap?.destroy();
   homeMap = playMap = null;
   renderTabs();
+  // 圖鑑裡用上一個／下一個地區切過來的，留在圖鑑；首頁地圖等回首頁時再畫
+  if (explore) return startMode('explore');
   renderHome();
   music('calm');
+}
+// 圖鑑的上一個／下一個地區（Ken 2026-10-22 要求）：照分頁順序，頭尾相接
+function stepRegion(d) {
+  const keys = REGIONS.filter(g => g.ready).map(g => g.key), i = keys.indexOf(R.key);
+  switchRegion(keys[(i + d + keys.length) % keys.length]);
 }
 const scopeChips = () => {
   const k = scopeKey(), keys = ['all', ...Object.keys(R.areas)];
@@ -569,7 +577,9 @@ function startExplore() {
   setPanel(`<nav class="scopes">${scopeChips()}</nav><div class="q-sub">${esc(t('exploreHint'))}</div>`, '',
     `<button type="button" class="btn" data-labels>${esc(t(labels ? 'hideNames' : 'showNames'))}</button>`);
   showOnChip();
-  setStat('');
+  $('#pTitle').textContent = `${t('mode.explore')}・${t('region.' + R.key)}`;
+  const arrow = (d, path) => `<button type="button" class="icon-btn" data-rstep="${d}"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="${path}"/></svg></button>`;
+  setStat(arrow(-1, 'M15 5l-7 7 7 7') + arrow(1, 'M9 5l7 7-7 7'));
 }
 
 // ── 御朱印帳 ──
@@ -863,6 +873,7 @@ document.addEventListener('click', e => {
     if (!g.ready) toast(esc(t('soonToast', t('region.' + g.key), t('regionUnit.' + g.key))));
     else if (g.key !== R.key) { Sound.play('tap'); switchRegion(g.key); }
   }
+  else if (b.dataset.rstep) { Sound.play('tap'); stepRegion(+b.dataset.rstep); }
   else if (b.dataset.card) { Sound.play('tap'); showCard(b.dataset.card); }
   else if (b.hasAttribute('data-share')) share();
   else if (b.id === 'hShare') { Sound.play('tap'); share(homeShareText()); }
