@@ -500,9 +500,15 @@ function finishQuiz() {
     st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
   P.qs = null;
 }
+// 首頁右上角的分享（Ken 2026-10-22 要求）：稱號、全地圖解鎖、合計過幾關、連續完成今日挑戰的天數
+function homeShareText() {
+  const g = Rewards.nextTitle(), pct = g ? g.pct.toFixed(1) : '100', st = Store.dayStreak();
+  return [`${t('appName')}｜${titleName(curTitle())}`, t('share.home', pct, Store.lvTotal()), st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
+}
 // 手機叫出系統分享選單（可貼 LINE），沒有就複製到剪貼簿
 let shareText = '';
-async function share() {
+async function share(text = shareText) {
+  shareText = text;
   if (!shareText) return;
   try { if (navigator.share) { await navigator.share({ text: shareText }); return; } }
   catch (e) { if (e.name === 'AbortError') return; }
@@ -846,6 +852,7 @@ document.addEventListener('click', e => {
   }
   else if (b.dataset.card) { Sound.play('tap'); showCard(b.dataset.card); }
   else if (b.hasAttribute('data-share')) share();
+  else if (b.id === 'hShare') { Sound.play('tap'); share(homeShareText()); }
   else if (b.dataset.choice != null) answer(null, +b.dataset.choice);
   else if (b.dataset.ml != null) matchTap('l', +b.dataset.ml);
   else if (b.dataset.mr != null) matchTap('r', +b.dataset.mr);

@@ -1,2 +1,2 @@
 // 版號只寫這裡：首頁顯示它，sw.js 也用它當快取名稱（改網頁就加版號，舊快取才會被換掉）
-const APP_VERSION = '1.18.1';
+const APP_VERSION = '1.18.2';
