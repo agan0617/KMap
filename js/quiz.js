@@ -305,9 +305,10 @@ const Quiz = (() => {
     for (const ch of R.key + ':' + n) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
     return h >>> 0;
   }
-  // 普通關 10 題；限時關先備 60 題（60 秒答不完）
+  // 普通關題數前少後多（Ken 2026-10-22 要求）：第 1～2 關 5 題、第 3～4 關 8 題、第 6 關起 10 題；限時關先備 60 題（60 秒答不完）
+  const countOf = n => isTimedLevel(n) ? 60 : n <= 2 ? 5 : n <= 4 ? 8 : 10;
   function level(R, n) {
-    const r = rng(seedOf(R, n)), want = isTimedLevel(n) ? 60 : 10, out = [];
+    const r = rng(seedOf(R, n)), want = countOf(n), out = [];
     // 地方抽完一輪才重來，題數比地方多的區（南美 12 國）也不會同一個地方連出
     while (out.length < want) out.push(...session(R, 'mix', Math.min(want - out.length, R.ids.length), R.ids, r, () => 1));
     return out;
