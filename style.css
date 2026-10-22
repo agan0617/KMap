@@ -354,6 +354,7 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .sheet.cardsheet .card-nav { flex-shrink: 0; }
 /* 猜猜我是誰：提示一條一行；是非題兩顆大按鈕；連連看左右兩欄 */
 .guess { margin: 2px 0 0; padding-left: 1.3em; font-size: 15px; line-height: 1.45; display: flex; flex-direction: column; gap: 3px; }
+.xtra small { display: inline-block; font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 0 5px; margin-right: 6px; }
 .guess small { display: inline-block; font-size: 11px; color: var(--muted); margin-right: 6px; }
 .choices.tf .btn.choice { font-size: 17px; min-height: 48px; }
 .match { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
