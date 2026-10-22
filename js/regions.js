@@ -4,7 +4,18 @@
 // - 中國、世界（schema: 'multi'）：data/<區>-info.js 放分區與欄位名稱，data/<區>-units-*.js 每一區直接寫中英日三份
 // 順序就是首頁分頁的順序，第一個是預設地區（Ken 是臺灣人，臺灣放第一個）
 // 世界拆成六大洲各一頁（2026-10-21）；world 本身不再是分頁，但熟練度仍記在 world，成就也照世界整體算
-const CONTINENT_KEYS = ['asia', 'europe', 'africa', 'namerica', 'samerica', 'oceania'];
+// 北美、南美 2026-10-22 併成「美洲」（Ken 要求）；舊的分頁名稱與存檔在 store.js 換過來
+const CONTINENT_KEYS = ['asia', 'europe', 'africa', 'americas', 'oceania'];
+// 地圖取景框：world-map.js 只有舊的北美、南美兩個，美洲用兩個框合起來
+const VIEW_UNION = { americas: ['namerica', 'samerica'] };
+function viewOf(views, key) {
+  if (views?.[key] || !VIEW_UNION[key]) return views?.[key];
+  const bs = VIEW_UNION[key].map(k => views?.[k]).filter(Boolean);
+  if (!bs.length) return undefined;
+  const x0 = Math.min(...bs.map(b => b[0])), y0 = Math.min(...bs.map(b => b[1]));
+  const x1 = Math.max(...bs.map(b => b[0] + b[2])), y1 = Math.max(...bs.map(b => b[1] + b[3]));
+  return [x0, y0, x1 - x0, y1 - y0];
+}
 const REGIONS = [
   { key: 'taiwan', ready: true },
   { key: 'japan', ready: true },
@@ -111,7 +122,7 @@ function continentSource(key) {
     for (const id of a.ids) if (wi.units[id]) units[id] = Object.assign({}, wi.units[id], { area: ak });
   }
   const others = Object.keys(wm.shapes).filter(id => !units[id]).map(id => wm.shapes[id].d).join('');
-  const map = Object.assign({}, wm, { region: key, bg: (wm.bg || '') + others, box: wm.views?.[key], views: {} });
+  const map = Object.assign({}, wm, { region: key, bg: (wm.bg || '') + others, box: viewOf(wm.views, key), views: {} });
   const info = Object.assign({}, wi, { units, areas });
   return (continentCache[key] = { map, info });
 }
@@ -144,6 +155,7 @@ function regionData(key) {
     if (u?.area > 0 && u?.pop > 0) stats[id] = { area: u.area, pop: u.pop, dens: u.pop / u.area };
   }
   // 「之最」題：只收這一頁的（世界區照洲分）
-  const records = (st?.records || []).filter(x => x.scope === key && info.units[x.answer]);
+  const scopes = [key, ...(VIEW_UNION[key] || [])];
+  const records = (st?.records || []).filter(x => scopes.includes(x.scope) && info.units[x.answer]);
   return { key, sk, music: src ? 'world' : key, map, info, ids, units: info.units, areas, stampStyle: info.stamp || 'goshuin', ...P, maskWords, graph, stats, records };
 }

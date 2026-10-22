@@ -1,6 +1,7 @@
 // 六大洲分頁（Ken 2026-10-21 要求把「世界」拆成各洲一頁）：每一洲沿用世界地圖與世界的知識卡，
 // 只取那一洲的國家，再依地理分成幾個分區。熟練度仍記在世界（store 的 world），各洲另外記今日挑戰與最佳成績。
 // 分區大致照聯合國地理分區，臺灣慣用的叫法優先（伊朗放西亞、英國愛爾蘭放西歐、德奧瑞放中歐）。
+// 北美、南美 2026-10-22 併成一頁「美洲」（Ken 要求），六個分區照舊。
 window.KMAP_CONTINENTS = {
   asia: {
     eastasia: { color: '#d0603f', zh: '東亞', en: 'East Asia', ja: '東アジア', ids: ['CHN', 'JPN', 'KOR', 'PRK', 'MNG', 'TWN'] },
@@ -24,15 +25,13 @@ window.KMAP_CONTINENTS = {
     east: { color: '#5b8fd9', zh: '東非', en: 'East Africa', ja: '東アフリカ', ids: ['BDI', 'COM', 'DJI', 'ERI', 'ETH', 'KEN', 'MDG', 'MOZ', 'MUS', 'MWI', 'RWA', 'SDS', 'SOM', 'SYC', 'TZA', 'UGA', 'ZMB', 'ZWE'] },
     south: { color: '#9a74c9', zh: '南部非洲', en: 'Southern Africa', ja: '南部アフリカ', ids: ['BWA', 'LSO', 'NAM', 'SWZ', 'ZAF'] },
   },
-  namerica: {
-    mainland: { color: '#5b8fd9', zh: '北美本土', en: 'Mainland', ja: '北米本土', ids: ['CAN', 'USA', 'MEX'] },
+  americas: {
+    mainland: { color: '#5b8fd9', zh: '北美本土', en: 'North America', ja: '北米本土', ids: ['CAN', 'USA', 'MEX'] },
     central: { color: '#3c9a6a', zh: '中美洲', en: 'Central America', ja: '中米', ids: ['BLZ', 'CRI', 'GTM', 'HND', 'NIC', 'PAN', 'SLV'] },
     caribbean: { color: '#d0603f', zh: '加勒比海', en: 'Caribbean', ja: 'カリブ海', ids: ['ATG', 'BHS', 'BRB', 'CUB', 'DMA', 'DOM', 'GRD', 'HTI', 'JAM', 'KNA', 'LCA', 'TTO', 'VCT'] },
-  },
-  samerica: {
-    north: { color: '#3c9a6a', zh: '北部', en: 'North', ja: '北部', ids: ['BRA', 'GUY', 'SUR', 'VEN'] },
-    andes: { color: '#d0603f', zh: '安地斯', en: 'Andes', ja: 'アンデス', ids: ['BOL', 'CHL', 'COL', 'ECU', 'PER'] },
-    southcone: { color: '#5b8fd9', zh: '南錐', en: 'Southern Cone', ja: '南部', ids: ['ARG', 'PRY', 'URY'] },
+    north: { color: '#d6a73a', zh: '南美北部', en: 'Northern South America', ja: '南米北部', ids: ['BRA', 'GUY', 'SUR', 'VEN'] },
+    andes: { color: '#9a74c9', zh: '安地斯', en: 'Andes', ja: 'アンデス', ids: ['BOL', 'CHL', 'COL', 'ECU', 'PER'] },
+    southcone: { color: '#4aa3a0', zh: '南錐', en: 'Southern Cone', ja: '南米南部', ids: ['ARG', 'PRY', 'URY'] },
   },
   oceania: {
     australasia: { color: '#d0603f', zh: '澳紐', en: 'Australasia', ja: 'オーストラレーシア', ids: ['AUS', 'NZL'] },

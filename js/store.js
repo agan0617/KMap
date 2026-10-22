@@ -6,6 +6,16 @@ const Store = (() => {
   const KEY = 'kmap.v1';
   const GAP_DAYS = 2;
   const INTERVALS = [0, 1, 2, 4, 8, 16];
+  // 併掉的分頁（北美、南美 2026-10-22 併成美洲）：舊存檔裡的關卡、挑戰紀錄、今日挑戰併過去；雲端拉下來的舊格式也會在 mergeIn 換
+  const MERGED = { namerica: 'americas', samerica: 'americas' };
+  function migrate(regions) {
+    for (const [o, n] of Object.entries(MERGED)) {
+      if (!regions[o]) continue;
+      regions[n] = mergeRegion(regions[n], regions[o]);
+      delete regions[o];
+    }
+    return regions;
+  }
   let s = read();
 
   function read() {
@@ -14,6 +24,9 @@ const Store = (() => {
     v = v || {};
     v.settings = Object.assign({ bgm: true, sfx: true, labels: true, lang: null, theme: 'paper' }, v.settings);
     v.regions = v.regions || {};
+    // 1.19.0 以前的分頁設定（北美、南美）換成美洲
+    if (MERGED[v.settings.region]) v.settings.region = MERGED[v.settings.region];
+    if (v.settings.scope) for (const [o, n] of Object.entries(MERGED)) if (v.settings.scope[o]) { v.settings.scope[n] = v.settings.scope[n] || v.settings.scope[o]; delete v.settings.scope[o]; }
     v.meta = Object.assign({ stats: {}, ach: {}, outfit: {}, outfitAt: 0, owned: {}, earn: {}, spend: {}, pulls: {}, pity: {}, title: null, titleAt: 0, days: {} }, v.meta);
     return v;
   }
@@ -237,14 +250,14 @@ const Store = (() => {
   }
   // 雲端的進度與 meta 併進來；回傳本機有沒有被改到
   function mergeIn(remote, remoteMeta) {
-    const merged = mergeProgress(s.regions, remote || {}), meta = mergeMeta(s.meta, remoteMeta || {});
+    const merged = mergeProgress(s.regions, migrate(Object.assign({}, remote || {}))), meta = mergeMeta(s.meta, remoteMeta || {});
     const changed = JSON.stringify([merged, meta]) !== JSON.stringify([s.regions, s.meta]);
     if (changed) { s.regions = merged; s.meta = meta; save(false); }
     return changed;
   }
   // 雲端那份跟本機合併後是否就等於本機（不等於就要推上去）
   const sameAsLocal = (remote, remoteMeta) =>
-    JSON.stringify([mergeProgress(remote || {}, {}), mergeMeta(remoteMeta || {}, {})]) === JSON.stringify([mergeProgress(s.regions, {}), mergeMeta(s.meta, {})]);
+    JSON.stringify([mergeProgress(migrate(Object.assign({}, remote || {})), {}), mergeMeta(remoteMeta || {}, {})]) === JSON.stringify([mergeProgress(s.regions, {}), mergeMeta(s.meta, {})]);
 
   // ── 統計、成就、裝扮 ──
   function stat(k, v) {
@@ -274,6 +287,9 @@ const Store = (() => {
     s.meta.outfitAt = Date.now();
     save();
   }
+
+  // 舊存檔的北美、南美併進美洲（要等上面的合併函式與常數都定義好才能跑）
+  if (Object.keys(MERGED).some(k => s.regions[k])) { migrate(s.regions); save(false); }
 
   return {
     settings: () => s.settings,
