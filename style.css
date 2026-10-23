@@ -367,6 +367,10 @@ body[data-theme="night"] .daily-bonus { color: var(--gold); }
 .panel.answered .match { display: none; }   /* 答完右邊的解析會列出四組正確配對 */
 .btn.mt.on { border-color: #2f6fa8; box-shadow: 0 0 0 2px #2f6fa8 inset; }
 .btn.mt.right { background: var(--ok); border-color: var(--ok); color: #fff; opacity: 1; }
+.btn.mt.right.p0 { background: #d9534f; border-color: #d9534f; }
+.btn.mt.right.p1 { background: #e0952b; border-color: #e0952b; }
+.btn.mt.right.p2 { background: #3f7fd0; border-color: #3f7fd0; }
+.btn.mt.right.p3 { background: #8e5ccf; border-color: #8e5ccf; }
 /* 選擇題：四個選項兩欄排，答完標出對錯 */
 .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
 .btn.choice { padding: 8px 10px; font-size: 14px; line-height: 1.3; min-height: 40px; text-align: center; }

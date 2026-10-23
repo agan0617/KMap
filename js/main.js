@@ -313,11 +313,12 @@ function renderQuestion() {
 }
 // 猜猜我是誰：已經亮的提示一條一行
 const guessHtml = (q, all) => `<ol class="guess">${q.list.slice(0, all ? q.list.length : P.hint).map(c => `<li><small>${esc(c.tag)}</small>${esc(c.t)}</li>`).join('')}</ol>`;
-// 連連看：左邊地方、右邊名產（順序打亂）；配對成功的兩邊一起變綠
+// 連連看：左邊地方、右邊名產（順序打亂）；配對成功的兩邊塗同一個顏色，每一組顏色不同（Ken 2026-10-23 要求：全綠分不出誰配誰）
 function matchHtml(q) {
   const M = P.match;
-  const left = q.places.map((x, i) => `<button type="button" class="btn mt ${M.done.includes(i) ? 'right' : M.pick === i ? 'on' : ''}" data-ml="${i}" ${M.done.includes(i) || P.answered ? 'disabled' : ''}>${esc(R.short(x))}</button>`).join('');
-  const right = q.right.map(i => `<button type="button" class="btn mt ${M.done.includes(i) ? 'right' : ''}" data-mr="${i}" ${M.done.includes(i) || P.answered ? 'disabled' : ''}>${esc(q.items[i])}</button>`).join('');
+  const pc = i => M.done.includes(i) ? `right p${M.done.indexOf(i)}` : '';
+  const left = q.places.map((x, i) => `<button type="button" class="btn mt ${pc(i) || (M.pick === i ? 'on' : '')}" data-ml="${i}" ${M.done.includes(i) || P.answered ? 'disabled' : ''}>${esc(R.short(x))}</button>`).join('');
+  const right = q.right.map(i => `<button type="button" class="btn mt ${pc(i)}" data-mr="${i}" ${M.done.includes(i) || P.answered ? 'disabled' : ''}>${esc(q.items[i])}</button>`).join('');
   return `<div class="match"><div>${left}</div><div>${right}</div></div>`;
 }
 function matchTap(side, i) {
