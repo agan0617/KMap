@@ -288,6 +288,16 @@ dd small { margin-left: 3px; }
 @keyframes stampIn { from { transform: scale(2.2) rotate(-30deg); opacity: 0; } 70% { transform: scale(.9) rotate(-12deg); opacity: 1; } }
 .result .actions { width: 100%; justify-content: center; margin-top: 10px; }
 .result-dog .komugi { animation: hop 1.2s ease-in-out infinite; }
+/* 挑戰模式整區全對（Ken 2026-10-24 要求特別的恭喜） */
+.all-clear { background: radial-gradient(circle at 50% 18%, color-mix(in srgb, var(--gold) 22%, transparent), transparent 70%); border-radius: 16px; padding-top: 6px; }
+.all-clear .result-dog .komugi { animation: hop .6s ease-in-out infinite; }
+.clear-title { font-size: 30px; font-weight: 900; color: var(--gold); animation: pop .5s 4, up .5s both; }
+.clear-sub { font-size: 16px; font-weight: 700; }
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 999; overflow: hidden; }
+.confetti i, .confetti b { position: absolute; top: -40px; animation: confettiFall 3s linear both; }
+.confetti i { width: 9px; height: 14px; border-radius: 2px; }
+.confetti b { font-size: 22px; font-weight: normal; }
+@keyframes confettiFall { to { transform: translateY(110vh) rotate(720deg); } }
 
 .settings h2 { margin-bottom: 10px; }
 .set { display: flex; justify-content: space-between; align-items: center; padding: 12px 2px; border-bottom: 1px solid var(--line); font-size: 16px; }

@@ -143,7 +143,7 @@ function regionData(key) {
   for (const id of ids) graph[id] = new Set((map.adj[id] || []).filter(x => info.units[x]));
   // 各洲只取洲內的連結（白令海峽那種跨洲的不算）
   for (const l of map.links || []) if (info.units[l.a] && info.units[l.b]) { graph[l.a]?.add(l.b); graph[l.b]?.add(l.a); }
-  // sk＝熟練度存在哪個地區（各洲都記在 world）；music＝背景音樂的音階
+  // sk＝熟練度存在哪個地區（各洲都記在 world）；music＝背景音樂（每個分頁各一首，各洲也分開）
   const sk = src ? 'world' : key;
   // 2026-10-22 擴充題庫：data/extra-*.js 的新知識（名人、作品舞台、祭典、地名由來…）併進卡片的 extra，data/stats.js 的面積人口放 stats
   const extraOf = id => (window.KMAP_EXTRA?.[sk]?.[id] || []).map(e => ({ k: e.k, t: e[lang()] || e.zh })).filter(e => e.t);
@@ -158,5 +158,5 @@ function regionData(key) {
   // 「之最」題：只收這一頁的（世界區照洲分）
   const scopes = [key, ...(VIEW_UNION[key] || [])];
   const records = (st?.records || []).filter(x => scopes.includes(x.scope) && info.units[x.answer]);
-  return { key, sk, music: src ? 'world' : key, map, info, ids, units: info.units, areas, stampStyle: info.stamp || 'goshuin', ...P, maskWords, graph, stats, records };
+  return { key, sk, music: key, map, info, ids, units: info.units, areas, stampStyle: info.stamp || 'goshuin', ...P, maskWords, graph, stats, records };
 }

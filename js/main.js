@@ -261,7 +261,7 @@ function startMode(mode, n) {
     : esc(mode === 'chal' ? `${t('chal.title')}・${t('region.' + R.key)}` : t('mode.' + mode));
   $('#pTimer').hidden = !timed;
   clearInterval(P?.timer);
-  P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [], lives: CHAL_LIVES };
+  P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [], lives: CHAL_LIVES, cleared: new Set() };
   if (mode === 'explore') return startExplore();
   music(timed ? 'fast' : 'calm');
   // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
@@ -279,17 +279,24 @@ function startMode(mode, n) {
 const needOf = n => n <= 2 ? 3 : n <= 4 ? 5 : Math.min(9, 5 + Math.floor(n / 10)) + (Quiz.isTimedLevel(n) ? 2 : 0);
 
 // ── 找位置挑戰（Ken 2026-10-22 要求：只想練找位置的入口）：出整區（同日改：不再照分區），錯 3 次結束，記最佳 ──
+// 有上限（Ken 2026-10-24 要求）：答對過的地方不再出，答錯的之後會再出；整區都答對就破關，跳特別的恭喜
 const CHAL_LIVES = 3;
 const chalKey = () => 'chal:all';
 function chalNext() {
+  const left = R.ids.filter(x => !P.cleared.has(x));
+  if (!left.length) return null;
   // 不跟上一題同一個地方
-  const prev = P.qs[P.i - 1]?.id, ids = R.ids, pick = ids.length > 1 ? ids.filter(x => x !== prev) : ids;
+  const prev = P.qs[P.i - 1]?.id, pick = left.length > 1 ? left.filter(x => x !== prev) : left;
   return Quiz.session(R, 'loc', 1, pick)[0];
 }
 
 // ── 答題流程 ──
 function nextQuestion() {
-  if (P.mode === 'chal') { if (P.lives <= 0) return finishQuiz(); P.qs[P.i] = chalNext(); }
+  if (P.mode === 'chal') {
+    if (P.lives <= 0) return finishQuiz();
+    P.qs[P.i] = chalNext();
+    if (!P.qs[P.i]) { P.allClear = true; return finishQuiz(); }
+  }
   const q = P.qs[P.i];
   if (!q) return finishQuiz();
   P.answered = false;
@@ -335,7 +342,7 @@ function matchTap(side, i) {
 }
 function updateStat() {
   const combo = P.combo > 1 ? `<span class="combo">${t('combo', P.combo)}</span>` : '';
-  if (P.mode === 'chal') setStat(`${'❤️'.repeat(Math.max(0, P.lives))}${'🤍'.repeat(CHAL_LIVES - Math.max(0, P.lives))} ${esc(t('level.okN', P.score))}${combo}`);
+  if (P.mode === 'chal') setStat(`${'❤️'.repeat(Math.max(0, P.lives))}${'🤍'.repeat(CHAL_LIVES - Math.max(0, P.lives))} ${esc(t('chal.prog', P.cleared.size, R.ids.length))}${combo}`);
   else if (P.timed) setStat(`${esc(t('level.okN', P.score))} / ${needOf(P.level)}${combo}`);
   else setStat(`${Math.min(P.i + 1, P.qs.length)} / ${P.qs.length}${combo}`);
 }
@@ -376,6 +383,7 @@ function answer(id, choiceIdx) {
   if (ok) {
     P.combo++; P.maxCombo = Math.max(P.maxCombo, P.combo);
     P.score++;
+    if (P.mode === 'chal') P.cleared.add(q.id);
     Sound.play('ok', P.combo - 1);
     if (q.marks) for (const x of q.marks) playMap.label(x, R.short(x), x === q.id ? 'ok' : 'auto');
     playMap.mark(q.id, 'ok'); playMap.label(q.id, R.short(q.id), 'ok');
@@ -538,13 +546,18 @@ function finishChal() {
   const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
   const stamps = P.stamps.map(id => stampHtml(id)).join('');
   celebrate(Rewards.check());
-  Sound.play(rec ? 'goal' : 'level');
+  // 整區都答對：特別的恭喜（彩帶、過關曲、金色標題）
+  const all = P.allClear;
+  if (all) confetti();
+  Sound.play(all ? 'clear' : rec ? 'goal' : 'level');
   openModal(`
-    <div class="result">
-      <div class="result-dog">${komugiImg(72)}</div>
-      <h2>${esc(t('finished', `${t('chal.title')}・${t('region.' + R.key)}`))}</h2>
+    <div class="result${all ? ' all-clear' : ''}">
+      <div class="result-dog">${komugiImg(all ? 96 : 72)}</div>
+      ${all ? `<div class="clear-title">🏆 ${esc(t('chal.allTitle'))}</div><div class="clear-sub">${esc(t('chal.allSub', t('region.' + R.key), R.ids.length))}</div>`
+        : `<h2>${esc(t('finished', `${t('chal.title')}・${t('region.' + R.key)}`))}</h2>`}
       <div class="big-score">${P.score}<small>${esc(t('chal.unit'))}</small></div>
-      ${rec && P.score ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('chal.best', best))}</div>`}
+      ${all ? `<div class="muted">${esc(t('chal.allMiss', CHAL_LIVES - P.lives))}</div>`
+        : rec && P.score ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('chal.best', best))}</div>`}
       <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
       ${P.coins ? `<div class="coins">${esc(t('coinsGot', '+' + P.coins))}</div>` : ''}
       ${stamps ? `<h3>${esc(t('newStamps'))}</h3><div class="stamps">${stamps}</div>` : ''}
@@ -558,9 +571,23 @@ function finishChal() {
   // 分享成績（Ken 2026-10-22 要求挑戰結算也要有）：地區、答對幾題、新紀錄或最佳、對錯方格、連續天數
   const st = Store.dayStreak();
   shareText = [`${t('appName')}・${t('region.' + R.key)} ${t('chal.title')}`,
-    `🎯 ${P.score}${t('chal.unit')}　${rec && P.score ? t('newRec') : t('chal.best', best)}　${P.marks.join('')}`,
+    all ? `🏆 ${t('chal.allTitle')} ${t('chal.allSub', t('region.' + R.key), R.ids.length)}　${P.marks.join('')}`
+      : `🎯 ${P.score}${t('chal.unit')}　${rec && P.score ? t('newRec') : t('chal.best', best)}　${P.marks.join('')}`,
     st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
   P.qs = null;
+}
+
+// 彩帶從畫面上方飄下來，幾秒後自己清掉
+function confetti() {
+  const box = document.createElement('div');
+  box.className = 'confetti';
+  const bits = ['🎉', '✨', '🐾', '⭐', '🎊', '💖'], colors = ['#ff6b8b', '#ffc93c', '#5ec8f2', '#8be08b', '#b98cff'];
+  box.innerHTML = Array.from({ length: 48 }, (_, i) => {
+    const style = `left:${Math.random() * 100}%;animation-delay:${(Math.random() * 1.2).toFixed(2)}s;animation-duration:${(2.4 + Math.random() * 1.6).toFixed(2)}s`;
+    return i % 3 ? `<i style="${style};background:${colors[i % colors.length]}"></i>` : `<b style="${style}">${bits[i % bits.length]}</b>`;
+  }).join('');
+  document.body.appendChild(box);
+  setTimeout(() => box.remove(), 5000);
 }
 
 // ── 圖鑑 ──
