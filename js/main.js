@@ -524,20 +524,25 @@ function homeShareText() {
   const g = Rewards.nextTitle(), pct = g ? g.pct.toFixed(1) : '100', st = Store.dayStreak();
   return [`${t('appName')}｜${titleName(curTitle())}`, t('share.home', pct, Store.lvTotal()), st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
 }
-// 手機叫出系統分享選單（可貼 LINE），沒有就複製到剪貼簿
+// 分享：一律先複製到剪貼簿（Ken 2026-10-24 要求），再叫出系統分享選單（可貼 LINE）
 let shareText = '';
+function copyText(text) {
+  const legacy = () => {
+    const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e2) { /* 真的複製不了 */ }
+    ta.remove();
+  };
+  if (!navigator.clipboard?.writeText) { legacy(); return Promise.resolve(); }
+  return navigator.clipboard.writeText(text).catch(legacy);
+}
 async function share(text = shareText) {
   shareText = text;
   if (!shareText) return;
-  try { if (navigator.share) { await navigator.share({ text: shareText }); return; } }
-  catch (e) { if (e.name === 'AbortError') return; }
-  try { await navigator.clipboard.writeText(shareText); }
-  catch (e) {
-    const ta = document.createElement('textarea'); ta.value = shareText; document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); } catch (e2) { /* 真的複製不了 */ }
-    ta.remove();
-  }
+  // 複製不 await：系統分享要在點擊當下叫，等太久會失去使用者手勢
+  const copied = copyText(shareText);
   toast(esc(t('share.copied')));
+  if (navigator.share) { try { await navigator.share({ text: shareText }); } catch (e) { /* 取消或不支援：已經複製了 */ } }
+  await copied;
 }
 
 // 找位置挑戰的結算：答對幾題、這個分區的最佳紀錄
