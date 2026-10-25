@@ -1,8 +1,8 @@
-// 畫面與玩法流程：首頁、關卡模式（每 5 關一個限時關；每天第一次過關＝完成今日挑戰）、挑戰模式（只出找位置）、圖鑑、御朱印帳。
-// 2026-10-22 Ken 要求：找位置／知識／選擇題三種題目只混在今日挑戰與關卡裡出，拿掉各自的入口、鄰接旅行與限時連擊。
+// 畫面與玩法流程：首頁、知識挑戰（只出知識題與選擇題，錯 3 次結束；每天第一局答對 5 題＝完成今日挑戰）、位置挑戰（只出找位置）、圖鑑、御朱印帳。
+// 2026-10-25 Ken 要求：關卡模式改成知識挑戰（跟位置挑戰一樣一直問、錯 3 次結束），挑戰模式改名位置挑戰。
 // 畫面上的文字一律走 t()（js/i18n.js），地名與知識卡走 R.name()／R.card()（js/regions.js）。
 const $ = s => document.querySelector(s);
-const ROUND = 10, TIMED_SEC = 60;
+const ROUND = 10;
 
 let R = null;          // 目前的地區資料
 let homeMap = null, playMap = null;
@@ -159,20 +159,20 @@ function renderHome() {
   // 熟練度放在紀念章冊旁邊：兩個都是「這張地圖完成多少」（Ken 2026-10-22 要求）；地圖下方只留顏色圖例
   const pct = masteryPct(c, n);
   $('#heroMastery').innerHTML = `<span>${esc(t('mastery', t('region.' + R.key), pct))}</span><i class="mini"><i style="width:${Math.min(100, pct)}%"></i></i>`;
-  const next = Store.lvNext(R.key);
-  // 卡片標題：模式名稱照常，「第 N 關」「臺灣」這種會變的部分放大上色（Ken 2026-10-22 要求）
+  // 卡片標題：模式名稱照常，「臺灣」這種會變的部分放大上色（Ken 2026-10-22 要求）
   const dot = lang() === 'en' ? ' · ' : '・';
-  $('#levelGo').innerHTML = `${esc(t('level.mode'))}${dot}<em class="hl">${esc(t('level.n', next) + (Quiz.isTimedLevel(next) ? dot + t('level.timed') : ''))}</em>`;
-  $('#levelInfo').textContent = t('level.info', Store.lvCount(R.key));
-  // 每日獎勵（原本的今日挑戰）：今天還沒過關就提示第一關的獎勵，過了就顯示連續天數
+  const kb = Store.best(R.key, KNOW_KEY);
+  $('#levelGo').innerHTML = `${esc(t('know.title'))}${dot}<em class="hl">${esc(t('region.' + R.key))}</em>`;
+  $('#levelInfo').textContent = kb ? t('know.infoBest', kb, LIVES) : t('know.info', LIVES);
+  // 今日挑戰：今天還沒完成就提示獎勵，完成了就顯示連續天數
   const st = Store.dayStreak();
   const cb = Store.best(R.key, chalKey());
   $('#chalTitle').innerHTML = `${esc(t('chal.title'))}${dot}<em class="hl">${esc(t('region.' + R.key))}</em>`;
-  $('#chalInfo').textContent = t('chal.infoNew', CHAL_LIVES);
+  $('#chalInfo').textContent = t('chal.infoNew', LIVES);
   // 卡片右半邊：最佳紀錄做成標籤，題數另外上色（Ken 2026-10-22 要求）
   $('#chalBest').innerHTML = cb ? `<em class="streak rec">${esc(t('chal.recLabel'))}<b>${esc(t('chal.recN', cb))}</b>${esc(t('chal.recEnd'))}</em>` : '';
   // 卡片右半邊（Ken 2026-10-22 要求）：上面是今天完成了沒，下面把連續天數做成醒目的標籤
-  $('#levelDay').innerHTML = `<small>${esc(t('level.dayLabel'))}</small><span>${esc(Store.clearedToday() ? t('level.dayOk') : t('level.dayTodo', Rewards.EARN.daily))}</span>`
+  $('#levelDay').innerHTML = `<small>${esc(t('level.dayLabel'))}</small><span>${esc(Store.clearedToday() ? t('level.dayOk') : t('know.dayTodo', DAY_NEED, Rewards.EARN.daily))}</span>`
     + (st ? `<em class="streak">🔥 ${esc(t('level.dayStreak', st))}</em>` : '');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
   renderHero();
@@ -249,38 +249,37 @@ function setPanel(prompt, feedback = '', actions = '', ex = '') {
 }
 function setStat(html) { $('#pStat').innerHTML = html; }
 
-// mode：level／explore；level 要帶關號 n
-function startMode(mode, n) {
-  // 關卡照順序開：前一關沒有星就不能打
-  if (mode === 'level' && n > 1 && !Store.lvStars(R.key, n - 1)) { toast(esc(t('level.locked', n - 1))); return; }
+// mode：know（知識挑戰）／chal（位置挑戰）／explore（圖鑑）
+function startMode(mode) {
   show('play');
   ensurePlayMap(mode);
-  const timed = mode === 'level' && Quiz.isTimedLevel(n);
-  // 關卡的標題後面寫過關條件（Ken 2026-10-22 要求從首頁卡片移過來）
-  $('#pTitle').innerHTML = mode === 'level' ? `${esc(t('level.n', n) + (timed ? `・${t('level.timed')}` : ''))}<small class="cond">${esc(timed ? t('level.condTimed', needOf(n), TIMED_SEC) : t('level.cond', needOf(n)))}</small>`
-    : esc(mode === 'chal' ? `${t('chal.title')}・${t('region.' + R.key)}` : t('mode.' + mode));
-  $('#pTimer').hidden = !timed;
-  clearInterval(P?.timer);
-  P = { mode, level: n, timed, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [], lives: CHAL_LIVES, cleared: new Set() };
+  $('#pTitle').innerHTML = esc(mode === 'explore' ? t('mode.explore') : `${t(mode + '.title')}・${t('region.' + R.key)}`);
+  clearTimeout(P?.auto);
+  P = { mode, i: 0, score: 0, combo: 0, maxCombo: 0, ups: [], stamps: [], answered: false, marks: [], achs: [], lives: LIVES, cleared: new Set(), qs: [] };
   if (mode === 'explore') return startExplore();
-  music(timed ? 'fast' : 'calm');
+  music('calm');
   // 作答中地圖不照熟練度上色：已學過的地方有顏色，等於把答案範圍先圈出來（Ken 2026-10-21 指出）
   playMap.paint(() => '');
-  // 找位置挑戰：題目答一題出一題（照複習優先度），出整區
-  P.qs = mode === 'chal' ? [] : Quiz.level(R, n);
-  if (timed) { P.timer = setInterval(timedTick, 100); P.t0 = Date.now(); }
+  // 兩種挑戰都是答一題出一題（照複習優先度），出整區
   playMap.onTap(answer);
   nextQuestion();
 }
-// 過關門檻（Ken 2026-10-22 要求：沒有星星，只有過關與否，越後面越難）：
-// 前幾關縮短（Ken 2026-10-22 要求）：第 1～2 關 5 題答對 3、第 3～4 關 8 題答對 5；
-// 第 6 關起普通關 10 題要答對 5 + 每 10 關 1 題（第 10 關 6 題、第 20 關 7 題…），第 40 關起封頂 9 題（不要求全對）；
-// 限時關 60 秒內要答對的題數＝同一關的普通門檻 + 2（第 5 關照舊 7 題）
-const needOf = n => n <= 2 ? 3 : n <= 4 ? 5 : Math.min(9, 5 + Math.floor(n / 10)) + (Quiz.isTimedLevel(n) ? 2 : 0);
+const LIVES = 3;
 
-// ── 找位置挑戰（Ken 2026-10-22 要求：只想練找位置的入口）：出整區（同日改：不再照分區），錯 3 次結束，記最佳 ──
+// ── 知識挑戰（Ken 2026-10-25 要求取代關卡模式）：只出知識題與選擇題，沒有上限一直問，錯 3 次結束，各分頁記最佳 ──
+// 每天第一局答對 DAY_NEED 題＝完成今日挑戰；那一局答對 DAY_MANY 題再多一筆獎勵
+const KNOW_KEY = 'know:all', DAY_NEED = 5, DAY_MANY = 20;
+function knowNext() {
+  // 不跟上一題同一個地方
+  const prev = P.qs[P.i - 1]?.id, pick = R.ids.length > 1 ? R.ids.filter(x => x !== prev) : R.ids;
+  // 少數地方沒有知識提示會退回找位置題，換一個地方重抽
+  let q = null;
+  for (let k = 0; k < 8 && (!q || q.type === 'loc'); k++) q = Quiz.session(R, 'trivia', 1, pick)[0];
+  return q;
+}
+
+// ── 位置挑戰（原挑戰模式，2026-10-25 改名；Ken 2026-10-22 要求：只想練找位置的入口）：出整區，錯 3 次結束，記最佳 ──
 // 有上限（Ken 2026-10-24 要求）：答對過的地方不再出，答錯的之後會再出；整區都答對就破關，跳特別的恭喜
-const CHAL_LIVES = 3;
 const chalKey = () => 'chal:all';
 function chalNext() {
   const left = R.ids.filter(x => !P.cleared.has(x));
@@ -292,11 +291,9 @@ function chalNext() {
 
 // ── 答題流程 ──
 function nextQuestion() {
-  if (P.mode === 'chal') {
-    if (P.lives <= 0) return finishQuiz();
-    P.qs[P.i] = chalNext();
-    if (!P.qs[P.i]) { P.allClear = true; return finishQuiz(); }
-  }
+  if (P.lives <= 0) return finishQuiz();
+  P.qs[P.i] = P.mode === 'chal' ? chalNext() : knowNext();
+  if (!P.qs[P.i]) { P.allClear = P.mode === 'chal'; return finishQuiz(); }
   const q = P.qs[P.i];
   if (!q) return finishQuiz();
   P.answered = false;
@@ -342,13 +339,12 @@ function matchTap(side, i) {
 }
 function updateStat() {
   const combo = P.combo > 1 ? `<span class="combo">${t('combo', P.combo)}</span>` : '';
-  if (P.mode === 'chal') setStat(`${'❤️'.repeat(Math.max(0, P.lives))}${'🤍'.repeat(CHAL_LIVES - Math.max(0, P.lives))} ${esc(t('chal.prog', P.cleared.size, R.ids.length))}${combo}`);
-  else if (P.timed) setStat(`${esc(t('level.okN', P.score))} / ${needOf(P.level)}${combo}`);
-  else setStat(`${Math.min(P.i + 1, P.qs.length)} / ${P.qs.length}${combo}`);
+  const hearts = `${'❤️'.repeat(Math.max(0, P.lives))}${'🤍'.repeat(LIVES - Math.max(0, P.lives))}`;
+  setStat(`${hearts} ${esc(P.mode === 'chal' ? t('chal.prog', P.cleared.size, R.ids.length) : t('know.prog', P.score))}${combo}`);
 }
 function answer(id, choiceIdx) {
   // 答完後再點畫面任何地方＝下一題（Ken 2026-10-21 要求）；限時連擊會自己跳
-  if (P.answered && P.qs && !P.timed) return advance();
+  if (P.answered && P.qs) return advance();
   const q = P.qs?.[P.i];
   if (q?.type === 'choice') {
     // 選擇題只認按鈕；點地圖不算作答
@@ -388,21 +384,19 @@ function answer(id, choiceIdx) {
     if (q.marks) for (const x of q.marks) playMap.label(x, R.short(x), x === q.id ? 'ok' : 'auto');
     playMap.mark(q.id, 'ok'); playMap.label(q.id, R.short(q.id), 'ok');
     const up = ch.to > ch.from && ch.to < 3 ? `<span class="up">${esc(t('up', lv(ch.to)))}</span>` : '';
+    // 有解析要留時間讀，不自動跳；點畫面任何地方就下一題
     setPanel($('#pPrompt').innerHTML, `<div class="fb ok">${esc(t('ok'))}${q.type !== 'loc' ? '　' + nameHtml(q.id) : ''}${up}</div>`,
-      P.timed ? '' : `${cardBtn}${nextBtn}`, P.timed ? '' : explain(q));
-    // 有解析要留時間讀，不自動跳；點畫面任何地方就下一題。限時連擊照舊自動跳
-    if (P.timed) P.auto = setTimeout(advance, 450);
+      `${cardBtn}${nextBtn}`, explain(q));
   } else {
     P.combo = 0;
-    if (P.mode === 'chal') P.lives--;
+    P.lives--;
     Sound.play('ng');
     if (id) { playMap.mark(id, 'ng'); playMap.label(id, R.short(id), 'ng'); }
     if (q.marks) for (const x of q.marks) if (x !== id) playMap.label(x, R.short(x), 'auto');
     playMap.mark(q.id, 'target'); playMap.label(q.id, R.short(q.id), 'target');
     const wrongTxt = q.kind === 'match' ? esc(t('match.wrong', P.match.err)) : q.type === 'choice' ? t('wrongChoice', esc(q.options[choiceIdx].label), esc(q.options.find(o => o.ok).label)) : t('wrong', esc(R.name(id)), nameHtml(q.id));
     setPanel($('#pPrompt').innerHTML, `<div class="fb ng">${wrongTxt}</div>`,
-      P.timed ? '' : `${cardBtn}${nextBtn}`, P.timed ? '' : explain(q, id, q.type === 'choice' ? q.options[choiceIdx].label : null));
-    if (P.timed) P.auto = setTimeout(advance, 1100);
+      `${cardBtn}${nextBtn}`, explain(q, id, q.type === 'choice' ? q.options[choiceIdx].label : null));
   }
   updateStat();
 }
@@ -458,49 +452,33 @@ function advance() {
   P.i++;
   nextQuestion();
 }
-function timedTick() {
-  const left = TIMED_SEC - (Date.now() - P.t0) / 1000;
-  $('#pTimer i').style.width = Math.max(0, left / TIMED_SEC * 100) + '%';
-  $('#pTimer').classList.toggle('hurry', left < 10);
-  if (left <= 0) { clearInterval(P.timer); clearTimeout(P.auto); finishQuiz(); }
-}
 function finishQuiz() {
-  clearInterval(P.timer);
   $('#pMapActs').innerHTML = '';
   if (P.mode === 'chal') return finishChal();
-  const total = P.timed ? null : P.qs.length;
-  // 關卡：答對題數到門檻就過關；第一次過這一關給過關獎勵（關卡照順序開，所以就是「打到新的一關」）
-  const n = P.level, need = needOf(n), pass = P.score >= need, perfect = !P.timed && P.score === total, E = Rewards.EARN;
-  const fresh = pass && Store.setLvStars(R.key, n, 1) > 0;
-  if (fresh) gain(E.levelClear);
-  // 今日挑戰（Ken 2026-10-22 要求併進關卡）：每天第一次過關（任何分頁）就算完成，基本 +30、全對再 +30、連續天數每天 +5（最多 +50）
+  const rec = Store.setBest(R.key, KNOW_KEY, P.score), best = Store.best(R.key, KNOW_KEY), E = Rewards.EARN;
+  // 今日挑戰：每天第一次在知識挑戰答對 DAY_NEED 題（任何分頁）就算完成，基本 +30、那局答對 DAY_MANY 題再 +20、連續天數每天 +5（最多 +30）
   let day = '';
-  if (pass && Store.dayClear()) {
-    const streak = Store.dayStreak();
-    if (perfect) Store.stat('dailyPerfect', (Store.stats().dailyPerfect || 0) + 1);
-    const got = [[t('dailyBonus'), E.daily], perfect && [t('perfectBonus'), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]].filter(Boolean);
+  if (P.score >= DAY_NEED && Store.dayClear()) {
+    const streak = Store.dayStreak(), many = P.score >= DAY_MANY;
+    if (many) Store.stat('dailyPerfect', (Store.stats().dailyPerfect || 0) + 1);
+    const got = [[t('dailyBonus'), E.daily], many && [t('know.manyBonus', DAY_MANY), E.dailyPerfect], streak > 1 && [t('streakBonus', streak), Math.min(E.dailyStreak * streak, E.dailyStreakMax)]].filter(Boolean);
     const bonus = got.reduce((s, [, v]) => s + v, 0);
     gain(bonus);
     day = `<div class="daily-bonus day"><b>🎁 ${esc(t('level.dayGot', streak))} +${bonus} 🐾</b><small>${got.map(([k, v]) => `${esc(k)} +${v}`).join('・')}</small></div>`;
-  }
-  const head = `<div class="big-score">${P.score}<small>${total ? ` / ${total}` : ''}</small></div>
-    <div class="${pass ? 'new-rec' : 'muted'}">${esc(pass ? t('level.clear') : t('level.fail', need))}</div>
-    ${day}
-    ${fresh ? `<div class="daily-bonus"><b>🎁 +${E.levelClear} 🐾</b><small>${esc(t('level.clearBonus'))}</small></div>` : ''}
-    <div class="muted">${esc(P.timed ? t('level.timedGoal', need, TIMED_SEC) : t('level.goal', need, total))}</div>`;
-  const actions = pass ? `<button type="button" class="btn primary" data-level="${n + 1}">${esc(t('level.next'))}</button>`
-    : `<button type="button" class="btn primary" data-level="${n}">${esc(t('level.retry'))}</button>`;
+  } else if (!Store.clearedToday()) day = `<div class="muted">${esc(t('know.dayTodo', DAY_NEED, E.daily))}</div>`;
   const ups = P.ups.filter(x => x.to < 3).map(x => `<span class="chip">${esc(R.short(x.id))} → ${esc(lv(x.to))}</span>`).join('');
   const stamps = P.stamps.map(id => stampHtml(id)).join('');
-  celebrate(Rewards.check());   // 關卡星數、今日挑戰全對／連續天數在結算時才算得出來
+  celebrate(Rewards.check());   // 知識挑戰最佳題數、今日挑戰連續天數在結算時才算得出來
   const achs = P.achs.map(a => `<span class="chip">🏅 ${esc(achText(a))}</span>`).join('');
-  Sound.play(P.score >= (total || 10) * 0.8 ? 'goal' : 'level');
-  const title = P.mode === 'level' ? t('level.n', P.level) + (P.timed ? `・${t('level.timed')}` : '') : t('mode.' + P.mode);
+  Sound.play(rec && P.score ? 'goal' : 'level');
+  const title = `${t('know.title')}・${t('region.' + R.key)}`;
   openModal(`
     <div class="result">
       <div class="result-dog">${komugiImg(72)}</div>
       <h2>${esc(t('finished', title))}</h2>
-      ${head}
+      <div class="big-score">${P.score}<small>${esc(t('chal.unit'))}</small></div>
+      ${rec && P.score ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('chal.best', best))}</div>`}
+      ${day}
       <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
       ${P.coins ? `<div class="coins">${esc(t('coinsGot', '+' + P.coins))}</div>` : ''}
       ${stamps ? `<h3>${esc(t('newStamps'))}</h3><div class="stamps">${stamps}</div>` : ''}
@@ -509,20 +487,20 @@ function finishQuiz() {
       <div class="actions">
         <button type="button" class="btn" data-home>${esc(t('home'))}</button>
         <button type="button" class="btn" data-share>${esc(t('share.btn'))}</button>
-        ${actions}
+        <button type="button" class="btn primary" id="mKnowAgain">${esc(t('chal.again'))}</button>
       </div>
     </div>`, null);
-  // 分享成績（Ken 2026-10-22 要求關卡結算也要有）：關數、過關與否、對錯方格、連續完成今日挑戰的天數
+  // 分享成績：地區、答對幾題、新紀錄或最佳、對錯方格、連續完成今日挑戰的天數
   const st = Store.dayStreak();
-  shareText = [`${t('appName')}・${t('region.' + R.key)} ${title}`,
-    `${pass ? '✅' : '❌'} ${P.score}${total ? ' / ' + total : ''}　${P.marks.join('')}`,
+  shareText = [`${t('appName')}・${title}`,
+    `🎯 ${P.score}${t('chal.unit')}　${rec && P.score ? t('newRec') : t('chal.best', best)}　${P.marks.join('')}`,
     st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
   P.qs = null;
 }
-// 首頁右上角的分享（Ken 2026-10-22 要求）：稱號、全地圖熟練度、合計過幾關、連續完成今日挑戰的天數
+// 首頁右上角的分享（Ken 2026-10-22 要求）：稱號、全地圖熟練度、連續完成今日挑戰的天數
 function homeShareText() {
   const g = Rewards.nextTitle(), pct = g ? g.pct.toFixed(1) : '100', st = Store.dayStreak();
-  return [`${t('appName')}｜${titleName(curTitle())}`, t('share.home', pct, Store.lvTotal()), st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
+  return [`${t('appName')}｜${titleName(curTitle())}`, t('share.home', pct), st ? t('share.streak', st) : '', 'https://agan0617.github.io/KMap/'].filter(Boolean).join('\n');
 }
 // 分享：一律先複製到剪貼簿（Ken 2026-10-24 要求），再叫出系統分享選單（可貼 LINE）
 let shareText = '';
@@ -561,7 +539,7 @@ function finishChal() {
       ${all ? `<div class="clear-title">🏆 ${esc(t('chal.allTitle'))}</div><div class="clear-sub">${esc(t('chal.allSub', t('region.' + R.key), R.ids.length))}</div>`
         : `<h2>${esc(t('finished', `${t('chal.title')}・${t('region.' + R.key)}`))}</h2>`}
       <div class="big-score">${P.score}<small>${esc(t('chal.unit'))}</small></div>
-      ${all ? `<div class="muted">${esc(t('chal.allMiss', CHAL_LIVES - P.lives))}</div>`
+      ${all ? `<div class="muted">${esc(t('chal.allMiss', LIVES - P.lives))}</div>`
         : rec && P.score ? `<div class="new-rec">${esc(t('newRec'))}</div>` : `<div class="muted">${esc(t('chal.best', best))}</div>`}
       <div class="muted">${esc(t('maxCombo', P.maxCombo))}</div>
       ${P.coins ? `<div class="coins">${esc(t('coinsGot', '+' + P.coins))}</div>` : ''}
@@ -867,7 +845,7 @@ async function cloudAction(a) {
 
 // ── 事件 ──
 function goHome() {
-  clearInterval(P?.timer); clearTimeout(P?.auto);
+  clearTimeout(P?.auto);
   P = null;
   show('home');
   renderHome();
@@ -878,9 +856,8 @@ document.addEventListener('click', e => {
   if (!b) return;
   if (b.dataset.lang) { Sound.play('tap'); setLang(b.dataset.lang); }
   else if (b.dataset.mode) { Sound.play('tap'); startMode(b.dataset.mode); }
-  else if (b.id === 'mLevel') { Sound.play('tap'); startMode('level', Store.lvNext(R.key)); }
+  else if (b.id === 'mLevel' || b.id === 'mKnowAgain') { Sound.play('tap'); closeModal(); startMode('know'); }
   else if (b.id === 'mChal' || b.id === 'mChalAgain') { Sound.play('tap'); closeModal(); startMode('chal'); }
-  else if (b.dataset.level) { Sound.play('tap'); closeModal(); startMode('level', +b.dataset.level); }
   else if (b.id === 'mBook') { Sound.play('tap'); renderBook(); show('book'); }
   else if (b.id === 'hCloset' || b.id === 'heroDog' || b.id === 'logoDog') { Sound.play('tap'); closetTab = 'head'; showCloset(); }
   else if (b.id === 'hGacha') { Sound.play('tap'); showGacha(); }
@@ -916,7 +893,7 @@ document.addEventListener('click', e => {
 });
 // 答完題點題目區（地圖以外、按鈕以外）也進下一題；地圖那邊由 answer() 處理
 $('#pPanel').addEventListener('click', e => {
-  if (!P?.answered || !P.qs || P.timed || e.target.closest('button, a')) return;
+  if (!P?.answered || !P.qs || e.target.closest('button, a')) return;
   advance();
 });
 document.addEventListener('change', e => {

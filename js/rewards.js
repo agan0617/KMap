@@ -21,13 +21,13 @@ const Rewards = (() => {
     { id: 'firstOk', target: 1, value: c => c.correct },
     { id: 'visit30', target: 30, value: c => c.visited },
     { id: 'stamp1', target: 1, value: c => c.stamps },
-    { id: 'lv1', target: 1, value: c => c.levels },
+    { id: 'lv1', target: 5, value: c => c.know },
     { id: 'combo10', target: 10, value: c => c.maxCombo },
-    { id: 'lv10', target: 10, value: c => c.levels },
+    { id: 'lv10', target: 10, value: c => c.know },
     { id: 'polyglot', target: 3, value: c => c.langs },
-    { id: 'dailyPerfect', target: 1, value: c => c.dailyPerfect },
+    { id: 'dailyPerfect', target: 20, value: c => c.know },
     { id: 'stamp10', target: 10, value: c => c.stamps },
-    { id: 'lv50', target: 50, value: c => c.levels },
+    { id: 'lv50', target: 50, value: c => c.know },
     { id: 'areaAll', target: 1, value: c => c.areasMastered },
     { id: 'regionVisitAll', target: 1, value: c => c.regionsVisited },
     { id: 'fourRegions', target: 4, value: c => c.regionsPlayed },
@@ -97,11 +97,11 @@ const Rewards = (() => {
   const reg = k => cache[k] || (cache[k] = regionData(k));
   function context() {
     const st = Store.stats();
-    const lvs = Object.values(Store.progress()).flatMap(r => Object.values(r.lv || {}));
     const c = { correct: 0, visited: 0, stamps: 0, areasMastered: 0, regionsVisited: 0, regionsMastered: 0, regionsPlayed: 0, rs: {},
       maxCombo: st.maxCombo || 0, dailyPerfect: st.dailyPerfect || 0,
       streakBest: st.streakBest || 0, langs: Object.keys(st.langs || {}).length,
-      levels: lvs.filter(v => v > 0).length };
+      // 知識挑戰各分頁最佳題數取最大（2026-10-25 起取代過關數；lv1／lv10／lv50／dailyPerfect 的 id 沿用，已達成的保留）
+      know: Math.max(0, ...Object.values(Store.progress()).map(r => r.best?.['know:all'] || 0)) };
     for (const g of REWARD_REGIONS.map(key => ({ key }))) {
       const R = reg(g.key);
       if (!R) continue;

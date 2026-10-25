@@ -272,6 +272,8 @@ const Quiz = (() => {
   function question(R, type, id, r = Math.random) {
     // 知識類多一點（Ken 2026-10-22 要「多一點小知識」）
     if (type === 'mix') { const x = r(); type = x < 0.25 ? 'loc' : x < 0.65 ? 'know' : 'choice'; }
+    // 知識挑戰：知識題與選擇題照 mix 的比例（40：35），不出找位置
+    if (type === 'trivia') type = r() < 0.53 ? 'know' : 'choice';
     if (type === 'choice') { const q = choice(R, id, r); if (q) return q; type = 'know'; }
     if (type === 'know') {
       // 先抽題型再抽提示：知識卡提示一半、其餘題型平分另一半，才不會被知識卡的條數淹沒
@@ -296,23 +298,5 @@ const Quiz = (() => {
     }
     return out;
   }
-  // ── 關卡（Ken 2026-10-22 要求）：無限往下、題目從整區題庫隨機抽 ──
-  // 用分頁＋關號當種子，同一關重打是同一組題（回來刷星）；每 5 關一個限時關
-  const TIMED_EVERY = 5;
-  const isTimedLevel = n => n % TIMED_EVERY === 0;
-  function seedOf(R, n) {
-    let h = 2166136261;
-    for (const ch of R.key + ':' + n) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
-    return h >>> 0;
-  }
-  // 普通關題數前少後多（Ken 2026-10-22 要求）：第 1～2 關 5 題、第 3～4 關 8 題、第 6 關起 10 題；限時關先備 60 題（60 秒答不完）
-  const countOf = n => isTimedLevel(n) ? 60 : n <= 2 ? 5 : n <= 4 ? 8 : 10;
-  function level(R, n) {
-    const r = rng(seedOf(R, n)), want = countOf(n), out = [];
-    // 地方抽完一輪才重來，題數比地方多的區（南美 12 國）也不會同一個地方連出
-    while (out.length < want) out.push(...session(R, 'mix', Math.min(want - out.length, R.ids.length), R.ids, r, () => 1));
-    return out;
-  }
-
-  return { session, question, clues, level, isTimedLevel, fmtStat };
+  return { session, question, clues, fmtStat };
 })();
