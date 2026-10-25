@@ -163,17 +163,17 @@ function renderHome() {
   const dot = lang() === 'en' ? ' · ' : '・';
   const kb = Store.best(R.key, KNOW_KEY);
   $('#levelGo').innerHTML = `${esc(t('know.title'))}${dot}<em class="hl">${esc(t('region.' + R.key))}</em>`;
-  $('#levelInfo').textContent = kb ? t('know.infoBest', kb, LIVES) : t('know.info', LIVES);
-  // 今日挑戰：今天還沒完成就提示獎勵，完成了就顯示連續天數
+  // 左下：玩法＋今日挑戰完成了沒
   const st = Store.dayStreak();
+  $('#levelInfo').innerHTML = `${esc(t('know.info', LIVES))}<br>${esc(t('level.dayLabel'))}${lang() === 'en' ? ': ' : '：'}${esc(Store.clearedToday() ? t('level.dayOk') : t('know.dayTodo', DAY_NEED, Rewards.EARN.daily))}`;
   const cb = Store.best(R.key, chalKey());
   $('#chalTitle').innerHTML = `${esc(t('chal.title'))}${dot}<em class="hl">${esc(t('region.' + R.key))}</em>`;
   $('#chalInfo').textContent = t('chal.infoNew', LIVES);
   // 卡片右半邊：最佳紀錄做成標籤，題數另外上色（Ken 2026-10-22 要求）
-  $('#chalBest').innerHTML = cb ? `<em class="streak rec">${esc(t('chal.recLabel'))}<b>${esc(t('chal.recN', cb))}</b>${esc(t('chal.recEnd'))}</em>` : '';
-  // 卡片右半邊（Ken 2026-10-22 要求）：上面是今天完成了沒，下面把連續天數做成醒目的標籤
-  $('#levelDay').innerHTML = `<small>${esc(t('level.dayLabel'))}</small><span>${esc(Store.clearedToday() ? t('level.dayOk') : t('know.dayTodo', DAY_NEED, Rewards.EARN.daily))}</span>`
-    + (st ? `<em class="streak">🔥 ${esc(t('level.dayStreak', st))}</em>` : '');
+  const recTag = b => b ? `<em class="streak rec">${esc(t('chal.recLabel'))}<b>${esc(t('chal.recN', b))}</b>${esc(t('chal.recEnd'))}</em>` : '';
+  $('#chalBest').innerHTML = recTag(cb);
+  // 知識挑戰右半邊跟位置挑戰一樣放最佳紀錄（Ken 2026-10-25 要求），下面是連續完成今日挑戰的天數
+  $('#levelDay').innerHTML = recTag(kb) + (st ? `<em class="streak">🔥 ${esc(t('level.dayStreak', st))}</em>` : '');
   $('#bookInfo').textContent = t('bookInfo', c[3], n);
   renderHero();
 }
