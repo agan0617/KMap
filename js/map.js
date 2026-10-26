@@ -74,8 +74,12 @@ function createMap(container, R, opts = {}) {
     const r = svg.getBoundingClientRect(), aspect = r.width && r.height ? r.width / r.height : full.w / full.h;
     vb.w = Math.max(M.width / maxZoom, Math.min(Math.max(full.w, full.h * aspect) * 1.2, vb.w));
     vb.h = vb.w / aspect;
-    vb.x = Math.max(full.x - vb.w * 0.5, Math.min(full.x + full.w - vb.w * 0.5, vb.x));
-    vb.y = Math.max(full.y - vb.h * 0.5, Math.min(full.y + full.h - vb.h * 0.5, vb.y));
+    // 可拖曳範圍＝地圖外推固定的邊（不隨縮放變），在邊緣放大時畫面才不會被往內推、突然跳一下
+    // 畫面比範圍還大（縮很小）就置中
+    const fit = (v, len, lo, span) => len >= span ? lo + (span - len) / 2 : Math.max(lo, Math.min(lo + span - len, v));
+    const px = full.w * 0.25, py = full.h * 0.25;
+    vb.x = fit(vb.x, vb.w, full.x - px, full.w + px * 2);
+    vb.y = fit(vb.y, vb.h, full.y - py, full.h + py * 2);
   }
   const toSvg = (cx, cy) => {
     const p = svg.createSVGPoint(); p.x = cx; p.y = cy;
